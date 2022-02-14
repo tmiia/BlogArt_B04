@@ -14,9 +14,10 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe langue
-
+$maLangue = new LANGUE();
 
 
 // Ctrl CIR
@@ -74,24 +75,27 @@ $errDel = 0;
     // Appel méthode : Get toutes les langues en BDD
 
     // Boucle pour afficher
-    //foreach($all as $row) {
+    $allLangues = $maLangue->get_AllLangues();
+    $allPays = $maLangue->get_AllPays();
+    foreach($allLangues as $row) {
+
 ?>
         <tr>
-		<td><h4>&nbsp; <?= "ici numLang"; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $row['numLang']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= "ici lib1Lang"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $row['lib1Lang']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici lib2Lang"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $row['lib2Lang']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici frPays"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $row['frPays']; ?> &nbsp;</td>
 
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLangue.php?id=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier langue" title="Modifier langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLangue.php?id=<?= $row['numLang'] ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier langue" title="Modifier langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLangue.php?id=<?=1; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer langue" title="Supprimer langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLangue.php?id=<?= $row['numLang'] ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer langue" title="Supprimer langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
         </tr>
 <?php
-	// }	// End of foreach
+	}	// End of foreach
 ?>
     </tbody>
     </table>

@@ -7,18 +7,22 @@ class LANGUE{
 	function get_1Langue($numLang){
 		global $db;
 
-		// select
+		$query = "SELECT * FROM LANGUE WHERE numLang = ?;";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numLang]);
 		return($result->fetch());
 	}
 
-	function get_1LangueByPays($numLang){
+	function get_1LangueByPays($numPays){
 		global $db;
 
-		// select
+		$query = "SELECT * FROM LANGUE WHERE numPays = ?;";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numPays]);
 		return($result->fetch());
 	}
 
@@ -26,8 +30,11 @@ class LANGUE{
 		global $db;
 
 		// select
+		$query = "SELECT * FROM LANGUE;";
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allLangues = $result->fetchAll();
 		return($allLangues);
 	}
 
@@ -35,8 +42,11 @@ class LANGUE{
 		global $db;
 
 		// select
+		$query = "SELECT * FROM LANGUE WHERE numPays = ?;";
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allLanguesByPays = $result->fetchAll();
 		return($allLanguesByPays);
 	}
 
@@ -44,10 +54,22 @@ class LANGUE{
 		global $db;
 
 		// select
+		$query = "SELECT * FROM LANGUE WHERE lib1Lang = ?;";
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allLanguesByLib1Lang = $result->fetchAll();
 		return($allLanguesByLib1Lang);
 	}
+
+	function get_AllPays(){
+        global $db;
+
+        $query = 'SELECT * FROM PAYS;';
+        $result = $db->query($query);
+        $allPays = $result->fetchAll();
+        return($allPays);
+    }
 
 	// Récup dernière PK NumLang
 	function getNextNumLang($numPays) {
@@ -97,15 +119,18 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// insert
+			$query = 'INSERT INTO LANGUE (lib1Lang) VALUES (?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);
 			// execute
 			$db->commit();
 			$request->closeCursor();
 		}
 		catch (PDOException $e) {
-			$db->rollBack();
+			$db->rollBack();	// DANS LE CAS OU CA PLANTE ON ENVOIE UNE ERREUR
 			$request->closeCursor();
-			die('Erreur insert LANGUE : ' . $e->getMessage());
+			die('Erreur insert STATUT : ' . $e->getMessage());
 		}
 	}
 
