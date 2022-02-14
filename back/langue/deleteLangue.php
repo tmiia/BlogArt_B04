@@ -140,7 +140,21 @@ include __DIR__ . '/initLangue.php';
             </label>
 
 
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= "" ?>" autocomplete="on" />
+            <select name="Pays" id="Pays"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un pays - - -</option>
+                <?php
+                $result = $maLangue->get_AllPays();
+                
+                if($result){
+                for ($i=1; $i < count($result); $i++){
+                ?>
+                
+                <option value="<?php $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
                 <!-- Listbox langue disabled => 2ème temps -->
 

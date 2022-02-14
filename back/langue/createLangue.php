@@ -8,6 +8,9 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
+
+use LDAP\Result;
+
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
@@ -108,29 +111,21 @@ include __DIR__ . '/initLangue.php';
     <br>
         <div class="control-group">
             <div class="controls">
-            <label class="control-label" for="LibTypPays">
+            <label class="control-label" for="Pays">
                 <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
             </label>
             
             <!-- Listbox pays => 2ème temps -->
-
-            <select size="1" name="Pays" id="Pays"  class="form-control form-control-create" title="Sélectionnez le pays !">
-               
+            <select name="Pays" id="Pays"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez un pays - - -</option>
                 <?php
-                $listnumPays = "";
-                $listfrPays = "";
-
                 $result = $maLangue->get_AllPays();
                 
                 if($result){
-                    foreach($result as $row) {
-                        $listnumPays = $row["numPays"];
-                        $listfrPays = $row["frPays"];
+                for ($i=1; $i < count($result); $i++){
                 ?>
-                <option value="<?php $listnumPays;?>">
-                <?php $listfrPays; ?>
-                </option>
+                
+                <option value="<?php $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
                 <?php
                     } // End of foreach
                 }   // if ($result)
