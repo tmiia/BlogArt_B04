@@ -7,7 +7,11 @@ class LANGUE{
 	function get_1Langue($numLang){
 		global $db;
 
+<<<<<<< HEAD
 		$query = "SELECT * FROM LANGUE WHERE numLang = ?;";
+=======
+		$query = "SELECT * FROM LANGUE WHERE numLang = ?";
+>>>>>>> baa28b257c66160b6cbd64516bdb9fc6b193e70b
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -18,7 +22,11 @@ class LANGUE{
 	function get_1LangueByPays($numPays){
 		global $db;
 
+<<<<<<< HEAD
 		$query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+=======
+		$query = "SELECT * FROM LANGUE WHERE numPays = ?";
+>>>>>>> baa28b257c66160b6cbd64516bdb9fc6b193e70b
 		// prepare
 		$result = $db->prepare($query);
 		// execute
