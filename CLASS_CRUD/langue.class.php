@@ -141,15 +141,19 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// update
+			$query = "UPDATE STATUT SET lib1Lang = ? WHERE numLang = $numLang;";
 			// prepare
-			// execute
+            $request = $db->prepare($query);
+            // execute
+            $request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);
+
 			$db->commit();
 			$request->closeCursor();
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update LANGUE : ' . $e->getMessage());
+			die('Erreur update STATUT : ' . $e->getMessage());
 		}
 	}
 
