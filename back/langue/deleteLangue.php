@@ -105,6 +105,18 @@ include __DIR__ . '/initLangue.php';
     <h2>Suppression d'une langue</h2>
 <?php
     // Supp : récup id à supprimer
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$maLangue->get_1Langue($id);
+
+        if ($query) {
+            $lib1Lang = $query['lib1Lang'];
+            $lib2Lang = $query['lib2Lang']; 
+        }   // Fin if ($query)
+
+    }
     // id passé en GET
 
 
@@ -135,12 +147,33 @@ include __DIR__ . '/initLangue.php';
         <br>
         <div class="control-group">
             <div class="controls">
-            <label class="control-label" for="LibTypPays">
-                <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
-            </label>
+                <label class="control-label" for="LibTypPays">
+                    <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
+                </label>
 
 
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= "" ?>" autocomplete="on" />
+                <select size="1" name="Pays" id="Pays"  class="form-control form-control-create" title="Sélectionnez le pays !">
+                
+                    <option value="-1">- - - Choisissez un pays - - -</option>
+                    <?php
+                    $listnumPays = "";
+                    $listfrPays = "";
+
+                    $result = $maLangue->get_AllPays();
+                    
+                    if($result){
+                        foreach($result as $row) {
+                            $listnumPays = $row["numPays"];
+                            $listfrPays = $row["frPays"];
+                    ?>
+                    <option value="<?php $listnumPays;?>">
+                    <?php $listfrPays; ?>
+                    </option>
+                    <?php
+                        } // End of foreach
+                    }   // if ($result)
+                    ?>
+                </select> 
 
                 <!-- Listbox langue disabled => 2ème temps -->
 
