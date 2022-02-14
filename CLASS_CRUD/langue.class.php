@@ -164,18 +164,22 @@ class LANGUE{
 		try {
 			$db->beginTransaction();
 
-			// delete
+			// insert
+			$query = 'DELETE FROM STATUT WHERE numLang=?'; 
 			// prepare
+			$request = $db->prepare($query);
 			// execute
-			$count = $request->rowCount();
+			$request->execute([$numLang]);
+
+			$count = $request->rowCount(); 
 			$db->commit();
 			$request->closeCursor();
-			return($count);
+			return($count); 
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete LANGUE : ' . $e->getMessage());
+			die('Erreur delete STATUT : ' . $e->getMessage());
 		}
 	}
 }	// End of class
