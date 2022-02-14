@@ -7,7 +7,7 @@ class LANGUE{
 	function get_1Langue($numLang){
 		global $db;
 
-		$query = "SELECT * FROM LANGUE WHERE numLang = ?";
+		$query = "SELECT * FROM LANGUE WHERE numLang = ?;";
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -18,7 +18,8 @@ class LANGUE{
 	function get_1LangueByPays($numPays){
 		global $db;
 
-		$query = "SELECT * FROM LANGUE WHERE numPays = ?";
+		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		$query = "SELECT frPays FROM PAYS INNER JOIN LANGUE ON PAYS.numPays = ?";
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -42,7 +43,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		$query = "SELECT frPays FROM PAYS INNER JOIN LANGUE ON PAYS.numPays = LANGUE.numPays;";
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -61,6 +62,15 @@ class LANGUE{
 		$allLanguesByLib1Lang = $result->fetchAll();
 		return($allLanguesByLib1Lang);
 	}
+
+	function get_AllPays(){
+        global $db;
+
+        $query = 'SELECT * FROM PAYS;';
+        $result = $db->query($query);
+        $allPays = $result->fetchAll();
+        return($allPays);
+    }
 
 	// Récup dernière PK NumLang
 	function getNextNumLang($numPays) {
@@ -110,15 +120,18 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// insert
+			$query = 'INSERT INTO LANGUE (lib1Lang) VALUES (?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);
 			// execute
 			$db->commit();
 			$request->closeCursor();
 		}
 		catch (PDOException $e) {
-			$db->rollBack();
+			$db->rollBack();	// DANS LE CAS OU CA PLANTE ON ENVOIE UNE ERREUR
 			$request->closeCursor();
-			die('Erreur insert LANGUE : ' . $e->getMessage());
+			die('Erreur insert STATUT : ' . $e->getMessage());
 		}
 	}
 
@@ -129,15 +142,19 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// update
+			$query = "UPDATE STATUT SET lib1Lang = ? WHERE numLang = $numLang;";
 			// prepare
-			// execute
+            $request = $db->prepare($query);
+            // execute
+            $request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);
+
 			$db->commit();
 			$request->closeCursor();
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update LANGUE : ' . $e->getMessage());
+			die('Erreur update STATUT : ' . $e->getMessage());
 		}
 	}
 
@@ -148,18 +165,22 @@ class LANGUE{
 		try {
 			$db->beginTransaction();
 
-			// delete
+			// insert
+			$query = 'DELETE FROM STATUT WHERE numLang=?'; 
 			// prepare
+			$request = $db->prepare($query);
 			// execute
-			$count = $request->rowCount();
+			$request->execute([$numLang]);
+
+			$count = $request->rowCount(); 
 			$db->commit();
 			$request->closeCursor();
-			return($count);
+			return($count); 
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete LANGUE : ' . $e->getMessage());
+			die('Erreur delete STATUT : ' . $e->getMessage());
 		}
 	}
 }	// End of class

@@ -14,8 +14,10 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe langue
+$maLangue = new LANGUE();
 
 
 
@@ -25,22 +27,47 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    $idLang = $_POST['id'];
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    // ON VEUT REINITIALISER LA VALEUR
 
-    // controle des saisies du formulaire
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateLangue.php?id=$numLang");
+        $_POST['$libelle'];
+    }
 
-    // création effective du user
+    // ON VEUT VALIDER LA MODIFICATION
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    
+        header("Location: ./createlangue.php");
+}   // End of if ((isset($_POST["submit"])) ...
+    
+if (((isset($_POST['lib1Lang'])) AND !empty($_POST['lib1Lang']))
+        AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
+        // Saisies valides
+        $erreur = false;
 
+        $lib1Lang = ctrlSaisies(($_POST['lib1Lang']));
+        $lib2Lang = ctrlSaisies(($_POST['lib2Lang']));
+        $numPays = ctrlSaisies(($_POST['numPays']));
 
-    // Gestion des erreurs => msg si saisies ko
+        $maLangue->create($numLang, $lib1Lang, $lib2Lang, $numPays);
 
-
-
-
-
-}   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
+        header("Location: ./langue.php");
+    }   // Fin if ((isset($_POST['lib1Lang']))
+    else {
+        // Saisies invalides
+        $erreur = true;
+        $errSaisies =  "Erreur, la saisie est obligatoire !";
+    }   // End of else erreur saisies
+}  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
 include __DIR__ . '/initLangue.php';
 ?>
@@ -78,20 +105,40 @@ include __DIR__ . '/initLangue.php';
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
     <!-- Listbox Pays -->
-        <br>
+    <br>
         <div class="control-group">
             <div class="controls">
             <label class="control-label" for="LibTypPays">
                 <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
             </label>
+            
+            <!-- Listbox pays => 2ème temps -->
 
+            <select size="1" name="Pays" id="Pays"  class="form-control form-control-create" title="Sélectionnez le pays !">
+               
+                <option value="-1">- - - Choisissez un pays - - -</option>
+                <?php
+                $listnumPays = "";
+                $listfrPays = "";
 
-                <input type="text" name="idPays" id="idPays" size="5" maxlength="5" value="<?= "" ?>" autocomplete="on" />
-
-                <!-- Listbox pays => 2ème temps -->
-
-            </div>
+                $result = $maLangue->get_AllPays();
+                
+                if($result){
+                    foreach($result as $row) {
+                        $listnumPays = $row["numPays"];
+                        $listfrPays = $row["frPays"];
+                ?>
+                <option value="<?php $listnumPays;?>">
+                <?php $listfrPays; ?>
+                </option>
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
         </div>
+    </div>
+
     <!-- FIN Listbox Pays -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->

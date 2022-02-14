@@ -17,7 +17,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe langue
-
+$maLangue = new LANGUE();
 
 
 // Gestion des erreurs de saisie
@@ -26,25 +26,52 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    $idLang = $_POST['id'];
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    // ON VEUT REINITIALISER LA VALEUR
 
-    // controle des saisies du formulaire
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateLangue.php?id=$idLang");
+        $_POST['$libelle'];
+    }
 
-    // modification effective du langue
+    // ON VEUT VALIDER LA MODIFICATION
 
+    elseif($_POST['Submit'] == 'Valider'){
+        if(isset($_POST['id'])){ 
+            
+            if(!empty($_POST['id'])){
 
+                if(isset($_POST['lib1Lang']) && !empty($_POST['lib1Lang'])){
+                    $clredid = ctrlSaisies($_POST['id']);
+                    $clredlib1 = ctrlSaisies($_POST['lib1Lang']);
+                    $clredlib2 = ctrlSaisies($_POST['lib2Lang']);
 
-    // Gestion des erreurs => msg si saisies ko
+                    // CLE PRIMAIRE
 
-
-
-
-
-
-
-
-}   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
+                    $maLangue->update($clredid, $clredlib1, $clredlib2, $numPays);
+                    header("Location: ./langue.php");
+                }
+                else{
+                    header("Location: updateLangue.php?id=$idLang&err=empty");
+                }
+            }
+            else{
+                $erreur = "Erreur";
+            }
+        }
+        else{
+            $erreur = "Erreur";
+        }
+    }
+}
+      // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
 include __DIR__ . '/initLangue.php';
 ?>
@@ -62,15 +89,25 @@ include __DIR__ . '/initLangue.php';
 <body>
     <h1>BLOGART22 Admin - CRUD Langue</h1>
     <h2>Modification d'une langue</h2>
+    
 <?php
     // Modif : récup id à modifier
+
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$maLangue->get_1Langue($id);
+
+        if ($query) {
+            $lib1Lang = $query['lib1Lang'];
+            $lib2Lang = $query['lib2Lang'];
+            $numLang = $query['numLang']; 
+        }   // Fin if ($query)
+
+    }
+
     // id passé en GET
-
-
-
-
-
-
 
 ?>
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -98,17 +135,38 @@ include __DIR__ . '/initLangue.php';
             <label class="control-label" for="LibTypPays">
                 <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
             </label>
+            
+            <!-- Listbox pays => 2ème temps -->
 
+            <select size="1" name="Pays" id="Pays"  class="form-control form-control-create" title="Sélectionnez le pays !">
+               
+                <option value="-1">- - - Choisissez un pays - - -</option>
+                <?php
+                $listnumPays = "";
+                $listfrPays = "";
 
-                <input type="text" name="idPays" id="idPays" size="5" maxlength="5" value="<?= "" ?>" autocomplete="on" />
-
-                <!-- Listbox pays => 2ème temps -->
-
-            </div>
+                $result = $maLangue->get_AllPays();
+                
+                if($result){
+                    foreach($result as $row) {
+                        $listnumPays = $row["numPays"];
+                        $listfrPays = $row["frPays"];
+                ?>
+                <option value="<?php $listnumPays;?>">
+                <?php $listfrPays; ?>
+                </option>
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
         </div>
+    </div>
+
     <!-- FIN Listbox Pays -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
+                
         <div class="control-group">
             <div class="error">
 <?php

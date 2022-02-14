@@ -14,32 +14,33 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Langue
-
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 // Instanciation de la classe langue
 
-
+$maLangue = new LANGUE();
 
 // Ctrl CIR
+$erreur = false;
 // Insertion classe Angle
-
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 // Instanciation de la classe Angle
 
-
+$monAngle = new ANGLE();
 
 
 
 // Insertion classe Thematique
-
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
 // Instanciation de la classe Thematique
 
-
+$monAngle = new THEMATIQUE();
 
 
 
 // Insertion classe Motcle
-
+require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
 // Instanciation de la classe Motcle
-
+$monMotCle = new MOTCLE();
 
 
 
@@ -50,21 +51,32 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
+
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./langue.php");
+    } 
 
 
     // controle CIR
-
+    $erreur = false;
     // delete effective du langue
 
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+            
+        $maLangue->delete($_POST["id"]);
+            header("Location: ./langue.php");
+        } else {
+            echo("Impossible de supprimer un statut où il reste des membres.");
+    }
+}
 
-
-
-
-
-
-
-
-}   // End of if ($_SERVER["REQUEST_METHOD"] === "POST")
+// End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
 include __DIR__ . '/initLangue.php';
 ?>
