@@ -77,26 +77,24 @@ $errDel = 0;
     // Boucle pour afficher
     $allLangues = $maLangue->get_AllLangues();
     $allPays = $maLangue->get_AllPays();
-    foreach($allLangues as $row) {
-
+    for($i = 1; $i < count($allLangues); $i++){
 ?>
-        <tr>
-		<td><h4>&nbsp; <?= $row['numLang']; ?> &nbsp;</h4></td>
+<tr>
+		<td><h4>&nbsp; <?= $allLangues[$i]['numLang'] ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= $row['lib1Lang']; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allLangues[$i]['lib1Lang']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= $row['lib2Lang']; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allLangues[$i]['lib2Lang']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= $row['frPays']; ?> &nbsp;</td>
-
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLangue.php?id=<?= $row['numLang'] ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier langue" title="Modifier langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>&nbsp; <?= $maLangue->get_1LangueByPays($allLangues[$i]['numPays'])[0] ?> &nbsp;</td>
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLangue.php?id=<?= $row['numLang'] ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier langue" title="Modifier langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+ 		<br /></td>
+ 		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLangue.php?id=<?= $row['numLang'] ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer langue" title="Supprimer langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLangue.php?id=<?= $row['numLang'] ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer langue" title="Supprimer langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
-		<br /></td>
-        </tr>
 <?php
-	}	// End of foreach
+    }
 ?>
+
     </tbody>
     </table>
 <?php

@@ -18,7 +18,8 @@ class LANGUE{
 	function get_1LangueByPays($numPays){
 		global $db;
 
-		$query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		$query = "SELECT frPays FROM PAYS INNER JOIN LANGUE ON PAYS.numPays = ?";
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -42,7 +43,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		$query = "SELECT frPays FROM PAYS INNER JOIN LANGUE ON PAYS.numPays = LANGUE.numPays;";
 		// prepare
 		$result = $db->query($query);
 		// execute
