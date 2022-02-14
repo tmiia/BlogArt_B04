@@ -7,18 +7,22 @@ class LANGUE{
 	function get_1Langue($numLang){
 		global $db;
 
-		// select
+		$query = "SELECT * FROM LANGUE WHERE numLang = ?";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numLang]);
 		return($result->fetch());
 	}
 
-	function get_1LangueByPays($numLang){
+	function get_1LangueByPays($numPays){
 		global $db;
 
-		// select
+		$query = "SELECT * FROM LANGUE WHERE numPays = ?";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numPays]);
 		return($result->fetch());
 	}
 
@@ -26,8 +30,11 @@ class LANGUE{
 		global $db;
 
 		// select
+		$query = "SELECT * FROM LANGUE;";
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allLangues = $result->fetchAll();
 		return($allLangues);
 	}
 
@@ -35,8 +42,11 @@ class LANGUE{
 		global $db;
 
 		// select
+		$query = "SELECT * FROM LANGUE WHERE numPays = ?;";
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allLanguesByPays = $result->fetchAll();
 		return($allLanguesByPays);
 	}
 
@@ -44,8 +54,11 @@ class LANGUE{
 		global $db;
 
 		// select
+		$query = "SELECT * FROM LANGUE WHERE lib1Lang = ?;";
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allLanguesByLib1Lang = $result->fetchAll();
 		return($allLanguesByLib1Lang);
 	}
 
