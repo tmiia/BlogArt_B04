@@ -120,7 +120,7 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO LANGUE (lib1Lang) VALUES (?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
+			$query = 'INSERT INTO LANGUE (numLang , lib1Lang, lib2Lang, numPays) VALUES (?, ?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);

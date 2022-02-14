@@ -52,14 +52,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./createlangue.php");
 }   // End of if ((isset($_POST["submit"])) ...
     
-if (((isset($_POST['lib1Lang'])) AND !empty($_POST['lib1Lang']))
+if (((isset($_POST['lib1Lang'])) AND !empty($_POST['lib1Lang'])) AND ((isset($_POST['lib2Lang'])) AND !empty($_POST['lib2Lang']))
         AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
         // Saisies valides
         $erreur = false;
 
         $lib1Lang = ctrlSaisies(($_POST['lib1Lang']));
         $lib2Lang = ctrlSaisies(($_POST['lib2Lang']));
-        $numPays = ctrlSaisies(($_POST['numPays']));
+        $numPays = $_POST['value'];
+        $numLang = $maLangue->getNextNumLang($numPays);
 
         $maLangue->create($numLang, $lib1Lang, $lib2Lang, $numPays);
 
@@ -123,9 +124,11 @@ include __DIR__ . '/initLangue.php';
                 
                 if($result){
                 for ($i=1; $i < count($result); $i++){
+                    $value = $result[$i]['numPays'];
                 ?>
                 
-                <option value="<?php $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
+                <option value="<?php $value ?>"> <?= $result[$i]['frPays']; ?> </option>
+                
                 <?php
                     } // End of foreach
                 }   // if ($result)
