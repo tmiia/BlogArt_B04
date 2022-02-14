@@ -138,23 +138,16 @@ include __DIR__ . '/initLangue.php';
             
             <!-- Listbox pays => 2ème temps -->
 
-            <select size="1" name="Pays" id="Pays"  class="form-control form-control-create" title="Sélectionnez le pays !">
-               
+            <select name="Pays" id="Pays"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez un pays - - -</option>
                 <?php
-                $listnumPays = "";
-                $listfrPays = "";
-
                 $result = $maLangue->get_AllPays();
                 
                 if($result){
-                    foreach($result as $row) {
-                        $listnumPays = $row["numPays"];
-                        $listfrPays = $row["frPays"];
+                for ($i=1; $i < count($result); $i++){
                 ?>
-                <option value="<?php $listnumPays;?>">
-                <?php $listfrPays; ?>
-                </option>
+                
+                <option value="<?php $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
                 <?php
                     } // End of foreach
                 }   // if ($result)
