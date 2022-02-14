@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // ON VEUT REINITIALISER LA VALEUR
 
     if($_POST['Submit'] == 'Initialiser'){ 
-        header("Location: updateLangue.php?id=$numLang");
+        header("Location: updateLangue.php?id=$idLang");
         $_POST['$libelle'];
     }
 
@@ -50,11 +50,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                 if(isset($_POST['lib1Lang']) && !empty($_POST['lib1Lang'])){
                     $clredid = ctrlSaisies($_POST['id']);
-                    $clredlib = ctrlSaisies($_POST['lib1Lang']);
+                    $clredlib1 = ctrlSaisies($_POST['lib1Lang']);
+                    $clredlib2 = ctrlSaisies($_POST['lib2Lang']);
 
                     // CLE PRIMAIRE
 
-                    $maLangue->update($clredid,$clredlib);
+                    $maLangue->update($clredid, $clredlib1, $clredlib2, $numPays);
                     header("Location: ./langue.php");
                 }
                 else{
