@@ -147,33 +147,26 @@ include __DIR__ . '/initLangue.php';
         <br>
         <div class="control-group">
             <div class="controls">
-                <label class="control-label" for="LibTypPays">
-                    <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
-                </label>
+            <label class="control-label" for="LibTypPays">
+                <b>Quel pays :&nbsp;&nbsp;&nbsp;</b>
+            </label>
 
 
-                <select size="1" name="Pays" id="Pays"  class="form-control form-control-create" title="Sélectionnez le pays !">
+            <select name="Pays" id="Pays"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un pays - - -</option>
+                <?php
+                $result = $maLangue->get_AllPays();
                 
-                    <option value="-1">- - - Choisissez un pays - - -</option>
-                    <?php
-                    $listnumPays = "";
-                    $listfrPays = "";
-
-                    $result = $maLangue->get_AllPays();
-                    
-                    if($result){
-                        foreach($result as $row) {
-                            $listnumPays = $row["numPays"];
-                            $listfrPays = $row["frPays"];
-                    ?>
-                    <option value="<?php $listnumPays;?>">
-                    <?php $listfrPays; ?>
-                    </option>
-                    <?php
-                        } // End of foreach
-                    }   // if ($result)
-                    ?>
-                </select> 
+                if($result){
+                for ($i=1; $i < count($result); $i++){
+                ?>
+                
+                <option value="<?php $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
                 <!-- Listbox langue disabled => 2ème temps -->
 
