@@ -51,6 +51,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./statut.php");
 } 
 
+// VERIFICATION CIR
+
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
 
         $nbUsers = $monUser->get_AllUsers($_POST["id"]);

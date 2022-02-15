@@ -2,11 +2,15 @@
 
 require_once __DIR__ . '/back.php';
 
+require_once __DIR__ . '/CLASS_CRUD/user.class.php';
+
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    
     connect_user($_POST['pseudo'], $_POST['motDePasse']);
+
 
 }
 

@@ -58,9 +58,7 @@ class MEMBRE{
 
 		$request->execute([$idStat]);
 		$allNbMembersByStat = $request->fetch();
-        return($allNbMembersByStat);
-
-        
+        return($allNbMembersByStat);        
     }
 
     function get_AllMembresByEmail($eMailMemb){
