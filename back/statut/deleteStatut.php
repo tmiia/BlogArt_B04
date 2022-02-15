@@ -28,7 +28,6 @@ require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 // Instanciation de la classe User
 $monUser = new USER();
 
-
 // Insertion classe Membre
 require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 
@@ -53,9 +52,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } 
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+
         $nbUsers = $monUser->get_AllUsers($_POST["id"]);
+        $nbMembres = $monMembre->get_AllMembersByStat($_POST["id"]);
+
         print_r($nbUsers);
-        if ($nbUsers["COUNT(*)"] < 1) {
+
+        if (($nbUsers["COUNT(*)"] < 1) && ($nbMembres["COUNT(*)"] < 1)) {
             $monStatut->delete($_POST["id"]);
                 header("Location: ./statut.php");
             } else {

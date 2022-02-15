@@ -7,37 +7,37 @@ require_once __DIR__ . '../../CONNECT/database.php';
 class MEMBRE{
     function get_1Membre($numMemb){
         global $db;
-
-        // select
-        // prepare
-        // execute
-        return($result->fetch());
+		$query = "SELECT * FROM MEMBRE WHERE numMemb = ?";
+		$result = $db->prepare($query);
+		$result->execute([$numMemb]);
+		return($result->fetch());
     }
 
     function get_1MembreByEmail($eMailMemb){
         global $db;
-
-        // select
-        // prepare
-        // execute
-        return($result->fetch());
+		$query = "SELECT * FROM MEMBRE WHERE eMailMemb = ?";
+		$result = $db->prepare($query);
+		$result->execute([$eMailMemb]);
+		return($result->fetch());
     }
 
     function get_AllMembres(){
         global $db;
 
-        // select
-        // prepare
-        // execute
+		// select
+		$query = 'SELECT * FROM MEMBRE;';
+		// prepare
+		$result = $db->query($query);
+		// execute
+		$allMembres = $result->fetchAll();
         return($allMembres);
     }
 
     function get_ExistPseudo($pseudoMemb) {
         global $db;
-
-        // select
-        // prepare
-        // execute
+		$query = "SELECT * FROM MEMBRE WHERE pseudoMemb = ?";
+		$result = $db->prepare($query);
+		$result->execute([$pseudoMemb]);
         return($result->rowCount());
     }
 
@@ -53,10 +53,14 @@ class MEMBRE{
     function get_NbAllMembersByidStat($idStat){
         global $db;
 
-        // select
-        // prepare
-        // execute
+		$query = "SELECT COUNT(*) FROM STATUT WHERE idStat = ?;";
+		$request = $db->prepare($query);
+
+		$request->execute([$idStat]);
+		$allNbMembersByStat = $request->fetch();
         return($allNbMembersByStat);
+
+        
     }
 
     function get_AllMembresByEmail($eMailMemb){
