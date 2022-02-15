@@ -46,7 +46,7 @@ class MEMBRE{
         global $db;
 
         // select
-        $sql = "SELECT * FROM membre m INNER JOIN statut s ON m.idStat = s.idStat";
+        $sql = "SELECT * FROM membre m INNER JOIN statut s ON m.idStat = s.idStat"; //peut etre pas ça
         // prepare
         $req = $db->query($sql);
         // execute
