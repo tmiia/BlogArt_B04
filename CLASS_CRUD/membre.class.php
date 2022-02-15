@@ -7,37 +7,38 @@ require_once __DIR__ . '../../CONNECT/database.php';
 class MEMBRE{
     function get_1Membre($numMemb){
         global $db;
-		$query = "SELECT * FROM MEMBRE WHERE numMemb = ?";
-		$result = $db->prepare($query);
-		$result->execute([$numMemb]);
-		return($result->fetch());
+
+        // select
+        // prepare
+        // execute
+        return($result->fetch());
     }
 
     function get_1MembreByEmail($eMailMemb){
         global $db;
-		$query = "SELECT * FROM MEMBRE WHERE eMailMemb = ?";
-		$result = $db->prepare($query);
-		$result->execute([$eMailMemb]);
-		return($result->fetch());
+
+        // select
+        // prepare
+        // execute
+        return($result->fetch());
     }
 
     function get_AllMembres(){
         global $db;
 
-		// select
-		$query = 'SELECT * FROM MEMBRE;';
-		// prepare
-		$result = $db->query($query);
-		// execute
-		$allMembres = $result->fetchAll();
+        // select
+
+        // prepare
+        // execute
         return($allMembres);
     }
 
     function get_ExistPseudo($pseudoMemb) {
         global $db;
-		$query = "SELECT * FROM MEMBRE WHERE pseudoMemb = ?";
-		$result = $db->prepare($query);
-		$result->execute([$pseudoMemb]);
+
+        // select
+        // prepare
+        // execute
         return($result->rowCount());
     }
 
@@ -45,20 +46,27 @@ class MEMBRE{
         global $db;
 
         // select
+        $sql = "SELECT * FROM membre m INNER JOIN statut s ON m.idStat = s.idStat"; //peut etre pas ça
         // prepare
+        $req = $db->query($sql);
         // execute
+        $allMembersByStat = $req->fetchAll();
         return($allMembersByStat);
     }
 
     function get_NbAllMembersByidStat($idStat){
         global $db;
 
-		$query = "SELECT COUNT(*) FROM STATUT WHERE idStat = ?;";
-		$request = $db->prepare($query);
+        // select
+        $sql = "SELECT * FROM membre WHERE idStat = ?";
+        // prepare
+        $req = $db->prepare($sql);
+        // execute
+        $req->execute([$idStat]);
 
-		$request->execute([$idStat]);
-		$allNbMembersByStat = $request->fetch();
-        return($allNbMembersByStat);        
+        $allNbMembersByStat = $req->rowCount();
+
+        return($allNbMembersByStat);
     }
 
     function get_AllMembresByEmail($eMailMemb){
