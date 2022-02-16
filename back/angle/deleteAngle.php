@@ -126,15 +126,33 @@ include __DIR__ . '/initAngle.php';
             <label class="control-label" for="LibTypLang">
                 <b>Quelle langue :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </label>
-
-            <select name="Angle" id="Angle"  class="form-control form-control-create">
-               <option value="-1"><?php echo($monAngle->get_1AngleByLang($id)['lib2Lang']) ?> </option>
+            
+            <!-- Listbox langue => 2ème temps -->
+            <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez une langue - - -</option>
+                <?php
+                $allLangue = $monAngle->get_AllLangues();
+                
+                if($allLangue){
+                for ($i=1; $i < count($allLangue); $i++){
+                    $value = $allLangue[$i]['numLang'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allLangue[$i]['lib2Lang']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
             </select>
-
-                <!-- Listbox langue disabled => 2ème temps -->
 
             </div>
         </div>
+    <!-- FIN Listbox Langue -->
+<!-- ---------------------------------------------------------------------- -->
+            </div>
+        </div>
+
     <!-- FIN Listbox Angle -->
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
