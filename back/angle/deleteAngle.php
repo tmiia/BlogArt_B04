@@ -24,6 +24,7 @@ $monAngle = new ANGLE();
 
 // Ctrl CIR
 $erreur = false;
+
 // Insertion classe Article
 require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
@@ -48,19 +49,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./angle.php");
 } 
 
+    // controle CIR
+    $erreur = false;
+    // delete effective de l'angle
+
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-        $nbMembre = $monMembre->get_NbAllMembersByidStat($_POST["id"]);
-        //print_r($nbMembre);
-        //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
-        if ($nbMembre < 1) {
-                $monStatut->delete($_POST["id"]);
-                header("Location: ./angle.php");
-            } else {
-                header("Location: angle.php?errCIR=1");
-        }
+            
+        $monAngle->delete($_POST["id"]);
+            header("Location: ./angle.php");
+        } else {
+            echo("Impossible de supprimer un angle toujours utilisée.");
     }
-}   // End of if ($_SERVER["REQUEST_METHOD"] === "POST")
+}// End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
+
 include __DIR__ . '/initAngle.php';
 ?>
 <!DOCTYPE html>
@@ -88,13 +90,15 @@ include __DIR__ . '/initAngle.php';
     <h2>Suppression d'un angle</h2>
 <?php
       // Supp : récup id à supprimer
-      if (isset($_GET['id']) and $_GET['id'] != '') {
+      if (isset($_GET['id']) and $_GET['id'] !='') {
+
         $id = ctrlSaisies(($_GET['id']));
 
         $query = $monAngle->get_1Angle($id);
 
         if ($query) {
             $libAngl = $query['libAngl'];
+            $numAngl = $query['numAngl']; 
         }   // Fin if ($query)
 
     }
@@ -123,8 +127,9 @@ include __DIR__ . '/initAngle.php';
                 <b>Quelle langue :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </label>
 
-
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numLang; ?>" autocomplete="on" />
+            <select name="Angle" id="Angle"  class="form-control form-control-create">
+               <option value="-1"><?php echo($monAngle->get_1AngleByLang($id)['lib2Lang']) ?> </option>
+            </select>
 
                 <!-- Listbox langue disabled => 2ème temps -->
 
