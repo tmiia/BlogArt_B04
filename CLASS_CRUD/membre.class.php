@@ -27,7 +27,6 @@ class MEMBRE{
         global $db;
 
         // select
-
         // prepare
         // execute
         return($allMembres);
