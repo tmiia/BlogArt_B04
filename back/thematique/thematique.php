@@ -16,14 +16,14 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/delAccents.php';
 
 // Insertion classe Thematique
-
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+// Instanciation de la classe MotCle
+$maThematique = new THEMATIQUE();
 // Instanciation de la classe Thematique
-
-
-
-// Insertion classe Langue
-
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 // Instanciation de la classe Langue
+$maLangue = new LANGUE();
+
 
 // BBCode
 
@@ -80,26 +80,28 @@ $errDel = 0;
     <tbody>
 <?php
     // Appel méthode : Get toutes les Thematiques en BDD
-
+    $allThematiques = $maThematique->get_AllThematiques();
+    $allLangues = $maLangue->get_AllLangues();
+    for($i = 1; $i < count($allThematiques); $i++){
     // Boucle pour afficher
     //foreach($all as $row) {
 ?>
         <tr>
 
-		<td><h4>&nbsp; <?= "ici numThem"; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $allThematiques[$i]['numThem']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= "ici libThem"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allThematiques[$i]['libThem']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici lib1Lang"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $maThematique->get_1ThematiqueByLang($allThematiques[$i]['numLang'])[0]  ?> &nbsp;</td>
 
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateThematique.php?id=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier thématique" title="Modifier thématique" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateThematique.php?id=<?=$allThematiques[$i]['numThem']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier thématique" title="Modifier thématique" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteThematique.php?id=<?=1; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer thématique" title="Supprimer thématique" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteThematique.php?id=<?=$allThematiques[$i]['numThem']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer thématique" title="Supprimer thématique" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
 
         </tr>
 <?php
-	// }	// End of foreach
+ }	// End of foreach
 ?>
     </tbody>
     </table>
