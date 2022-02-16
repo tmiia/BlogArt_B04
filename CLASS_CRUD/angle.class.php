@@ -167,11 +167,16 @@ class ANGLE{
 			$db->beginTransaction();
 
 			// update
+			$query = "UPDATE STATUT SET libAngl = ? WHERE numAngl = $numAngl;";
 			// prepare
+			$request = $db->prepare($query);
 			// execute
+			$request->execute([$numAngl, $libAngl, $numLang]);
+
 			$db->commit();
 			$request->closeCursor();
-		}
+			}
+
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
@@ -186,13 +191,17 @@ class ANGLE{
 		try {
 			$db->beginTransaction();
 
-			// delete
+			// insert
+			$query = 'DELETE FROM ANGLE WHERE numAngl=?'; 
 			// prepare
+			$request = $db->prepare($query);
 			// execute
-			$count = $request->rowCount();
+			$request->execute([$numAngl]);
+
+			$count = $request->rowCount(); 
 			$db->commit();
 			$request->closeCursor();
-			return($count);
+			return($count); 
 		}
 		catch (PDOException $e) {
 			$db->rollBack();

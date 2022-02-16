@@ -13,17 +13,23 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
+// Del accents sur string
+require_once __DIR__ . '/../../util/delAccents.php';
+
 // Insertion classe Angle
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
-
-
+$monAngle = new ANGLE();
 
 // Ctrl CIR
+$erreur = false;
+
 // Insertion classe Article
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
-
+$monArticle = new ARTICLE();
 
 
 // Gestion des erreurs de saisie
@@ -31,22 +37,32 @@ $erreur = false;
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+ 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
-
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./angle.php");
+} 
 
     // controle CIR
-
+    $erreur = false;
     // delete effective de l'angle
 
-
-
-
-
-
-
-
-}   // End of if ($_SERVER["REQUEST_METHOD"] === "POST")
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+            
+        $monAngle->delete($_POST["id"]);
+            header("Location: ./angle.php");
+        } else {
+            echo("Impossible de supprimer un angle toujours utilisée.");
+    }
+}// End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
+
 include __DIR__ . '/initAngle.php';
 ?>
 <!DOCTYPE html>
@@ -73,12 +89,20 @@ include __DIR__ . '/initAngle.php';
     <h1>BLOGART22 Admin - CRUD Angle</h1>
     <h2>Suppression d'un angle</h2>
 <?php
-    // Supp : récup id à supprimer
+      // Supp : récup id à supprimer
+      if (isset($_GET['id']) and $_GET['id'] !='') {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = $monAngle->get_1Angle($id);
+
+        if ($query) {
+            $libAngl = $query['libAngl'];
+            $numAngl = $query['numAngl']; 
+        }   // Fin if ($query)
+
+    }
     // id passé en GET
-
-
-
-
 
 ?>
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -103,8 +127,9 @@ include __DIR__ . '/initAngle.php';
                 <b>Quelle langue :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </label>
 
-
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numLang; ?>" autocomplete="on" />
+            <select name="Angle" id="Angle"  class="form-control form-control-create">
+               <option value="-1"><?php echo($monAngle->get_1AngleByLang($id)['lib2Lang']) ?> </option>
+            </select>
 
                 <!-- Listbox langue disabled => 2ème temps -->
 

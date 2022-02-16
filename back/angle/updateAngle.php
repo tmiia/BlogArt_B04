@@ -14,14 +14,17 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Angle
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
-
+$monAngle = new ANGLE();
 
 
 // Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe langue
+$maLangue = new LANGUE();
 
 
 
@@ -31,22 +34,51 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    $idLang = $_POST['id'];
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
-    // controle des saisies du formulaire
+    // ON VEUT REINITIALISER LA VALEUR
 
-    // modification effective du angle
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateAngle.php?id=$idAngl");
+        $_POST['$libelle'];
+    }
 
+    // ON VEUT VALIDER LA MODIFICATION
 
+    elseif($_POST['Submit'] == 'Valider'){
+        if(isset($_POST['id'])){ 
+            
+            if(!empty($_POST['id'])){
 
-    // Gestion des erreurs => msg si saisies ko
+                if(isset($_POST['libAngl']) && !empty($_POST['libAngl'])){
+                    $clredid = ctrlSaisies($_POST['id']);
+                    $clredlib = ctrlSaisies($_POST['libAngl']);
 
+                    // CLE PRIMAIRE
 
-
-
-
-
-}   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
+                    $monAngle->update($clredid, $clredlib, $numLang);
+                    header("Location: ./angle.php");
+                }
+                else{
+                    header("Location: updateAngle.php?id=$idAngl&err=empty");
+                }
+            }
+            else{
+                $erreur = "Erreur";
+            }
+        }
+        else{
+            $erreur = "Erreur";
+        }
+    }
+}
+      // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
 include __DIR__ . '/initAngle.php';
 ?>
@@ -66,10 +98,21 @@ include __DIR__ . '/initAngle.php';
     <h2>Modification d'un angle</h2>
 <?php
     // Modif : récup id à modifier
+    
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monAngle->get_1Angle($id);
+
+        if ($query) {
+            $libAngl = $query['libAngl'];
+            $numAngl = $query['numAngl']; 
+        }   // Fin if ($query)
+
+    }
+
     // id passé en GET
-
-
-
 
 
 
@@ -98,10 +141,25 @@ include __DIR__ . '/initAngle.php';
             </label>
 <!--  -->
 
-            <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numLang; ?>" autocomplete="on" />
 
             <!-- Listbox langue => 2ème temps -->
-
+            <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez une langue - - -</option>
+                <?php
+                $allLangue = $monAngle->get_AllLangues();
+                
+                if($allLangue){
+                for ($i=1; $i < count($allLangue); $i++){
+                    //$value = $allLangue[$i]['numLang'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allLangue[$i]['lib2Lang']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
             </div>
         </div>
     <!-- FIN Listbox Langue -->
