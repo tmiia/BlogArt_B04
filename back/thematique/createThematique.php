@@ -17,7 +17,14 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Instanciation de la classe thématique
 
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+// Instanciation de la classe MotCle
+$maThematique = new THEMATIQUE();
 
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+// Instanciation de la classe langue
+
+$maLangue = new LANGUE();
 
 
 // BBCode
@@ -29,21 +36,45 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    // Opérateur ternaire
+    // $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
 
+    // La même chose en version if / else pour + de clarté :
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    
+            header("Location: ./createThematique.php");
+    }   // End of if ((isset($_POST["submit"])) ...
+        
+    if (((isset($_POST['libThem'])) AND (!empty($_POST['libThem']))
+        AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
+            // Saisies valides
+            $erreur = false;
+    
+            $libThem = ctrlSaisies(($_POST['libThem']));
+            $numLang = $_POST['Langue'];
+            $numThem = ctrlSaisies($_POST['id']);
+    
+            $maThematique->create($numThem, $libThem, $numLang);
+    
+            header("Location: ./thematique.php");
+        }   // Fin if ((isset($_POST['libStat']))
+        else {
+            // Saisies invalides
+            $erreur = true;
+            $errSaisies =  "Erreur, la saisie est obligatoire !";
+        }   // End of else erreur saisies
 
-    // controle des saisies du formulaire
-
-    // création effective de la thématique
-
-
+    // insertion effective du statut
 
     // Gestion des erreurs => msg si saisies ko
 
-
-
-
-}   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
+}  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
 include __DIR__ . '/initThematique.php';
 ?>
@@ -84,9 +115,24 @@ include __DIR__ . '/initThematique.php';
             <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idTypLang" name="idTypLang" value="<?= $numLang; ?>" />
 
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numLang; ?>" autocomplete="on" />
-
                 <!-- Listbox langue => 2ème temps -->
+                <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez une langue - - -</option>
+                <?php
+                $allLang = $maLangue->get_AllLangues();
+                
+                if($allLang){
+                for ($i=1; $i < count($allLang); $i++){
+                    $value = $allLang[$i]['numLang'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $allLang[$i]['lib1Lang']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
         </div>
     <!-- FIN Listbox langue -->
 <!-- --------------------------------------------------------------- -->
