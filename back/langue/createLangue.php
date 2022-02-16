@@ -59,7 +59,7 @@ if (((isset($_POST['lib1Lang'])) AND !empty($_POST['lib1Lang'])) AND ((isset($_P
 
         $lib1Lang = ctrlSaisies(($_POST['lib1Lang']));
         $lib2Lang = ctrlSaisies(($_POST['lib2Lang']));
-        $numPays = $_POST['value'];
+        $numPays = $_POST['Pays'];
         $numLang = $maLangue->getNextNumLang($numPays);
 
         $maLangue->create($numLang, $lib1Lang, $lib2Lang, $numPays);
@@ -127,7 +127,7 @@ include __DIR__ . '/initLangue.php';
                     $value = $allPays[$i]['numPays'];
                 ?>
                 
-                <option value="<?php $value ?>"> <?= $allPays[$i]['frPays']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?= $allPays[$i]['frPays']; ?> </option>
                 
                 <?php
                     } // End of foreach
