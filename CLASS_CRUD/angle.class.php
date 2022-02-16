@@ -160,18 +160,18 @@ class ANGLE{
 		}
 	}
 
-	function update(string $numAngl, string $libAngl, string $numLang){
+	function update($libAngl, $numLang, string $numAngl){
 		global $db;
 
 		try {
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE STATUT SET libAngl = ? WHERE numAngl = $numAngl;";
+			$query = 'UPDATE ANGLE SET libAngl = ?, numLang = ? WHERE numAngl = ?;';
 			// prepare
 			$request = $db->prepare($query);
 			// execute
-			$request->execute([$numAngl, $libAngl, $numLang]);
+			$request->execute([$libAngl, $numLang, $numAngl]);
 
 			$db->commit();
 			$request->closeCursor();

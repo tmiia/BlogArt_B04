@@ -31,10 +31,13 @@ $maLangue = new LANGUE();
 // Gestion  erreurs de saisie
 $erreur = false;
 
+
+
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $idLang = $_POST['id'];
+    $idAngl = $_POST['id'];
+
 
     if(isset($_POST['Submit'])){
         $Submit = $_POST['Submit'];
@@ -46,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if($_POST['Submit'] == 'Initialiser'){ 
         header("Location: updateAngle.php?id=$idAngl");
-        $_POST['$libelle'];
+        //$_POST['$libelle'];
     }
 
     // ON VEUT VALIDER LA MODIFICATION
@@ -59,10 +62,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 if(isset($_POST['libAngl']) && !empty($_POST['libAngl'])){
                     $clredid = ctrlSaisies($_POST['id']);
                     $clredlib = ctrlSaisies($_POST['libAngl']);
+                    $clredlang = ctrlSaisies($_POST['Langue']);
+            
 
                     // CLE PRIMAIRE
 
-                    $monAngle->update($clredid, $clredlib, $numLang);
+                    $monAngle->update($clredlib, $clredlang, $clredid);
                     header("Location: ./angle.php");
                 }
                 else{
@@ -99,7 +104,7 @@ include __DIR__ . '/initAngle.php';
 <?php
     // Modif : récup id à modifier
     
-    if (isset($_GET['id']) and $_GET['id'] > 0) {
+    if (isset($_GET['id']) and $_GET['id'] != '') {
 
         $id = ctrlSaisies(($_GET['id']));
 
@@ -108,6 +113,8 @@ include __DIR__ . '/initAngle.php';
         if ($query) {
             $libAngl = $query['libAngl'];
             $numAngl = $query['numAngl']; 
+            $numLang = $query['numLang']; 
+            
         }   // Fin if ($query)
 
     }
@@ -133,13 +140,12 @@ include __DIR__ . '/initAngle.php';
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
     <!-- Listbox Langue -->
-        <br>
+    <br>
         <div class="control-group">
             <div class="controls">
             <label class="control-label" for="LibTypLang">
-                <b>Quelle langue :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                <b>Quelle langue :&nbsp;&nbsp;&nbsp;</b>
             </label>
-<!--  -->
 
 
             <!-- Listbox langue => 2ème temps -->
@@ -150,16 +156,17 @@ include __DIR__ . '/initAngle.php';
                 
                 if($allLangue){
                 for ($i=1; $i < count($allLangue); $i++){
-                    //$value = $allLangue[$i]['numLang'];
+                    $value = $allLangue[$i]['numLang'];
                 ?>
                 
-                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allLangue[$i]['lib2Lang']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?= $allLangue[$i]['lib2Lang']; ?> </option>
                 
                 <?php
                     } // End of foreach
                 }   // if ($result)
                 ?>
             </select>
+
             </div>
         </div>
     <!-- FIN Listbox Langue -->
