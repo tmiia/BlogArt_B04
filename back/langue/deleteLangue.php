@@ -68,9 +68,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // delete effective du langue
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-            
         $maLangue->delete($_POST["id"]);
-            header("Location: ./langue.php");
+        header("Location: ./langue.php");
         } else {
             echo("Impossible de supprimer un statut où il reste des membres.");
     }

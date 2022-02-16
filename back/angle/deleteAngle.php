@@ -22,6 +22,13 @@ require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 // Instanciation de la classe angle
 $monAngle = new ANGLE();
 
+
+
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+
+$maLangue = new LANGUE();
+
+
 // Ctrl CIR
 $erreur = false;
 
@@ -100,6 +107,7 @@ include __DIR__ . '/initAngle.php';
             $libAngl = $query['libAngl'];
             $numAngl = $query['numAngl']; 
         }   // Fin if ($query)
+        
 
     }
     // id passé en GET
@@ -120,6 +128,7 @@ include __DIR__ . '/initAngle.php';
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
     <!-- Listbox Angle -->
+
         <br>
         <div class="control-group">
             <div class="controls">
@@ -128,23 +137,12 @@ include __DIR__ . '/initAngle.php';
             </label>
             
             <!-- Listbox langue => 2ème temps -->
+
             <select name="Langue" id="Langue"  class="form-control form-control-create">
-                <option value="-1">- - - Choisissez une langue - - -</option>
-                <?php
-                $allLangue = $monAngle->get_AllLangues();
-                
-                if($allLangue){
-                for ($i=1; $i < count($allLangue); $i++){
-                    $value = $allLangue[$i]['numLang'];
-                ?>
-                
-                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allLangue[$i]['lib2Lang']; ?> </option>
-                
-                <?php
-                    } // End of foreach
-                }   // if ($result)
-                ?>
+            <option value="-1"><?php var_dump($maLangue->get_1LangueByPays($id)) ?> </option>
             </select>
+
+            
 
             </div>
         </div>
