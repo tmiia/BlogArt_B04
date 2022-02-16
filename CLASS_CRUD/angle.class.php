@@ -145,7 +145,7 @@ class ANGLE{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO ANGLE (numAngle , libAngl, numLang) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
+			$query = 'INSERT INTO ANGLE (numAngl , libAngl, numLang) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$numAngl, $libAngl, $numLang]);

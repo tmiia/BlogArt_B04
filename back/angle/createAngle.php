@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if($_POST['Submit'] == 'Initialiser'){ 
         header("Location: updateAngle.php?id=$numAngl");
-        //$_POST['$libelle']; // jsp ce que c'est donc maybe à changer
+        $_POST['$libelle']; // jsp ce que c'est donc maybe à changer
     }
 
     // ON VEUT VALIDER LA MODIFICATION
@@ -119,7 +119,7 @@ include __DIR__ . '/initAngle.php';
                     $value = $allLangue[$i]['numLang'];
                 ?>
                 
-                <option value="<?php echo($value); ?>"> <?= $allLangue[$i]['lib2Lang']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allLangue[$i]['lib2Lang']; ?> </option>
                 
                 <?php
                     } // End of foreach
