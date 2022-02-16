@@ -6,19 +6,21 @@ require_once __DIR__ . '../../CONNECT/database.php';
 class MOTCLE{
 	function get_1MotCle($numMotCle){
 		global $db;
-
-		// select
-		// prepare
-		// execute
+		$query = "SELECT * FROM MOTCLE WHERE numMotCle = ?";
+		$result = $db->prepare($query);
+		$result->execute([$numMotCle]);
 		return($result->fetch());
 	}
 
 	function get_1MotCleByLang($numMotCle){
 		global $db;
 
-		// select
+		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		$query = "SELECT lib1Lang FROM LANGUE INNER JOIN MOTCLE ON LANGUE.numLang = ?";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numMotCle]);
 		return($result->fetch());
 	}
 
@@ -26,8 +28,12 @@ class MOTCLE{
 		global $db;
 
 		// select
+		$query = 'SELECT * FROM MOTCLE;';
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allMotCles = $result->fetchAll();
+		
 		return($allMotCles);
 	}
 
@@ -43,10 +49,16 @@ class MOTCLE{
 	function get_NbAllMotsClesBynumLang($numLang){
 		global $db;
 
-		// select
-		// prepare
-		// execute
-		return($allNbMotsClesBynumLang);
+        // select
+        $sql = "SELECT * FROM MOTCLE WHERE numLang = ?";
+        // prepare
+        $req = $db->prepare($sql);
+        // execute
+        $req->execute([$numLang]);
+
+        $NbAllMotsClesBynumLang = $req->rowCount();
+ 
+		return($NbAllMotsClesBynumLang);
 	}
 
 	// Sortir mots clés déjà sélectionnés dans MOTCLE (TJ) dans ARTICLE
@@ -131,15 +143,18 @@ class MOTCLE{
 			$db->beginTransaction();
 
 			// insert
+			$query = 'INSERT INTO MOTCLE (libMotCle, numLang) VALUES (?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$libMotCle, $numLang]);
 			// execute
 			$db->commit();
 			$request->closeCursor();
 		}
 		catch (PDOException $e) {
-			$db->rollBack();
+			$db->rollBack();	// DANS LE CAS OU CA PLANTE ON ENVOIE UNE ERREUR
 			$request->closeCursor();
-			die('Erreur insert MOTCLE : ' . $e->getMessage());
+			die('Erreur insert STATUT : ' . $e->getMessage());
 		}
 	}
 
@@ -150,15 +165,19 @@ class MOTCLE{
 			$db->beginTransaction();
 
 			// update
+			$query = "UPDATE MOTCLE SET libMotCle = ?, numLang = ? WHERE numMotCle = ? ;";
 			// prepare
-			// execute
+            $request = $db->prepare($query);
+            // execute
+            $request->execute([$libMotCle, $numLang, $numMotCle]);
+
 			$db->commit();
 			$request->closeCursor();
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update MOTCLE : ' . $e->getMessage());
+			die('Erreur update STATUT : ' . $e->getMessage());
 		}
 	}
 
@@ -168,18 +187,22 @@ class MOTCLE{
 		try {
 			$db->beginTransaction();
 
-			// delete
+			// insert
+			$query = 'DELETE FROM MOTCLE WHERE numMotCle=?'; 
 			// prepare
+			$request = $db->prepare($query);
 			// execute
-			$count = $request->rowCount();
+			$request->execute([$numMotCle]);
+
+			$count = $request->rowCount(); 
 			$db->commit();
 			$request->closeCursor();
-			return($count);
+			return($count); 
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete MOTCLE : ' . $e->getMessage());
+			die('Erreur delete STATUT : ' . $e->getMessage());
 		}
 	}
 }	// End of class

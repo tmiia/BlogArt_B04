@@ -25,9 +25,15 @@ class MOTCLEARTICLE{
 	function get_AllArtsByNumMotCle($numMotCle){
 		global $db;
 
-		// select
-		// prepare
-		// execute
+        // select
+        $sql = "SELECT * FROM MOTCLEARTICLE WHERE numMotCle = ?";
+        // prepare
+        $req = $db->prepare($sql);
+        // execute
+        $req->execute([$numMotCle]);
+
+        $allCommentsByArt = $req->rowCount();
+
 		return($allCommentsByArt);
 	}
 

@@ -14,14 +14,49 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe MotCle
-
+require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
 // Instanciation de la classe MotCle
+$monMotCle = new MOTCLE();
+
+// Insertion classe MotCle
+require_once __DIR__ . '/../../CLASS_CRUD/motclearticle.class.php';
+// Instanciation de la classe MotCle
+$monMotCleArt= new MOTCLEARTICLE();
+
+// Insertion classe MotCle
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+// Instanciation de la classe MotCle
+$maLangue= new LANGUE();
+
 
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./motcle.php");
+} 
+
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+        $nbMotCleArt = $monMotCleArt->get_AllArtsByNumMotCle($_POST["id"]);
+        //print_r($nbMembre);
+        //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
+        if ($nbMotCleArt < 1) {
+                $monMotCle->delete($_POST["id"]);
+                header("Location: ./motcle.php");
+            } else {
+                header("Location: motcle.php?errCIR=1");
+        }
+    }
+
+}
 
 
 
@@ -34,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
 
-}   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
+   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
 include __DIR__ . '/initMotCle.php';
 ?>
@@ -68,7 +103,19 @@ include __DIR__ . '/initMotCle.php';
     <h1>BLOGART22 Admin - CRUD Mot Clé</h1>
     <h2>Suppression d'un Mot Clé</h2>
 <?php
-    // Modif : récup id à modifier
+    // Supp : récup id à supprimer
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monMotCle->get_1MotCle($id);
+
+        if ($query) {
+            $libMotCle = $query['libMotCle'];
+            $numMotCle = $query['numMotCle']; 
+            $numLang = $query['numLang']; 
+        }   
+    }
     // id passé en GET
 
 
@@ -100,9 +147,22 @@ include __DIR__ . '/initMotCle.php';
             <label class="control-label" for="LibTypLang"><b>Quelle langue :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idLang" name="idLang" value="<?= isset($_GET['idLang']) ? $_GET['idLang'] : '' ?>" />
 
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $idLang; ?>" autocomplete="on" />
 
                 <!-- Listbox langue disabled => 2ème temps -->
+                <select name="Langue" id="Langue"  class="form-control form-control-create">
+
+                <?php
+                $oneLang = $maLangue->get_1Langue($numLang);
+                
+                ?>
+                
+                <option> <?= $oneLang['lib1Lang']; ?> </option>
+                
+                <?php
+                     // End of foreach
+                  // if ($result)
+                ?>
+            </select>
 
         </div>
     <!-- FIN Listbox langue -->
