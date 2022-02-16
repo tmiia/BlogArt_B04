@@ -34,12 +34,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $Submit = "";
     }
 
-
     // ON VEUT REINITIALISER LA VALEUR
 
     if($_POST['Submit'] == 'Initialiser'){ 
         header("Location: updateLangue.php?id=$idLang");
-        $_POST['$libelle'];
+        // $_POST['$libelle'];
     }
 
     // ON VEUT VALIDER LA MODIFICATION
@@ -49,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             if(!empty($_POST['id'])){
 
-                if(isset($_POST['lib1Lang']) && !empty($_POST['lib1Lang'])){
+                if(isset($_POST['lib1Lang']) and isset($_POST['lib2Lang']) and isset($_POST['Pays']) && !empty($_POST['lib1Lang']) and !empty($_POST['lib2Lang']) and !empty($_POST['Pays']) ){
                     $clredid = ctrlSaisies($_POST['id']);
                     $clredlib1 = ctrlSaisies($_POST['lib1Lang']);
                     $clredlib2 = ctrlSaisies($_POST['lib2Lang']);
@@ -57,7 +56,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     // CLE PRIMAIRE
 
-                    $maLangue->update($clredid, $clredlib1, $clredlib2, $clredPays);
+                    $maLangue->update($clredlib1, $clredlib2, $clredPays, $clredid);
                     header("Location: ./langue.php");
                 }
                 else{
@@ -95,11 +94,11 @@ include __DIR__ . '/initLangue.php';
 <?php
     // Modif : récup id à modifier
 
-    if (isset($_GET['id']) and $_GET['id'] > 0) {
+    if (isset($_GET['id']) and $_GET['id'] > '') {
 
         $id = ctrlSaisies(($_GET['id']));
 
-        $query = (array)$maLangue->get_1Langue($id);
+        $query = $maLangue->get_1Langue($id);
 
         if ($query) {
             $lib1Lang = $query['lib1Lang'];
@@ -147,9 +146,10 @@ include __DIR__ . '/initLangue.php';
                 
                 if($result){
                 for ($i=1; $i < count($result); $i++){
+                    $value = $result[$i]['numPays'];
                 ?>
                 
-                <option value="<?= $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
+                <option value="<?= $value?>"> <?= $result[$i]['frPays']; ?> </option>
                 <?php
                     } // End of foreach
                 }   // if ($result)
