@@ -34,11 +34,11 @@ $maLangue = new LANGUE();
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    var_dump($_POST);
+    
 
     if(isset($_POST['Submit'])){
         $Submit = $_POST['Submit'];
-        echo 3;
+        
     } else {
         $Submit = "";
     }
@@ -48,11 +48,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./thematique.php");
     }
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-        echo 1;
+        
         $nbThemArt = $monArticle->get_NbAllArticlesByNumThem($_POST["id"]);
 
         if ($nbThemArt < 1) {
-            echo 2;
+            
                 $maThematique->delete($_POST["id"]);
                 header("Location: ./thematique.php");
             } 
