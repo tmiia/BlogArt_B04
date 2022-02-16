@@ -14,9 +14,10 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Angle
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 
-// Instanciation de la classe angle
-
+// Instanciation de la classe langue
+$monAngle = new ANGLE();
 
 
 // Gestion des erreurs de saisie
@@ -25,21 +26,47 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    $idAng = $_POST['id'];
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    // ON VEUT REINITIALISER LA VALEUR
 
-    // controle des saisies du formulaire
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateAngle.php?id=$numAngl");
+        //$_POST['$libelle']; // jsp ce que c'est donc maybe à changer
+    }
 
-    // création effective de l'angle
+    // ON VEUT VALIDER LA MODIFICATION
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    
+        header("Location: ./createAngle.php");
+}   // End of if ((isset($_POST["submit"])) ...
+    
+if (((isset($_POST['libAngl'])) AND !empty($_POST['libAngl']))
+        AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
+        // Saisies valides
+        $erreur = false;
 
+        $libAngl = ctrlSaisies(($_POST['libAngl']));
+        $numLang = $_POST['Langue'];
+        $numAngl = $monAngle->getNextNumAngl($numLang);
 
-    // Gestion des erreurs => msg si saisies ko
+        $monAngle->create($numAngl, $libAngl, $numLang);
 
-
-
-
-}   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
+        header("Location: ./angle.php");
+    }   // Fin if ((isset($_POST['lib1Lang']))
+    else {
+        // Saisies invalides
+        $erreur = true;
+        $errSaisies =  "Erreur, la saisie est obligatoire !";
+    }   
+}  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
 include __DIR__ . '/initAngle.php';
 ?>
@@ -80,9 +107,25 @@ include __DIR__ . '/initAngle.php';
                 <b>Quelle langue :&nbsp;&nbsp;&nbsp;</b>
             </label>
 
-            <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numLang; ?>" autocomplete="on" />
 
             <!-- Listbox langue => 2ème temps -->
+            <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez une langue - - -</option>
+                <?php
+                $allLangue = $monAngle->get_AllLangues();
+                
+                if($allLangue){
+                for ($i=1; $i < count($allLangue); $i++){
+                    $value = $allLangue[$i]['numLang'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $allLangue[$i]['lib2Lang']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
             </div>
         </div>
