@@ -105,15 +105,15 @@ include __DIR__ . '/initLangue.php';
     <h2>Suppression d'une langue</h2>
 <?php
     // Supp : récup id à supprimer
-    if (isset($_GET['id']) and $_GET['id'] > 0) {
-
+    if (isset($_GET['id']) and $_GET['id'] != '') {
         $id = ctrlSaisies(($_GET['id']));
 
-        $query = (array)$maLangue->get_1Langue($id);
+        $query = $maLangue->get_1Langue($id);
 
         if ($query) {
             $lib1Lang = $query['lib1Lang'];
-            $lib2Lang = $query['lib2Lang']; 
+            $lib2Lang = $query['lib2Lang'];
+            $numPays = $query['numPays'];
         }   // Fin if ($query)
 
     }
@@ -153,19 +153,7 @@ include __DIR__ . '/initLangue.php';
 
 
             <select name="Pays" id="Pays"  class="form-control form-control-create">
-                <option value="-1">- - - Choisissez un pays - - -</option>
-                <?php
-                $result = $maLangue->get_AllPays();
-                
-                if($result){
-                for ($i=1; $i < count($result); $i++){
-                ?>
-                
-                <option value="<?php $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
-                <?php
-                    } // End of foreach
-                }   // if ($result)
-                ?>
+               <option value="-1"><?php echo($maLangue->get_1LangueByPays($id)['frPays']) ?> </option>
             </select>
 
                 <!-- Listbox langue disabled => 2ème temps -->
