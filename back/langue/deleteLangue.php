@@ -105,6 +105,18 @@ include __DIR__ . '/initLangue.php';
     <h2>Suppression d'une langue</h2>
 <?php
     // Supp : récup id à supprimer
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$maLangue->get_1Langue($id);
+
+        if ($query) {
+            $lib1Lang = $query['lib1Lang'];
+            $lib2Lang = $query['lib2Lang']; 
+        }   // Fin if ($query)
+
+    }
     // id passé en GET
 
 

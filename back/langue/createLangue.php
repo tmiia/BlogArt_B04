@@ -70,7 +70,7 @@ if (((isset($_POST['lib1Lang'])) AND !empty($_POST['lib1Lang'])) AND ((isset($_P
         // Saisies invalides
         $erreur = true;
         $errSaisies =  "Erreur, la saisie est obligatoire !";
-    }   // End of else erreur saisies
+    }   
 }  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
 include __DIR__ . '/initLangue.php';
