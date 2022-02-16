@@ -7,18 +7,21 @@ class USER{
 	function get_1User($pseudoUser, $passUser){
 		global $db;
 
-		// select
+		$query = "SELECT * FROM LANGUE WHERE pseudoUser = ?;";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$pseudoUser, $passUser]);
 		return($result->fetch());
 	}
 
 	function get_AllUsers(){
 		global $db;
 
-		// select
-		// prepare
-		// execute
+		$requete = "SELECT * FROM USER";
+		$result = $db->query($requete);
+
+		$allUsers = $result->fetchAll(); // ON MET TOUS LES RESULTATS DANS UNE VARIABLE
 		return($allUsers);
 	}
 
@@ -44,9 +47,11 @@ class USER{
 	function get_NbAllUsersByidStat($idStat){
 		global $db;
 
-		// select
-		// prepare
-		// execute
+		$query = "SELECT COUNT(*) FROM STATUT WHERE idStat = ?;";
+		$request = $db->prepare($query);
+
+		$request->execute([$idStat]);
+		$allNbUsersByStat = $request->fetch();
 		return($allNbUsersByStat);
 	}
 

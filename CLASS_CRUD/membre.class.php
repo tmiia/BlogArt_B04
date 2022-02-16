@@ -45,8 +45,11 @@ class MEMBRE{
         global $db;
 
         // select
+        $sql = "SELECT * FROM membre m INNER JOIN statut s ON m.idStat = s.idStat"; //peut etre pas ça
         // prepare
+        $req = $db->query($sql);
         // execute
+        $allMembersByStat = $req->fetchAll();
         return($allMembersByStat);
     }
 
@@ -54,8 +57,14 @@ class MEMBRE{
         global $db;
 
         // select
+        $sql = "SELECT * FROM membre WHERE idStat = ?";
         // prepare
+        $req = $db->prepare($sql);
         // execute
+        $req->execute([$idStat]);
+
+        $allNbMembersByStat = $req->rowCount();
+
         return($allNbMembersByStat);
     }
 

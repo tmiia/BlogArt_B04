@@ -53,13 +53,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } 
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-        $nbUsers = $monUser->get_AllUsers($_POST["id"]);
-        print_r($nbUsers);
-        if ($nbUsers["COUNT(*)"] < 1) {
-            $monStatut->delete($_POST["id"]);
+        $nbMembre = $monMembre->get_NbAllMembersByidStat($_POST["id"]);
+        //print_r($nbMembre);
+        //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
+        if ($nbMembre < 1) {
+                $monStatut->delete($_POST["id"]);
                 header("Location: ./statut.php");
             } else {
-                echo("Impossible de supprimer un statut où il reste des membres.");
+                header("Location: statut.php?errCIR=1");
         }
     }
 
