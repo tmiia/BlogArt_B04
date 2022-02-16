@@ -6,19 +6,21 @@ require_once __DIR__ . '../../CONNECT/database.php';
 class THEMATIQUE{
 	function get_1Thematique($numThem){
 		global $db;
-
-		// select
-		// prepare
-		// execute
+		$query = "SELECT * FROM THEMATIQUE WHERE numThem = ?";
+		$result = $db->prepare($query);
+		$result->execute([$numThem]);
 		return($result->fetch());
 	}
 
 	function get_1ThematiqueByLang($numThem){
 		global $db;
 
-		// select
+		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		$query = "SELECT lib1Lang FROM LANGUE INNER JOIN THEMATIQUE ON LANGUE.numLang = ?";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numThem]);
 		return($result->fetch());
 	}
 
@@ -26,8 +28,12 @@ class THEMATIQUE{
 		global $db;
 
 		// select
+		$query = 'SELECT * FROM THEMATIQUE;';
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allThematiques = $result->fetchAll();
+		
 		return($allThematiques);
 	}
 
@@ -114,15 +120,18 @@ class THEMATIQUE{
 			$db->beginTransaction();
 
 			// insert
+			$query = 'INSERT INTO THEMATIQUE (numThem, libThem, numLang) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$numThem, $libThem, $numLang]);
 			// execute
 			$db->commit();
 			$request->closeCursor();
 		}
 		catch (PDOException $e) {
-			$db->rollBack();
+			$db->rollBack();	// DANS LE CAS OU CA PLANTE ON ENVOIE UNE ERREUR
 			$request->closeCursor();
-			die('Erreur insert THEMATIQUE : ' . $e->getMessage());
+			die('Erreur insert STATUT : ' . $e->getMessage());
 		}
 	}
 
@@ -133,15 +142,19 @@ class THEMATIQUE{
 			$db->beginTransaction();
 
 			// update
+			$query = "UPDATE THEMATIQUE SET libThem = ?, numLang = ? WHERE numThem = ? ;";
 			// prepare
-			// execute
+            $request = $db->prepare($query);
+            // execute
+            $request->execute([$libThem, $numLang, $numThem]);
+
 			$db->commit();
 			$request->closeCursor();
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update THEMATIQUE : ' . $e->getMessage());
+			die('Erreur update STATUT : ' . $e->getMessage());
 		}
 	}
 
@@ -152,18 +165,22 @@ class THEMATIQUE{
 		try {
 			$db->beginTransaction();
 
-			// delete
+			// insert
+			$query = 'DELETE FROM THEMATIQUE WHERE numThem=?'; 
 			// prepare
+			$request = $db->prepare($query);
 			// execute
-			$count = $request->rowCount();
+			$request->execute([$numThem]);
+
+			$count = $request->rowCount(); 
 			$db->commit();
 			$request->closeCursor();
-			return($count);
+			return($count); 
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete THEMATIQUE : ' . $e->getMessage());
+			die('Erreur delete STATUT : ' . $e->getMessage());
 		}
 	}
 }		// End of class
