@@ -92,9 +92,15 @@ $errDel = 0;
 
         <!--<td>&nbsp; <?= $monAngle->get_1AngleByLang($allAngle[$i]['numLang'])[0] ?> &nbsp;</td>-->
 		
+<<<<<<< HEAD
         <td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./updateAngle.php?id=<?=$allAngle[$i]['numAngl']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier angle" title="Modifier angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp
 		<br /></td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./deleteAngle.php?id=<?=$allAngle[$i]['numAngl']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer angle" title="Supprimer angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+=======
+        <td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./updateAngle.php?id=<?= $allAngle[$i]['numAngl']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier angle" title="Modifier angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<br /></td>
+		<td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./deleteAngle.php?id=<?= $allAngle[$i]['numAngl']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer angle" title="Supprimer angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+>>>>>>> b92ceb260f1827c468a29fede758034bac19d2a6
 		<br /></td>
         </tr>
 <?php

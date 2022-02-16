@@ -94,7 +94,7 @@ include __DIR__ . '/initLangue.php';
 <?php
     // Modif : récup id à modifier
 
-    if (isset($_GET['id']) and $_GET['id'] > '') {
+    if (isset($_GET['id']) and $_GET['id'] != '') {
 
         $id = ctrlSaisies(($_GET['id']));
 
