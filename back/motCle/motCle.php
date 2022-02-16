@@ -14,8 +14,14 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe MotCle
-
+require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
 // Instanciation de la classe MotCle
+$monMotCle = new MOTCLE();
+// Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+// Instanciation de la classe Langue
+$maLangue = new LANGUE();
+
 
 
 ?>
@@ -49,26 +55,28 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 <?php
     // Appel méthode : Get toutes les mots cles en BDD
-
+    $allMotCles = $monMotCle->get_AllMotCles();
+    $allLangues = $maLangue->get_AllLangues();
+    for($i = 1; $i < count($allMotCles); $i++){
     // Boucle pour afficher
     //foreach($all as $row) {
 ?>
         <tr>
 
-		<td><h4>&nbsp; <?= "ici numMotCle"; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $allMotCles[$i]['numMotCle']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= "ici libMotCle"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allMotCles[$i]['libMotCle']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici lib1Lang"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $monMotCle->get_1MotCleByLang($allMotCles[$i]['numLang'])[0] ?> &nbsp;</td>
 
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateMotCle.php?id=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier mot clé" title="Modifier mot clé" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateMotCle.php?id=<?=$allMotCles[$i]['numMotCle']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier mot clé" title="Modifier mot clé" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteMotCle.php?id=<?=1; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer mot clé" title="Supprimer mot clé" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteMotCle.php?id=<?=$allMotCles[$i]['numMotCle']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer mot clé" title="Supprimer mot clé" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
 
         </tr>
 <?php
-	// }	// End of foreach
+}	// End of foreach
 ?>
     </tbody>
     </table>
