@@ -8,8 +8,11 @@ class ANGLE{
 		global $db;
 
 		// select
+		$query = "SELECT * FROM ANGLE WHERE numAngl = ?";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numAngl]);
 		return($result->fetch());
 	}
 
@@ -17,8 +20,11 @@ class ANGLE{
 		global $db;
 
 		// select
+		$query = "SELECT libAngl FROM LANGUE INNER JOIN ANGLE ON LANGUE.numLang = ?";
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numAngl]);
 		return($result->fetch());
 	}
 
@@ -26,8 +32,11 @@ class ANGLE{
 		global $db;
 
 		// select
+		$query = 'SELECT * FROM ANGLE;';
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allAngles = $result->fetchAll();
 		return($allAngles);
 	}
 
@@ -35,8 +44,11 @@ class ANGLE{
 		global $db;
 
 		// select
+		$sql = "SELECT * FROM ANGLE INNER JOIN LANGUE ON ANGLE.numAngl = LANGUE.numLang"; //peut etre pas ça
 		// prepare
+		$req = $db->query($sql);
 		// execute
+		$allAnglesByLang = $req->fetchAll();
 		return($allAnglesByLang);
 	}
 
@@ -44,10 +56,29 @@ class ANGLE{
 		global $db;
 
 		// select
+		$sql = "SELECT * FROM ANGLE WHERE numLang = ?";
 		// prepare
+		$req = $db->prepare($sql);
 		// execute
+		$req->execute([$numLang]);
+
+		$allNbAnglesBynumLang = $req->rowCount();
 		return($allNbAnglesBynumLang);
 	}
+
+
+	function get_AllLangues(){
+		global $db;
+
+		// select
+		$query = "SELECT * FROM LANGUE;";
+		// prepare
+		$result = $db->query($query);
+		// execute
+		$allLangues = $result->fetchAll();
+		return($allLangues);
+	}
+
 
 	//  Récupérer la prochaine PK de la table ANGLE
 	function getNextNumAngl($numLang) {
@@ -64,7 +95,7 @@ class ANGLE{
 			$tuple = $result->fetch();
 			$numLang = $tuple["numLang"];
 			if (is_null($numLang)) {    // New lang dans ANGLE
-				// Récup dernière PK utilisée
+				// Récup dernière PK (Primary key) utilisée
 				$requete = "SELECT MAX(numAngl) AS numAngl FROM ANGLE;";
 				$result = $db->query($requete);
 				$tuple = $result->fetch();
@@ -114,7 +145,10 @@ class ANGLE{
 			$db->beginTransaction();
 
 			// insert
+			$query = 'INSERT INTO ANGLE (numAngl , libAngl, numLang) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$numAngl, $libAngl, $numLang]);
 			// execute
 			$db->commit();
 			$request->closeCursor();

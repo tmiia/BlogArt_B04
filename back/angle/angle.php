@@ -13,10 +13,11 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Angle
+// Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 
-// Instanciation de la classe angle
-
+// Instanciation de la classe langue
+$monAngle = new ANGLE();
 
 
 // Ctrl CIR
@@ -76,23 +77,28 @@ $errDel = 0;
     // Appel méthode : Get tous les angles en BDD
 
     // Boucle pour afficher
+    $allAngle = $monAngle->get_AllAngles();
+    $allLangue = $monAngle->get_AllLangues();
+    for($i = 1; $i < count($allAngle); $i++){
     //foreach($all as $row) {
 
 ?>
         <tr>
-		<td><h4>&nbsp; <?= "ici numAngl"; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $allAngle[$i]['numAngl']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= "ici libAngl"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allAngle[$i]['libAngl']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici lib1Lang"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allAngle[$i]['numLang']; ?> &nbsp;</td>
 
-		<td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./updateAngle.php?id=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier angle" title="Modifier angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp
+        <!--<td>&nbsp; <?= $monAngle->get_1AngleByLang($allAngle[$i]['numLang'])[0] ?> &nbsp;</td>-->
+		
+        <td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./updateAngle.php?id=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier angle" title="Modifier angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp
 		<br /></td>
 		<td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./deleteAngle.php?id=<?=1; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer angle" title="Supprimer angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
         </tr>
 <?php
-	// }	// End of foreach
+}	// End of foreach
 ?>
     </tbody>
     </table>

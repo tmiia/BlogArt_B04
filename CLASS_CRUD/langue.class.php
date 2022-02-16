@@ -15,7 +15,7 @@ class LANGUE{
 		return($result->fetch());
 	}
 
-	function get_1LangueByPays($numPays){
+	function get_1LangueByPays($numPays){ //pour récupérer la langue d'un pays
 		global $db;
 
 		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
