@@ -86,7 +86,7 @@ $errDel = 0;
 
         <td>&nbsp; <?= $allLangues[$i]['lib2Lang']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= $maLangue->get_1LangueByPays($allLangues[$i]['numPays'])[0] ?> &nbsp;</td>
+        <td>&nbsp; <?= $maLangue->get_1LangueByPays($allLangues[$i]['numLang'])[0] ?> &nbsp;</td>
         <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLangue.php?id=<?= $allLangues[$i]['numLang'] ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier langue" title="Modifier langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
  		<br /></td>
  		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLangue.php?id=<?= $allLangues[$i]['numLang'] ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer langue" title="Supprimer langue" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;

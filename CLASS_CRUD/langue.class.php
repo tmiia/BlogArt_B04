@@ -19,7 +19,9 @@ class LANGUE{
 		global $db;
 
 		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
-		$query = "SELECT frPays FROM PAYS INNER JOIN LANGUE ON PAYS.numPays = ?";
+		// var_dump($numPays);
+		// exit;
+		$query = 'SELECT frPays FROM PAYS INNER JOIN LANGUE ON PAYS.numPays = LANGUE.numPays WHERE LANGUE.numLang = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -166,7 +168,7 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'DELETE FROM STATUT WHERE numLang=?'; 
+			$query = 'DELETE FROM LANGUE WHERE numLang=?'; 
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -180,7 +182,7 @@ class LANGUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete STATUT : ' . $e->getMessage());
+			die('Erreur delete LANGUE : ' . $e->getMessage());
 		}
 	}
 }	// End of class
