@@ -120,7 +120,7 @@ class THEMATIQUE{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO THEMATIQUE (numThem, libThem, numLang) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
+			$query = 'INSERT INTO THEMATIQUE (numThem, libThem, numLang) VALUES (?, ?, ?);'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$numThem, $libThem, $numLang]);

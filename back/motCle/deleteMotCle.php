@@ -157,11 +157,6 @@ include __DIR__ . '/initMotCle.php';
                 ?>
                 
                 <option> <?= $oneLang['lib1Lang']; ?> </option>
-                
-                <?php
-                     // End of foreach
-                  // if ($result)
-                ?>
             </select>
 
         </div>
