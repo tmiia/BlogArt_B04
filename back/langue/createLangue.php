@@ -120,14 +120,14 @@ include __DIR__ . '/initLangue.php';
             <select name="Pays" id="Pays"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez un pays - - -</option>
                 <?php
-                $result = $maLangue->get_AllPays();
+                $allPays = $maLangue->get_AllPays();
                 
-                if($result){
-                for ($i=1; $i < count($result); $i++){
-                    $value = $result[$i]['numPays'];
+                if($allPays){
+                for ($i=1; $i < count($allPays); $i++){
+                    $value = $allPays[$i]['numPays'];
                 ?>
                 
-                <option value="<?php $value ?>"> <?= $result[$i]['frPays']; ?> </option>
+                <option value="<?php $value ?>"> <?= $allPays[$i]['frPays']; ?> </option>
                 
                 <?php
                     } // End of foreach
