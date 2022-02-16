@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
             $libThem = ctrlSaisies(($_POST['libThem']));
             $numLang = $_POST['Langue'];
-            $numThem = ctrlSaisies($_POST['id']);
+            $numThem = $maThematique->getNextNumThem($numThem);
     
             $maThematique->create($numThem, $libThem, $numLang);
     
