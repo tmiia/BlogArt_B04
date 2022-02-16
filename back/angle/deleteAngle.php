@@ -13,17 +13,22 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
+// Del accents sur string
+require_once __DIR__ . '/../../util/delAccents.php';
+
 // Insertion classe Angle
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
-
-
+$monAngle = new ANGLE();
 
 // Ctrl CIR
+$erreur = false;
 // Insertion classe Article
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
-
+$monArticle = new ARTICLE();
 
 
 // Gestion des erreurs de saisie
@@ -31,20 +36,29 @@ $erreur = false;
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+ 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./angle.php");
+} 
 
-
-    // controle CIR
-
-    // delete effective de l'angle
-
-
-
-
-
-
-
-
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+        $nbMembre = $monMembre->get_NbAllMembersByidStat($_POST["id"]);
+        //print_r($nbMembre);
+        //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
+        if ($nbMembre < 1) {
+                $monStatut->delete($_POST["id"]);
+                header("Location: ./angle.php");
+            } else {
+                header("Location: angle.php?errCIR=1");
+        }
+    }
 }   // End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
 include __DIR__ . '/initAngle.php';
@@ -73,12 +87,18 @@ include __DIR__ . '/initAngle.php';
     <h1>BLOGART22 Admin - CRUD Angle</h1>
     <h2>Suppression d'un angle</h2>
 <?php
-    // Supp : récup id à supprimer
+      // Supp : récup id à supprimer
+      if (isset($_GET['id']) and $_GET['id'] != '') {
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = $monAngle->get_1Angle($id);
+
+        if ($query) {
+            $libAngl = $query['libAngl'];
+        }   // Fin if ($query)
+
+    }
     // id passé en GET
-
-
-
-
 
 ?>
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
