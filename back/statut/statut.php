@@ -21,7 +21,12 @@ $monStatut = new STATUT();
 
 
 // Gestion des CIR => affichage erreur sinon
-$errCIR = 0;
+
+if(isset($_GET['errCIR'])){
+    $errCIR = $_GET['errCIR'];
+}else{
+    $errCIR = 0;
+}
 
 
 
