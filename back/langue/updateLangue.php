@@ -34,6 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $Submit = "";
     }
 
+
     // ON VEUT REINITIALISER LA VALEUR
 
     if($_POST['Submit'] == 'Initialiser'){ 
@@ -52,10 +53,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     $clredid = ctrlSaisies($_POST['id']);
                     $clredlib1 = ctrlSaisies($_POST['lib1Lang']);
                     $clredlib2 = ctrlSaisies($_POST['lib2Lang']);
+                    $clredPays = ctrlSaisies($_POST['Pays']);
 
                     // CLE PRIMAIRE
 
-                    $maLangue->update($clredid, $clredlib1, $clredlib2, $numPays);
+                    $maLangue->update($clredid, $clredlib1, $clredlib2, $clredPays);
                     header("Location: ./langue.php");
                 }
                 else{
@@ -102,7 +104,7 @@ include __DIR__ . '/initLangue.php';
         if ($query) {
             $lib1Lang = $query['lib1Lang'];
             $lib2Lang = $query['lib2Lang'];
-            $numLang = $query['numLang']; 
+            $numLang = $query['numLang'];
         }   // Fin if ($query)
 
     }
@@ -147,7 +149,7 @@ include __DIR__ . '/initLangue.php';
                 for ($i=1; $i < count($result); $i++){
                 ?>
                 
-                <option value="<?php $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
+                <option value="<?= $result[$i]['numPays'];?>"> <?= $result[$i]['frPays']; ?> </option>
                 <?php
                     } // End of foreach
                 }   // if ($result)
