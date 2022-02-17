@@ -75,17 +75,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                     if ((($_POST['eMail1Memb']) == ($_POST['eMail2Memb'])) && (($_POST['pass1Memb']) == ($_POST['pass2Memb']))){
                         $numMemb = ctrlSaisies($_POST['id']);
                         $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
-                        $nomMemb= ctrlSaisies($_POST['nomMemb']);
-                        $passMemb= ctrlSaisies($_POST['pass1Memb']);
-                        $eMailMemb= ctrlSaisies($_POST['eMail1Memb']);
-                        $idStat= ctrlSaisies($_POST['Statut']);
+                        $nomMemb = ctrlSaisies($_POST['nomMemb']);
+                        $passMemb = ctrlSaisies($_POST['pass1Memb']);
+                        $eMailMemb = ctrlSaisies($_POST['eMail1Memb']);
+                        $idStat = ctrlSaisies(intval($_POST['idStat']));
                         $accordMemb = ctrlSaisies($_POST['accordMemb']);
             
-                        var_dump($idStat);
-                        exit;
+                        
                     // CLE PRIMAIRE
 
                         $monMembre->update($numMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $idStat);
+                        
                         header("Location: ./membre.php");
 
                     }else{
@@ -187,12 +187,7 @@ include __DIR__ . '/initMembre.php';
 
 
 
-
-
     // id passé en GET
-
-
-
 
 
 
