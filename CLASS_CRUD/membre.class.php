@@ -117,7 +117,7 @@ class MEMBRE{
 		}
     }
 
-    function update($numMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $idStat){
+    function update($prenomMemb, $nomMemb, $eMailMemb, $passMemb, $idStat, $numMemb){
         global $db;
 
         try {
@@ -125,11 +125,11 @@ class MEMBRE{
             
             if ($passMemb == -1) { //request 1: le mdp n'a pas été modifié
             // update
-			$query = 'UPDATE MEMBRE SET prenomMemb = ?, nomMemb = ?, eMailMemb = ?, idStat = ? WHERE numMemb = ?;';
+			$query = 'UPDATE MEMBRE SET prenomMemb = ?, nomMemb = ?, eMailMemb = ?, passMemb = ?, idStat = ? WHERE numMemb = ?;';
 			// prepare
 			$request1 = $db->prepare($query);
 			// execute
-			$request1->execute([$prenomMemb, $nomMemb, $eMailMemb, $idStat, $numMemb]);
+			$request1->execute([$prenomMemb, $nomMemb, $eMailMemb, $passMemb, $idStat, $numMemb]);
                 $db->commit();
                 $request1->closeCursor();
             }
