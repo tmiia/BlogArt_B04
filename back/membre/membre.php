@@ -115,7 +115,7 @@ $errDel = 0;
 
             <td>&nbsp; <?= $allMembres[$i]['accordMemb']; ?> &nbsp;</td>
 
-            <td>&nbsp; <?= $monMembre->get_AllMembersByStat($allMembres[$i]['idStat'])[0]; ?> &nbsp;</td>
+            <td>&nbsp; <?= $monMembre->get_1MembrebyStatut($allMembres[$i]['idStat'])[0]; ?> &nbsp;</td>
 
             <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateMembre.php?id=<?=$allMembres[$i]['numMemb']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier membre" title="Modifier membre" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br /></td>

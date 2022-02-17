@@ -73,6 +73,18 @@ class MEMBRE{
         return($allNbMembersByStat);
     }
 
+    function get_1MembrebyStatut($numMemb){
+		global $db;
+
+		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		$query = "SELECT libStat FROM STATUT INNER JOIN MEMBRE ON STATUT.idStat = ?";
+		// prepare
+		$result = $db->prepare($query);
+		// execute
+		$result->execute([$numMemb]);
+		return($result->fetch());
+	}
+
     function get_AllMembresByEmail($eMailMemb){
         global $db;
 
