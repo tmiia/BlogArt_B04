@@ -109,8 +109,11 @@ class MEMBRE{
             $db->beginTransaction();
             
             // update
-            // prepare
-            // execute
+			$query = 'UPDATE MEMBRE SET libAngl = ?, numLang = ? WHERE numAngl = ?;';
+			// prepare
+			$request2 = $db->prepare($query);
+			// execute
+			$request2->execute([$libAngl, $numLang, $numAngl]);
                 $db->commit();
                 $request2->closeCursor();
             }
