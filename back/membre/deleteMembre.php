@@ -16,32 +16,49 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Membre
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 
 // Instanciation de la classe Membre
-
+$monMembre = new MEMBRE();
 
 // Insertion classe Comment
+require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
 
-// Instanciation de la classe Comment
+// Instanciation de la classe Commentaire
+$monMembCom = new COMMENT();
+
+// Insertion classe Statut
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+
+// Instanciation de la classe Statut
+$monStatut = new STATUT();
 
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./membre.php");
+} 
 
-    // controle CIR
-
-    // delete effective du user
-
-
-
-
-
-
-
-
-
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+        $nbMembre = $monMembCom->get_NbAllCommentsBynumMemb($_POST["id"]);
+        //print_r($nbMembre);
+        //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
+        if ($nbMembre < 1) {
+                $monMembre->delete($_POST["id"]);
+                header("Location: ./membre.php");
+            } else {
+                header("Location: membre.php?errCIR=1");
+        }
+    }
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
@@ -74,7 +91,22 @@ include __DIR__ . '/initMembre.php';
     // Supp : récup id à supprimer
     // id passé en GET
 
+    if (isset($_GET['id']) and $_GET['id'] > 0) {
 
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monMembre->get_1Membre($id);
+
+        if ($query) {
+            $prenomMemb = $query['prenomMemb'];
+            $nomMemb = $query['nomMemb']; 
+            $pseudoMemb = $query['pseudoMemb']; 
+            $eMail1Memb = $query['eMailMemb']; 
+            $accordMemb = $query['accordMemb']; 
+            $idStat = $query['idStat']; 
+            $dtCreaMemb = $query['dtCreaMemb']; 
+        }   
+    }
 
 
 
@@ -112,10 +144,10 @@ include __DIR__ . '/initMembre.php';
             <div class="controls">
                <fieldset>
                   <input type="radio" name="accordMemb"
-                  <? if($accordMemb == 1) echo 'checked="checked"'; ?>
+                  <?php if($accordMemb == 1) echo 'checked="checked"'; ?>
                   value="on" disabled />&nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp;
                   <input type="radio" name="accordMemb"
-                  <? if($accordMemb == 0) echo 'checked="checked"'; ?>
+                  <?php if($accordMemb == 0) echo 'checked="checked"'; ?>
                   value="off" disabled />&nbsp;&nbsp;Non
                </fieldset>
             </div>
@@ -131,9 +163,15 @@ include __DIR__ . '/initMembre.php';
             <label class="control-label" for="LibTypStat"><b>Statut :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idStat" name="idStat" value="<?= isset($_GET['idStat']) ? $_GET['idStat'] : '' ?>" />
 
-                <input type="text" name="idStat" id="idStat" size="5" maxlength="5" value="<?= $idStat; ?>" autocomplete="on" />
-
                 <!-- Listbox statut disabled => 2ème temps -->
+
+                <select name="Statut" id="Statut"  class="form-control form-control-create">
+                <?php
+                    $oneStat = $monStatut->get_1Statut($idStat);
+                ?>
+                <option value="<?= ($oneStat['idStat']); ?>"> <?= $oneStat['libStat']; ?> </option>                
+
+            </select>
 
         </div>
 

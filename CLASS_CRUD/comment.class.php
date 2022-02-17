@@ -61,9 +61,14 @@ class COMMENT{
 	function get_NbAllCommentsBynumMemb($numMemb){
 		global $db;
 
-		// select
-		// prepare
-		// execute
+        // select
+        $sql = "SELECT * FROM COMMENT WHERE numMemb = ?;";
+        // prepare
+        $req = $db->prepare($sql);
+        // execute
+        $req->execute([$numMemb]);
+
+        $allNbAllCommentsBynumMemb = $req->rowCount();
 		return($allNbAllCommentsBynumMemb);
 	}
 

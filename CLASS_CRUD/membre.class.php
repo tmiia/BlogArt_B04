@@ -145,20 +145,24 @@ class MEMBRE{
         global $db;
         
         try {
-            $db->beginTransaction();
+			$db->beginTransaction();
 
-            // delete
-            // prepare
-            // execute
-            $count = $request->rowCount();
-            $db->commit();
-            $request->closeCursor();
-            return($count);
-        }
-        catch (PDOException $e) {
-            $db->rollBack();
-            $request->closeCursor();
-            die('Erreur delete MEMBRE : ' . $e->getMessage());
-        }
+			// insert
+			$query = 'DELETE FROM MEMBRE WHERE numMemb=?'; 
+			// prepare
+			$request = $db->prepare($query);
+			// execute
+			$request->execute([$numMemb]);
+
+			$count = $request->rowCount(); 
+			$db->commit();
+			$request->closeCursor();
+			return($count); 
+		}
+		catch (PDOException $e) {
+			$db->rollBack();
+			$request->closeCursor();
+			die('Erreur delete STATUT : ' . $e->getMessage());
+		}
     }
 }    // End of class
