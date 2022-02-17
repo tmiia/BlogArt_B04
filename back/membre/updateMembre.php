@@ -17,8 +17,10 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Membre
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 
 // Instanciation de la classe Membre
+$monMembre = new MEMBRE();
 
 
 // Gestion des erreurs de saisie
@@ -29,9 +31,60 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    $idMemb = $_POST['id'];
 
+
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
     // controle des saisies du formulaire
+
+// ON VEUT REINITIALISER LA VALEUR
+
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateMembre.php?id=$idMemb");
+        $_POST['$libelle'];
+    }
+
+    // ON VEUT VALIDER LA MODIFICATION
+
+    elseif($_POST['Submit'] == 'Valider'){
+        
+        if(isset($_POST['id'])){ 
+            
+            if(!empty($_POST['id'])){
+
+                if((isset($_POST['prenomMemb']) && !empty($_POST['prenomMemb'])) && 
+                (isset($_POST['nomMemb']) && !empty($_POST['nomMemb'])) && 
+                (isset($_POST['passMemb']) && !empty($_POST['passMemb'])) && 
+                (isset($_POST['eMailMemb']) && !empty($_POST['eMailMemb'])) && 
+                (isset($_POST['accordMemb']) && !empty($_POST['accordMemb']))){
+
+                    $numMemb = ctrlSaisies($_POST['id']);
+                    $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
+                    $clredlang = ctrlSaisies($_POST['Langue']);
+            
+
+                    // CLE PRIMAIRE
+
+                    $maThematique->update($numThem, $clredlib, $clredlang);
+                    header("Location: ./thematique.php");
+                }
+                else{
+                    header("Location: updateThematique.php?id=$idThem&err=empty");
+                }
+            }
+            else{
+                $erreur = "Erreur";
+            }
+        }
+        else{
+            $erreur = "Erreur";
+        }
+    }
 
     // modification effective du membre
 
@@ -89,6 +142,11 @@ include __DIR__ . '/initMembre.php';
     <h2>Modification d'un membre</h2>
 <?php
     // Modif : récup id à modifier
+
+        
+
+
+
     // id passé en GET
 
 
