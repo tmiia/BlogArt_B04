@@ -8,8 +8,11 @@ class ARTICLE{
 		global $db;
 		
 		// select
+		$query = 'SELECT * FROM ARTICLE WHERE numArt = ?;';
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numArt]);
 		return($result->fetch());
 	}
 
@@ -25,9 +28,11 @@ class ARTICLE{
 	function get_AllArticles(){
 		global $db;
 
-		// select
+		$query = 'SELECT * FROM ARTICLE;';
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allArticles = $result->fetchAll();
 		return($allArticles);
 	}
 

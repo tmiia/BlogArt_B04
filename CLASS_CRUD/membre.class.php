@@ -123,12 +123,28 @@ class MEMBRE{
         try {
             $db->beginTransaction();
             
+            if ($passMemb == -1) { //request 1: le mdp n'a pas été modifié
             // update
-            // prepare
-            // execute
+			$query = 'UPDATE MEMBRE SET prenomMemb = ?, nomMemb = ?, eMailMemb = ?, idStat = ? WHERE numMemb = ?;';
+			// prepare
+			$request1 = $db->prepare($query);
+			// execute
+			$request1->execute([$prenomMemb, $nomMemb, $eMailMemb, $idStat, $numMemb]);
+                $db->commit();
+                $request1->closeCursor();
+            }
+            else { //request 2: le mdp a été modifié
+            // update
+			$query = 'UPDATE MEMBRE SET prenomMemb = ?, nomMemb = ?, passMemb = ?, eMailMemb = ?, idStat = ? WHERE numMemb = ?;';
+			// prepare
+			$request2 = $db->prepare($query);
+			// execute
+			$request2->execute([$prenomMemb, $nomMemb, $passMemb, $eMailMemb, $idStat, $numMemb]);
                 $db->commit();
                 $request2->closeCursor();
             }
+        }
+
         catch (PDOException $e) {
             $db->rollBack();
             if ($passMemb == -1) {

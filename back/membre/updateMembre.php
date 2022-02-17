@@ -16,9 +16,17 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
+// Insertion classe Statut
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+
+// Instanciation de la classe Statut
+$monStatut = new STATUT();
+
 // Insertion classe Membre
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 
 // Instanciation de la classe Membre
+$monMembre = new MEMBRE();
 
 
 // Gestion des erreurs de saisie
@@ -28,10 +36,74 @@ $erreur = false;
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    $idMemb = $_POST['id'];
 
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
     // controle des saisies du formulaire
+
+// ON VEUT REINITIALISER LA VALEUR
+
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateMembre.php?id=$idMemb");
+        $_POST['$libelle'];
+    }
+
+    // ON VEUT VALIDER LA MODIFICATION
+
+    elseif($_POST['Submit'] == 'Valider'){
+
+        if(isset($_POST['id'])){ 
+            
+            if(!empty($_POST['id'])){
+
+                if((isset($_POST['prenomMemb']) && !empty($_POST['prenomMemb'])) && 
+                (isset($_POST['nomMemb']) && !empty($_POST['nomMemb'])) && 
+                (isset($_POST['pass1Memb']) && !empty($_POST['pass1Memb'])) &&
+                (isset($_POST['pass2Memb']) && !empty($_POST['pass2Memb'])) && 
+                (isset($_POST['eMail1Memb']) && !empty($_POST['eMail1Memb'])) && 
+                (isset($_POST['eMail2Memb']) && !empty($_POST['eMail2Memb'])) && 
+                (isset($_POST['accordMemb']) && !empty($_POST['accordMemb']))){
+
+
+                    if ((($_POST['eMail1Memb']) == ($_POST['eMail2Memb'])) && (($_POST['pass1Memb']) == ($_POST['pass2Memb']))){
+                        $numMemb = ctrlSaisies($_POST['id']);
+                        $prenomMemb = ctrlSaisies($_POST['prenomMemb']);
+                        $nomMemb = ctrlSaisies($_POST['nomMemb']);
+                        $passMemb = ctrlSaisies($_POST['pass1Memb']);
+                        $eMailMemb = ctrlSaisies($_POST['eMail1Memb']);
+                        $idStat = ctrlSaisies(intval($_POST['idStat']));
+                        $accordMemb = ctrlSaisies($_POST['accordMemb']);
+            
+                        
+                    // CLE PRIMAIRE
+
+                        $monMembre->update($numMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $idStat);
+                        
+                        header("Location: ./membre.php");
+
+                    }else{
+                        header("Location: updateMembre.php?id=$idMemb&err=empty");
+                    }
+                }
+                else{
+                    header("Location: updateMembre.php?id=$idMemb&err=empty");
+                }
+            }
+            else{
+                $erreur = "Erreur";
+            }
+        }
+        else{
+            $erreur = "Erreur";
+        }
+    }
 
     // modification effective du membre
 
@@ -89,10 +161,33 @@ include __DIR__ . '/initMembre.php';
     <h2>Modification d'un membre</h2>
 <?php
     // Modif : récup id à modifier
+
+    if (isset($_GET['id']) and $_GET['id'] != '') {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monMembre->get_1Membre($id);
+        //$queryStat = (array)$monMembre->get_1MembrebyStatut($_POST['idStat']);
+
+        if ($query) {
+            $prenomMemb = $query['prenomMemb'];
+            $nomMemb = $query['nomMemb'];
+            $pseudoMemb = $query['pseudoMemb'];
+            $pass1Memb = $query['passMemb'];
+            $pass2Memb = $query['passMemb'];
+            $eMail1Memb = $query['eMailMemb'];
+            $eMail2Memb = $query['eMailMemb'];
+            $accordMemb = $query['accordMemb'];
+            $dtCreaMemb = $query['dtCreaMemb'];
+            $idStat = $query['idStat'];
+
+        } 
+        
+       }// Fin if ($query)
+
+
+
     // id passé en GET
-
-
-
 
 
 
@@ -161,11 +256,11 @@ include __DIR__ . '/initMembre.php';
             <div class="controls">
                <fieldset>
                   <input type="radio" name="accordMemb"
-                  <? if($accordMemb == 1) echo 'checked="checked"'; ?>
-                  value="on" disabled />&nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp;
+                  <?php if($accordMemb == 1) : ?> value="1" checked <?php endif; ?> />
+                  &nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp; 
                   <input type="radio" name="accordMemb"
-                  <? if($accordMemb == 0) echo 'checked="checked"'; ?>
-                  value="off" disabled />&nbsp;&nbsp;Non
+                  <?php if($accordMemb == 0) : ?> value="0" checked <?php endif; ?> />
+                    &nbsp;&nbsp;Non&nbsp;&nbsp;&nbsp;&nbsp;
                </fieldset>
             </div>
         </div>
@@ -180,9 +275,25 @@ include __DIR__ . '/initMembre.php';
             <label class="control-label" for="LibTypStat"><b>Statut :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idStat" name="idStat" value="<?= isset($_GET['idStat']) ? $_GET['idStat'] : '' ?>" />
 
-                <input type="text" name="idStat" id="idStat" size="5" maxlength="5" value="<?= $idStat; ?>" autocomplete="on" />
 
                 <!-- Listbox statut => 2ème temps -->
+
+                <select name="Statut" id="Statut"  class="form-control form-control-create">
+                <option value="-1"><?php $oneStat = $monStatut->get_1Statut($idStat); echo($oneStat['libStat']); ?></option>
+                <?php
+                $result = $monStatut->get_AllStatuts();
+                
+                if($result){
+                for ($i=1; $i < count($result); $i++){
+                    $value = $result[$i]['idStat'];
+                ?>
+                
+                <option value="<?= $value?>"> <?= $result[$i]['libStat']; ?> </option>
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
         </div>
     <!-- FIN Listbox statut -->
