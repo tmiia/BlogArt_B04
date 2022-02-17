@@ -38,6 +38,7 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    
     $idThem = $_POST['id'];
 
 
@@ -51,17 +52,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if($_POST['Submit'] == 'Initialiser'){ 
         header("Location: updateThematique.php?id=$idThem");
-        //$_POST['$libelle'];
+        $_POST['$libelle'];
     }
 
     // ON VEUT VALIDER LA MODIFICATION
 
     elseif($_POST['Submit'] == 'Valider'){
+        
         if(isset($_POST['id'])){ 
             
             if(!empty($_POST['id'])){
 
-                if(isset($_POST['libThem']) && !empty($_POST['libThem'])){
+                if((isset($_POST['libThem']) && !empty($_POST['libThem']))){
                     $numThem = ctrlSaisies($_POST['id']);
                     $clredlib = ctrlSaisies($_POST['libThem']);
                     $clredlang = ctrlSaisies($_POST['Langue']);
