@@ -7,28 +7,33 @@ require_once __DIR__ . '../../CONNECT/database.php';
 class MEMBRE{
     function get_1Membre($numMemb){
         global $db;
-
-        // select
-        // prepare
-        // execute
-        return($result->fetch());
+		$query = "SELECT * FROM MEMBRE WHERE numMemb = ?";
+		$result = $db->prepare($query);
+		$result->execute([$numMemb]);
+		return($result->fetch());
     }
 
     function get_1MembreByEmail($eMailMemb){
         global $db;
 
-        // select
-        // prepare
-        // execute
-        return($result->fetch());
+		$query = "SELECT * FROM MEMBRE WHERE eMailMemb = ?";
+		// prepare
+		$result = $db->prepare($query);
+		// execute
+		$result->execute([$eMailMemb]);
+		return($result->fetch());
     }
 
     function get_AllMembres(){
         global $db;
 
-        // select
-        // prepare
-        // execute
+		// select
+		$query = 'SELECT * FROM MEMBRE;';
+		// prepare
+		$result = $db->query($query);
+		// execute
+		$allMembres = $result->fetchAll();
+		
         return($allMembres);
     }
 
