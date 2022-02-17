@@ -17,8 +17,21 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Article
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
+$monArticle = new ARTICLE();
+
+// Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+
+// Instanciation de la classe angle
+$monAngle = new ANGLE();
+
+// Insertion classe Thematique
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+// Instanciation de la classe MotCle
+$maThematique = new THEMATIQUE();
 
 
 ?>
@@ -64,25 +77,26 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
     <tbody>
 <?php
     // Appel méthode : Get tous les articles en BDD
-
+    $allArticles = $monArticle->get_AllArticles();
     // Boucle pour afficher
+    for($i =0; $i < count($allArticles); $i++){
     //foreach($all as $row) {
 
 ?>
         <tr>
-		<td><h4>&nbsp; <?= "ici numArt"; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $allArticles[$i]['numArt']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= "ici dtCreArt"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allArticles[$i]['dtCreArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici libTitrArt"; ?> &nbsp;</td>
+        <td>&nbsp; <?=  $allArticles[$i]['libTitrArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici libChapoArt"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allArticles[$i]['libChapoArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici libAccrochArt"; ?> &nbsp;</td>
+        <td>&nbsp; <?=  $allArticles[$i]['libAccrochArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici libAngl"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $monAngle->get_1Angle($allArticles[$i]['numAngl'])['libAngl'] ; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici libThem"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $maThematique->get_1Thematique($allArticles[$i]['numThem'])['libThem']; ?> &nbsp;</td>
 
 		<td>&nbsp;&nbsp;<a href="./updateArticle.php?id=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier article" title="Modifier article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
@@ -90,7 +104,7 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
 		<br /></td>
         </tr>
 <?php
-	// }	// End of foreach
+	 }	// End of foreach
 ?>
     </tbody>
     </table>
