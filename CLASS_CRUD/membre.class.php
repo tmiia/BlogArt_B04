@@ -95,23 +95,26 @@ class MEMBRE{
     }
 
     // Inscription membre
-    function create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $accordMemb, $idStat){
+    function create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $accordMemb, $idStat){
         global $db;
 
-        try {
-            $db->beginTransaction();
+		try {
+			$db->beginTransaction();
 
-            // insert
-            // prepare
-            // execute
-            $db->commit();
-            $request->closeCursor();
-        }
-        catch (PDOException $e) {
-            $db->rollBack();
-            $request->closeCursor();
-            die('Erreur insert MEMBRE : ' . $e->getMessage());
-        }
+			// insert
+			$query = 'INSERT INTO MEMBRE (prenomMemb, nomMemb, pseudoMemb, passMemb, eMailMemb, dtCreaMemb, accordMemb, idStat) VALUES (?, ?, ?, ?, ?, NOW(), ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
+			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $accordMemb, $idStat]);
+			// execute
+			$db->commit();
+			$request->closeCursor();
+		}
+		catch (PDOException $e) {
+			$db->rollBack();	// DANS LE CAS OU CA PLANTE ON ENVOIE UNE ERREUR
+			$request->closeCursor();
+			die('Erreur insert STATUT : ' . $e->getMessage());
+		}
     }
 
     function update($numMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $idStat){
