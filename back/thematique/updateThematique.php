@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     // CLE PRIMAIRE
 
-                    $maThematique->update($clredlib, $clredlang, $numThem);
+                    $maThematique->update($numThem, $clredlib, $clredlang);
                     header("Location: ./thematique.php");
                 }
                 else{
