@@ -54,12 +54,17 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: ./createMembre.php");
     }   // End of if ((isset($_POST["submit"])) ...
         
-    if ( ((isset($_POST['prenomMemb'])) AND (!empty($_POST['prenomMemb']))
-    AND (isset($_POST['nomMemb'])) AND (!empty($_POST['nomMemb']))
-    AND (isset($_POST['pseudoMemb'])) AND (!empty($_POST['pseudoMemb']))
-    AND (isset($_POST['pass1Memb'])) AND (!empty($_POST['pass1Memb']))
-    AND (isset($_POST['eMail1Memb'])) AND (!empty($_POST['eMail1Memb']))
-    AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
+    if((isset($_POST['prenomMemb']) && !empty($_POST['prenomMemb'])) && 
+    (isset($_POST['nomMemb']) && !empty($_POST['nomMemb'])) && 
+    (isset($_POST['pass1Memb']) && !empty($_POST['pass1Memb'])) &&
+    (isset($_POST['pass2Memb']) && !empty($_POST['pass2Memb'])) && 
+    (isset($_POST['eMail1Memb']) && !empty($_POST['eMail1Memb'])) && 
+    (isset($_POST['eMail2Memb']) && !empty($_POST['eMail2Memb'])) && 
+    (isset($_POST['accordMemb']) && !empty($_POST['accordMemb'])) && 
+
+    (!empty($_POST['Submit'])) && ($Submit === "Valider")) {
+
+        if ((($_POST['eMail1Memb']) == ($_POST['eMail2Memb'])) && (($_POST['pass1Memb']) == ($_POST['pass2Memb']))){
             // Saisies valides
             $erreur = false;
     
@@ -78,10 +83,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             else{
                 $accordMemb = 0;
             }
-    
+
             $monMembre->create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $accordOk, $idStat);
     
             header("Location: ./membre.php");
+        }
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
