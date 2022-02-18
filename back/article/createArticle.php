@@ -22,8 +22,14 @@ include __DIR__ . '/initVar.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Article
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
+$monArticle = new ARTICLE();
+
+// Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+
 
 
 // Gestion des erreurs de saisie

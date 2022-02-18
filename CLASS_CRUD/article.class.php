@@ -8,8 +8,11 @@ class ARTICLE{
 		global $db;
 		
 		// select
+		$query = 'SELECT * FROM ARTICLE WHERE numArt = ?;';
 		// prepare
+		$result = $db->prepare($query);
 		// execute
+		$result->execute([$numArt]);
 		return($result->fetch());
 	}
 
@@ -25,9 +28,11 @@ class ARTICLE{
 	function get_AllArticles(){
 		global $db;
 
-		// select
+		$query = 'SELECT * FROM ARTICLE;';
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allArticles = $result->fetchAll();
 		return($allArticles);
 	}
 
@@ -52,10 +57,15 @@ class ARTICLE{
 	function get_NbAllArticlesByNumThem($numThem){
 		global $db;
 
-		// select
-		// prepare
-		// execute
-		return($allNbArticlesBynumThem);
+        // select
+        $sql = "SELECT * FROM ARTICLE WHERE numThem = ?";
+        // prepare
+        $req = $db->prepare($sql);
+        // execute
+        $req->execute([$numThem]);
+
+        $allNbArticlesBynumThem = $req->rowCount();
+ 		return($allNbArticlesBynumThem);
 	}
 
 	// Barre de recherche CONCAT : mots clés dans ARTICLE & THEMATIQUE

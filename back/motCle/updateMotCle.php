@@ -30,6 +30,9 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+
+    $idMot = $_POST['id'];
+
     // Opérateur ternaire
     // $Submit = isset($_POST['Submit']) ? $_POST['Submit'] : '';
 
@@ -40,10 +43,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $Submit = "";
     }
 
-    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
-    
-            header("Location: ./updateMotCle.php");
-    }   // End of if ((isset($_POST["submit"])) ...
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateMotCle.php?id=$idMot");
+        $_POST['$libelle'];
+    }
         
     if (((isset($_POST['libMotCle'])) AND (!empty($_POST['libMotCle']))
         AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {

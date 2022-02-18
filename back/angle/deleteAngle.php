@@ -139,7 +139,12 @@ include __DIR__ . '/initAngle.php';
             <!-- Listbox langue => 2ème temps -->
 
             <select name="Langue" id="Langue"  class="form-control form-control-create">
+<<<<<<< HEAD
             <option value="-1"><?php var_dump($maLangue->get_1LangueByPays($id)) ?> </option>
+=======
+                <option value="-1"><?php echo($monAngle->get_1LangByAngle($numAngl)['lib1Lang']) ?></option>
+
+>>>>>>> 00be2cb35f57fd6ae16a02adb2c1b880835b9806
             </select>
 
             

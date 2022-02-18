@@ -20,14 +20,24 @@ class ANGLE{
 		global $db;
 
 		// select
-		$query = "SELECT libAngl FROM LANGUE INNER JOIN ANGLE ON LANGUE.numLang = ?";
+		$query = 'SELECT libAngl FROM ANGLE INNER JOIN LANGUE ON LANGUE.numLang = ANGLE.numLang WHERE LANGUE.numLang = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
 		$result->execute([$numAngl]);
 		return($result->fetch());
 	}
+	
+	function get_1LangByAngle($numAngl){
+		global $db;
+		$query = 'SELECT lib1Lang FROM LANGUE INNER JOIN ANGLE ON LANGUE.numLang = ANGLE.numLang WHERE numAngl = ?;';
+		// prepare
+		$result = $db->prepare($query);
+		// execute
+		$result->execute([$numAngl]);
+		return($result->fetch());
 
+	}
 	function get_AllAngles() {
 		global $db;
 
@@ -40,16 +50,23 @@ class ANGLE{
 		return($allAngles);
 	}
 
-	function get_AllAnglesByLang() {
+	function get_AllAnglesByLang($numLang) {
 		global $db;
 
 		// select
-		$sql = "SELECT * FROM ANGLE INNER JOIN LANGUE ON ANGLE.numAngl = LANGUE.numLang"; //peut etre pas ça
-		// prepare
-		$req = $db->query($sql);
+		$sql = "SELECT libAngl FROM ANGLE INNER JOIN LANGUE ON LANGUE.numLang = ANGLE.numLang WHERE LANGUE.numLang = 'FRAN01';"; //peut etre pas ça
+		
+		$req = $db->prepare($sql);
 		// execute
+		$req->execute([$numLang]);
 		$allAnglesByLang = $req->fetchAll();
 		return($allAnglesByLang);
+
+		// prepare
+		// $req = $db->query($sql);
+		// // execute
+		// $allAnglesByLang = $req->fetchAll();
+		// return($allAnglesByLang);
 	}
 
 	function get_NbAllAnglesBynumLang(string $numLang) {
@@ -160,18 +177,18 @@ class ANGLE{
 		}
 	}
 
-	function update(string $numAngl, string $libAngl, string $numLang){
+	function update($libAngl, $numLang, string $numAngl){
 		global $db;
 
 		try {
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE STATUT SET libAngl = ? WHERE numAngl = $numAngl;";
+			$query = 'UPDATE ANGLE SET libAngl = ?, numLang = ? WHERE numAngl = ?;';
 			// prepare
 			$request = $db->prepare($query);
 			// execute
-			$request->execute([$numAngl, $libAngl, $numLang]);
+			$request->execute([$libAngl, $numLang, $numAngl]);
 
 			$db->commit();
 			$request->closeCursor();

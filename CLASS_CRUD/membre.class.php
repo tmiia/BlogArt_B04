@@ -7,28 +7,33 @@ require_once __DIR__ . '../../CONNECT/database.php';
 class MEMBRE{
     function get_1Membre($numMemb){
         global $db;
-
-        // select
-        // prepare
-        // execute
-        return($result->fetch());
+		$query = "SELECT * FROM MEMBRE WHERE numMemb = ?";
+		$result = $db->prepare($query);
+		$result->execute([$numMemb]);
+		return($result->fetch());
     }
 
     function get_1MembreByEmail($eMailMemb){
         global $db;
 
-        // select
-        // prepare
-        // execute
-        return($result->fetch());
+		$query = "SELECT * FROM MEMBRE WHERE eMailMemb = ?";
+		// prepare
+		$result = $db->prepare($query);
+		// execute
+		$result->execute([$eMailMemb]);
+		return($result->fetch());
     }
 
     function get_AllMembres(){
         global $db;
 
-        // select
-        // prepare
-        // execute
+		// select
+		$query = 'SELECT * FROM MEMBRE;';
+		// prepare
+		$result = $db->query($query);
+		// execute
+		$allMembres = $result->fetchAll();
+		
         return($allMembres);
     }
 
@@ -68,6 +73,18 @@ class MEMBRE{
         return($allNbMembersByStat);
     }
 
+    function get_1MembrebyStatut($numMemb){
+		global $db;
+
+		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		$query = "SELECT libStat FROM STATUT INNER JOIN MEMBRE ON STATUT.idStat = ?";
+		// prepare
+		$result = $db->prepare($query);
+		// execute
+		$result->execute([$numMemb]);
+		return($result->fetch());
+	}
+
     function get_AllMembresByEmail($eMailMemb){
         global $db;
 
@@ -78,37 +95,56 @@ class MEMBRE{
     }
 
     // Inscription membre
-    function create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $dtCreaMemb, $accordMemb, $idStat){
+    function create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $accordMemb, $idStat){
         global $db;
 
-        try {
-            $db->beginTransaction();
+		try {
+			$db->beginTransaction();
 
-            // insert
-            // prepare
-            // execute
-            $db->commit();
-            $request->closeCursor();
-        }
-        catch (PDOException $e) {
-            $db->rollBack();
-            $request->closeCursor();
-            die('Erreur insert MEMBRE : ' . $e->getMessage());
-        }
+			// insert
+			$query = 'INSERT INTO MEMBRE (prenomMemb, nomMemb, pseudoMemb, passMemb, eMailMemb, dtCreaMemb, accordMemb, idStat) VALUES (?, ?, ?, ?, ?, NOW(), ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
+			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $accordMemb, $idStat]);
+			// execute
+			$db->commit();
+			$request->closeCursor();
+		}
+		catch (PDOException $e) {
+			$db->rollBack();	// DANS LE CAS OU CA PLANTE ON ENVOIE UNE ERREUR
+			$request->closeCursor();
+			die('Erreur insert STATUT : ' . $e->getMessage());
+		}
     }
 
-    function update($numMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $idStat){
+    function update($prenomMemb, $nomMemb, $eMailMemb, $passMemb, $idStat, $numMemb){
         global $db;
 
         try {
             $db->beginTransaction();
             
+            if ($passMemb == -1) { //request 1: le mdp n'a pas été modifié
             // update
-            // prepare
-            // execute
+			$query = 'UPDATE MEMBRE SET prenomMemb = ?, nomMemb = ?, eMailMemb = ?, passMemb = ?, idStat = ? WHERE numMemb = ?;';
+			// prepare
+			$request1 = $db->prepare($query);
+			// execute
+			$request1->execute([$prenomMemb, $nomMemb, $eMailMemb, $passMemb, $idStat, $numMemb]);
+                $db->commit();
+                $request1->closeCursor();
+            }
+            else { //request 2: le mdp a été modifié
+            // update
+			$query = 'UPDATE MEMBRE SET prenomMemb = ?, nomMemb = ?, passMemb = ?, eMailMemb = ?, idStat = ? WHERE numMemb = ?;';
+			// prepare
+			$request2 = $db->prepare($query);
+			// execute
+			$request2->execute([$prenomMemb, $nomMemb, $passMemb, $eMailMemb, $idStat, $numMemb]);
                 $db->commit();
                 $request2->closeCursor();
             }
+        }
+
         catch (PDOException $e) {
             $db->rollBack();
             if ($passMemb == -1) {
@@ -125,20 +161,24 @@ class MEMBRE{
         global $db;
         
         try {
-            $db->beginTransaction();
+			$db->beginTransaction();
 
-            // delete
-            // prepare
-            // execute
-            $count = $request->rowCount();
-            $db->commit();
-            $request->closeCursor();
-            return($count);
-        }
-        catch (PDOException $e) {
-            $db->rollBack();
-            $request->closeCursor();
-            die('Erreur delete MEMBRE : ' . $e->getMessage());
-        }
+			// insert
+			$query = 'DELETE FROM MEMBRE WHERE numMemb=?'; 
+			// prepare
+			$request = $db->prepare($query);
+			// execute
+			$request->execute([$numMemb]);
+
+			$count = $request->rowCount(); 
+			$db->commit();
+			$request->closeCursor();
+			return($count); 
+		}
+		catch (PDOException $e) {
+			$db->rollBack();
+			$request->closeCursor();
+			die('Erreur delete STATUT : ' . $e->getMessage());
+		}
     }
 }    // End of class

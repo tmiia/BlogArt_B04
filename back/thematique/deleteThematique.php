@@ -14,16 +14,19 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Thematique
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+// Instanciation de la classe MotCle
+$maThematique = new THEMATIQUE();
 
-// Instanciation de la classe thématique
-
-
-
-
-// Ctrl CIR
 // Insertion classe Article
-
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 // Instanciation de la classe Article
+$monArticle = new ARTICLE();
+
+// Insertion classe langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+// Instanciation de la classe langue
+$maLangue = new LANGUE();
 
 
 // BBCode
@@ -31,21 +34,32 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+        
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./thematique.php");
+    }
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+        
+        $nbThemArt = $monArticle->get_NbAllArticlesByNumThem($_POST["id"]);
 
-    // controle CIR
-
-    // delete effective du user
-
-
-
-
-
-
-
-
-
+        if ($nbThemArt < 1) {
+            
+                $maThematique->delete($_POST["id"]);
+                header("Location: ./thematique.php");
+            } 
+            else {
+                header("Location: thematique.php?errCIR=1");
+        }
+    }
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
@@ -84,9 +98,18 @@ include __DIR__ . '/initThematique.php';
     // Supp : récup id à supprimer
     // id passé en GET
 
+    if (isset($_GET['id']) and $_GET['id'] != " ") {
 
+        $id = ctrlSaisies(($_GET['id']));
 
+        $query = (array)$maThematique->get_1Thematique($id);
 
+        if ($query) {
+            $libThem = $query['libThem'];
+            $numThem = $query['numThem']; 
+            $numLang = $query['numLang']; 
+        }   
+    }
 
 ?>
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -110,11 +133,19 @@ include __DIR__ . '/initThematique.php';
 
         <div class="control-group">
             <label class="control-label" for="LibTypLang"><b>Langue :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idLang" name="idLang" value="<?= isset($_GET['idLang']) ? $_GET['idLang'] : '' ?>" />
-
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $idLang; ?>" autocomplete="on" />
-
+                <input type="hidden" id="numLang" name="idLang" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+                
                 <!-- Listbox langue disabled => 2ème temps -->
+
+                <select name="Langue" id="Langue"  class="form-control form-control-create">
+
+                <?php
+                $oneLang = $maLangue->get_1Langue($numLang);
+                
+                ?>
+                
+                <option value="<?php echo($oneLang['numLang']) ?>"> <?php echo($oneLang['lib1Lang']); ?> </option>
+            </select>
 
         </div>
     <!-- FIN Listbox langue -->

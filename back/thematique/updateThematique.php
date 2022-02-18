@@ -16,9 +16,17 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Thematique
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
 
 // Instanciation de la classe Thematique
+$maThematique = new THEMATIQUE();
 
+
+// Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+
+// Instanciation de la classe Langue
+$maLangue = new LANGUE();
 
 
 // BBCode
@@ -30,23 +38,60 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    
+    $idThem = $_POST['id'];
 
 
-    // controle des saisies du formulaire
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    // ON VEUT REINITIALISER LA VALEUR
+
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateThematique.php?id=$idThem");
+        $_POST['$libelle'];
+    }
+
+    // ON VEUT VALIDER LA MODIFICATION
+
+    elseif($_POST['Submit'] == 'Valider'){
+        
+        if(isset($_POST['id'])){ 
+            
+            if(!empty($_POST['id'])){
+
+                if((isset($_POST['libThem']) && !empty($_POST['libThem']))){
+                    $numThem = ctrlSaisies($_POST['id']);
+                    $clredlib = ctrlSaisies($_POST['libThem']);
+                    $clredlang = ctrlSaisies($_POST['Langue']);
+            
+
+                    // CLE PRIMAIRE
+
+                    $maThematique->update($numThem, $clredlib, $clredlang);
+                    header("Location: ./thematique.php");
+                }
+                else{
+                    header("Location: updateThematique.php?id=$idThem&err=empty");
+                }
+            }
+            else{
+                $erreur = "Erreur";
+            }
+        }
+        else{
+            $erreur = "Erreur";
+        }
+    }
+}
     // modification effective de la thématique
 
-
-
     // Gestion des erreurs => msg si saisies ko
+   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 
-
-
-
-
-
-
-}   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
 include __DIR__ . '/initThematique.php';
 ?>
@@ -66,11 +111,22 @@ include __DIR__ . '/initThematique.php';
     <h2>Modification d'une Thematique</h2>
 <?php
     // Modif : récup id à modifier
+
+    if (isset($_GET['id']) and $_GET['id'] != '') {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$maThematique->get_1Thematique($id);
+
+        if ($query) {
+            $libThem = $query['libThem'];
+            $numThem = $query['numThem'];
+            $numLang = $query['numLang'];
+        }   // Fin if ($query)
+
+    }
+
     // id passé en GET
-
-
-
-
 
 
 
@@ -94,11 +150,26 @@ include __DIR__ . '/initThematique.php';
     <!-- Listbox langue -->
         <div class="control-group">
             <label class="control-label" for="LibTypLang"><b>Langue :&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="hidden" id="idLang" name="idLang" value="<?= isset($_GET['idLang']) ? $_GET['idLang'] : '' ?>" />
+                <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numLang; ?>" autocomplete="on" />
+                <!-- Listbox pays => 2ème temps -->
 
-                <!-- Listbox langue => 2ème temps -->
+            <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <option value="-1"><?php $oneLang = $maLangue->get_1Langue($numLang); echo($oneLang['lib1Lang']); ?></option>
+                <?php
+                $result = $maLangue->get_AllLangues();
+                
+                if($result){
+                for ($i=1; $i < count($result); $i++){
+                    $value = $result[$i]['numLang'];
+                ?>
+                
+                <option value="<?= $value?>"> <?= $result[$i]['lib1Lang']; ?> </option>
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
         </div>
     <!-- FIN Listbox langue -->

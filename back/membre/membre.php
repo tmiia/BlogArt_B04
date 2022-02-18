@@ -17,9 +17,16 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Membre
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 
 // Instanciation de la classe Membre
+$monMembre = new MEMBRE();
 
+// Insertion classe Statut
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+
+// Instanciation de la classe Statut
+$monStatut = new STATUT();
 
 //  trl CIR
 $errCIR = 0;
@@ -83,8 +90,9 @@ $errDel = 0;
     $to = 'd/m/Y H:i:s';
 
     // Appel méthode : Get toutes les membres en BDD
-
-    // Boucle pour afficher
+    $allMembres = $monMembre->get_AllMembres();
+    $allStatuts = $monStatut->get_AllStatuts();
+    for($i = 1; $i < count($allMembres); $i++){
     //foreach($all as $row) {
 
 
@@ -93,28 +101,30 @@ $errDel = 0;
             // $dtCreaMemb = dateChangeFormat($dtCreaMemb, $from, $to);
 ?>
             <tr>
-            <td><h4>&nbsp; <?= "ici numMemb"; ?> &nbsp;</h4></td>
+            <td><h4>&nbsp; <?= $allMembres[$i]['numMemb']; ?> &nbsp;</h4></td>
 
-            <td>&nbsp; <?= "ici prenomMemb" . " " . "ici nomMemb"; ?> &nbsp;</td>
+            <td>&nbsp; <?= $allMembres[$i]['prenomMemb'] . " " . $allMembres[$i]['nomMemb']; ?> &nbsp;</td>
 
-            <td>&nbsp; <?= "ici pseudoMemb"; ?> &nbsp;</td>
+            <td>&nbsp; <?= $allMembres[$i]['pseudoMemb']; ?> &nbsp;</td>
 
-            <td>&nbsp; <?= "ici eMailMemb"; ?> &nbsp;</td>
+            <td>&nbsp; <?= $allMembres[$i]['eMailMemb']; ?> &nbsp;</td>
 
-            <td>&nbsp; <?= "ici dtCreaMemb" ; ?> &nbsp;</td>
+            <td>&nbsp; <?= $allMembres[$i]['dtCreaMemb'];?> &nbsp;</td>
 
-            <td>&nbsp; <?= "ici accordMemb"; ?> &nbsp;</td>
+            <td>&nbsp; <?= "connexion auto"; ?> &nbsp;</td>
 
-            <td>&nbsp; <?= "ici libStat"; ?> &nbsp;</td>
+            <td>&nbsp; <?= $allMembres[$i]['accordMemb']; ?> &nbsp;</td>
 
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateMembre.php?id=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier membre" title="Modifier membre" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>&nbsp; <?= $monMembre->get_1MembrebyStatut($allMembres[$i]['idStat'])[0]; ?> &nbsp;</td>
+
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateMembre.php?id=<?=$allMembres[$i]['numMemb']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier membre" title="Modifier membre" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br /></td>
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteMembre.php?id=<?=1; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer membre" title="Supprimer membre" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteMembre.php?id=<?=$allMembres[$i]['numMemb']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer membre" title="Supprimer membre" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br /></td>
             </tr>
 <?php
 
-	// }	// End of foreach
+ }	// End of foreach
 ?>
     </tbody>
     </table>
