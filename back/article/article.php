@@ -78,6 +78,7 @@ $maThematique = new THEMATIQUE();
 <?php
     // Appel méthode : Get tous les articles en BDD
     $allArticles = $monArticle->get_AllArticles();
+    
     // Boucle pour afficher
     for($i =0; $i < count($allArticles); $i++){
     //foreach($all as $row) {
@@ -98,9 +99,9 @@ $maThematique = new THEMATIQUE();
 
         <td>&nbsp; <?= $maThematique->get_1Thematique($allArticles[$i]['numThem'])['libThem']; ?> &nbsp;</td>
 
-		<td>&nbsp;&nbsp;<a href="./updateArticle.php?id=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier article" title="Modifier article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;<a href="./updateArticle.php?id=<?=$allArticles[$i]['numArt']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier article" title="Modifier article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;<a href="./deleteArticle.php?id=<?=1; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer article" title="Supprimer article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;<a href="./deleteArticle.php?id=<?=$allArticles[$i]['numArt']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer article" title="Supprimer article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
         </tr>
 <?php

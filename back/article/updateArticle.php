@@ -26,19 +26,34 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Article
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
-
+$monArticle = new ARTICLE();
 
 // Insertion classe MotCleArticle
+require_once __DIR__ . '/../../CLASS_CRUD/motclearticle.class.php';
 
 // Instanciation de la classe MotCleArticle
-
+$monMotCleArticle = new MOTCLEARTICLE();
 
 // Insertion classe MotCle
+require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
 
 // Instanciation de la classe MotCle
+$monMotCle = new MOTCLE();
 
+// Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+
+// Instanciation de la classe langue
+$maLangue = new LANGUE();
+
+// Insertion classe Angle
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+
+// Instanciation de la classe angle
+$monAngle = new ANGLE();
 
 
 // Gestion des erreurs de saisie
@@ -50,24 +65,74 @@ $targetDir = TARGET;
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    
+    $numArt = $_POST['id'];
+
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+
+    } else {
+        $Submit = "";
+    }
+    // ON VEUT REINITIALISER LA VALEUR
+
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateArticle.php?id=$numArt");
+        $_POST['$libelle']; // jsp ce que c'est donc maybe à changer
+    }
 
 
+    // ON VEUT VALIDER LA MODIFICATION
 
-    // controle des saisies du formulaire
+    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    
+        header("Location: ./createArticle.php");
+    }   // End of if ((isset($_POST["submit"])) ...
+    
+    if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt'])) AND ((isset($_POST['dtCreArt'])) AND !empty($_POST['dtCreArt'])) 
+            AND ((isset($_POST['libChapoArt'])) AND !empty($_POST['libChapoArt'])) AND ((isset($_POST['libAccrochArt'])) 
+            AND !empty($_POST['libAccrochArt'])) AND ((isset($_POST['parag1Art'])) AND !empty($_POST['parag1Art'])) 
+            AND ((isset($_POST['libSsTitr1Art'])) AND !empty($_POST['libSsTitr1Art'])) AND ((isset($_POST['parag2Art'])) 
+            AND !empty($_POST['parag2Art'])) AND ((isset($_POST['libSsTitr2Art'])) AND !empty($_POST['libSsTitr2Art'])) 
+            AND ((isset($_POST['parag3Art'])) AND !empty($_POST['parag3Art'])) AND ((isset($_POST['libConclArt'])) 
+            AND !empty($_POST['libConclArt'])) AND  (!empty($_POST['Submit']) AND ($Submit === "Valider"))){
+            // Saisies valides
+            $erreur = false;
 
-    // modification effective du article
+            $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
+            $dtCreArt = ctrlSaisies(($_POST['dtCreArt']));
+            $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));
+            $parag1Art = ctrlSaisies(($_POST['parag1Art']));
+            $libSsTitr1Art = ctrlSaisies(($_POST['libSsTitr1Art']));
+            $libSsTitr2Art = ctrlSaisies(($_POST['libSsTitr2Art']));
+            $parag2Art = ctrlSaisies(($_POST['parag2Art']));
+            $parag3Art = ctrlSaisies(($_POST['parag3Art']));
+            $libConclArt = ctrlSaisies(($_POST['libConclArt']));
+            
+            $langue = ctrlSaisies($_POST['Langue']);
+            $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
+            $numAngl = ctrlSaisies(($_POST['numAngl']));
+            $numThem = ctrlSaisies(($_POST['numThem']));
 
+           
 
+            require_once './ctrlerUploadImage.php';
+    
+            $monArticle->create($dtCreArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem);
+
+            header("Location: ./article.php");
+        }   // Fin if ((isset($_POST['']))
+        else {
+            // Saisies invalides
+            $erreur = true;
+            $errSaisies =  "Erreur, la saisie est obligatoire !";
+        }   
 
     // Gestion des erreurs => msg si saisies ko
 
 
-    // Traitnemnt : upload image => Chnager image
-    // Nom image à la volée
 
-
-
-
+    // Traitnemnt : upload image => Nom image à la volée
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
@@ -94,10 +159,37 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
     <h1>BLOGART22 Admin - CRUD Article</h1>
     <h2>Modification d'un article</h2>
 <?php
+
+
     // Modif : récup id à modifier
+
+    if (isset($_GET['id']) and $_GET['id'] != '') {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monArticle->get_1Article($id);
+
+        if ($query) {
+            $numArt = $query['numArt'];
+            $libTitrArt = $query['libTitrArt'];
+            $dtCreArt = $query['dtCreArt'];
+            $libChapoArt = $query['libChapoArt'];
+            $parag1Art = $query['parag1Art'];
+            $libSsTitr1Art = $query['libSsTitr1Art'];
+            $libSsTitr2Art = $query['libSsTitr2Art'];
+            $parag2Art = $query['parag2Art'];
+            $parag3Art = $query['parag3Art'];
+            $libConclArt = $query['libConclArt'];
+            $urlPhotArt = $query['urlPhotArt'];
+            $numAngl = $query['numAngl'];
+            $numThem = $query['numThem'];
+            $langue = $query['Langue'];
+        } 
+        
+       }
+
+
     // id passé en GET
-
-
 
 
 
@@ -220,9 +312,26 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
                 </label>
 
 
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numAngl; ?>" autocomplete="on" />
 
                 <!-- Listbox langue => 2ème temps -->
+
+                <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <option value="-1"></option>
+                <?php
+                $allLangueAngle = $monAngle->get_AllLangues();
+                
+                if($allLangueAngle){
+                for ($i=0; $i < count($allLangueAngle); $i++){
+                    $value = $allLangueAngle[$i]['langue'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?=$allLangueAngle[$i]['lib2Lang']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
             </div>
         </div>
