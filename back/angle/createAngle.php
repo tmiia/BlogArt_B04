@@ -46,26 +46,26 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
         header("Location: ./createAngle.php");
-}   // End of if ((isset($_POST["submit"])) ...
+    }   // End of if ((isset($_POST["submit"])) ...
     
-if (((isset($_POST['libAngl'])) AND !empty($_POST['libAngl']))
-        AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
-        // Saisies valides
-        $erreur = false;
+    if (((isset($_POST['libAngl'])) AND !empty($_POST['libAngl']))
+            AND (!empty($_POST['Submit']) AND ($Submit === "Valider"))) {
+            // Saisies valides
+            $erreur = false;
 
-        $libAngl = ctrlSaisies(($_POST['libAngl']));
-        $numLang = $_POST['Langue'];
-        $numAngl = $monAngle->getNextNumAngl($numLang);
+            $libAngl = ctrlSaisies(($_POST['libAngl']));
+            $numLang = $_POST['Langue'];
+            $numAngl = $monAngle->getNextNumAngl($numLang);
 
-        $monAngle->create($numAngl, $libAngl, $numLang);
+            $monAngle->create($numAngl, $libAngl, $numLang);
 
-        header("Location: ./angle.php");
-    }   // Fin if ((isset($_POST['lib1Lang']))
-    else {
-        // Saisies invalides
-        $erreur = true;
-        $errSaisies =  "Erreur, la saisie est obligatoire !";
-    }   
+            header("Location: ./angle.php");
+        }   // Fin if ((isset($_POST['lib1Lang']))
+        else {
+            // Saisies invalides
+            $erreur = true;
+            $errSaisies =  "Erreur, la saisie est obligatoire !";
+        }   
 }  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
 include __DIR__ . '/initAngle.php';

@@ -54,7 +54,7 @@ class ANGLE{
 		global $db;
 
 		// select
-		$sql = "SELECT libAngl FROM ANGLE INNER JOIN LANGUE ON LANGUE.numLang = ANGLE.numLang WHERE LANGUE.numLang = 'FRAN01';"; //peut etre pas ça
+		$sql = 'SELECT libAngl FROM ANGLE INNER JOIN LANGUE ON LANGUE.numLang = ANGLE.numLang WHERE LANGUE.numLang = ?;'; //peut etre pas ça
 		
 		$req = $db->prepare($sql);
 		// execute

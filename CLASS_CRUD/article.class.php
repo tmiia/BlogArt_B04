@@ -133,8 +133,10 @@ class ARTICLE{
 		try {
 			$db->beginTransaction();
 
-			// insert
+			$query = 'INSERT INTO ANGLE (dtCreArt, libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, libConclArt, urlPhotArt, numAngl, numThem) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$dtCreArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem]);
 			// execute
 			$db->commit();
 			$request->closeCursor();

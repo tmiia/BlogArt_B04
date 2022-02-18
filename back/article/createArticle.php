@@ -13,10 +13,6 @@
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
-// Init constantes
-include __DIR__ . '/initConst.php';
-// Init variables
-include __DIR__ . '/initVar.php';
 
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
@@ -27,8 +23,21 @@ require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
 
-// Insertion classe Langue
+// Insertion classe Angle
 require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+
+// Instanciation de la classe angle
+$monAngle = new ANGLE();
+
+// Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+
+// Instanciation de la classe langue
+$maLangue = new LANGUE();
+
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+// Instanciation de la classe MotCle
+$maThematique = new THEMATIQUE();
 
 
 
@@ -38,14 +47,64 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    $id = $_POST['id'];
+
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
+    // ON VEUT REINITIALISER LA VALEUR
+
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateAngle.php?id=$numAngl");
+        $_POST['$libelle']; // jsp ce que c'est donc maybe à changer
+    }
 
 
+    // ON VEUT VALIDER LA MODIFICATION
 
-    // controle des saisies du formulaire
+    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    
+        header("Location: ./createArticle.php");
+    }   // End of if ((isset($_POST["submit"])) ...
+    
+    if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt'])) AND ((isset($_POST['dtCreArt'])) AND !empty($_POST['dtCreArt'])) 
+            AND ((isset($_POST['libChapoArt'])) AND !empty($_POST['libChapoArt'])) AND ((isset($_POST['libAccrochArt'])) 
+            AND !empty($_POST['libAccrochArt'])) AND ((isset($_POST['parag1Art'])) AND !empty($_POST['parag1Art'])) 
+            AND ((isset($_POST['libSsTitr1Art'])) AND !empty($_POST['libSsTitr1Art'])) AND ((isset($_POST['parag2Art'])) 
+            AND !empty($_POST['parag2Art'])) AND ((isset($_POST['libSsTitr2Art'])) AND !empty($_POST['libSsTitr2Art'])) 
+            AND ((isset($_POST['parag3Art'])) AND !empty($_POST['parag3Art'])) AND ((isset($_POST['libConclArt'])) 
+            AND !empty($_POST['libConclArt'])) AND  (!empty($_POST['Submit']) AND ($Submit === "Valider"))){
+            // Saisies valides
+            $erreur = false;
 
-    // création effective de l'article
+            $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
+            $dtCreArt = ctrlSaisies(($_POST['dtCreArt']));
+            $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));
+            $parag1Art = ctrlSaisies(($_POST['parag1Art']));
+            $libSsTitr1Art = ctrlSaisies(($_POST['libSsTitr1Art']));
+            $libSsTitr2Art = ctrlSaisies(($_POST['libSsTitr2Art']));
+            $parag2Art = ctrlSaisies(($_POST['parag2Art']));
+            $parag3Art = ctrlSaisies(($_POST['parag3Art']));
+            $libConclArt = ctrlSaisies(($_POST['libConclArt']));
+            
+            $langue = ctrlSaisies($_POST['Langue']);
+            $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
+            $numAngl = ctrlSaisies(($_POST['numAngl']));
+            $numThem = ctrlSaisies(($_POST['numThem']));
 
+            require_once './ctrlerUploadImage.php';
+    
+            $monArticle->create($dtCreArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem);
 
+            header("Location: ./article.php");
+        }   // Fin if ((isset($_POST['']))
+        else {
+            // Saisies invalides
+            $erreur = true;
+            $errSaisies =  "Erreur, la saisie est obligatoire !";
+        }   
 
     // Gestion des erreurs => msg si saisies ko
 
@@ -87,70 +146,70 @@ include __DIR__ . '/initArticle.php';
         <div class="control-group">
             <label class="control-label" for="libTitrArt"><b>Titre :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <input type="text" name="libTitrArt" id="libTitrArt" size="100" maxlength="100" value="<? if(isset($_GET['id'])) echo $_POST['libTitrArt']; ?>" tabindex="10" placeholder="Sur 100 car." autofocus="autofocus" />
+                <input type="text" name="libTitrArt" id="libTitrArt" size="100" maxlength="100" value="<?php if(isset($_GET['id'])) echo $_POST['libTitrArt']; ?>" tabindex="10" placeholder="Sur 100 car." autofocus="autofocus" />
             </div>
         </div>
         <br>
         <div class="control-group">
             <div class="controls">
             <label class="control-label" for="DtCreA"><b>Date de création :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                <input type="datetime-local" name="dtCreArt" id="dtCreArt" value="<? if(isset($_GET['id'])) echo $_POST['dtCreArt']; ?>" tabindex="20" placeholder="" />
+                <input type="datetime-local" name="dtCreArt" id="dtCreArt" value="<?php if(isset($_GET['id'])) echo $_POST['dtCreArt']; ?>" tabindex="20" placeholder="" />
             </div>
         </div>
         <br>
         <div class="control-group">
             <label class="control-label" for="libChapoArt"><b>Chapeau :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <textarea name="libChapoArt" id="libChapoArt" rows="10" cols="100" value="<? if(isset($_GET['id'])) echo $_POST['libChapoArt']; else echo $libChapoArt; ?>" tabindex="30" placeholder="Décrivez le chapeau. Sur 500 car." ></textarea>
+                <textarea name="libChapoArt" id="libChapoArt" rows="10" cols="100" value="<?php if(isset($_GET['id'])) echo $_POST['libChapoArt']; else echo $libChapoArt; ?>" tabindex="30" placeholder="Décrivez le chapeau. Sur 500 car." ></textarea>
             </div>
         </div>
         <br>
         <div class="control-group">
             <label class="control-label" for="libAccrochArt"><b>Accroche paragraphe 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <input type="text" name="libAccrochArt" id="libAccrochArt" size="100" maxlength="100" value="<? if(isset($_GET['id'])) echo $_POST['libAccrochArt']; else echo $libAccrochArt; ?>" tabindex="40" placeholder="Sur 100 car." />
+                <input type="text" name="libAccrochArt" id="libAccrochArt" size="100" maxlength="100" value="<?php if(isset($_GET['id'])) echo $_POST['libAccrochArt']; else echo $libAccrochArt; ?>" tabindex="40" placeholder="Sur 100 car." />
             </div>
         </div>
         <br>
         <div class="control-group">
             <label class="control-label" for="parag1Art"><b>Paragraphe 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <textarea name="parag1Art" id="parag1Art" rows="10" cols="100" value="<? if(isset($_GET['id'])) echo $_POST['parag1Art']; else echo $parag1Art; ?>" tabindex="50" placeholder="Décrivez le premier paragraphe. Sur 1200 car." ></textarea>
+                <textarea name="parag1Art" id="parag1Art" rows="10" cols="100" value="<?php if(isset($_GET['id'])) echo $_POST['parag1Art']; else echo $parag1Art; ?>" tabindex="50" placeholder="Décrivez le premier paragraphe. Sur 1200 car." ></textarea>
             </div>
         </div>
         <br>
         <div class="control-group">
             <label class="control-label" for="libSsTitr1Art"><b>Sous-titre 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>b></label>
             <div class="controls">
-                <input type="text" name="libSsTitr1Art" id="libSsTitr1Art" size="100" maxlength="100" value="<? if(isset($_GET['id'])) echo $_POST['libSsTitr1Art']; else echo $libSsTitr1Art; ?>" tabindex="60" placeholder="Sur 100 car." />
+                <input type="text" name="libSsTitr1Art" id="libSsTitr1Art" size="100" maxlength="100" value="<?php if(isset($_GET['id'])) echo $_POST['libSsTitr1Art']; else echo $libSsTitr1Art; ?>" tabindex="60" placeholder="Sur 100 car." />
             </div>
         </div>
         <br>
         <div class="control-group">
             <label class="control-label" for="parag2Art"><b>Paragraphe 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <textarea name="parag2Art" id="parag2Art" rows="10" cols="100" value="<? if(isset($_GET['id'])) echo $_POST['parag2Art']; else echo $parag2Art; ?>" tabindex="70" placeholder="Décrivez le deuxième paragraphe. Sur 1200 car." ></textarea>
+                <textarea name="parag2Art" id="parag2Art" rows="10" cols="100" value="<?php if(isset($_GET['id'])) echo $_POST['parag2Art']; else echo $parag2Art; ?>" tabindex="70" placeholder="Décrivez le deuxième paragraphe. Sur 1200 car." ></textarea>
             </div>
         </div>
         <br>
         <div class="control-group">
             <label class="control-label" for="libSsTitr2Art"><b>Sous-titre 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>b></label>
             <div class="controls">
-                <input type="text" name="libSsTitr2Art" id="libSsTitr2Art" size="100" maxlength="100" value="<? if(isset($_GET['id'])) echo $_POST['libSsTitr2Art']; else echo $libSsTitr2Art; ?>" tabindex="80" placeholder="Sur 100 car." />
+                <input type="text" name="libSsTitr2Art" id="libSsTitr2Art" size="100" maxlength="100" value="<?php if(isset($_GET['id'])) echo $_POST['libSsTitr2Art']; else echo $libSsTitr2Art; ?>" tabindex="80" placeholder="Sur 100 car." />
             </div>
         </div>
         <br>
         <div class="control-group">
             <label class="control-label" for="parag3Art"><b>Paragraphe 3 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <textarea name="parag3Art" id="parag3Art" rows="10" cols="100" value="<? if(isset($_GET['id'])) echo $_POST['parag3Art']; else echo $parag3Art; ?>" tabindex="90" placeholder="Décrivez le troisième paragraphe. Sur 1200 car." ></textarea>
+                <textarea name="parag3Art" id="parag3Art" rows="10" cols="100" value="<?php if(isset($_GET['id'])) echo $_POST['parag3Art']; else echo $parag3Art; ?>" tabindex="90" placeholder="Décrivez le troisième paragraphe. Sur 1200 car." ></textarea>
             </div>
         </div>
         <br>
         <div class="control-group">
             <label class="control-label" for="libConclArt"><b>Conclusion :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
-                <textarea name="libConclArt" id="libConclArt" rows="10" cols="100" value="<? if(isset($_GET['id'])) echo $_POST['libConclArt']; else echo $libConclArt; ?>" tabindex="100" placeholder="Décrivez la conclusion. Sur 800 car." ></textarea>
+                <textarea name="libConclArt" id="libConclArt" rows="10" cols="100" value="<?php if(isset($_GET['id'])) echo $_POST['libConclArt']; else echo $libConclArt; ?>" tabindex="100" placeholder="Décrivez la conclusion. Sur 800 car." ></textarea>
             </div>
         </div>
         <br>
@@ -158,7 +217,7 @@ include __DIR__ . '/initArticle.php';
             <label class="control-label" for="urlPhotArt"><b>Importez l'illustration :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
                 <input type="hidden" name="MAX_FILE_SIZE" value="<?= MAX_SIZE; ?>" />
-                <input type="file" name="monfichier" id="monfichier" required="required" accept=".jpg,.gif,.png,.jpeg" size="70" maxlength="70" value="<? if(isset($_GET['id'])) echo $_POST['urlPhotArt']; else echo $urlPhotArt; ?>" tabindex="110" placeholder="Sur 70 car." title="Recherchez l'image à uploader !" />
+                <input type="file" name="monfichier" id="monfichier" required="required" accept=".jpg,.gif,.png,.jpeg" size="70" maxlength="70" value="<?php if(isset($_GET['id'])) echo $_POST['urlPhotArt']; else echo $urlPhotArt; ?>" tabindex="110" placeholder="Sur 70 car." title="Recherchez l'image à uploader !" />
                 <p>
 <?php              // Gestion extension images acceptées
                   $msgImagesOK = "&nbsp;&nbsp;>> Extension des images acceptées : .jpg, .gif, .png, .jpeg" . "<br>" .
@@ -180,10 +239,26 @@ include __DIR__ . '/initArticle.php';
                 </label>
 
 
-
-                <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numAngl; ?>" autocomplete="on" />
-
                 <!-- Listbox langue => 2ème temps -->
+
+                <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez une langue - - -</option>
+                <?php
+                $allLangueAngle = $monAngle->get_AllLangues();
+                
+                if($allLangueAngle){
+                for ($i=0; $i < count($allLangueAngle); $i++){
+                    $value = $allLangueAngle[$i]['numLang'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?=$allLangueAngle[$i]['lib2Lang']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
+  
 
             </div>
         </div>
@@ -203,10 +278,25 @@ include __DIR__ . '/initArticle.php';
                     <b>Quel angle :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
                 </label>
 
-
-                <input type="text" name="idAngl" id="idAngl" size="5" maxlength="5" value="<?= $numAngl; ?>" autocomplete="on" />
-
                 <!-- Listbox angle => 2ème temps -->
+
+                <select name="angle" id="angle"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un angle - - -</option>
+                <?php
+                $allAngle = $monAngle->get_AllAnglesByLang($langue);
+                
+                if($allAngle){
+                for ($i=0; $i < count($allAngle); $i++){
+                    $value = $allAngle[$i]['numAngl'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $allAngle[$i]['libAngl']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
             </div>
         </div>
@@ -223,9 +313,25 @@ include __DIR__ . '/initArticle.php';
                 </label>
 
 
-                <input type="text" name="idThem" id="idThem" size="5" maxlength="5" value="<?= $numThem; ?>" autocomplete="on" />
-
                 <!-- Listbox thematique => 2ème temps -->
+
+                <select name="thematique" id="thematique"  class="form-control form-control-create">
+                    <option value="-1">- - - Choisissez une thématique - - -</option>
+                    <?php
+                    $allThem = $maThematique->get_AllThematiquesByLang($langue);
+                    
+                    if($allThem){
+                    for ($i=0; $i < count($allThem); $i++){
+                        $value = $allThem[$i]['numThem'];
+                    ?>
+                    
+                    <option value="<?php echo($value); ?>"> <?= $allThem[$i]['libThem']; ?> </option>
+                    
+                    <?php
+                        } // End of foreach
+                    }   // if ($result)
+                    ?>
+                </select>
 
             </div>
         </div>
