@@ -241,7 +241,7 @@ include __DIR__ . '/initArticle.php';
 
                 <!-- Listbox langue => 2ème temps -->
 
-                <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <select name="Langue" id="Langue"  class="form-control form-control-create" onchange="change()">
                 <option value="-1">- - - Choisissez une langue - - -</option>
                 <?php
                 $allLangueAngle = $monAngle->get_AllLangues();
@@ -281,22 +281,8 @@ include __DIR__ . '/initArticle.php';
                 <!-- Listbox angle => 2ème temps -->
 
                 <select name="angle" id="angle"  class="form-control form-control-create">
-                <option value="-1">- - - Choisissez un angle - - -</option>
-                <?php
-                $allAngle = $monAngle->get_AllAnglesByLang($langue);
-                
-                if($allAngle){
-                for ($i=0; $i < count($allAngle); $i++){
-                    $value = $allAngle[$i]['numAngl'];
-                ?>
-                
-                <option value="<?php echo($value); ?>"> <?= $allAngle[$i]['libAngl']; ?> </option>
-                
-                <?php
-                    } // End of foreach
-                }   // if ($result)
-                ?>
-            </select>
+                <option value='-1'>- - - Aucun - - -</option>
+                </select>
 
             </div>
         </div>
@@ -316,21 +302,7 @@ include __DIR__ . '/initArticle.php';
                 <!-- Listbox thematique => 2ème temps -->
 
                 <select name="thematique" id="thematique"  class="form-control form-control-create">
-                    <option value="-1">- - - Choisissez une thématique - - -</option>
-                    <?php
-                    $allThem = $maThematique->get_AllThematiquesByLang($langue);
-                    
-                    if($allThem){
-                    for ($i=0; $i < count($allThem); $i++){
-                        $value = $allThem[$i]['numThem'];
-                    ?>
-                    
-                    <option value="<?php echo($value); ?>"> <?= $allThem[$i]['libThem']; ?> </option>
-                    
-                    <?php
-                        } // End of foreach
-                    }   // if ($result)
-                    ?>
+                <option value='-1'>- - - Aucune - - -</option>
                 </select>
 
             </div>
@@ -390,6 +362,65 @@ include __DIR__ . '/initArticle.php';
 <!-- --------------------------------------------------------------- -->
 
     <!-- A faire dans un 3ème temps  -->
+
+     <!-- Script JS/AJAX -->
+  <script type='text/javascript'>
+		function getXhr() {
+      		var xhr = null;
+			if(window.XMLHttpRequest){ // Firefox & autres
+			   xhr = new XMLHttpRequest();
+			}else
+				if(window.ActiveXObject){ // IE / Edge
+				   try {
+						xhr = new ActiveXObject("Msxml2.XMLHTTP");
+				   }catch(e){
+						xhr = new ActiveXObject("Microsoft.XMLHTTP");
+				   }
+				}else{
+				   alert("Votre navigateur ne supporte pas les objets XMLHTTPRequest...");
+				   xhr = false;
+				}
+        	return xhr;
+		}	// End of function
+
+		/**
+		* Méthode appelée sur le click du bouton/listbox
+		*/
+		function change() {
+			var xhr = getXhr();
+            var xhr2 =getXhr();
+			// On définit quoi faire quand réponse reçue
+			xhr.onreadystatechange = function() {
+				// test si tout est reçu et si serveur est ok
+				if(xhr.readyState == 4 && xhr.status == 200){
+					di = document.getElementById('angle');
+					di.innerHTML = xhr.responseText;
+				}
+                if(xhr.readyState == 4 && xhr.status == 200){
+                    di2 = document.getElementById('thematique');
+                    di2.innerHTML = xhr2.responseText;
+                }
+			}
+
+			// Traitement en POST
+			xhr.open("POST","./ajaxAngle.php",true);
+			// pour le post
+			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			// poster arguments : ici, numClas
+			numLang = document.getElementById('Langue').options[document.getElementById('Langue').selectedIndex].value;
+			// Recup numClas à classe (PK) à passer en "m" à etudiant (FK)
+			xhr.send("numLang="+numLang);
+
+            // Traitement en POST
+			xhr2.open("POST","./ajaxThematique.php",true);
+			// pour le post
+			xhr2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			// poster arguments : ici, numClas
+			numThem = document.getElementById('Langue').options[document.getElementById('Langue').selectedIndex].value;
+			// Recup numClas à classe (PK) à passer en "m" à etudiant (FK)
+			xhr2.send("numThem="+numThem);
+		}	// End of function
+  </script>
 
 <!-- --------------------------------------------------------------- -->
     <!-- Fin Ajax : Langue => Angle, Thématique + TJ Mots Clés -->

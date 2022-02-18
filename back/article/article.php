@@ -22,7 +22,7 @@ require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
 
-// Insertion classe Langue
+// Insertion classe Angle
 require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
