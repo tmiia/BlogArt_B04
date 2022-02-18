@@ -16,9 +16,10 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/delAccents.php';
 
 // Insertion classe Likeart
+require_once __DIR__ . '/../../CLASS_CRUD/LikeArt.class.php';
 
 // Instanciation de la classe Likeart
-
+$monLikeArt = new LIKEART();
 
 
 
