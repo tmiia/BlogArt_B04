@@ -22,7 +22,7 @@ $maThematique = new THEMATIQUE();
 
 
 ?>
-<select name='angle' style='padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;' >
+<select name='thematique' style='padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;' >
     <option value="-1">- - - Choisissez une thématique - - -</option>
         <?php
             $numThem = $_REQUEST["numThem"];

@@ -80,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $erreur = false;
 
             $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
+            $libAccrochArt = ctrlSaisies(($_POST['libAccrochArt']));
             $dtCreArt = ctrlSaisies(($_POST['dtCreArt']));
             $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));
             $parag1Art = ctrlSaisies(($_POST['parag1Art']));
@@ -90,13 +91,16 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $libConclArt = ctrlSaisies(($_POST['libConclArt']));
             
             $langue = ctrlSaisies($_POST['Langue']);
-            $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
-            $numAngl = ctrlSaisies(($_POST['numAngl']));
-            $numThem = ctrlSaisies(($_POST['numThem']));
+
+            $urlPhoto = $_POST['monfichier'];
+            var_dump($_POST);
+            exit;
+            $numAngl = ctrlSaisies($_POST['angle']);
+            $numThem = ctrlSaisies($_POST['thematique']);
 
             require_once './ctrlerUploadImage.php';
     
-            $monArticle->create($dtCreArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem);
+            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhoto, $numAngl, $numThem);
 
             header("Location: ./article.php");
         }   // Fin if ((isset($_POST['']))
@@ -217,7 +221,7 @@ include __DIR__ . '/initArticle.php';
             <label class="control-label" for="urlPhotArt"><b>Importez l'illustration :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
                 <input type="hidden" name="MAX_FILE_SIZE" value="<?= MAX_SIZE; ?>" />
-                <input type="file" name="monfichier" id="monfichier" required="required" accept=".jpg,.gif,.png,.jpeg" size="70" maxlength="70" value="<?php if(isset($_GET['id'])) echo $_POST['urlPhotArt']; else echo $urlPhotArt; ?>" tabindex="110" placeholder="Sur 70 car." title="Recherchez l'image à uploader !" />
+                <input type="file" name="monfichier" id="monfichier" accept=".jpg,.gif,.png,.jpeg" value="<?php if(isset($_GET['id'])) echo $_POST['urlPhotArt']; else echo $urlPhotArt; ?>">
                 <p>
 <?php              // Gestion extension images acceptées
                   $msgImagesOK = "&nbsp;&nbsp;>> Extension des images acceptées : .jpg, .gif, .png, .jpeg" . "<br>" .
@@ -314,12 +318,15 @@ include __DIR__ . '/initArticle.php';
 <!-- --------------------------------------------------------------- -->
 <!-- Drag and drop sur Mots clés -->
 <!-- --------------------------------------------------------------- -->
+   
+
+<!-- 
     <br><br>
     <div class="controls">
         <label class="control-label" for="LibTypMotsCles1">
             <b>Choisissez les mots clés liés à l'article :&nbsp;&nbsp;&nbsp;</b>
         </label>
-    </div>
+    </div> -->
     <!-- A faire dans un 2/3ème temps  -->
 
 <!-- --------------------------------------------------------------- -->
