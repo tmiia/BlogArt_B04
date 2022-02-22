@@ -40,7 +40,7 @@ class THEMATIQUE{
 	function get_AllThematiquesByLang($numLang){
 		global $db;
 
-		$query = 'SELECT libThem FROM `THEMATIQUE` INNER JOIN LANGUE ON LANGUE.numLang = THEMATIQUE.numLang WHERE THEMATIQUE.numLang = ?;';
+		$query = 'SELECT * FROM `THEMATIQUE` INNER JOIN LANGUE ON LANGUE.numLang = THEMATIQUE.numLang WHERE THEMATIQUE.numLang = ?;';
 		$result = $db->prepare($query);
 		$result->execute([$numLang]);
 
@@ -53,7 +53,7 @@ class THEMATIQUE{
 		// select
 		// prepare
 		// execute
-		return($allNbThematiquesBynumLang);
+		// return($allNbThematiquesBynumLang);
 	}
 
 	// Récup dernière PK NumThem

@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./createArticle.php");
     }   // End of if ((isset($_POST["submit"])) ...
     
-    if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt'])) AND ((isset($_POST['dtCreArt'])) AND !empty($_POST['dtCreArt'])) 
+    if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt'])) 
             AND ((isset($_POST['libChapoArt'])) AND !empty($_POST['libChapoArt'])) AND ((isset($_POST['libAccrochArt'])) 
             AND !empty($_POST['libAccrochArt'])) AND ((isset($_POST['parag1Art'])) AND !empty($_POST['parag1Art'])) 
             AND ((isset($_POST['libSsTitr1Art'])) AND !empty($_POST['libSsTitr1Art'])) AND ((isset($_POST['parag2Art'])) 
@@ -92,14 +92,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             $langue = ctrlSaisies($_POST['Langue']);
 
-            $urlPhoto = $_POST['monfichier'];
-            var_dump($_POST);
-            exit;
+            $urlPhoto = $_FILES['monfichier']['tmp_name'];
             $numAngl = ctrlSaisies($_POST['angle']);
             $numThem = ctrlSaisies($_POST['thematique']);
 
             require_once './ctrlerUploadImage.php';
-    
             $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhoto, $numAngl, $numThem);
 
             header("Location: ./article.php");
@@ -183,7 +180,7 @@ include __DIR__ . '/initArticle.php';
         </div>
         <br>
         <div class="control-group">
-            <label class="control-label" for="libSsTitr1Art"><b>Sous-titre 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>b></label>
+            <label class="control-label" for="libSsTitr1Art"><b>Sous-titre 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
                 <input type="text" name="libSsTitr1Art" id="libSsTitr1Art" size="100" maxlength="100" value="<?php if(isset($_GET['id'])) echo $_POST['libSsTitr1Art']; else echo $libSsTitr1Art; ?>" tabindex="60" placeholder="Sur 100 car." />
             </div>
@@ -197,7 +194,7 @@ include __DIR__ . '/initArticle.php';
         </div>
         <br>
         <div class="control-group">
-            <label class="control-label" for="libSsTitr2Art"><b>Sous-titre 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>b></label>
+            <label class="control-label" for="libSsTitr2Art"><b>Sous-titre 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
                 <input type="text" name="libSsTitr2Art" id="libSsTitr2Art" size="100" maxlength="100" value="<?php if(isset($_GET['id'])) echo $_POST['libSsTitr2Art']; else echo $libSsTitr2Art; ?>" tabindex="80" placeholder="Sur 100 car." />
             </div>
@@ -217,19 +214,13 @@ include __DIR__ . '/initArticle.php';
             </div>
         </div>
         <br>
+        
         <div class="control-group">
-            <label class="control-label" for="urlPhotArt"><b>Importez l'illustration :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <div class="controls">
-                <input type="hidden" name="MAX_FILE_SIZE" value="<?= MAX_SIZE; ?>" />
-                <input type="file" name="monfichier" id="monfichier" accept=".jpg,.gif,.png,.jpeg" value="<?php if(isset($_GET['id'])) echo $_POST['urlPhotArt']; else echo $urlPhotArt; ?>">
-                <p>
-<?php              // Gestion extension images acceptées
-                  $msgImagesOK = "&nbsp;&nbsp;>> Extension des images acceptées : .jpg, .gif, .png, .jpeg" . "<br>" .
-                    "(lageur, hauteur, taille max : 80000px, 80000px, 200 000 Go)";
-                  echo "<i>" . $msgImagesOK . "</i>";
-?>
-                </p>
+            <label for="monficher" class="control-label">Ajouter une illustration</label>
+            <div class="control">
+                <input type="file" name="monfichier" id="monficher" accept=".jpg,.gif,.png,.jpeg" value="">
             </div>
+
         </div>
 
 <!-- --------------------------------------------------------------- -->
