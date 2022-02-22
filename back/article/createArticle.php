@@ -92,7 +92,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             $langue = ctrlSaisies($_POST['Langue']);
 
-            $urlPhoto = $_FILES['monfichier']['tmp_name'];
+            $urlPhoto = $_FILES['monfichier']['name'];
             $numAngl = ctrlSaisies($_POST['angle']);
             $numThem = ctrlSaisies($_POST['thematique']);
 
