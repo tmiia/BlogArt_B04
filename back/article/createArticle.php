@@ -69,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./createArticle.php");
     }   // End of if ((isset($_POST["submit"])) ...
     
-    if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt'])) AND ((isset($_POST['dtCreArt'])) AND !empty($_POST['dtCreArt'])) 
+    if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt'])) 
             AND ((isset($_POST['libChapoArt'])) AND !empty($_POST['libChapoArt'])) AND ((isset($_POST['libAccrochArt'])) 
             AND !empty($_POST['libAccrochArt'])) AND ((isset($_POST['parag1Art'])) AND !empty($_POST['parag1Art'])) 
             AND ((isset($_POST['libSsTitr1Art'])) AND !empty($_POST['libSsTitr1Art'])) AND ((isset($_POST['parag2Art'])) 
@@ -80,6 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $erreur = false;
 
             $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
+            $libAccrochArt = ctrlSaisies(($_POST['libAccrochArt']));
             $dtCreArt = ctrlSaisies(($_POST['dtCreArt']));
             $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));
             $parag1Art = ctrlSaisies(($_POST['parag1Art']));
@@ -90,13 +91,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $libConclArt = ctrlSaisies(($_POST['libConclArt']));
             
             $langue = ctrlSaisies($_POST['Langue']);
-            $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
-            $numAngl = ctrlSaisies(($_POST['numAngl']));
-            $numThem = ctrlSaisies(($_POST['numThem']));
+
+            $urlPhoto = $_FILES['monfichier']['name'];
+            $numAngl = ctrlSaisies($_POST['angle']);
+            $numThem = ctrlSaisies($_POST['thematique']);
 
             require_once './ctrlerUploadImage.php';
-    
-            $monArticle->create($dtCreArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem);
+            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhoto, $numAngl, $numThem);
 
             header("Location: ./article.php");
         }   // Fin if ((isset($_POST['']))
@@ -179,7 +180,7 @@ include __DIR__ . '/initArticle.php';
         </div>
         <br>
         <div class="control-group">
-            <label class="control-label" for="libSsTitr1Art"><b>Sous-titre 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>b></label>
+            <label class="control-label" for="libSsTitr1Art"><b>Sous-titre 1 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
                 <input type="text" name="libSsTitr1Art" id="libSsTitr1Art" size="100" maxlength="100" value="<?php if(isset($_GET['id'])) echo $_POST['libSsTitr1Art']; else echo $libSsTitr1Art; ?>" tabindex="60" placeholder="Sur 100 car." />
             </div>
@@ -193,7 +194,7 @@ include __DIR__ . '/initArticle.php';
         </div>
         <br>
         <div class="control-group">
-            <label class="control-label" for="libSsTitr2Art"><b>Sous-titre 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>b></label>
+            <label class="control-label" for="libSsTitr2Art"><b>Sous-titre 2 :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
                 <input type="text" name="libSsTitr2Art" id="libSsTitr2Art" size="100" maxlength="100" value="<?php if(isset($_GET['id'])) echo $_POST['libSsTitr2Art']; else echo $libSsTitr2Art; ?>" tabindex="80" placeholder="Sur 100 car." />
             </div>
@@ -213,19 +214,13 @@ include __DIR__ . '/initArticle.php';
             </div>
         </div>
         <br>
+        
         <div class="control-group">
-            <label class="control-label" for="urlPhotArt"><b>Importez l'illustration :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <div class="controls">
-                <input type="hidden" name="MAX_FILE_SIZE" value="<?= MAX_SIZE; ?>" />
-                <input type="file" name="monfichier" id="monfichier" required="required" accept=".jpg,.gif,.png,.jpeg" size="70" maxlength="70" value="<?php if(isset($_GET['id'])) echo $_POST['urlPhotArt']; else echo $urlPhotArt; ?>" tabindex="110" placeholder="Sur 70 car." title="Recherchez l'image à uploader !" />
-                <p>
-<?php              // Gestion extension images acceptées
-                  $msgImagesOK = "&nbsp;&nbsp;>> Extension des images acceptées : .jpg, .gif, .png, .jpeg" . "<br>" .
-                    "(lageur, hauteur, taille max : 80000px, 80000px, 200 000 Go)";
-                  echo "<i>" . $msgImagesOK . "</i>";
-?>
-                </p>
+            <label for="monficher" class="control-label">Ajouter une illustration</label>
+            <div class="control">
+                <input type="file" name="monfichier" id="monficher" accept=".jpg,.gif,.png,.jpeg" value="">
             </div>
+
         </div>
 
 <!-- --------------------------------------------------------------- -->
@@ -314,12 +309,15 @@ include __DIR__ . '/initArticle.php';
 <!-- --------------------------------------------------------------- -->
 <!-- Drag and drop sur Mots clés -->
 <!-- --------------------------------------------------------------- -->
+   
+
+<!-- 
     <br><br>
     <div class="controls">
         <label class="control-label" for="LibTypMotsCles1">
             <b>Choisissez les mots clés liés à l'article :&nbsp;&nbsp;&nbsp;</b>
         </label>
-    </div>
+    </div> -->
     <!-- A faire dans un 2/3ème temps  -->
 
 <!-- --------------------------------------------------------------- -->

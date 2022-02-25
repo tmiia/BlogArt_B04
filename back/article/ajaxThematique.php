@@ -22,7 +22,7 @@ $maThematique = new THEMATIQUE();
 
 
 ?>
-<select name='angle' style='padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;' >
+<select name='thematique' id='thematique' style='padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;' >
     <option value="-1">- - - Choisissez une thématique - - -</option>
         <?php
             $numThem = $_REQUEST["numThem"];
@@ -33,7 +33,7 @@ $maThematique = new THEMATIQUE();
                         $value = $allThem[$i]['numThem'];
                     ?>
                     
-                    <option value="<?php echo($value); ?>"> <?= $allThem[$i]['libThem']; ?> </option>
+                    <option value="<?php echo($value); ?>"> <?php echo($allThem[$i]['libThem']); ?> </option>
                     
                     <?php
                     }
