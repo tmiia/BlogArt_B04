@@ -117,11 +117,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
 include __DIR__ . '/initArticle.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="utf-8" />    
     <title>Admin - CRUD Article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
@@ -220,11 +221,11 @@ include __DIR__ . '/initArticle.php';
             <div class="control">
                 <input type="file" name="monfichier" id="monficher" accept=".jpg,.gif,.png,.jpeg" value="">
             </div>
-
         </div>
 
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
+    
     <!-- Listbox Langue -->
         <br>
         <div class="control-group">
