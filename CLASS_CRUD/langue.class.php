@@ -65,6 +65,16 @@ class LANGUE{
 		return($allLanguesByLib1Lang);
 	}
 
+	function get_1LangueByThemArticle($numArt){
+		global $db;
+
+		$query = "SELECT lib1Lang FROM langue INNER JOIN thematique ON Langue.numLang = thematique.numLang INNER JOIN article ON thematique.numThem = article.numThem WHERE numArt = ?;";
+		$result = $db->prepare($query);
+		// execute
+		$result->execute([$numArt]);
+		return($result->fetch());
+	}
+
 	function get_AllPays(){
         global $db;
 

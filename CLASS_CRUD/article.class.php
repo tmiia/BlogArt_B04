@@ -22,7 +22,7 @@ class ARTICLE{
 		// select
 		// prepare
 		// execute
-		return($result->fetch());
+		// return($result->fetch());
 	}
 
 	function get_AllArticles(){
@@ -42,7 +42,7 @@ class ARTICLE{
 		// select
 		// prepare
 		// execute
-		return($allArticlesByNumAnglNumThem);
+		// return($allArticlesByNumAnglNumThem);
 	}
 
 	function get_NbAllArticlesByNumAngl($numAngl){
