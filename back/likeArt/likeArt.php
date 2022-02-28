@@ -19,6 +19,12 @@ require_once __DIR__ . '/../../CLASS_CRUD/LikeArt.class.php';
 // Instanciation de la classe Likeart
 $monLikeArt = new LIKEART();
 
+// Insertion classe Article
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+
+// Instanciation de la classe Article
+$monArticle = new ARTICLE();
+
 
 ?>
 <!DOCTYPE html>
@@ -81,7 +87,9 @@ $monLikeArt = new LIKEART();
     //var_dump($libTitrArt);
     //exit;
 
-    for($i = 1; $i < count($allLikesArt); $i++){
+    for($i = 0; $i < count($allLikesArt); $i++){
+        //var_dump($allLikesArt);
+        //exit;
         
     //foreach($all as $row) {
     //
