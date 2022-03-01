@@ -18,24 +18,25 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-header h3 {
+header a, header p {
   font-family: "Century Gothic";
   text-transform: uppercase;
   color: #2E1A1E;
   text-decoration: none;
+  font-weight: 600;
 }
-header h3 :hover {
+header a:hover, header p:hover {
   color: #8B8B8B;
 }
 header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 40%;
+  width: 30rem;
 }
 header nav .langues ::after {
-  font-family: "Font Awesome 5 Brand";
-  content: "\f107";
+  font-family: "Font Awesome 5 Brands";
+  content: "/f107";
 }
 header nav img {
   padding-right: 15px;
@@ -51,12 +52,9 @@ header .connect .btn_inscription {
   color: #DED6D1;
   padding: 10px;
 }
-header .connect .btn_inscription :hover {
+header .connect .btn_inscription:hover {
   background-color: #DED6D1;
   color: #2E1A1E;
-}
-header .connect .btn_inscription h3 {
-  color: #DED6D1;
 }
 header img {
   width: 80px;
@@ -74,6 +72,9 @@ footer a, footer p {
   font-family: "Century Gothic";
   font-size: 18px;
   font-weight: 600;
+}
+footer a:hover, footer p:hover {
+  color: #8B8B8B;
 }
 footer .connect_admin {
   padding-top: 50px;

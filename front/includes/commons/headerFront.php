@@ -6,19 +6,17 @@
     <nav>
         <a href="home.php"><img src="../front/assets/logoAuBordDesRues.png" alt="logoAuBordDesRues"></a>
         <div class="langues">
-            <h3>FR</h3>
+            <p>FR</p>
         </div>
 
-        <a href="../front/pageArticles.php"><h3>Articles</h3></a>
-        <a href="#"><h3>Newsletter</h3></a>
-        <a href="#"><h3>Contact</h3></a>
+        <a href="../front/pageArticles.php"><p>Articles</p></a>
+        <a href="#"><p>Newsletter</p></a>
+        <a href="#"><p>Contact</p></a>
     </nav>
 
     <div class="connect">
-        <a href="../connexion.php"><h3>Connexion</h3></a>
-        <div class="btn_inscription">
-            <a href="../inscription.php"><h3>Inscription</h3></a>
-        </div>
-            
+        <a href="../connexion.php"><p>Connexion</p></a>
+        <a class="btn_inscription" href="../inscription.php"><p>Inscription</p></a>
     </div>
 </header>
+
