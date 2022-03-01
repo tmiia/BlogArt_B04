@@ -30,7 +30,7 @@ class ANGLE{
 	
 	function get_1LangByAngle($numAngl){
 		global $db;
-		$query = 'SELECT lib1Lang FROM LANGUE INNER JOIN ANGLE ON LANGUE.numLang = ANGLE.numLang WHERE numAngl = ?;';
+		$query = 'SELECT * FROM LANGUE INNER JOIN ANGLE ON LANGUE.numLang = ANGLE.numLang WHERE numAngl = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute

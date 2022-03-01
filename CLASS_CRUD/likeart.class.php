@@ -1,4 +1,4 @@
-<?php
+ <?php
 // CRUD LIKEART
 // ETUD
 require_once __DIR__ . '../../CONNECT/database.php';
@@ -25,20 +25,22 @@ class LIKEART{
 		return($allLikesArt);
 	}
 
-	function get_AllLikesArtByNumArt(){
+	function get_AllLikesArtByNumArt($numArt){
 		global $db;
 
-		$query = 'SELECT * FROM MEMBRE ME INNER JOIN LIKEART LKA ON ME.numMemb = LKA.numMemb INNER JOIN ARTICLE ART ON LKA.numArt = ART.numArt GROUP BY ART.numArt;';
-		$result = $db->query($query);
+		$query = 'SELECT * FROM `LIKEART` WHERE numArt = ?;';
+		$result = $db->prepare($query);
+		$result->execute([$numArt]);
 		$allLikesArtByNumArt = $result->fetchAll();
 		return($allLikesArtByNumArt);
 	}
 
-	function get_AllLikesArtByNumMemb(){
+	function get_AllLikesArtByNumMemb($numMemb){
 		global $db;
 
-		$query = 'SELECT * FROM MEMBRE ME INNER JOIN LIKEART LKA ON ME.numMemb = LKA.numMemb INNER JOIN ARTICLE ART ON LKA.numArt = ART.numArt GROUP BY ME.numMemb;';
-		$result = $db->query($query);
+		$query = 'SELECT * FROM LIKEART WHERE numMemb = ?;';
+		$result = $db->prepare($query);
+		$result->execute([$numMemb]);
 		$allLikesArtByNumMemb = $result->fetchAll();
 		return($allLikesArtByNumMemb);
 	}
@@ -46,10 +48,11 @@ class LIKEART{
 	function get_nbLikesArtByArticle($numArt){
 		global $db;
 
-		// select
-		// prepare
-		// execute
-		return($result->fetchAll());
+		$query = 'SELECT COUNT(likeA) FROM LIKEART WHERE numArt = ?;';
+		$result = $db->prepare($query);
+		$result->execute([$numArt]);
+		$bLikesArtByArticle = $result->fetchAll();
+		return($bLikesArtByArticle);
 	}
 
 	function get_nbLikesArtByMembre($numMemb){

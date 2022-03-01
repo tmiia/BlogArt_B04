@@ -44,6 +44,13 @@ require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 // Instanciation de la classe langue
 $maLangue = new LANGUE();
 
+// Insertion classe Angle
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+
+// Instanciation de la classe angle
+$monAngle = new ANGLE();
+
+
 
 
 // Gestion des erreurs de saisie
@@ -259,9 +266,9 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 
             <select name="Langue" id="Langue"  class="form-control form-control-create">
                 <?php
-                    $oneLang = $maLangue->get_1Langue($numArt);
+                    $oneLang = $monAngle->get_1LangByAngle($numAngl);
                 ?>
-                <option value="<?= ($oneLang['numArt']); ?>"> <?= $oneLang['lib1Lang']; ?> </option>                
+                <option value="<?= ($oneLang['numLang']); ?>"> <?= $oneLang['lib1Lang']; ?> </option>                
 
             </select>
 

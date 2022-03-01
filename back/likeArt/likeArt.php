@@ -24,6 +24,9 @@ require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
+// Instanciation de la classe Membre
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+$monMembre = new MEMBRE();
 
 
 ?>
@@ -82,8 +85,10 @@ $monArticle = new ARTICLE();
 
     // Boucle pour afficher
     $allLikesArt = $monLikeArt->get_AllLikesArt();
-    $pseudoMemb = $monLikeArt->get_AllLikesArtByNumMemb();
-    $libTitrArt = $monLikeArt->get_AllLikesArtByNumArt();
+    $pseudoMemb = $monMembre->get_AllMembres();
+    // $pseudoMemb = $monMembre -> get_1Membre($numMemb);
+    // $pseudoMemb = $monLikeArt->get_AllLikesArtByNumMemb();
+    // $libTitrArt = $monLikeArt->get_AllLikesArtByNumArt();
     //var_dump($libTitrArt);
     //exit;
 
@@ -95,9 +100,9 @@ $monArticle = new ARTICLE();
     //
 ?>
         <tr>
-         <td><h4>&nbsp; <?= $pseudoMemb[$i]['pseudoMemb']; ?> &nbsp;</h4></td>
+         <td><h4>&nbsp; <?= $monMembre->get_1Membre($allLikesArt[$i]['numMemb'])['pseudoMemb'] ?> &nbsp;</h4></td>
 
-         <td>&nbsp; <?= $libTitrArt[$i]['libTitrArt']; ?> &nbsp;</td>
+         <td>&nbsp; <?= $monArticle->get_1Article($allLikesArt[$i]['numArt'])['libTitrArt'] ?> &nbsp;</td>
 
         <td>&nbsp;<span class="OK">&nbsp; <?= $allLikesArt[$i]['likeA']; ?> &nbsp;</span></td>
 
