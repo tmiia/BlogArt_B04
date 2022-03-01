@@ -52,11 +52,27 @@ img {
 }
 
 footer {
-  margin: 15px;
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #2C2C2C;
+}
+
+footer a, p {
+  color: #DED6D1;
+  font-family: "Century Gothic";
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.revenir_haut {
+  text-transform: uppercase;
+}
+
+.liens {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
 }
 
 /*-------VARIABLES--------*/
