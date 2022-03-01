@@ -24,7 +24,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $monMembre->get_1MembreByEmail($_POST['eMailMemb']);
 
 
-
     // fonction qui vérifie que l'utilisateur a bien tapé ce qui correspond au hash de la BDD
     password_verify($_POST['passMemb'], $passCrypt); // retourne un booleen
 
@@ -34,12 +33,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         setcookie('eMailMemb', $membre, time() + 3600);
         setcookie('pseudoMemb', $pseudo, time() + 3600);
 
+        
+
     } else {
         echo('Mauvais mdp sorry');
 
     }
     if(isset($_COOKIE['eMailMemb'])) {  
-        header("Location: http://localhost/GIT%20BLOGART/BlogArt/index1.php");
+        header("Location: index1.php");
         echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
     } else {
         echo('Merci de vous connecter.');
