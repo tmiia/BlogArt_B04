@@ -37,13 +37,14 @@ class THEMATIQUE{
 		return($allThematiques);
 	}
 
-	function get_AllThematiquesByLang(){
+	function get_AllThematiquesByLang($numLang){
 		global $db;
 
-		// select
-		// prepare
-		// execute
-		return($allThematiquesByLang);
+		$query = 'SELECT * FROM `THEMATIQUE` INNER JOIN LANGUE ON LANGUE.numLang = THEMATIQUE.numLang WHERE THEMATIQUE.numLang = ?;';
+		$result = $db->prepare($query);
+		$result->execute([$numLang]);
+
+		return($result->fetchAll());
 	}
 
 	function get_NbAllThematiquesBynumLang($numLang){
@@ -52,7 +53,7 @@ class THEMATIQUE{
 		// select
 		// prepare
 		// execute
-		return($allNbThematiquesBynumLang);
+		// return($allNbThematiquesBynumLang);
 	}
 
 	// Récup dernière PK NumThem

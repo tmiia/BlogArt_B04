@@ -21,19 +21,28 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Article
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
+$monArticle = new ARTICLE();
 
-
-// Ctrl CIR
 // Insertion classe MotCleArticle
+require_once __DIR__ . '/../../CLASS_CRUD/motclearticle.class.php';
 
 // Instanciation de la classe MotCleArticle
-
+$monMotCleArticle = new MOTCLEARTICLE();
 
 // Insertion classe MotCle
+require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
 
 // Instanciation de la classe MotCle
+$monMotCle = new MOTCLE();
+
+// Insertion classe Langue
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+
+// Instanciation de la classe langue
+$maLangue = new LANGUE();
 
 
 
@@ -46,21 +55,40 @@ $targetDir = TARGET;
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./article.php");
+} 
 
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+        $nbArticle = $monArticle->get_NbAllArticlesByNumAngl($_POST["id"]);
+        //print_r($nbMembre);
+        //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
+        if ($nbArticle < 1) {
+                $monArticle->delete($_POST["id"]);
+                header("Location: ./article.php");
+            } else {
+                header("Location: article.php?errCIR=1");
+        }
+    }
 
-    // controle CIR
-
-    // delete effective du article
-
-
-
-
-
-
-
-
-
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+        $nbArticle = $monArticle->get_NbAllArticlesByNumThem($_POST["id"]);
+        //print_r($nbMembre);
+        //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
+        if ($nbArticle < 1) {
+                $monArticle->delete($_POST["id"]);
+                header("Location: ./article.php");
+            } else {
+                header("Location: article.php?errCIR=1");
+        }
+    }
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
@@ -88,6 +116,33 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 
 <?php
     // Supp : récup id à supprimer
+
+
+    if (isset($_GET['id']) and $_GET['id'] != '') {
+
+        $id = ctrlSaisies(($_GET['id']));
+
+        $query = (array)$monArticle->get_1Article($id);
+
+        if ($query) {
+            $numArt = $query['numArt'];
+            $libTitrArt = $query['libTitrArt'];
+            $dtCreArt = $query['dtCreArt'];
+            $libChapoArt = $query['libChapoArt'];
+            $parag1Art = $query['parag1Art'];
+            $libSsTitr1Art = $query['libSsTitr1Art'];
+            $libSsTitr2Art = $query['libSsTitr2Art'];
+            $parag2Art = $query['parag2Art'];
+            $parag3Art = $query['parag3Art'];
+            $libConclArt = $query['libConclArt'];
+            $urlPhotArt = $query['urlPhotArt'];
+            $numAngl = $query['numAngl'];
+            $numThem = $query['numThem'];
+            $langue = $query['Langue'];
+        } 
+        
+    }
+
     // id passé en GET
 
 
@@ -199,9 +254,16 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
             </label>
 
 
-            <input type="text" name="idLang" id="idLang" size="5" maxlength="5" value="<?= $numAngl; ?>" autocomplete="on" disabled />
 
             <!-- Listbox langue => 2ème temps -->
+
+            <select name="Langue" id="Langue"  class="form-control form-control-create">
+                <?php
+                    $oneLang = $maLangue->get_1Langue($numArt);
+                ?>
+                <option value="<?= ($oneLang['numArt']); ?>"> <?= $oneLang['lib1Lang']; ?> </option>                
+
+            </select>
 
           </div>
         </div>

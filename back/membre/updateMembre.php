@@ -16,7 +16,6 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
-
 // Insertion classe Statut
 require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
 
@@ -70,7 +69,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                 (isset($_POST['pass2Memb']) && !empty($_POST['pass2Memb'])) && 
                 (isset($_POST['eMail1Memb']) && !empty($_POST['eMail1Memb'])) && 
                 (isset($_POST['eMail2Memb']) && !empty($_POST['eMail2Memb'])) && 
-                (isset($_POST['accordMemb']) && !empty($_POST['accordMemb']))) {
+                (isset($_POST['accordMemb']) && !empty($_POST['accordMemb']))){
 
 
                     if ((($_POST['eMail1Memb']) == ($_POST['eMail2Memb'])) && (($_POST['pass1Memb']) == ($_POST['pass2Memb']))){
@@ -79,13 +78,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         $nomMemb = ctrlSaisies($_POST['nomMemb']);
                         $passMemb = ctrlSaisies($_POST['pass1Memb']);
                         $eMailMemb = ctrlSaisies($_POST['eMail1Memb']);
+                        $idStat = ctrlSaisies(intval($_POST['idStat']));
                         $accordMemb = ctrlSaisies($_POST['accordMemb']);
-                        $idStat = $_POST['Statut'];
             
                         
                     // CLE PRIMAIRE
 
-                        $monMembre->update($prenomMemb, $nomMemb, $eMailMemb, $passMemb, $idStat, $numMemb);
+                        $monMembre->update($numMemb, $prenomMemb, $nomMemb, $passMemb, $eMailMemb, $idStat);
                         
                         header("Location: ./membre.php");
 
@@ -186,7 +185,12 @@ include __DIR__ . '/initMembre.php';
         
        }// Fin if ($query)
 
+
+
     // id passé en GET
+
+
+
 
 ?>
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
@@ -275,6 +279,7 @@ include __DIR__ . '/initMembre.php';
                 <!-- Listbox statut => 2ème temps -->
 
                 <select name="Statut" id="Statut"  class="form-control form-control-create">
+                <option value="-1"><?php $oneStat = $monStatut->get_1Statut($idStat); echo($oneStat['libStat']); ?></option>
                 <?php
                 $result = $monStatut->get_AllStatuts();
                 

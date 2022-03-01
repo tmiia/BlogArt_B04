@@ -7,9 +7,9 @@ class LIKEART{
 	function get_1LikeArt($numMemb, $numArt){
 		global $db;
 
-		// select
-		// prepare
-		// execute
+		$query = "SELECT * FROM LIKEART WHERE numMemb = ?, numArt = ?;";
+		$result = $db->prepare($query);
+		$result->execute([$numMemb, $numArt]);
 		return($result->fetch());
 	}
 
@@ -17,8 +17,11 @@ class LIKEART{
 		global $db;
 
 		// select
+		$query = "SELECT * FROM LIKEART;";
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allLikesArt = $result->fetchAll();
 		return($allLikesArt);
 	}
 
@@ -65,7 +68,10 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// insert
+			$query = 'INSERT INTO LIKEART (numMemb, numArt, likeA) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);
 			// execute
 			$db->commit();
 			$request->closeCursor();

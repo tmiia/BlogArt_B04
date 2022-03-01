@@ -22,7 +22,7 @@ class ARTICLE{
 		// select
 		// prepare
 		// execute
-		return($result->fetch());
+		// return($result->fetch());
 	}
 
 	function get_AllArticles(){
@@ -42,15 +42,20 @@ class ARTICLE{
 		// select
 		// prepare
 		// execute
-		return($allArticlesByNumAnglNumThem);
+		// return($allArticlesByNumAnglNumThem);
 	}
 
 	function get_NbAllArticlesByNumAngl($numAngl){
 		global $db;
 
 		// select
-		// prepare
-		// execute
+        $sql = "SELECT * FROM ARTICLE WHERE numAngl = ?";
+        // prepare
+        $req = $db->prepare($sql);
+        // execute
+        $req->execute([$numAngl]);
+
+        $allNbArticlesBynumAngl = $req->rowCount();
 		return($allNbArticlesBynumAngl);
 	}
 
@@ -127,14 +132,16 @@ class ARTICLE{
 		return $lastNumArt;
 	} // End of function
 
-	function create($dtCreArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem){
+	function create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem){
 		global $db;
 
 		try {
 			$db->beginTransaction();
 
-			// insert
+			$query = 'INSERT INTO ARTICLE (dtCreArt, libTitrArt, libChapoArt, libAccrochArt, parag1Art, libSsTitr1Art, parag2Art, libSsTitr2Art, parag3Art, libConclArt, urlPhotArt, numAngl, numThem) VALUES (NOW(), ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);';
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem]);
 			// execute
 			$db->commit();
 			$request->closeCursor();
@@ -152,12 +159,15 @@ class ARTICLE{
 		try {
 			$db->beginTransaction();
 
-			// update
-			// prepare
-			// execute
-			$db->commit();
-			$request->closeCursor();
-		}
+				// update
+				$query = 'UPDATE ARTICLE SET libTitrArt = ?, libChapoArt = ?, libAccrochArt = ?, parag1Art = ?, libSsTitr1Art = ?, parag2Art = ?, libSsTitr2Art = ?, parag3Art = ?, libConclArt = ?, urlPhotArt = ?, numAngl = ?, numThem = ? WHERE numArt = ?;';
+				// prepare
+				$request = $db->prepare($query);
+				// execute
+				$request->execute([$libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem, $numArt]);
+					$db->commit();
+					$request->closeCursor();
+				}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
@@ -171,12 +181,18 @@ class ARTICLE{
 		try {
 			$db->beginTransaction();
 
-			// delete
-			// prepare
-			// execute
-			$db->commit();
-			$request->closeCursor();
-		}
+				// delete
+				$query = 'DELETE FROM ARTICLE WHERE numArt=?'; 
+				// prepare
+				$request = $db->prepare($query);
+				// execute
+				$request->execute([$numArt]);
+	
+				$count = $request->rowCount(); 
+				$db->commit();
+				$request->closeCursor();
+				return($count); 
+			}
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
