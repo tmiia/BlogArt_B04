@@ -7,7 +7,7 @@ class LIKEART{
 	function get_1LikeArt($numMemb, $numArt){
 		global $db;
 
-		$query = "SELECT * FROM LIKEART WHERE numMemb = ?, numArt = ?;";
+		$query = "SELECT * FROM LIKEART WHERE numMemb = ? AND numArt = ?;";
 		$result = $db->prepare($query);
 		$result->execute([$numMemb, $numArt]);
 		return($result->fetch());
