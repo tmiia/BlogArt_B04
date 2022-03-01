@@ -6,28 +6,30 @@ require_once __DIR__ . '../../CONNECT/database.php';
 class COMMENT{
 	function get_1Comment($numSeqCom, $numArt){
 		global $db;
-
-		// select
-		// prepare
-		// execute
+		$query = "SELECT * FROM COMMENT WHERE numSeqCom = ?, numArt = ?";
+		$result = $db->prepare($query);
+		$result->execute([$numSeqCom, $numArt]);
 		return($result->fetch());
+		
 	}
 
 	function get_AllCommentByArticle($numArt){
 		global $db;
 
-		// select
-		// prepare
-		// execute
-		return($result->fetchAll());
 	}
 
 	function get_AllCommentsByNumArt($numArt){
 		global $db;
 
-		// select
-		// prepare
-		// execute
+        // select
+        $sql = "SELECT * FROM COMMENT WHERE numArt = ?";
+        // prepare
+        $req = $db->prepare($sql);
+        // execute
+        $req->execute([$numArt]);
+
+        $allCommentsByArt = $req->rowCount();
+
 		return($allCommentsByArt);
 	}
 

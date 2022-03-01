@@ -1,0 +1,32 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+header{
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+nav{
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a{
+    margin: 15px;
+}
+
+.connect{
+    display: flex;
+    justify-content: space-between;
+}
+
+img{
+    display: flex;
+    width: 100px;
+}
