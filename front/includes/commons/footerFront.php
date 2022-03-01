@@ -1,4 +1,5 @@
-<link rel="stylesheet" href="../style.css"> 
+<!-- <link rel="stylesheet" href="../style.css">  -->
+<link rel="stylesheet" href="../front/Sass/footer.scss"> 
 
 <footer>
     <div class="connect_admin">

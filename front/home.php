@@ -13,7 +13,6 @@
     <?php
     require_once __DIR__ . '/includes/commons/headerFront.php';
     require_once __DIR__ . '/includes/commons/navigationFront.php';
-    require_once __DIR__ . '/includes/commons/footerFront.php';
     require_once __DIR__ . '/includes/commons/imports.php';
 
     ?>
