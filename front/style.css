@@ -17,9 +17,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+header h3 {
   font-family: "Century Gothic";
   text-transform: uppercase;
   color: #2E1A1E;
+  text-decoration: none;
+}
+header h3 :hover {
+  color: #8B8B8B;
 }
 header nav {
   display: flex;
@@ -28,8 +34,8 @@ header nav {
   width: 40%;
 }
 header nav .langues ::after {
-  content: "f107";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Brand";
+  content: "\f107";
 }
 header nav img {
   padding-right: 15px;
@@ -44,6 +50,10 @@ header .connect .btn_inscription {
   background-color: #D75A41;
   color: #DED6D1;
   padding: 10px;
+}
+header .connect .btn_inscription :hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
 }
 header .connect .btn_inscription h3 {
   color: #DED6D1;
@@ -232,12 +242,11 @@ footer .liens {
   align-items: center;
   justify-content: space-between;
   margin: 100px 0;
-  color: #f6f6f6;
 }
-#main_body .associations .association_lien {
+#main_body .associations a.association_lien {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: space-between;
   flex-direction: column;
   overflow: hidden;
   max-width: 240px;
@@ -246,8 +255,9 @@ footer .liens {
   position: relative;
   background-color: #D75A41;
   border-radius: 15px;
+  color: #f6f6f6;
 }
-#main_body .associations .association_lien .asso_logo {
+#main_body .associations a.association_lien .asso_logo {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -260,18 +270,22 @@ footer .liens {
   opacity: 0.6;
   transition: ease 0.4s;
 }
-#main_body .associations .association_lien:hover .asso_logo {
+#main_body .associations a.association_lien:hover .asso_logo {
   transform: scale(1.2);
   transition: ease 0.4s;
 }
-#main_body .associations .association_lien h6 {
+#main_body .associations a.association_lien h6 {
   font-size: 20px;
   z-index: 2;
   color: #f6f6f6;
+  margin: 20px;
+  text-transform: uppercase;
+  text-shadow: 1px 1px 5px #777;
 }
-#main_body .associations .association_lien p {
+#main_body .associations a.association_lien p {
   z-index: 2;
-  font-size: 14px;
+  font-size: 16px;
+  margin: 20px;
 }
 
 .tri_article {
