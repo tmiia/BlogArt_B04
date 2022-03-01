@@ -3,9 +3,20 @@ header{
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    h3{
     font-family: $fontText;
     text-transform: uppercase;
     color: $noir;
+    text-decoration: none;
+        
+        :hover{
+            color: $gris;
+        }
+    }
+
+    
+    
 
     nav{
         display: flex;
@@ -16,8 +27,8 @@ header{
         .langues{
 
             ::after{
-            content: "f107";
-            font-family: "Font Awesome 5 Free";
+                font-family: 'Font Awesome 5 Brand';
+                content: '\f107';
             }
         }
         
@@ -38,21 +49,22 @@ header{
             color: $blanc;
             padding: 10px;
 
+            :hover{
+                background-color: $blanc;
+                color: $noir;
+            }
 
             h3{
                 color: $blanc;
             }
-        
+
             
+             
         }
     }
 
     img{
         width: 80px;
-    }
-
-    .langues{
-
     }
 
 }

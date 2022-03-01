@@ -17,9 +17,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+header h3 {
   font-family: "Century Gothic";
   text-transform: uppercase;
   color: #2E1A1E;
+  text-decoration: none;
+}
+header h3 :hover {
+  color: #8B8B8B;
 }
 header nav {
   display: flex;
@@ -28,8 +34,8 @@ header nav {
   width: 40%;
 }
 header nav .langues ::after {
-  content: "f107";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Brand";
+  content: "\f107";
 }
 header nav img {
   padding-right: 15px;
@@ -45,12 +51,17 @@ header .connect .btn_inscription {
   color: #DED6D1;
   padding: 10px;
 }
+header .connect .btn_inscription :hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
+}
 header .connect .btn_inscription h3 {
   color: #DED6D1;
 }
 header img {
   width: 80px;
 }
+
 footer {
   display: flex;
   justify-content: space-between;
@@ -282,27 +293,27 @@ footer .liens {
   display: flex;
   justify-content: space-between;
 }
-.tri_article .them_event {
-  margin: 30px;
-}
 .tri_article .them_event h6 {
   color: #D75A41;
   font-size: 12px;
-}
-.tri_article .them_event .a {
-  width: 120px;
-  height: 120px;
-  border: #D75A41 4px;
+  font-weight: bolder;
+  margin-bottom: 15px;
 }
 .tri_article .them_event .event_butt {
-  font-size: 18px;
   color: #D75A41;
-  width: 120px;
-  height: 120px;
-  border: #D75A41 4px;
+  font-weight: bolder;
+  font-size: 18px;
+}
+.tri_article .them_event .event_butt .butt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 240px;
+  border: 1px solid #D75A41;
+  border-radius: 50px;
 }
 .tri_article .trier_date {
-  margin: 30px;
   display: flex;
   flex-direction: column;
   align-items: flex-end;
@@ -310,11 +321,22 @@ footer .liens {
 .tri_article .trier_date h6 {
   color: #D75A41;
   font-size: 12px;
+  font-weight: bolder;
+  margin-bottom: 15px;
 }
 .tri_article .trier_date .date_butt {
   color: #D75A41;
-  font-family: "Mixta Sharp";
   font-size: 18px;
+  font-weight: bolder;
+}
+.tri_article .trier_date .date_butt .butt {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 240px;
+  border: 1px solid #D75A41;
+  border-radius: 50px;
 }
 
 /*# sourceMappingURL=style.css.map */
