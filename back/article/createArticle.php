@@ -78,7 +78,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             AND !empty($_POST['libConclArt'])) AND  (!empty($_POST['Submit']) AND ($Submit === "Valider"))){
             // Saisies valides
             $erreur = false;
-
+ 
             $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
             $libAccrochArt = ctrlSaisies(($_POST['libAccrochArt']));
             $dtCreArt = ctrlSaisies(($_POST['dtCreArt']));
@@ -92,12 +92,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             $langue = ctrlSaisies($_POST['Langue']);
 
-            $urlPhoto = $_FILES['monfichier']['name'];
+            $monfichier = ctrlSaisies($_FILES['nomImage']);
             $numAngl = ctrlSaisies($_POST['angle']);
             $numThem = ctrlSaisies($_POST['thematique']);
 
             require_once './ctrlerUploadImage.php';
-            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhoto, $numAngl, $numThem);
+            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $nomImage, $numAngl, $numThem);
 
             header("Location: ./article.php");
         }   // Fin if ((isset($_POST['']))

@@ -38,8 +38,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         echo('Mauvais mdp sorry');
 
     }
-    if(isset($_COOKIE['eMailMemb'])) {
-        echo('bonjour' . $_COOKIE['pseudoMemb'] . '<br>');
+    if(isset($_COOKIE['eMailMemb'])) {  
+        header("Location: http://localhost/GIT%20BLOGART/BlogArt/index1.php");
+        echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
     } else {
         echo('Merci de vous connecter.');
     }

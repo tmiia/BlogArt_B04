@@ -62,10 +62,9 @@ $erreur = false;
 $targetDir = TARGET;
 
 // init mots cles
-
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
+
     $numArt = $_POST['id'];
 
     if(isset($_POST['Submit'])){
@@ -84,12 +83,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // ON VEUT VALIDER LA MODIFICATION
 
-    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    if ((isset($_POST["Submit"])) AND ($Submit === "Valider")) {
     
-        header("Location: ./createArticle.php");
-    }   // End of if ((isset($_POST["submit"])) ...
-    
-    if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt'])) AND ((isset($_POST['dtCreArt'])) AND !empty($_POST['dtCreArt'])) 
+        if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt']))
             AND ((isset($_POST['libChapoArt'])) AND !empty($_POST['libChapoArt'])) AND ((isset($_POST['libAccrochArt'])) 
             AND !empty($_POST['libAccrochArt'])) AND ((isset($_POST['parag1Art'])) AND !empty($_POST['parag1Art'])) 
             AND ((isset($_POST['libSsTitr1Art'])) AND !empty($_POST['libSsTitr1Art'])) AND ((isset($_POST['parag2Art'])) 
@@ -100,7 +96,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $erreur = false;
 
             $libTitrArt = ctrlSaisies(($_POST['libTitrArt']));
-            $dtCreArt = ctrlSaisies(($_POST['dtCreArt']));
+            $libAccrochArt = ctrlSaisies(($_POST['libAccrochArt']));
             $libChapoArt = ctrlSaisies(($_POST['libChapoArt']));
             $parag1Art = ctrlSaisies(($_POST['parag1Art']));
             $libSsTitr1Art = ctrlSaisies(($_POST['libSsTitr1Art']));
@@ -109,8 +105,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $parag3Art = ctrlSaisies(($_POST['parag3Art']));
             $libConclArt = ctrlSaisies(($_POST['libConclArt']));
             
-            $langue = ctrlSaisies($_POST['Langue']);
-            $urlPhotArt = ctrlSaisies(($_POST['urlPhotArt']));
+            // $langue = ctrlSaisies($_POST['Langue']);
+            $monfichier = ctrlSaisies(($_POST['monfichier']));
             $numAngl = ctrlSaisies(($_POST['numAngl']));
             $numThem = ctrlSaisies(($_POST['numThem']));
 
@@ -118,8 +114,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             require_once './ctrlerUploadImage.php';
     
-            $monArticle->create($dtCreArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $urlPhotArt, $numAngl, $numThem);
-
+            $monArticle->update($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $nomImage, $numAngl, $numThem);
+    
             header("Location: ./article.php");
         }   // Fin if ((isset($_POST['']))
         else {
@@ -127,6 +123,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $erreur = true;
             $errSaisies =  "Erreur, la saisie est obligatoire !";
         }   
+    }   // End of if ((isset($_POST["submit"])) ...
+    
 
     // Gestion des erreurs => msg si saisies ko
 
@@ -138,7 +136,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 // Init variables form
 include __DIR__ . '/initArticle.php';
 // En dur
-$urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
+// $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -174,6 +172,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
             $libTitrArt = $query['libTitrArt'];
             $dtCreArt = $query['dtCreArt'];
             $libChapoArt = $query['libChapoArt'];
+            $libAccrochArt = $query['libAccrochArt'];
             $parag1Art = $query['parag1Art'];
             $libSsTitr1Art = $query['libSsTitr1Art'];
             $libSsTitr2Art = $query['libSsTitr2Art'];
@@ -183,7 +182,6 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
             $urlPhotArt = $query['urlPhotArt'];
             $numAngl = $query['numAngl'];
             $numThem = $query['numThem'];
-            $langue = $query['Langue'];
         } 
         
        }
@@ -288,7 +286,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
             <label class="control-label" for="urlPhotArt"><b>Importez l'illustration :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
                 <input type="hidden" name="MAX_FILE_SIZE" id="MAX_FILE_SIZE" value="<?= MAX_SIZE; ?>" />
-                <input type="file" name="monfichier" id="monfichier" required="required" accept=".jpg,.gif,.png,.jpeg" size="70" maxlength="70" value="<?= "$urlPhotArt"; ?>" tabindex="110" placeholder="Sur 70 car." title="Recherchez l'image à uploader !" />
+                <input type="file" name="monfichier" id="monfichier" accept=".jpg,.gif,.png,.jpeg" size="70" maxlength="70" value="<?= $urlPhotArt; ?>" tabindex="110" placeholder="Sur 70 car." title="Recherchez l'image à uploader !" />
                 <p>
 <?php              // Gestion extension images acceptées
                   $msgImagesOK = "&nbsp;&nbsp;>> Extension des images acceptées : .jpg, .gif, .png, .jpeg" . "<br>" .
@@ -316,16 +314,16 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
                 <!-- Listbox langue => 2ème temps -->
 
                 <select name="Langue" id="Langue"  class="form-control form-control-create">
-                <option value="-1"></option>
+                <option value="-1"><?= $maLangue -> get_1LangueByThemArticle($numArt)['lib1Lang'] ?></option>
                 <?php
                 $allLangueAngle = $monAngle->get_AllLangues();
                 
                 if($allLangueAngle){
                 for ($i=0; $i < count($allLangueAngle); $i++){
-                    $value = $allLangueAngle[$i]['langue'];
+                    $value = $allLangueAngle[$i]['numLang'];
                 ?>
                 
-                <option value="<?php echo($value); ?>"> <?=$allLangueAngle[$i]['lib2Lang']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?= $allLangueAngle[$i]['lib2Lang']; ?> </option>
                 
                 <?php
                     } // End of foreach
@@ -351,7 +349,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
                 </label>
 
 
-                <input type="text" name="idAngl" id="idAngl" size="5" maxlength="5" value="<?= $numAngl; ?>" autocomplete="on" />
+                <input type="text" name="numAngl" id="numAngl" size="5" maxlength="5" value="<?= $numAngl; ?>" autocomplete="on" />
 
                 <!-- Listbox angle => 2ème temps -->
 
@@ -369,7 +367,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
                 </label>
 
 
-                <input type="text" name="idThem" id="idThem" size="5" maxlength="5" value="<?= $numThem; ?>" autocomplete="on" />
+                <input type="text" name="numThem" id="numThem" size="5" maxlength="5" value="<?= $numThem; ?>" autocomplete="on" />
 
                 <!-- Listbox thematique => 2ème temps -->
 

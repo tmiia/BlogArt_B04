@@ -50,7 +50,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<small><span><i>CRUD fini et valide (reste à intégrer et à tester)</i></span></small>
 	<br /><br /><hr />
 	<p>
-		<h2>Connexion...</h2>
+		<h2>Bienvenue, <?= $_COOKIE['pseudoMemb'] ?> </h2>
 	</p>
 	<hr class="hr1" />
 	<div>
