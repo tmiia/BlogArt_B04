@@ -96,8 +96,26 @@ a {
   font-family: "Mixta Sharp";
 }
 
-h6 {
+.event_butt {
   color: #D75A41;
+  width: 120px;
+  height: 60px;
+  border: #D75A41 4px;
+}
+
+.date_butt {
+  color: #D75A41;
+}
+
+.h6 {
+  font-family: "Mixta Sharp";
+  color: #D75A41;
+}
+
+.tri_article {
+  margin: 100px;
+  display: flex;
+  justify-content: space-between;
 }
 
 /*# sourceMappingURL=style.css.map */
