@@ -15,20 +15,23 @@
                         font-size: 12px;
  
                     }
-
+                    
+                    .a{
+                         width: 120px;
+                        height: 120px;
+                        border: $rouge 4px;
+                    
+                    }
                     .event_butt{
                         font-size: 18px;
                         color: $rouge;
+                        width: 120px;
+                        height: 120px;
+                        border: $rouge 4px;
                     
                     }
 
-                    .a{
-                        font-size: 18px;
-                        color: $rouge;
-                        width: 120px;
-                        height: 60px;
-                        border: $rouge 4px;
-                    }
+            
                     
         }
 
