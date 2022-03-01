@@ -3,8 +3,27 @@
 #main_body {
     margin: $marginDesktop;
 
-    .articles {
+    h4 {
 
         font-family: $fontTitre;
+
+
+    }
+
+    .articles {
+
+        font-size: 14px;
+        background-color: $noir;
+        border-radius: 15px;
+
+
+        h5 {
+            font-size: 18px;
+            text-transform: uppercase;
+        }
+        p {
+
+        }
+
     }
 }

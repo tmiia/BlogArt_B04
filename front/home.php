@@ -24,7 +24,7 @@
 
         <section class="articles">
 
-            <div class="article_recent">
+            <a class="article_recent">
                 <div class="article_recent_top">
                     <h5>TitreArticle</h5>
                     <p>ChapeauArticle</p>
@@ -33,7 +33,7 @@
                     <div class="article_like"></div>
                     <div class="article_btn">Consulter l'article</div>
                 </div>
-            </div>
+            </a>
 
 
         </section>
