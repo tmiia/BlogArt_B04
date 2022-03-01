@@ -1,3 +1,31 @@
-h6 {
-    color: #D75A41;
+
+.event_butt{
+
+    color: $rouge;
+    width: 120px;
+    height: 60px;
+    border: $rouge 4px;
+ 
+}
+
+// .thematique_event{
+
+// }
+
+.date_butt{
+    color: $rouge;
+
+}
+
+.h6{
+    font-family: $fontTitre;
+    color: $rouge;
+
+}
+
+
+.tri_article{
+    margin: $marginDesktop;
+    display: flex;
+    justify-content: space-between
 }

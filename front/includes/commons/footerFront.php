@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="../style.css"> 
+<link href="style.css" rel="stylesheet">
 
 <footer>
     <div class="connect_admin">
