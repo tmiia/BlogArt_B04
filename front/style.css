@@ -421,8 +421,9 @@ footer .liens {
   border-radius: 20px;
 }
 
-.form_connexion {
+#form_connexion {
   background-color: #2E1A1E;
+  font-family: "Century Gothic";
 }
 
 /*# sourceMappingURL=style.css.map */
