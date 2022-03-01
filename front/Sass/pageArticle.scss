@@ -1,31 +1,66 @@
 
-.event_butt{
-
-    color: $rouge;
-    width: 120px;
-    height: 60px;
-    border: $rouge 4px;
- 
-}
-
-// .thematique_event{
-
-// }
-
-.date_butt{
-    color: $rouge;
-
-}
-
-.h6{
-    font-family: $fontTitre;
-    color: $rouge;
-
-}
-
-
 .tri_article{
+
     margin: $marginDesktop;
     display: flex;
-    justify-content: space-between
+    justify-content: space-between;
+
+        .them_event{
+
+            margin: 30px;
+
+
+                    h6{
+                        color: $rouge;
+                        font-size: 12px;
+ 
+                    }
+                    
+                    .a{
+                         width: 120px;
+                        height: 120px;
+                        border: $rouge 4px;
+                    
+                    }
+                    .event_butt{
+                        font-size: 18px;
+                        color: $rouge;
+                        width: 120px;
+                        height: 120px;
+                        border: $rouge 4px;
+                    
+                    }
+
+            
+                    
+        }
+
+        .trier_date{
+
+            margin: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+
+                    h6{
+                        color: $rouge;
+                        font-size: 12px;
+
+                    }
+
+                    .date_butt{
+                        color: $rouge;
+                        font-family: $fontTitre;
+                        font-size: 18px;
+
+
+                    }
+            
+
+
+        }
+
+
 }
+
