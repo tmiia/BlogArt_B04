@@ -21,24 +21,50 @@ require_once __DIR__ . '/../../CLASS_CRUD/LikeArt.class.php';
 // Instanciation de la classe Likeart
 $monLikeArt = new LIKEART();
 
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+$monMembre = new MEMBRE();
 
+// Insertion classe Article
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
+// Instanciation de la classe Article
+$monArticle = new ARTICLE();
 // Gestion des erreurs de saisie
+
 $erreur = false;
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
-
-
-    // controle des saisies du formulaire
-
-    // création effective du likeart
-
-
-
-    // Gestion des erreurs => msg si saisies ko
+    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    
+            header("Location: ./LikeArt.php");
+    }   // End of if ((isset($_POST["submit"])) ...
+        
+    if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))
+        AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
+            // Saisies valides
+            $erreur = false;
+    
+            $numMemb = ctrlSaisies(($_POST['Membre']));
+            $numArt = ctrlSaisies(($_POST['Article']));
+            $likeA = 1;
+    
+            $monLikeArt->create($numMemb, $numArt, $likeA);
+    
+            header("Location: ./likeArt.php");
+        }   // Fin if ((isset($_POST['libStat']))
+        else {
+            // Saisies invalides
+            $erreur = true;
+            $errSaisies =  "Erreur, la saisie est obligatoire !";
+        }   // End of else erreur saisies
 
 
 
@@ -83,10 +109,26 @@ include __DIR__ . '/initLikeArt.php';
             </label>
             <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?= $numMemb; ?>" />
 
-            <input type="text" name="idMemb" id="idMemb" size="5" maxlength="5" value="<?= $idMemb; ?>" autocomplete="on" />
+            
 
             <!-- Listbox membre => 2ème temps -->
-
+            <select name="Membre" id="Article"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un membre - - -</option>
+                <?php
+                $allMembres = $monMembre->get_AllMembres();
+                
+                if($allMembres){
+                for ($i=0; $i < count($allMembres); $i++){
+                    $value = $allMembres[$i]['numMemb'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allMembres[$i]['pseudoMemb']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
             </div>
         </div>
     <!-- FIN Listbox Membre -->
@@ -104,7 +146,23 @@ include __DIR__ . '/initLikeArt.php';
             </label>
             <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
 
-            <input type="text" name="idArt" id="idArt" size="5" maxlength="5" value="<?= $idArt; ?>" autocomplete="on" />
+            <select name="Article" id="Article"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un article - - -</option>
+                <?php
+                $allArticles = $monArticle->get_AllArticles();
+                
+                if($allArticles){
+                for ($i=0; $i < count($allArticles); $i++){
+                    $value = $allArticles[$i]['numArt'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allArticles[$i]['libTitrArt']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
             <!-- Listbox article => 2ème temps -->
 

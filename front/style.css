@@ -28,7 +28,7 @@ header nav {
   width: 40%;
 }
 header nav .langues ::after {
-  content: "/f107";
+  content: "f107";
   font-family: "Font Awesome 5 Free";
 }
 header nav img {
@@ -93,29 +93,210 @@ footer .liens {
   justify-content: space-between;
 }
 
-/*-------VARIABLES--------*/
-/*Couleurs*/
-/*Marges*/
-/*Font Family*/
-/*---------GENERALE--------*/
-* {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
-}
-
 #main_body {
   margin: 100px;
+  font-family: "Century Gothic";
+}
+#main_body h4 {
+  font-family: "Mixta Sharp";
+  color: #8B8B8B;
+  font-size: 36px;
 }
 #main_body .articles {
-  font-family: "Mixta Sharp";
+  font-size: 14px;
+  display: flex;
+  margin: 100px 0 100px 100px;
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+#main_body .articles a.article_recent {
+  min-width: 250px;
+  height: 300px;
+  color: #fff;
+  background-color: #2E1A1E;
+  border-radius: 15px;
+  margin-right: 50px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+#main_body .articles a.article_recent .article_illustration {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transform: scale(1);
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.6;
+  transition: ease 0.4s;
+}
+#main_body .articles a.article_recent:hover .article_illustration {
+  transform: scale(1.2);
+  transition: ease 0.4s;
+}
+#main_body .articles a.article_recent .article_recent_top {
+  margin: 20px;
+  z-index: 2;
+  position: relative;
+}
+#main_body .articles a.article_recent .article_recent_top h5 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+#main_body .articles a.article_recent .article_recent_top p {
+  font-size: 14px;
+}
+#main_body .articles a.article_recent .article_recent_bot {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  position: relative;
+}
+#main_body .articles a.article_recent .article_recent_bot .article_like {
+  height: 30px;
+  width: 30px;
+  background: #DED6D1;
+  border-radius: 100%;
+  color: #8B8B8B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#main_body .articles a.article_recent .article_recent_bot .article_btn {
+  background: #D75A41;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+#main_body .redirection {
+  margin: 100px 0;
+  display: flex;
+  justify-content: space-between;
+}
+#main_body .redirection a.outSite {
+  width: calc(50% - 50px);
+  height: 200px;
+  color: #fff;
+  background-color: #2E1A1E;
+  border-radius: 15px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-end;
+  text-align: right;
+}
+#main_body .redirection a.outSite .event_illustration {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transform: scale(1);
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.6;
+  transition: ease 0.4s;
+}
+#main_body .redirection a.outSite:hover .event_illustration {
+  transform: scale(1.2);
+  transition: ease 0.4s;
+}
+#main_body .redirection a.outSite h5 {
+  z-index: 2;
+  font-size: 25px;
+  font-weight: 600;
+  margin: 50px 50px 0;
+}
+#main_body .redirection a.outSite p {
+  z-index: 2;
+  font-size: 14px;
+  margin: 20px 50px 50px;
+  width: 70%;
+  font-weight: 400;
+}
+#main_body .associations {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 100px 0;
+}
+#main_body .associations .association_lien {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 250px;
+  height: 200px;
+  position: relative;
+  background-color: #D75A41;
+}
+#main_body .associations .association_lien img {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  opacity: 0.6;
+  z-index: 1;
+}
+#main_body .associations .association_lien h6 {
+  font-size: 20px;
+  z-index: 2;
+}
+#main_body .associations .association_lien p {
+  z-index: 2;
+  font-size: 14px;
 }
 
-h6 {
+.tri_article {
+  margin: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+.tri_article .them_event {
+  margin: 30px;
+}
+.tri_article .them_event h6 {
   color: #D75A41;
+  font-size: 12px;
+}
+.tri_article .them_event .a {
+  width: 120px;
+  height: 120px;
+  border: #D75A41 4px;
+}
+.tri_article .them_event .event_butt {
+  font-size: 18px;
+  color: #D75A41;
+  width: 120px;
+  height: 120px;
+  border: #D75A41 4px;
+}
+.tri_article .trier_date {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.tri_article .trier_date h6 {
+  color: #D75A41;
+  font-size: 12px;
+}
+.tri_article .trier_date .date_butt {
+  color: #D75A41;
+  font-family: "Mixta Sharp";
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=style.css.map */

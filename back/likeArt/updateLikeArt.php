@@ -31,8 +31,14 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
     // Ctrl saisies form
 
-
+var_dump($_GET);
+exit;
     // Insert / update likeart
+    if (isset($_GET['id1']) and $_GET['id1'] != '' and isset($_GET['id2']) and $_GET['id2'] != '') {
+
+        $numMemb = ctrlSaisies($_GET['id1']);
+        $numArt = ctrlSaisies($_GET['id2']);
+    }
 
 
 
