@@ -1,4 +1,4 @@
-<link href="/front/Sass/header.scss" rel="stylesheet">
+<link rel="stylesheet" href="/front/style.css"> 
 
 <header>
     

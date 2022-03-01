@@ -1,10 +1,19 @@
 
-.a{
+.event_butt{
     text-decoration:none; 
     color: $rouge;
+    ::after
+        width: 120px;
+        height: 60px;
+        color: ;
+
 }
 
+.date_butt{
+    text-decoration:none; 
+    color: $rouge;
 
+}
 
 .h6{
     font-family: $fontTitre;
@@ -14,7 +23,7 @@
 
 
 .tri_article{
-    margin: 60px 0 0 0px;
+    margin: $marginDesktop;
     display: flex;
     justify-content: space-between
 
