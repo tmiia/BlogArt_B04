@@ -14,10 +14,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Likeart
-// Insertion classe Likeart
-require_once __DIR__ . '/../../CLASS_CRUD/LikeArt.class.php';
-
-// Instanciation de la classe Likeart
+require_once __DIR__ . '/../../CLASS_CRUD/likeart.class.php';
 $monLikeArt = new LIKEART();
 
 require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
@@ -28,35 +25,13 @@ $monArticle = new ARTICLE();
 require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
-
 // Gestion des erreurs de saisie
 $erreur = false;
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    if(isset($_POST['Submit'])){
-        $Submit = $_POST['Submit'];
-    } else {
-        $Submit = "";
-    }
 
-    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
-    
-        header("Location: ./likeArt.php");
-} 
-
-    // controle CIR
-    $erreur = false;
-    // delete effective de l'likeArt
-
-    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-            
-        $monlikeArt->delete($numMemb, $numArt);
-            header("Location: ./likeArt.php");
-        } else {
-            echo("Location: likeArt.php?errCIR=1");
-    }
 
 
     // delete effective du likeart
