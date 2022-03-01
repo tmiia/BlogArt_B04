@@ -17,7 +17,7 @@
 <!------------>
 <div class="tri_article">
     
-    <div class="thematique_event">
+    <div class="them_event">
 
         <h6>THEMATIQUES :</h6>
         <a href="" class="event_butt">EVENEMENTS</a>
@@ -25,7 +25,7 @@
     </div>
 
 
-    <div>
+    <div class="trier_date">
 
         <h6>TRIER PAR :</h6>
         <a href="" class="date_butt">PAR DATE</a>
