@@ -7,7 +7,7 @@
     </div> 
 
     <div class="revenir_haut">
-        <a href="#haut de la page">
+        <a href="#top">
             <img src="../front/assets/flecheHautFooter.svg" alt="flèche haut">
             <p>Revenir en haut</p>
         </a>
@@ -15,7 +15,7 @@
 
     <div class="liens">
         <a href="#"><p>Mentions légales</p></a>
-        <a href="#"><p>Newsletter</p></a>
+        <a href="#"><p>CGU</p></a>
         <a href="#"><p>Accueil</p></a>
     </div>
 

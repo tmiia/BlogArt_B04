@@ -52,7 +52,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <html>
-<body>
+<section class="form_connexion">
 
      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
@@ -68,6 +68,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
      </form>
 
-</body>
+</section>
 
 </html>

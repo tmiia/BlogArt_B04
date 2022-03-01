@@ -18,14 +18,14 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-header a, header p {
+header p {
   font-family: "Century Gothic";
   text-transform: uppercase;
   color: #2E1A1E;
   text-decoration: none;
   font-weight: 600;
 }
-header a:hover, header p:hover {
+header p:hover {
   color: #8B8B8B;
 }
 header nav {
@@ -34,12 +34,14 @@ header nav {
   align-items: center;
   width: 30rem;
 }
-header nav .langues ::after {
-  font-family: "Font Awesome 5 Brands";
-  content: "/f107";
+header nav .langues {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
 }
-header nav img {
-  padding-right: 15px;
+header nav .langues img {
+  width: 1rem;
+  margin-left: 5px;
 }
 header .connect {
   display: flex;
@@ -417,6 +419,10 @@ footer .liens {
   background: #D75A41;
   padding: 10px 20px;
   border-radius: 20px;
+}
+
+.form_connexion {
+  background-color: #2E1A1E;
 }
 
 /*# sourceMappingURL=style.css.map */

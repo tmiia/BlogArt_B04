@@ -4,7 +4,7 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    a, p{
+    p{
     font-family: $fontText;
     text-transform: uppercase;
     color: $noir;
@@ -24,17 +24,25 @@ header{
         width: 30rem;
 
         .langues{
+            display: flex;
+            margin-left: 10px;
+            align-items: center;
 
-            ::after{
-                font-family: "Font Awesome 5 Brands";
-                content: '/f107';
+            img{
+                width: 1rem;
+                margin-left: 5px;
             }
         }
-        
 
-        img{
-            padding-right: 15px;
-        }
+        // .langues{
+
+        //     ::after{
+        //         font-family: "Font Awesome 5 Brands";
+        //         content: '/f107';
+        //     }
+        // }
+        
+        
     }
 
     .connect{
