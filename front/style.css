@@ -19,7 +19,7 @@ header {
   align-items: center;
 }
 header p {
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
   text-transform: uppercase;
   color: #2E1A1E;
   text-decoration: none;
@@ -71,7 +71,7 @@ footer {
 }
 footer a, footer p {
   color: #DED6D1;
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
   font-size: 18px;
   font-weight: 600;
 }
@@ -109,12 +109,14 @@ footer .liens {
 
 #main_body {
   margin: 100px;
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
 }
 #main_body h4 {
-  font-family: "Mixta Sharp";
+  font-family: "ltc-broadway", sans-serif;
   color: #8B8B8B;
   font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 #main_body .articles {
   font-size: 14px;
@@ -232,6 +234,7 @@ footer .liens {
   font-size: 25px;
   font-weight: 600;
   margin: 50px 50px 0;
+  text-transform: uppercase;
 }
 #main_body .redirection a.outSite p {
   z-index: 2;
@@ -315,6 +318,14 @@ footer .liens {
   width: 240px;
   border: 1px solid #D75A41;
   border-radius: 50px;
+  position: relative;
+}
+.tri_article .them_event .event_butt .butt .svg {
+  width: 20px;
+  position: absolute;
+  color: #D75A41;
+  top: 16px;
+  right: 17px;
 }
 .tri_article .trier_date {
   display: flex;
@@ -340,10 +351,14 @@ footer .liens {
   width: 240px;
   border: 1px solid #D75A41;
   border-radius: 50px;
+  position: relative;
 }
-.tri_article .trier_date .date_butt .butt ::after {
-  font-family: "Font Awesome 5 Brands";
-  content: "/f107";
+.tri_article .trier_date .date_butt .butt .svg {
+  width: 20px;
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  color: #D75A41;
 }
 
 .articles {
@@ -423,7 +438,7 @@ footer .liens {
 
 #form_connexion {
   background-color: #2E1A1E;
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */

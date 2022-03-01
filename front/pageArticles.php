@@ -25,7 +25,7 @@
 
         <h6>THEMATIQUES :</h6>
         <a href="" class="event_butt">
-            <span class="butt">EVENEMENTS</span>
+            <span class="butt">EVENEMENTS<img class="svg" src="../front/assets/down.jpg" alt=""></span>
         </a>
 
     </div>
@@ -35,7 +35,7 @@
 
         <h6>TRIER PAR :</h6>
         <a href="" class="date_butt">
-        <span class="butt">PAR DATE</span>
+        <span class="butt">PAR DATE<img class="svg" src="../front/assets/down.jpg" alt=""></span>
 
         </a>
 
