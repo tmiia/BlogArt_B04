@@ -241,26 +241,44 @@ footer a, p {
   font-size: 14px;
 }
 
-.event_butt {
-  color: #D75A41;
-  width: 120px;
-  height: 60px;
-  border: #D75A41 4px;
-}
-
-.date_butt {
-  color: #D75A41;
-}
-
-.h6 {
-  font-family: "Mixta Sharp";
-  color: #D75A41;
-}
-
 .tri_article {
   margin: 100px;
   display: flex;
   justify-content: space-between;
+}
+.tri_article .them_event {
+  margin: 30px;
+}
+.tri_article .them_event h6 {
+  color: #D75A41;
+  font-size: 12px;
+}
+.tri_article .them_event .a {
+  width: 120px;
+  height: 120px;
+  border: #D75A41 4px;
+}
+.tri_article .them_event .event_butt {
+  font-size: 18px;
+  color: #D75A41;
+  width: 120px;
+  height: 120px;
+  border: #D75A41 4px;
+}
+.tri_article .trier_date {
+  margin: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.tri_article .trier_date h6 {
+  color: #D75A41;
+  font-size: 12px;
+}
+.tri_article .trier_date .date_butt {
+  color: #D75A41;
+  font-family: "Mixta Sharp";
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=style.css.map */

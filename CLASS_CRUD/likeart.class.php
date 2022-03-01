@@ -74,7 +74,7 @@ class LIKEART{
 			$query = 'INSERT INTO LIKEART (numMemb, numArt, likeA) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
 			// prepare
 			$request = $db->prepare($query);
-			$request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);
+			$request->execute([$numMemb, $numArt, $likeA]);
 			// execute
 			$db->commit();
 			$request->closeCursor();
@@ -82,7 +82,7 @@ class LIKEART{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert LIKEART : ' . $e->getMessage());
+			die('Erreur insert LIKEART : ' . $e->getMessage() . " L'utilisateur a déjà liké ce post");
 		}
 	}
 
@@ -93,8 +93,11 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// update
-			// prepare
-			// execute
+			$query = 'UPDATE LIKEART SET likeA = ? WHERE numMemb = ? AND numArt = ?;';
+			
+			$request = $db->prepare($query);
+			$request->execute([$likeA, $numMemb, $numArt]);
+			
 			$db->commit();
 			$request->closeCursor();
 		}
