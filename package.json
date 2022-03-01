@@ -1,13 +1,10 @@
 {
   "name": "blogart",
   "version": "1.0.0",
-  "description": "\"\"",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "sass_homePage": "sass --watch ./sass/homepage.scss:./homepage.css",
-    "sass_PageArticle": "sass --watch ./sass/pageArticle.scss:./pageArticle.css",
-    "sass_header": "sass --watch ./sass/header.scss:./header.css",
-    "sass_footer": "sass --watch ./sass/footer.scss:./footer.css"
+    "sass": "sass --watch front/sass/main.scss:front/style.css"
 },
   "repository": {
     "type": "git",
