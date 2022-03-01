@@ -281,14 +281,14 @@ footer .liens {
 }
 .tri_article .them_event h6 {
   color: #D75A41;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bolder;
   margin-bottom: 15px;
 }
 .tri_article .them_event .event_butt {
   color: #D75A41;
   font-weight: bolder;
-  font-size: 18px;
+  font-size: 20px;
 }
 .tri_article .them_event .event_butt .butt {
   display: flex;
@@ -306,13 +306,13 @@ footer .liens {
 }
 .tri_article .trier_date h6 {
   color: #D75A41;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: bolder;
   margin-bottom: 15px;
 }
 .tri_article .trier_date .date_butt {
   color: #D75A41;
-  font-size: 18px;
+  font-size: 20px;
   font-weight: bolder;
 }
 .tri_article .trier_date .date_butt .butt {
@@ -323,6 +323,82 @@ footer .liens {
   width: 240px;
   border: 1px solid #D75A41;
   border-radius: 50px;
+}
+
+.articles {
+  font-size: 14px;
+  display: flex;
+  margin: 100px 0 100px 100px;
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+.articles a.article_recent {
+  min-width: 250px;
+  height: 300px;
+  color: #fff;
+  background-color: #2E1A1E;
+  border-radius: 15px;
+  margin-right: 50px;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.articles a.article_recent .article_illustration {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  transform: scale(1);
+  z-index: 1;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.6;
+  transition: ease 0.4s;
+}
+.articles a.article_recent:hover .article_illustration {
+  transform: scale(1.2);
+  transition: ease 0.4s;
+}
+.articles a.article_recent .article_recent_top {
+  margin: 20px;
+  z-index: 2;
+  position: relative;
+}
+.articles a.article_recent .article_recent_top h5 {
+  font-size: 20px;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 50px;
+}
+.articles a.article_recent .article_recent_top p {
+  font-size: 14px;
+}
+.articles a.article_recent .article_recent_bot {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 2;
+  position: relative;
+}
+.articles a.article_recent .article_recent_bot .article_like {
+  height: 30px;
+  width: 30px;
+  background: #DED6D1;
+  border-radius: 100%;
+  color: #8B8B8B;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.articles a.article_recent .article_recent_bot .article_btn {
+  background: #D75A41;
+  padding: 10px 20px;
+  border-radius: 20px;
 }
 
 /*# sourceMappingURL=style.css.map */
