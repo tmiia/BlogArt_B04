@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $monAngle->delete($_POST["id"]);
             header("Location: ./angle.php");
         } else {
-            echo("Impossible de supprimer un angle toujours utilisée.");
+            echo("Location: angle.php?errCIR=1");
     }
 }// End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
