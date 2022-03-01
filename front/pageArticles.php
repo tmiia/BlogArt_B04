@@ -14,7 +14,7 @@
     require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
-<div>
+<div class="tri_article">
     
     <div>
 
@@ -47,9 +47,9 @@
 
 <!-- FOOTER -->
     <?php
-    require_once __DIR__ . '/includes/commons/footerFront.php';
+    // require_once __DIR__ . '/includes/commons/footerFront.php';
     ?>
-<!------------>
+<!---------- -->
 
 </body>
 
