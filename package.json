@@ -1,13 +1,18 @@
 {
   "name": "blogart",
   "version": "1.0.0",
-  "description": "\"\"",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/homepage.scss:./homepage.css",
-    "sass": "sass --watch ./sass/pageArticle.scss:./pageArticle.css"
-
-  },
+<<<<<<< HEAD
+    "sass": "sass --watch front/sass/main.scss:front/style.css"
+=======
+    "sass_homePage": "sass --watch ./front/sass/homepage.scss: ./front/style.css",
+    "sass_PageArticle": "sass --watch ./front/sass/pageArticle.scss: ./front/style.css",
+    "sass_header": "sass --watch ./front/sass/header.scss: ./front/style.css",
+    "sass_footer": "sass --watch ./front/sass/footer.scss: ./front/style.css"
+>>>>>>> f54974244435741cb612e7b31aa0891bd04e0b49
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Refonte-Accord-Arena/BlogArt.git"

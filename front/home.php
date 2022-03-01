@@ -9,43 +9,42 @@
 
 </head>
 <body>
-   
-    <section class="hero">
-        <h1>Au bord des rues</h1>
-        <p>hero banner</p>
-    </section>
-
-    <section class="barreRecherche">
-
-    </section>
 
     <?php
     require_once __DIR__ . '/includes/commons/headerFront.php';
+    require_once __DIR__ . '/includes/commons/navigationFront.php';
+    require_once __DIR__ . '/includes/commons/footerFront.php';
+    require_once __DIR__ . '/includes/commons/imports.php';
+
     ?>
 
-     <section class="articlesRecents">
-        <h2>Articles récents</h2>
+    <div id="main_body">
 
-        <div class="article1">
-            <a href="#article1"> </a>
-        </div>
-        <div class="article2">
-            <a href="#article2"> </a>
-        </div>
-        <div class="article3">
-            <a href="#article3"> </a>
-        </div>
+        <h4>Articles récents</h4>
 
-     </section>
+        <section class="articles">
+
+            <div class="article_recent">
+                <div class="article_recent_top">
+                    <h5>TitreArticle</h5>
+                    <p>ChapeauArticle</p>
+                </div>
+                <div class="article_recent_bot">
+                    <div class="article_like"></div>
+                    <div class="article_btn">Consulter l'article</div>
+                </div>
+            </div>
 
 
-     <section class="DonnezVotreTemps">
+        </section>
 
-     </section>
+        <h4>Donnez de votre temps</h4>
 
-     <section class="AssosAAider">
+        
+    </div>
 
-     </section>
+
+
 
     <?php
     require_once __DIR__ . '/includes/commons/footerFront.php';

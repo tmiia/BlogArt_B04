@@ -1,0 +1,24 @@
+/*-------VARIABLES--------*/
+
+
+/*Couleurs*/
+$noir : #2E1A1E;
+$rouge: #D75A41;
+$blanc: #DED6D1;
+
+/*Marges*/
+$marginDesktop : 100px;
+$marginMobile : 50px;
+
+/*Font Family*/
+$fontTitre : "Mixta Sharp";
+$fontText : "Century Gothic";
+
+/*---------GENERALE--------*/
+*{
+    margin: 0;
+    padding: 0;
+}
+a{
+    text-decoration: none;
+}
