@@ -1,12 +1,12 @@
-<link href="../front/includes/commons/footer.css" rel="stylesheet">
+<link rel="stylesheet" href="../style.css"> 
 
 <footer>
-    <div class="connectAdmin">
+    <div class="connect_admin">
         <a href="#connectadmin"><p>Connexion Administrateur</p></a>
         <p>@ 2022 Au bord Des Rues. All rights reserved</p>
     </div> 
 
-    <div class="revenirHaut">
+    <div class="revenir_haut">
         <a href="#haut de la page">
             <img src="../front/assets/flecheHautFooter.svg" alt="flèche haut">
             <p>Revenir en haut</p>

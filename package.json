@@ -4,12 +4,11 @@
   "description": "\"\"",
   "main": "index.js",
   "scripts": {
-    "sass1": "sass --watch ./sass/homepage.scss:./homepage.css",
-    "sass2": "sass --watch ./sass/pageArticle.scss:./pageArticle.css",
-    "sass_header": "sass --watch ./sass/header.scss:./header.css",
-    "sass_footer": "sass --watch ./sass/footer.scss:./footer.css"
-
-  },
+    "sass_homePage": "sass --watch ./front/sass/homepage.scss: ./front/style.css",
+    "sass_PageArticle": "sass --watch ./front/sass/pageArticle.scss: ./front/style.css",
+    "sass_header": "sass --watch ./front/sass/header.scss: ./front/style.css",
+    "sass_footer": "sass --watch ./front/sass/footer.scss: ./front/style.css"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Refonte-Accord-Arena/BlogArt.git"
