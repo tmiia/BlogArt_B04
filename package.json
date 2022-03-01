@@ -4,7 +4,10 @@
   "description": "\"\"",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./front/sass/homepage.scss:./front/style.css"
+    "sass_homePage": "sass --watch ./sass/homepage.scss:./homepage.css",
+    "sass_PageArticle": "sass --watch ./sass/pageArticle.scss:./pageArticle.css",
+    "sass_header": "sass --watch ./sass/header.scss:./header.css",
+    "sass_footer": "sass --watch ./sass/footer.scss:./footer.css"
   },
   "repository": {
     "type": "git",
