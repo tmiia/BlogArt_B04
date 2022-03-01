@@ -12,64 +12,82 @@ a {
   text-decoration: none;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
-}
-
 header {
-  margin: 15px;
+  margin: 0px 120px;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: "Century Gothic";
+  text-transform: uppercase;
+  color: #2E1A1E;
 }
-
-nav {
-  margin: 15px;
+header nav {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  width: 40%;
 }
-
-nav a {
-  margin: 15px;
+header nav .langues ::after {
+  content: "f107";
+  font-family: "Font Awesome 5 Free";
 }
-
-.connect {
+header nav img {
+  padding-right: 15px;
+}
+header .connect {
   display: flex;
   justify-content: space-between;
+  width: 21%;
+  align-items: center;
 }
-
-img {
-  display: flex;
-  width: 100px;
+header .connect .btn_inscription {
+  background-color: #D75A41;
+  color: #DED6D1;
+  padding: 10px;
 }
-
-* {
-  padding: 0;
-  margin: 0;
-  text-decoration: none;
+header .connect .btn_inscription h3 {
+  color: #DED6D1;
 }
-
+header img {
+  width: 80px;
+}
 footer {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2C2C2C;
+  background-color: #2E1A1E;
+  padding: 20px 100px;
 }
-
-footer a, p {
+footer a, footer p {
   color: #DED6D1;
   font-family: "Century Gothic";
   font-size: 18px;
   font-weight: 600;
 }
-
-.revenir_haut {
-  text-transform: uppercase;
+footer .connect_admin {
+  padding-top: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100px;
 }
-
-.liens {
+footer .connect_admin .credits {
+  font-size: 13px;
+  font-weight: 400;
+}
+footer .revenir_haut a {
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+footer .revenir_haut a img {
+  justify-content: center;
+  align-self: center;
+  width: 25px;
+  margin: 10px;
+}
+footer .liens {
   display: flex;
   width: 30%;
   justify-content: space-between;
