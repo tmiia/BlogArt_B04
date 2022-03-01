@@ -20,8 +20,13 @@ require_once __DIR__ . '/../../CLASS_CRUD/LikeArt.class.php';
 // Instanciation de la classe Likeart
 $monLikeArt = new LIKEART();
 
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
+// Instanciation de la classe Article
+$monArticle = new ARTICLE();
 
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+$monMembre = new MEMBRE();
 
 
 // Gestion des erreurs de saisie
@@ -84,7 +89,7 @@ include __DIR__ . '/initLikeArt.php';
 <?php
     // Supp : récup id à supprimer
     // id passé en GET
-
+    
 
 
 
@@ -111,25 +116,13 @@ include __DIR__ . '/initLikeArt.php';
             </label>
             <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?= $numMemb; ?>" />
 
-
-                <!-- Listbox membre disabled => 2ème temps -->
-                <select name="Membre" id="Article"  class="form-control form-control-create">
-                <option value="-1">- - - Choisissez un membre - - -</option>
-                <?php
-                $allMembres = $monMembre->get_AllMembres();
+            <select name="Membre" id="Membre"  class="form-control form-control-create">
                 
-                if($allMembres){
-                for ($i=0; $i < count($allMembres); $i++){
-                    $value = $allMembres[$i]['numMemb'];
-                ?>
-                
-                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allMembres[$i]['pseudoMemb']; ?> </option>
-                
-                <?php
-                    } // End of foreach
-                }   // if ($result)
-                ?>
+                <option value="-1"><?php echo($monMembre->get_1Membre($numMemb)['pseudoMemb']); ?> </option>
+               
             </select>
+                <!-- Listbox membre disabled => 2ème temps -->
+        
             </div>
         </div>
     <!-- FIN Listbox Membre -->
@@ -147,25 +140,13 @@ include __DIR__ . '/initLikeArt.php';
             </label>
             <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
 
-
-                <!-- Listbox aricle disabled => 2ème temps -->
-                <select name="Article" id="Article"  class="form-control form-control-create">
-                <option value="-1">- - - Choisissez un article - - -</option>
-                <?php
-                $allArticles = $monArticle->get_AllArticles();
+            <select name="Article" id="Article"  class="form-control form-control-create">
                 
-                if($allArticles){
-                for ($i=0; $i < count($allArticles); $i++){
-                    $value = $allArticles[$i]['numArt'];
-                ?>
-                
-                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allArticles[$i]['libTitrArt']; ?> </option>
-                
-                <?php
-                    } // End of foreach
-                }   // if ($result)
-                ?>
+                <option value="-1"><?php echo($monArticle->get_1Article($numArt)['libTitrArt']); ?> </option>
+               
             </select>
+                <!-- Listbox aricle disabled => 2ème temps -->
+                
             </div>
         </div>
     <!-- FIN Listbox Article -->
