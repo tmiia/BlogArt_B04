@@ -1,32 +1,59 @@
-*{
-    padding: 0;
-    margin: 0;
-    text-decoration: none;
-}
-
 header{
-    margin: 15px;
+    margin: 0px 120px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: $fontText;
+    text-transform: uppercase;
+    color: $noir;
+
+    nav{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 40%;
+
+        .langues{
+
+            ::after{
+            content: "f107";
+            font-family: "Font Awesome 5 Free";
+            }
+        }
+        
+
+        img{
+            padding-right: 15px;
+        }
+    }
+
+    .connect{
+        display: flex;
+        justify-content: space-between;
+        width: 21%;
+        align-items: center;
+
+        .btn_inscription{
+            background-color: $rouge;
+            color: $blanc;
+            padding: 10px;
+
+
+            h3{
+                color: $blanc;
+            }
+        
+            
+        }
+    }
+
+    img{
+        width: 80px;
+    }
+
+    .langues{
+
+    }
+
 }
 
-nav{
-    margin: 15px;
-    display: flex;
-    justify-content: space-between;
-}
-
-nav a{
-    margin: 15px;
-}
-
-.connect{
-    display: flex;
-    justify-content: space-between;
-}
-
-img{
-    display: flex;
-    width: 100px;
-}

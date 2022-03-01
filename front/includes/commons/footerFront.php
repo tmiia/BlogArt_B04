@@ -3,7 +3,7 @@
 <footer>
     <div class="connect_admin">
         <a href="#connectadmin"><p>Connexion Administrateur</p></a>
-        <p>@ 2022 Au bord Des Rues. All rights reserved</p>
+        <p class="credits" >@ 2022 Au bord Des Rues. All rights reserved</p>
     </div> 
 
     <div class="revenir_haut">
@@ -15,8 +15,8 @@
 
     <div class="liens">
         <a href="#"><p>Mentions légales</p></a>
-        <a href="#"></a><p>Newsletter</p></a>
-        <a href="#"></a><p>Accueil</p></a>
+        <a href="#"><p>Newsletter</p></a>
+        <a href="#"><p>Accueil</p></a>
     </div>
 
 </footer>
