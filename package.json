@@ -4,7 +4,11 @@
   "description": "\"\"",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./front/sass/homepage.scss:./front/homepage.css"
+    "sass": "sass --watch ./sass/homepage.scss:./homepage.css",
+    "sass": "sass --watch ./sass/pageArticle.scss:./pageArticle.css",
+    "sass": "sass --watch ./sass/header.scss:./header.css",
+    "sass": "sass --watch ./sass/footer.scss:./footer.css"
+
   },
   "repository": {
     "type": "git",
