@@ -10,13 +10,20 @@
             margin: 30px;
 
 
-                    .h6{
+                    h6{
+                        color: $rouge;
+                        font-size: 12px;
+ 
+                    }
+
+                    .event_butt{
+                        font-size: 18px;
                         color: $rouge;
                     
                     }
 
-                    .event_butt{
-
+                    .a{
+                        font-size: 18px;
                         color: $rouge;
                         width: 120px;
                         height: 60px;
@@ -33,17 +40,18 @@
             align-items: flex-end;
 
 
-                    .h6{
-                        font-family: $fontText;
+                    h6{
                         color: $rouge;
-                        
+                        font-size: 12px;
+
                     }
 
                     .date_butt{
                         color: $rouge;
                         font-family: $fontTitre;
+                        font-size: 18px;
 
-                    
+
                     }
             
 
