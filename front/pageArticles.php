@@ -11,7 +11,7 @@
 <body>
 <!-- HEADER -->
     <?php
-    require_once __DIR__ . '/includes/commons/headerFront.php';
+    // require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
 <div class="tri_article">

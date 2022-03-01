@@ -1,2 +1,21 @@
-.tri_article
-        
+
+.a{
+    text-decoration:none; 
+    color: $rouge;
+}
+
+
+
+.h6{
+    font-family: $fontTitre;
+    color: $rouge;
+
+}
+
+
+.tri_article{
+    margin: 60px 0 0 0px;
+    display: flex;
+    justify-content: space-between
+
+}
