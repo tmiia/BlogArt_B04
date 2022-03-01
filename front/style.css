@@ -17,9 +17,15 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+header h3 {
   font-family: "Century Gothic";
   text-transform: uppercase;
   color: #2E1A1E;
+  text-decoration: none;
+}
+header h3 :hover {
+  color: #8B8B8B;
 }
 header nav {
   display: flex;
@@ -28,8 +34,8 @@ header nav {
   width: 40%;
 }
 header nav .langues ::after {
-  content: "f107";
-  font-family: "Font Awesome 5 Free";
+  font-family: "Font Awesome 5 Brand";
+  content: "\f107";
 }
 header nav img {
   padding-right: 15px;
@@ -44,6 +50,10 @@ header .connect .btn_inscription {
   background-color: #D75A41;
   color: #DED6D1;
   padding: 10px;
+}
+header .connect .btn_inscription :hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
 }
 header .connect .btn_inscription h3 {
   color: #DED6D1;
