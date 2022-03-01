@@ -7,37 +7,40 @@
 
         .them_event{
 
-            margin: 30px;
+            
 
 
                     h6{
                         color: $rouge;
                         font-size: 12px;
- 
-                    }
-                    
-                    .a{
-                         width: 120px;
-                        height: 120px;
-                        border: $rouge 4px;
-                    
-                    }
-                    .event_butt{
-                        font-size: 18px;
-                        color: $rouge;
-                        width: 120px;
-                        height: 120px;
-                        border: $rouge 4px;
-                    
-                    }
+                        font-weight: bolder;
+                        margin-bottom: 15px;
 
+                    }
+                    
+                    
+                    .event_butt{
+                        color: $rouge;
+                        font-weight: bolder;
+                        font-size: 18px;
+                        
+
+                            .butt{
+                                display: flex;
+                                align-items: center;
+                                justify-content: center;
+                                height: 45px;
+                                width: 240px;
+                                border: 1px solid $rouge;
+                                border-radius: 50px;
+                            }
+                    }
             
                     
         }
 
         .trier_date{
 
-            margin: 30px;
             display: flex;
             flex-direction: column;
             align-items: flex-end;
@@ -46,14 +49,30 @@
                     h6{
                         color: $rouge;
                         font-size: 12px;
-
+                        font-weight: bolder;
+                        margin-bottom: 15px;
                     }
 
                     .date_butt{
                         color: $rouge;
-                        font-family: $fontTitre;
                         font-size: 18px;
+                        font-weight: bolder;
 
+
+                        .butt{
+                            display: flex;
+                            align-items: center;
+                            justify-content: center;
+                            height: 45px;
+                            width: 240px;
+                            border: 1px solid $rouge;
+                            border-radius: 50px;
+
+                            ::after {
+                                // <i class="fa-solid fa-angle-down"></i>
+
+                            }
+                        }
 
                     }
             

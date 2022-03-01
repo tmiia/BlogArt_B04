@@ -20,7 +20,9 @@
     <div class="them_event">
 
         <h6>THEMATIQUES :</h6>
-        <a href="" class="event_butt">EVENEMENTS</a>
+        <a href="" class="event_butt">
+            <span class="butt">EVENEMENTS</span>
+        </a>
 
     </div>
 
@@ -28,7 +30,10 @@
     <div class="trier_date">
 
         <h6>TRIER PAR :</h6>
-        <a href="" class="date_butt">PAR DATE</a>
+        <a href="" class="date_butt">
+        <span class="butt">PAR DATE</span>
+
+        </a>
 
     </div>
 
