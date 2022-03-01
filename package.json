@@ -4,7 +4,9 @@
   "description": "\"\"",
   "main": "index.js",
   "scripts": {
-    "sass": "sass --watch ./sass/homepage.scss:./homepage.css"
+    "sass": "sass --watch ./sass/homepage.scss:./homepage.css",
+    "sass": "sass --watch ./sass/pageArticle.scss:./pageArticle.css"
+
   },
   "repository": {
     "type": "git",
