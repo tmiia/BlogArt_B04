@@ -1,21 +1,105 @@
-<<<<<<< HEAD
-/* Error: Undefined variable.
- *    ,
- * 26 |     background-color: $blanc;
- *    |                       ^^^^^^
- *    '
- *   front\sass\variables.scss 26:23  @import
- *   front\sass\main.scss 1:9         root stylesheet */
-
-body::before {
-  font-family: "Source Code Pro", "SF Mono", Monaco, Inconsolata, "Fira Mono",
-      "Droid Sans Mono", monospace, monospace;
-  white-space: pre;
-  display: block;
-  padding: 1em;
-  margin-bottom: 1em;
-  border-bottom: 2px solid black;
-  content: "Error: Undefined variable.\a    \2577 \a 26 \2502      background-color: $blanc;\d\a    \2502                        ^^^^^^\a    \2575 \a   front\\sass\\variables.scss 26:23  @import\a   front\\sass\\main.scss 1:9         root stylesheet";
+/*-------VARIABLES--------*/
+/*Couleurs*/
+/*Marges*/
+/*Font Family*/
+/*---------GENERALE--------*/
+* {
+  margin: 0;
+  padding: 0;
 }
-=======
->>>>>>> f54974244435741cb612e7b31aa0891bd04e0b49
+
+a {
+  text-decoration: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+header {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  margin: 15px;
+}
+
+.connect {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  display: flex;
+  width: 100px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+footer {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2C2C2C;
+}
+
+/*-------VARIABLES--------*/
+/*Couleurs*/
+/*Marges*/
+/*Font Family*/
+/*---------GENERALE--------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#main_body {
+  margin: 100px;
+}
+#main_body .articles {
+  font-family: "Mixta Sharp";
+}
+
+.event_butt {
+  color: #D75A41;
+  width: 120px;
+  height: 60px;
+  border: #D75A41 4px;
+}
+
+.date_butt {
+  color: #D75A41;
+}
+
+.h6 {
+  font-family: "Mixta Sharp";
+  color: #D75A41;
+}
+
+.tri_article {
+  margin: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=style.css.map */
