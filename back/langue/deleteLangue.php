@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $maLangue->delete($_POST["id"]);
         header("Location: ./langue.php");
         } else {
-            echo("Impossible de supprimer un statut où il reste des membres.");
+            echo("Location: langue.php?errCIR=1");
     }
 }
 
