@@ -43,7 +43,7 @@ class MEMBRE{
         // select
         // prepare
         // execute
-        return($result->rowCount());
+        // return($result->rowCount());
     }
 
     function get_AllMembersByStat(){
@@ -91,7 +91,7 @@ class MEMBRE{
         // select
         // prepare
         // execute
-        return($result->fetchAll());
+        // return($result->fetchAll());
     }
 
     // Inscription membre
