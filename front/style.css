@@ -18,24 +18,25 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-header h3 {
-  font-family: "Century Gothic";
+header a, header p {
+  font-family: century-gothic, sans-serif;
   text-transform: uppercase;
   color: #2E1A1E;
   text-decoration: none;
+  font-weight: 600;
 }
-header h3 :hover {
+header a:hover, header p:hover {
   color: #8B8B8B;
 }
 header nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 40%;
+  width: 30rem;
 }
 header nav .langues ::after {
-  font-family: "Font Awesome 5 Brand";
-  content: "\f107";
+  font-family: "Font Awesome 5 Brands";
+  content: "/f107";
 }
 header nav img {
   padding-right: 15px;
@@ -51,12 +52,9 @@ header .connect .btn_inscription {
   color: #DED6D1;
   padding: 10px;
 }
-header .connect .btn_inscription :hover {
+header .connect .btn_inscription:hover {
   background-color: #DED6D1;
   color: #2E1A1E;
-}
-header .connect .btn_inscription h3 {
-  color: #DED6D1;
 }
 header img {
   width: 80px;
@@ -71,9 +69,12 @@ footer {
 }
 footer a, footer p {
   color: #DED6D1;
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
   font-size: 18px;
   font-weight: 600;
+}
+footer a:hover, footer p:hover {
+  color: #8B8B8B;
 }
 footer .connect_admin {
   padding-top: 50px;
@@ -106,12 +107,14 @@ footer .liens {
 
 #main_body {
   margin: 100px;
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
 }
 #main_body h4 {
-  font-family: "Mixta Sharp";
+  font-family: "ltc-broadway", sans-serif;
   color: #8B8B8B;
   font-size: 36px;
+  text-transform: uppercase;
+  font-weight: 400;
 }
 #main_body .articles {
   font-size: 14px;
@@ -229,6 +232,7 @@ footer .liens {
   font-size: 25px;
   font-weight: 600;
   margin: 50px 50px 0;
+  text-transform: uppercase;
 }
 #main_body .redirection a.outSite p {
   z-index: 2;

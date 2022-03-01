@@ -4,31 +4,30 @@ header{
     justify-content: space-between;
     align-items: center;
 
-    h3{
+    a, p{
     font-family: $fontText;
     text-transform: uppercase;
     color: $noir;
     text-decoration: none;
+    font-weight: 600;
         
-        :hover{
+        &:hover{
             color: $gris;
         }
     }
-
-    
     
 
     nav{
         display: flex;
         justify-content: space-between;
         align-items: center;
-        width: 40%;
+        width: 30rem;
 
         .langues{
 
             ::after{
-                font-family: 'Font Awesome 5 Brand';
-                content: '\f107';
+                font-family: "Font Awesome 5 Brands";
+                content: '/f107';
             }
         }
         
@@ -49,16 +48,10 @@ header{
             color: $blanc;
             padding: 10px;
 
-            :hover{
+            &:hover{
                 background-color: $blanc;
                 color: $noir;
             }
-
-            h3{
-                color: $blanc;
-            }
-
-            
              
         }
     }
