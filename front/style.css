@@ -1,0 +1,17 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+.hero{
+    background-color: #1E1E1E;
+    color: #BABABA;
+    padding: 50px;
+}
+
+.articlesRecents{
+    background-color: beige;
+    color: #8B8B8B;
+    padding: 50px;
+}

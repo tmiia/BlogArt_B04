@@ -1,0 +1,26 @@
+*{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+}
+
+header{
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav{
+    margin: 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+nav a{
+    margin: 15px;
+}
+
+.connect{
+    display: flex;
+    justify-content: space-between;
+}
