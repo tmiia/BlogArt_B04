@@ -27,6 +27,10 @@ header nav {
   align-items: center;
   width: 40%;
 }
+header nav .langues ::after {
+  content: "/f107";
+  font-family: "Font Awesome 5 Free";
+}
 header nav img {
   padding-right: 15px;
 }

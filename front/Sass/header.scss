@@ -13,6 +13,15 @@ header{
         align-items: center;
         width: 40%;
 
+        .langues{
+
+            ::after{
+            content: "/f107";
+            font-family: "Font Awesome 5 Free";
+            }
+        }
+        
+
         img{
             padding-right: 15px;
         }
@@ -29,9 +38,6 @@ header{
             color: $blanc;
             padding: 10px;
 
-            ::after{
-                
-            }
 
             h3{
                 color: $blanc;
