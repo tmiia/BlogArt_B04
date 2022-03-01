@@ -152,12 +152,12 @@
         align-items:center;
         justify-content: space-between;
         margin: $marginDesktop 0;
-        color: #f6f6f6;
+        
 
-        .association_lien {
+        a.association_lien {
             display:flex;
-            align-items:center;
-            justify-content: center;
+            align-items:flex-start;
+            justify-content: space-between;
             flex-direction:column;
             overflow:hidden;
             max-width: 240px;
@@ -166,6 +166,7 @@
             position:relative;
             background-color: $rouge;
             border-radius: 15px;
+            color: #f6f6f6;
 
             .asso_logo {
                 position:absolute;
@@ -190,10 +191,14 @@
                 font-size: 20px;
                 z-index: 2;
                 color: #f6f6f6;
+                margin: 20px;
+                text-transform: uppercase;
+                text-shadow: 1px 1px 5px #777;
             }
             p {
                 z-index: 2;
-                font-size: 14px;
+                font-size: 16px;
+                margin: 20px;
             }
         }
     }
