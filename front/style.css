@@ -108,15 +108,16 @@ a {
   color: #D75A41;
   font-size: 12px;
 }
+.tri_article .them_event .a {
+  width: 120px;
+  height: 120px;
+  border: #D75A41 4px;
+}
 .tri_article .them_event .event_butt {
   font-size: 18px;
   color: #D75A41;
-}
-.tri_article .them_event .a {
-  font-size: 18px;
-  color: #D75A41;
   width: 120px;
-  height: 60px;
+  height: 120px;
   border: #D75A41 4px;
 }
 .tri_article .trier_date {
