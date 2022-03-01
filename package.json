@@ -4,16 +4,10 @@
   "description": "\"\"",
   "main": "index.js",
   "scripts": {
-<<<<<<< HEAD
-    "sass": "sass --watch ./sass/homepage.scss:./homepage.css",
-    "sass": "sass --watch ./sass/pageArticle.scss:./pageArticle.css",
-    "sass": "sass --watch ./sass/header.scss:./header.css",
-    "sass": "sass --watch ./sass/footer.scss:./footer.css"
-=======
     "sass1": "sass --watch ./sass/homepage.scss:./homepage.css",
-    "sass2": "sass --watch ./sass/pageArticle.scss:./pageArticle.css"
-
->>>>>>> 15e9ea8ee1eaa822952178fea7e22c2958cba9ea
+    "sass2": "sass --watch ./sass/pageArticle.scss:./pageArticle.css",
+    "sass_header": "sass --watch ./sass/header.scss:./header.css",
+    "sass_footer": "sass --watch ./sass/footer.scss:./footer.css"
 
   },
   "repository": {
