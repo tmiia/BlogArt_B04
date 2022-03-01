@@ -1,0 +1,19 @@
+{
+  "name": "blogart",
+  "version": "1.0.0",
+  "description": "\"\"",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass --watch ./sass/homepage.scss:./homepage.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Refonte-Accord-Arena/BlogArt.git"
+  },
+  "author": "Nebulab Agency",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Refonte-Accord-Arena/BlogArt/issues"
+  },
+  "homepage": "https://github.com/Refonte-Accord-Arena/BlogArt#readme"
+}
