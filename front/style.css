@@ -312,6 +312,14 @@ footer .liens {
   width: 240px;
   border: 1px solid #D75A41;
   border-radius: 50px;
+  position: relative;
+}
+.tri_article .them_event .event_butt .butt .svg {
+  width: 20px;
+  position: absolute;
+  color: #D75A41;
+  top: 8px;
+  right: 15px;
 }
 .tri_article .trier_date {
   display: flex;
@@ -337,10 +345,14 @@ footer .liens {
   width: 240px;
   border: 1px solid #D75A41;
   border-radius: 50px;
+  position: relative;
 }
-.tri_article .trier_date .date_butt .butt ::after {
-  font-family: "Font Awesome 5 Brands";
-  content: "/f107";
+.tri_article .trier_date .date_butt .butt .svg {
+  width: 20px;
+  position: absolute;
+  top: 8px;
+  right: 15px;
+  color: #D75A41;
 }
 
 .articles {
