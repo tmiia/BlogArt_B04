@@ -19,7 +19,7 @@ header {
   align-items: center;
 }
 header h3 {
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
   text-transform: uppercase;
   color: #2E1A1E;
   text-decoration: none;
@@ -71,7 +71,7 @@ footer {
 }
 footer a, footer p {
   color: #DED6D1;
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
   font-size: 18px;
   font-weight: 600;
 }
@@ -106,12 +106,13 @@ footer .liens {
 
 #main_body {
   margin: 100px;
-  font-family: "Century Gothic";
+  font-family: century-gothic, sans-serif;
 }
 #main_body h4 {
-  font-family: "Mixta Sharp";
+  font-family: "ltc-broadway", sans-serif;
   color: #8B8B8B;
   font-size: 36px;
+  text-transform: uppercase;
 }
 #main_body .articles {
   font-size: 14px;
