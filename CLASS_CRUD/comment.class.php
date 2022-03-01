@@ -13,10 +13,21 @@ class COMMENT{
 		
 	}
 
-	function get_AllCommentByArticle($numArt){
+	// function get_AllCommentByArticle($numArt){
+	// 	global $db;
+
+	// }
+	function get_AllComments(){
 		global $db;
 
+		$query = 'SELECT * FROM COMMENT;';
+		// prepare
+		$result = $db->query($query);
+		// execute
+		$allComments = $result->fetchAll();
+		return($allComments);
 	}
+
 
 	function get_AllCommentsByNumArt($numArt){
 		global $db;

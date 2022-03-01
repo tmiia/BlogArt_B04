@@ -5,6 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
+    <?php
+    require_once __DIR__ . '/includes/commons/imports.php';
+
+    ?>
     
     
 </head>
@@ -12,7 +16,7 @@
 <body>
 <!-- HEADER -->
     <?php
-    // require_once __DIR__ . '/includes/commons/headerFront.php';
+    require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
 <div class="tri_article">
@@ -39,21 +43,27 @@
 
 </div>
 <!------------>
+<section class="articles">
 
-<div class="article">
+<a class="article_recent" href="#">
+    <div class="article_illustration" style="background-image: url('https://www.aurore.asso.fr/images/medias/21552.png');"></div>
+    <div class="article_recent_top">
+        <h5>TitreArticle</h5>
+        <p>ChapeauArticle</p>
+    </div>
+    <div class="article_recent_bot">
+        <div class="article_like"><i class="fa fa-heart-o"></i></div>
+        <div class="article_btn">Consulter l'article</div>
+    </div>
+</a>
 
-    <img src="" alt="">
-    <h3></h3>
-    <h4></h4>
-    <a href="" class="Consulter_article"></a>
-
-</div>
+</section>
 
 <!------------>
 
 <!-- FOOTER -->
     <?php
-    // require_once __DIR__ . '/includes/commons/footerFront.php';
+    require_once __DIR__ . '/includes/commons/footerFront.php';
     ?>
 <!---------- -->
 

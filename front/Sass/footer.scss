@@ -10,7 +10,13 @@ footer{
         font-family: $fontText;
         font-size: 18px;
         font-weight: 600;
+
+        &:hover{
+            color: $gris;
+        }
+    
     }
+
 
     .connect_admin{
         padding-top: 50px;
@@ -19,7 +25,6 @@ footer{
         justify-content: space-between;
         height: 100px;
  
-
         .credits{       
             font-size: 13px;
             font-weight: 400;

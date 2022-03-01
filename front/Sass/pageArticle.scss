@@ -12,7 +12,7 @@
 
                     h6{
                         color: $rouge;
-                        font-size: 12px;
+                        font-size: 14px;
                         font-weight: bolder;
                         margin-bottom: 15px;
 
@@ -22,7 +22,7 @@
                     .event_butt{
                         color: $rouge;
                         font-weight: bolder;
-                        font-size: 18px;
+                        font-size: 20px;
                         
 
                             .butt{
@@ -48,14 +48,14 @@
 
                     h6{
                         color: $rouge;
-                        font-size: 12px;
+                        font-size: 14px;
                         font-weight: bolder;
                         margin-bottom: 15px;
                     }
 
                     .date_butt{
                         color: $rouge;
-                        font-size: 18px;
+                        font-size: 20px;
                         font-weight: bolder;
 
 
@@ -68,10 +68,11 @@
                             border: 1px solid $rouge;
                             border-radius: 50px;
 
-                            ::after {
-                                // <i class="fa-solid fa-angle-down"></i>
-
+                            ::after{
+                                font-family: "Font Awesome 5 Brands";
+                                content: '/f107';
                             }
+                            
                         }
 
                     }
@@ -83,3 +84,89 @@
 
 }
 
+  .articles {
+        font-size: 14px;
+        display:flex;
+        margin: $marginDesktop;
+        display:flex;
+        // overflow-x: auto;
+        padding-bottom: 20px;
+        justify-content: space-between;
+    
+
+
+
+        a.article_recent {
+            min-width: 280px;
+            height: 300px;
+            color: #fff;    
+            background-color: $noir;
+            border-radius: 15px;
+            position:relative;
+            overflow:hidden;
+            display:flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            .article_illustration {
+                position:absolute;
+                top:0;
+                bottom: 0;
+                right: 0;
+                left:0;
+                transform: scale(1);
+                z-index: 1;
+                background-position: center;
+                background-size: cover;
+                opacity: .6;
+                transition: ease .4s;
+            }
+
+            &:hover .article_illustration{
+                transform: scale(1.2);
+                transition: ease .4s;
+            }
+            
+            .article_recent_top {
+                margin: 20px;
+                z-index: 2;
+                position:relative;
+
+                h5 {
+                    font-size: 20px;
+                    text-transform: uppercase;
+                    font-weight: 600;
+                    margin-bottom: $marginMobile;
+                }
+                p {
+                    font-size: 14px;
+                }
+            }
+            .article_recent_bot {
+                margin: 20px;
+                display:flex;
+                align-items:center;
+                justify-content: space-between;
+                z-index: 2;
+                position:relative;
+
+                .article_like {
+                    height: 30px;
+                    width: 30px;
+                    background: $blanc;
+                    border-radius: 100%;
+                    color: $gris;
+                    display: flex;
+                    align-items:center;
+                    justify-content:center;
+                }
+                .article_btn {
+                    background: $rouge;
+                    padding: 10px 20px;
+                    border-radius: 20px;
+                }
+            }
+        }
+        
+
+    }
