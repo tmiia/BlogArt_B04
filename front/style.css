@@ -322,8 +322,8 @@ footer .liens {
   width: 20px;
   position: absolute;
   color: #D75A41;
-  top: 8px;
-  right: 15px;
+  top: 16px;
+  right: 17px;
 }
 .tri_article .trier_date {
   display: flex;
@@ -354,8 +354,8 @@ footer .liens {
 .tri_article .trier_date .date_butt .butt .svg {
   width: 20px;
   position: absolute;
-  top: 8px;
-  right: 15px;
+  top: 16px;
+  right: 17px;
   color: #D75A41;
 }
 
