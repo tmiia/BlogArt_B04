@@ -113,6 +113,7 @@ footer .liens {
   color: #8B8B8B;
   font-size: 36px;
   text-transform: uppercase;
+  font-weight: 400;
 }
 #main_body .articles {
   font-size: 14px;
@@ -230,6 +231,7 @@ footer .liens {
   font-size: 25px;
   font-weight: 600;
   margin: 50px 50px 0;
+  text-transform: uppercase;
 }
 #main_body .redirection a.outSite p {
   z-index: 2;
