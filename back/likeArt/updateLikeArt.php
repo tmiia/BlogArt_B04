@@ -14,9 +14,8 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Likeart
-
-// Instanciation de la classe Likeart
-
+require_once __DIR__ . '/../../CLASS_CRUD/likeart.class.php';
+$monLikeArt = new LIKEART();
 
 
 
@@ -31,13 +30,27 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
     // Ctrl saisies form
 
-var_dump($_GET);
-exit;
     // Insert / update likeart
     if (isset($_GET['id1']) and $_GET['id1'] != '' and isset($_GET['id2']) and $_GET['id2'] != '') {
 
-        $numMemb = ctrlSaisies($_GET['id1']);
-        $numArt = ctrlSaisies($_GET['id2']);
+        $numMemb = intval(ctrlSaisies($_GET['id1']));
+        $numArt = intval(ctrlSaisies($_GET['id2']));
+
+        $likeA = $monLikeArt->get_1LikeArt($numMemb, $numArt)['likeA'];
+
+        if($likeA == 1){
+            $likeA = 0;
+        }
+        else{
+            $likeA = 1;
+        }
+
+        $monLikeArt->update($numMemb, $numArt, $likeA);
+        header("Location: ./likeArt.php");
+    }
+    else{
+        $erreur = true;
+        $errSaisies =  "Erreur !";
     }
 
 
