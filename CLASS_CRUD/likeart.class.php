@@ -93,8 +93,11 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// update
-			// prepare
-			// execute
+			$query = 'UPDATE LIKEART SET likeA = ? WHERE numMemb = ? AND numArt = ?;';
+			
+			$request = $db->prepare($query);
+			$request->execute([$likeA, $numMemb, $numArt]);
+			
 			$db->commit();
 			$request->closeCursor();
 		}
