@@ -56,11 +56,11 @@
         <h4>Associations solidaires</h4>
 
         <section class="associations">
-            <div class="association_lien">
-                <img src="https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg" alt="logo_association1">
+            <a class="association_lien" href="#">
+                <div class="asso_logo" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
                 <h6>Nom asso</h6>
                 <p>Localisation</p>
-            </div>
+            </a>
         </section>
 
         

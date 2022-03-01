@@ -152,6 +152,7 @@
         align-items:center;
         justify-content: space-between;
         margin: $marginDesktop 0;
+        color: #f6f6f6;
 
         .association_lien {
             display:flex;
@@ -159,22 +160,36 @@
             justify-content: center;
             flex-direction:column;
             overflow:hidden;
-            max-width: 250px;
+            max-width: 240px;
+            min-width: 240px;
             height: 200px;
             position:relative;
             background-color: $rouge;
+            border-radius: 15px;
 
-            img {
+            .asso_logo {
                 position:absolute;
-                width: 100%;
-                height: auto;
-                opacity: .6;
+                top:0;
+                bottom: 0;
+                right: 0;
+                left:0;
+                transform: scale(1);
                 z-index: 1;
+                background-position: center;
+                background-size: cover;
+                opacity: .6;
+                transition: ease .4s;
+            }
+
+            &:hover .asso_logo {
+                transform: scale(1.2);
+                transition: ease .4s;
             }
 
             h6 {
                 font-size: 20px;
                 z-index: 2;
+                color: #f6f6f6;
             }
             p {
                 z-index: 2;
