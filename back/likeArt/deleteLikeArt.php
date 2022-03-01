@@ -31,7 +31,28 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./likeArt.php");
+} 
+
+    // controle CIR
+    $erreur = false;
+    // delete effective de l'likeArt
+
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+            
+        $monLikeArt->delete($_POST['id1'], $_POST['id2']);
+            header("Location: ./likeArt.php");
+        } else {
+            echo("Location: likeArt.php?errCIR=1");
+    }
 
 
     // delete effective du likeart
@@ -64,7 +85,13 @@ include __DIR__ . '/initLikeArt.php';
 <?php
     // Supp : récup id à supprimer
     // id passé en GET
-    
+    if ((isset($_GET['id1']) and $_GET['id1'] != '') AND (isset($_GET['id2']) and $_GET['id2'] != '')) {
+        $id1 = ctrlSaisies(($_GET['id1']));
+        $id2 = ctrlSaisies(($_GET['id2']));
+
+     // Fin if ($query)
+
+    }
 
 
 
@@ -93,7 +120,7 @@ include __DIR__ . '/initLikeArt.php';
 
             <select name="Membre" id="Membre"  class="form-control form-control-create">
                 
-                <option value="-1"><?php echo($monMembre->get_1Membre($numMemb)['pseudoMemb']); ?> </option>
+                <option value="-1"><?php echo($monMembre->get_1Membre($id1)['pseudoMemb']); ?> </option>
                
             </select>
                 <!-- Listbox membre disabled => 2ème temps -->
@@ -117,7 +144,7 @@ include __DIR__ . '/initLikeArt.php';
 
             <select name="Article" id="Article"  class="form-control form-control-create">
                 
-                <option value="-1"><?php echo($monArticle->get_1Article($numArt)['libTitrArt']); ?> </option>
+                <option value="-1"><?php echo($monArticle->get_1Article($id2)['libTitrArt']); ?> </option>
                
             </select>
                 <!-- Listbox aricle disabled => 2ème temps -->

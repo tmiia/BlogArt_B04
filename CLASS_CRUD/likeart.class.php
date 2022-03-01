@@ -131,17 +131,21 @@ class LIKEART{
 	// AUTORISE UNIQUEMENT POUR le super-admin / admin => En mode DEV (avant la mise en prod)
 	function delete($numMemb, $numArt){
 		global $db;
-		
+
 		try {
 			$db->beginTransaction();
 
-			// delete
+			// insert
+			$query = 'DELETE FROM LIKEART WHERE numMemb=? AND numArt=?'; 
 			// prepare
+			$request = $db->prepare($query);
 			// execute
-			//$count = $request->rowCount();
+			$request->execute([$numMemb, $numArt]);
+
+			$count = $request->rowCount(); 
 			$db->commit();
 			$request->closeCursor();
-			//return($count);
+			return($count); 
 		}
 		catch (PDOException $e) {
 			$db->rollBack();
