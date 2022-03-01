@@ -46,7 +46,7 @@
 <section class="articles">
 
 <a class="article_recent" href="#">
-    <div class="article_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
+    <div class="article_illustration" style="background-image: url('https://www.aurore.asso.fr/images/medias/21552.png');"></div>
     <div class="article_recent_top">
         <h5>TitreArticle</h5>
         <p>ChapeauArticle</p>
@@ -56,7 +56,6 @@
         <div class="article_btn">Consulter l'article</div>
     </div>
 </a>
-
 
 </section>
 

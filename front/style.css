@@ -324,22 +324,25 @@ footer .liens {
   border: 1px solid #D75A41;
   border-radius: 50px;
 }
+.tri_article .trier_date .date_butt .butt ::after {
+  font-family: "Font Awesome 5 Brands";
+  content: "/f107";
+}
 
 .articles {
   font-size: 14px;
   display: flex;
-  margin: 100px 0 100px 100px;
+  margin: 100px;
   display: flex;
-  overflow-x: auto;
   padding-bottom: 20px;
+  justify-content: space-between;
 }
 .articles a.article_recent {
-  min-width: 250px;
+  min-width: 280px;
   height: 300px;
   color: #fff;
   background-color: #2E1A1E;
   border-radius: 15px;
-  margin-right: 50px;
   position: relative;
   overflow: hidden;
   display: flex;

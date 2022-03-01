@@ -67,6 +67,11 @@
                             width: 240px;
                             border: 1px solid $rouge;
                             border-radius: 50px;
+
+                            ::after{
+                                font-family: "Font Awesome 5 Brands";
+                                content: '/f107';
+                            }
                             
                         }
 
@@ -82,18 +87,21 @@
   .articles {
         font-size: 14px;
         display:flex;
-        margin: $marginDesktop 0 $marginDesktop $marginDesktop;
+        margin: $marginDesktop;
         display:flex;
-        overflow-x: auto;
+        // overflow-x: auto;
         padding-bottom: 20px;
+        justify-content: space-between;
+    
+
+
 
         a.article_recent {
-            min-width: 250px;
+            min-width: 280px;
             height: 300px;
             color: #fff;    
             background-color: $noir;
             border-radius: 15px;
-            margin-right: $marginMobile;
             position:relative;
             overflow:hidden;
             display:flex;
