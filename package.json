@@ -1,14 +1,11 @@
 {
   "name": "blogart",
   "version": "1.0.0",
-  "description": "\"\"",
+  "description": "",
   "main": "index.js",
   "scripts": {
-    "sass1": "sass --watch ./sass/homepage.scss:./homepage.css",
-    "sass2": "sass --watch ./sass/pageArticle.scss:./pageArticle.css"
-
-
-  },
+    "sass": "sass --watch front/sass/main.scss:front/style.css"
+},
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Refonte-Accord-Arena/BlogArt.git"

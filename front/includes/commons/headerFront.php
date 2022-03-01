@@ -1,4 +1,4 @@
-<link href="../front/includes/commons/header.css" rel="stylesheet">
+<link href="style.css" rel="stylesheet">
 
 <header>
     

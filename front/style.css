@@ -1,0 +1,121 @@
+/*-------VARIABLES--------*/
+/*Couleurs*/
+/*Marges*/
+/*Font Family*/
+/*---------GENERALE--------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+header {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+nav {
+  margin: 15px;
+  display: flex;
+  justify-content: space-between;
+}
+
+nav a {
+  margin: 15px;
+}
+
+.connect {
+  display: flex;
+  justify-content: space-between;
+}
+
+img {
+  display: flex;
+  width: 100px;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  text-decoration: none;
+}
+
+footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2C2C2C;
+}
+
+footer a, p {
+  color: #DED6D1;
+  font-family: "Century Gothic";
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.revenir_haut {
+  text-transform: uppercase;
+}
+
+.liens {
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+}
+
+/*-------VARIABLES--------*/
+/*Couleurs*/
+/*Marges*/
+/*Font Family*/
+/*---------GENERALE--------*/
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+#main_body {
+  margin: 100px;
+}
+#main_body .articles {
+  font-family: "Mixta Sharp";
+}
+
+.event_butt {
+  color: #D75A41;
+  width: 120px;
+  height: 60px;
+  border: #D75A41 4px;
+}
+
+.date_butt {
+  color: #D75A41;
+}
+
+.h6 {
+  font-family: "Mixta Sharp";
+  color: #D75A41;
+}
+
+.tri_article {
+  margin: 100px;
+  display: flex;
+  justify-content: space-between;
+}
+
+/*# sourceMappingURL=style.css.map */

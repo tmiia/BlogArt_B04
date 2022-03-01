@@ -1,0 +1,10 @@
+@import "variables";
+
+#main_body {
+    margin: $marginDesktop;
+
+    .articles {
+
+        font-family: $fontTitre;
+    }
+}
