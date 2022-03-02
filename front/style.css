@@ -319,6 +319,7 @@ footer .liens {
   position: relative;
   color: #D75A41;
   font-size: 18px;
+  font-family: century-gothic, sans-serif;
 }
 .search .search_butt .bar_search img.svg_search {
   width: 18px;
@@ -333,66 +334,31 @@ footer .liens {
   display: flex;
   justify-content: space-between;
 }
-.tri_article .them_event h6 {
+.tri_article div label {
   color: #D75A41;
-  font-size: 14px;
-  font-weight: bolder;
-  margin-bottom: 15px;
+  font-size: 18px;
+  font-family: century-gothic, sans-serif;
 }
-.tri_article .them_event .event_butt {
-  color: #D75A41;
-  font-weight: bolder;
-  font-size: 20px;
-}
-.tri_article .them_event .event_butt .butt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 45px;
-  width: 240px;
-  border: 1px solid #D75A41;
-  border-radius: 50px;
+.tri_article div select {
   position: relative;
-}
-.tri_article .them_event .event_butt .butt .svg {
-  width: 20px;
-  position: absolute;
   color: #D75A41;
-  top: 16px;
-  right: 17px;
-}
-.tri_article .trier_date {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.tri_article .trier_date h6 {
-  color: #D75A41;
-  font-size: 14px;
-  font-weight: bolder;
-  margin-bottom: 15px;
-}
-.tri_article .trier_date .date_butt {
-  color: #D75A41;
-  font-size: 20px;
-  font-weight: bolder;
-}
-.tri_article .trier_date .date_butt .butt {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 45px;
-  width: 240px;
-  border: 1px solid #D75A41;
+  overflow: hidden;
+  appearance: none;
+  width: 110%;
+  height: auto;
+  border: 2px #D75A41 solid;
+  margin: 0;
+  padding: 0.75em;
   border-radius: 50px;
-  position: relative;
+  margin-top: 10px;
+  font-family: century-gothic, sans-serif;
 }
-.tri_article .trier_date .date_butt .butt .svg {
-  width: 20px;
-  position: absolute;
-  top: 16px;
-  right: 17px;
-  color: #D75A41;
+.tri_article div select::after select {
+  content: "";
+  width: 0.8em;
+  height: 0.5em;
+  background-color: var(--select-arrow);
+  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
 }
 
 .articles {

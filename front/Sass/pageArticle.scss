@@ -14,7 +14,6 @@
                 color:  $gris;
                 border: 1px solid $gris;
 
-
             }
 
 
@@ -30,6 +29,8 @@
                 position: relative;
                 color: $rouge;
                 font-size: 18px ; 
+            font-family: $fontText;
+
 
             img.svg_search{
                 width: 18px;
@@ -49,100 +50,49 @@
     display: flex;
     justify-content: space-between;
 
-        .them_event{
+    div {
+        
 
-                    h6{
-                        color: $rouge;
-                        font-size: 14px;
-                        font-weight: bolder;
-                        margin-bottom: 15px;
-
-                    }
-                    
-                    
-                    .event_butt{
-                        color: $rouge;
-                        font-weight: bolder;
-                        font-size: 20px;
-                        
-
-                            .butt{
-                                display: flex;
-                                align-items: center;
-                                justify-content: center;
-                                height: 45px;
-                                width: 240px;
-                                border: 1px solid $rouge;
-                                border-radius: 50px;
-                                position: relative;
-
-
-                                .svg{
-                                    width: 20px;
-                                    position: absolute;
-                                    color: $rouge;
-                                    top: 16px;
-                                    right: 17px;
-
-                                }
-                            }
-
-                        
-                    }
-            
-                    
-        }
-
-        .trier_date{
-
-            display: flex;
-            flex-direction: column;
-            align-items: flex-end;
-
-
-                    h6{
-                        color: $rouge;
-                        font-size: 14px;
-                        font-weight: bolder;
-                        margin-bottom: 15px;
-                    }
-
-                    .date_butt{
-                        color: $rouge;
-                        font-size: 20px;
-                        font-weight: bolder;
-
-
-                        .butt{
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            height: 45px;
-                            width: 240px;
-                            border: 1px solid $rouge;
-                            border-radius: 50px;
-                            position: relative;
-                            
-                          
-                            .svg{
-                                width: 20px;
-                                position: absolute;
-                                top: 16px;
-                                right: 17px;
-                                color: $rouge;
-
-                            }
-                            
-                        }
-
-                    }
-            
-
+        label{
+            color: $rouge;
+            font-size: 18px;
+            font-family: $fontText;
 
         }
+        select{
+            position: relative;
+            color: $rouge;
+            overflow: hidden;
+            appearance: none;
+            width: 110%; 
+            height: auto;
+            border: 2px $rouge solid; 
+            margin: 0;
+            padding: .75em;
+            border-radius: 50px;
+        	margin-top: 10px;
+            font-family: $fontText;
+            
+
+            &::after select{
+                content: "";
+                width: 0.8em;
+                height: 0.5em;
+                background-color: var(--select-arrow);
+                clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+            }
+         
+          
+        }
+    }
 
 
-}
+      }
+
+
+
+
+
 
   .articles {
         font-size: 14px;
