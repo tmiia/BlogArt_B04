@@ -84,7 +84,7 @@ $monCommentaire = new COMMENT();
     $allLikesCom = $monLikeCom->get_AllLikesCom();
     // Boucle pour afficher
     for($i = 0; $i < count($allLikesCom); $i++){
-
+        
 
 
 ?>
@@ -95,12 +95,12 @@ $monCommentaire = new COMMENT();
 
         <td>&nbsp; <?= $monCommentaire->get_1Comment($allLikesCom[$i]['numSeqCom'], $allLikesCom[$i]['numArt'])['libCom']; ?> &nbsp;</td>
 
-        <td>&nbsp;<span class="OK">&nbsp; <?= $allLikesCom['likeC']; ?> &nbsp;</span></td>
+        <td>&nbsp;<span class="OK">&nbsp; <?= $allLikesCom[$i]['likeC']; ?> &nbsp;</span></td>
 
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLikeCom.php"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier like commentaire" title="Modifier like commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(Un)like</span>&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLikeCom.php?id1=<?=$allLikesCom[$i]['numMemb']?>&id2=<?=$allLikesCom[$i]['numSeqCom']?> &id3=<?=$allLikesCom[$i]['numArt']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier like commentaire" title="Modifier like commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(Un)like</span>&nbsp;
         <br /></td>
 
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLikeCom.php"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer like commentaire" title="Supprimer like commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(S/Admin)</span>&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLikeCom.php?id1=<?=$allLikesCom[$i]['numMemb']?>&id2=<?=$allLikesCom[$i]['numSeqCom']?> &id3=<?=$allLikesCom[$i]['numArt']?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer like commentaire" title="Supprimer like commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(S/Admin)</span>&nbsp;
         <br /></td>
         </tr>
 <?php
