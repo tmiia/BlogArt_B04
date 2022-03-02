@@ -294,22 +294,30 @@ footer .liens {
   margin: 20px;
 }
 
-.search .svg_search {
-  width: 20px;
-  position: absolute;
-  color: #D75A41;
-  top: 16px;
-  right: 17px;
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .search .bar_search {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  padding-left: 50px;
   height: 45px;
-  width: 240px;
+  width: 440px;
   border: 1px solid #D75A41;
   border-radius: 50px;
   position: relative;
+  color: #D75A41;
+  font-size: 18px;
+}
+.search .svg_search {
+  width: 18px;
+  position: absolute;
+  color: #D75A41;
+  top: 13px;
+  left: 21px;
 }
 
 .tri_article {

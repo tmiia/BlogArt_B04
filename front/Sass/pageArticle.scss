@@ -3,27 +3,34 @@
 
 
 .search{
-
-    .svg_search{
-        width: 20px;
-        position: absolute;
-        color: $rouge;
-        top: 16px;
-        right: 17px;
-    }
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .bar_search{
-                            display: flex;
-                            align-items: center;
-                            justify-content: center;
-                            height: 45px;
-                            width: 240px;
-                            border: 1px solid $rouge;
-                            border-radius: 50px;
-                            position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: flex-start;
+        padding-left: 50px;
+        height: 45px;
+        width: 440px;
+        border: 1px solid $rouge;
+        border-radius: 50px;
+        position: relative;
+        color: $rouge;
+        font-size: 18px;
 
+           
+    }
+    .svg_search{
+        width: 18px;
+        position: absolute;
+        color: $rouge;
+        top: 13px;
+        left: 21px;
     }
 }
+
 .tri_article{
 
     margin: $marginDesktop;
@@ -31,10 +38,7 @@
     justify-content: space-between;
 
         .them_event{
-
             
-
-
                     h6{
                         color: $rouge;
                         font-size: 14px;
