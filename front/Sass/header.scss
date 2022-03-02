@@ -68,24 +68,19 @@
         justify-content: space-between;
         width: 21%;
         align-items: center;
-        
-        .btn_inscription {
-               color: #f6f6f6;
-
-               &:hover{
-                  color: $noir; 
-               }
-        }
 
         .btn_inscription{
             background-color: $rouge;
             padding: 10px;
             transition: ease .3s;
+            border-radius: 10px;
+            color: #f6f6f6;
 
             &:hover{
                 background-color: $blanc;
                 color: $noir;
                 transition: ease .3s;
+                color: $noir; 
             }
              
         }
@@ -106,7 +101,7 @@
 .sticky {
     position: fixed;
     top: 0;
-    padding: 0px $marginDesktop;
+    padding: 0px $marginMobile;
     width: calc(100% - calc($marginDesktop * 2));
     background-color: #fff !important;
     transition: ease .3s;
