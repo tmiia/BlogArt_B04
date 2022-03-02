@@ -31,7 +31,7 @@ function connect_user($pseudoUser, $passUser) {
 
     if($user) {
         setcookie('user', $user['eMailUser, passUser']);
-        header('Location: index.php');
+        header('Location: ' . ROOT . '/front/pageArticles.php');
     }
 }
 

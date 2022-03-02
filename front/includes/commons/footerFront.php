@@ -20,7 +20,7 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
 
     <div class="liens">
         <a href="#">Mentions légales</a>
-        <a href="#">CGU</a>
+        <a href="../front/CGU.php">CGU</a>
         <a href="./front/home.php">Accueil</a>
     </div>
 
