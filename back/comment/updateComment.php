@@ -11,8 +11,6 @@ $monMembre = new MEMBRE();
 $erreur = false;
 
 if($_SERVER['REQUEST_METHOD'] === "POST"){
-    $numSeqCom = $_POST['numSeqCom'];
-
     if(isset($_POST['Submit'])){
         $Submit = $_POST['Submit'];
     }
@@ -21,13 +19,37 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     }
 
     if($_POST['Submit'] == 'Initialiser'){
-        header("Location: updateComment.php?id=$numSeqCom");
+        header("Location: updateComment.php?id1=$numSeqCom&id2=$idArt");
     }
 
-    if(isset($_POST['Submit']) AND $_POST['Submit'] == 'Valider'){
-        if(isset($_POST['libCom']) AND !empty($_POST['liCom']) AND isset($_POST['numArt']) AND !empty($_POST['numArt']) AND isset($_POST['numMemb']) AND !empty($_POST['numMemb']) AND !empty($_POST['Submit'] AND $Submit == 'Valider')){
+    if(isset($_POST['Submit']) AND $_POST['Submit'] === 'Valider'){
+        if(isset($_POST['notifComKOAff']) AND !empty($_POST['notifComKOAff']) AND isset($_POST['id2']) AND !empty($_POST['id2']) AND isset($_POST['id1']) AND !empty($_POST['id1']) AND !empty($_POST['Submit'] AND $Submit === 'Valider')){
             $erreur = false;
 
+            $numSeqCom = ctrlSaisies($_POST["id1"]);
+            $idMemb = ctrlSaisies($_POST['idMemb']);
+            $idArt = ctrlSaisies($_POST['idArt']);
+            if(ctrlSaisies($_POST['notifComKOAff']) == ""){
+                $notifComKOAff = NULL;
+            }
+            else{
+                $notifComKOAff = ctrlSaisies($_POST['notifComKOAff']);
+            }
+
+            if(ctrlSaisies($_POST['attModOK']) == "on"){
+                $attModOK = 1;
+            }
+            else{
+                $attModOK =  0;
+            }
+
+            if(ctrlSaisies($_POST['delLogiq']) == "on"){
+                $delLogiq = 1;
+            }
+            else{
+                $delLogiq =  0;
+            }
+            $monComment->update($numSeqCom, $idArt, $attModOK, $notifComKOAff, $delLogiq);
 
             header("Location: ./comment.php");
         }
@@ -64,19 +86,24 @@ include __DIR__ . '/initComment.php';
 <?php
     // Modif : récup id à modifier
     // id passé en GET
-
-    $numSeqCom = intval($_GET['id1']);
-    $numArt = intval($_GET['id2']);
-
-    $query = $monComment->get_1Comment($numSeqCom, $numArt);
     
+    if(isset($_GET['id1']) AND $_GET['id1'] != '' AND isset($_GET['id2']) AND $_GET['id2'] != ''){
 
-    if($query){
-        $idMemb = $monMembre->get_1Membre($query['numMemb'])['pseudoMemb'];
-        $idArt = $monArticle->get_1Article($numArt)['libTitrArt'];
-        $libCom = $query['libCom'];
-        $notifComKOAff = $query['notifComKOAff'];
-
+        $id1 = intval($_GET['id1']);
+        $id2 = intval($_GET['id2']);
+        
+        $query = $monComment->get_1Comment($id1, $id2);
+        
+    
+        if($query){
+            $idMemb = $monMembre->get_1Membre($query['numMemb']);
+            $idArt = $monArticle->get_1Article($id2);
+            $libCom = $query['libCom'];
+            $notifComKOAff = $query['notifComKOAff'];
+            $attModOK =  $query['attModOK'];
+            $delLogiq = $query['delLogiq'];
+    
+        }
     }
 
 
@@ -102,11 +129,13 @@ include __DIR__ . '/initComment.php';
                     <label class="control-label" for="LibTypAngl">
                         <b>Quel membre :&nbsp;&nbsp;&nbsp;</b>
                     </label>
-                    <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?= $numMemb; ?>" />
-
-                    <input type="text" name="idMemb" id="idMemb" size="5" maxlength="5" value="<?= $idMemb; ?>" autocomplete="on" />
+                    <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?= $idMemb['numMemb']; ?>" />
 
                     <!-- Listbox membre => 2ème temps -->
+
+                    <select name="idMemb" id="idMemb"  class="form-control form-control-create">
+                        <option value="<?=$idMemb['numMemb']?>"  name="idMemb" id="idMemb"> <?= $idMemb['pseudoMemb'] ?> </option>    
+                    </select>
 
                 </div>
             </div>
@@ -120,11 +149,13 @@ include __DIR__ . '/initComment.php';
                     <label class="control-label" for="LibTypThem">
                         <b>Quel article :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
                     </label>
-                    <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
-
-                    <input type="text" name="idArt" id="idArt" size="5" maxlength="5" value="<?= $idArt; ?>" autocomplete="on" />
+                    <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $id2; ?>" />
 
                     <!-- Listbox article => 2ème temps -->
+
+                    <select name="idArt" id="idArt"  class="form-control form-control-create">
+                        <option value="<?=$idArt['numArt']?>"  name="idArt" id="idArt"> <?= $idArt['libTitrArt'] ?> </option>    
+                    </select>
 
                 </div>
             </div>

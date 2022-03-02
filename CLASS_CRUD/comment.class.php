@@ -44,32 +44,32 @@ class COMMENT{
 		return($allCommentsByArt);
 	}
 
-	function get_1CommentsByNumSeqComNumArt($numSeqCom, $numArt){
-		global $db;
+	// function get_1CommentsByNumSeqComNumArt($numSeqCom, $numArt){
+	// 	global $db;
 
-		// select
-		// prepare
-		// execute
-		return($result->fetch());
-	}
+	// 	// select
+	// 	// prepare
+	// 	// execute
+	// 	return($result->fetch());
+	// }
 
-	function get_AllCommentsByNumSeqComNumArt($numSeqCom, $numArt){
-		global $db;
+	// function get_AllCommentsByNumSeqComNumArt($numSeqCom, $numArt){
+	// 	global $db;
 
-		// select
-		// prepare
-		// execute
-		return($allCommentsByNumSeqComNumArt);
-	}
+	// 	// select
+	// 	// prepare
+	// 	// execute
+	// 	return($allCommentsByNumSeqComNumArt);
+	// }
 
-	function get_AllCommentsByArticleByMemb(){
-		global $db;
+	// function get_AllCommentsByArticleByMemb(){
+	// 	global $db;
 
-		// select
-		// prepare
-		// execute
-		return($allCommentsByArticleByMemb);
-	}
+	// 	// select
+	// 	// prepare
+	// 	// execute
+	// 	return($allCommentsByArticleByMemb);
+	// }
 
 	function get_NbAllCommentsBynumMemb($numMemb){
 		global $db;
@@ -144,15 +144,16 @@ class COMMENT{
 
 	// Moderation : TRUE si comment affiché, FALSE sinon
 	// et remarques possibles admin si non affiché
-	function update($numSeqCom, $numArt, $attModOK, $dtModCom, $notifComKOAff, $delLogiq){
+	function update($numSeqCom, $numArt, $attModOK, $notifComKOAff, $delLogiq){
 		global $db;
 
 		try {
 			$db->beginTransaction();
 
-			// update
+			$query = 'UPDATE COMMENT SET attModOK = ?, notifComKOAff = ?, delLogiq = ? WHERE numSeqCom = ? AND numArt = ?';
 			// prepare
-			// execute
+			$request = $db->prepare($query);
+			$request->execute([$attModOK, $notifComKOAff, $delLogiq, $numSeqCom, $numArt]);
 			$db->commit();
 			$request->closeCursor();
 		}
@@ -164,24 +165,24 @@ class COMMENT{
 	}
 
 	// Create et Update en même temps => Del logique du Comment
-	function createOrUpdate($numSeqCom, $numArt){
-		global $db;
+	// function createOrUpdate($numSeqCom, $numArt){
+	// 	global $db;
 
-		try {
-			$db->beginTransaction();
+	// 	try {
+	// 		$db->beginTransaction();
 
-			// insert / update
-			// prepare
-			// execute
-			$db->commit();
-			$request->closeCursor();
-		}
-		catch (PDOException $e) {
-			$db->rollBack();
-			$request->closeCursor();
-			die('Erreur insert Or Update COMMENT : ' . $e->getMessage());
-		}
-	}
+	// 		// insert / update
+	// 		// prepare
+	// 		// execute
+	// 		$db->commit();
+	// 		$request->closeCursor();
+	// 	}
+	// 	catch (PDOException $e) {
+	// 		$db->rollBack();
+	// 		$request->closeCursor();
+	// 		die('Erreur insert Or Update COMMENT : ' . $e->getMessage());
+	// 	}
+	// }
 
 	// A priori : del comment impossible (sauf si choix admin après modération) => Cf. createOrUpdate() ci-dessus
 	function delete($numSeqCom, $numArt){	// OU à utiliser pour del logique : del => update
