@@ -301,6 +301,7 @@ footer .liens {
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 25px;
 }
 .search .bar_search {
   display: flex;
@@ -324,7 +325,7 @@ footer .liens {
 }
 
 .tri_article {
-  margin: 100px;
+  margin: 30px 100px 100px 100px;
   display: flex;
   justify-content: space-between;
 }

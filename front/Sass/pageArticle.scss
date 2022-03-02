@@ -6,6 +6,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: 25px;
 
     .bar_search{
         display: flex;
@@ -33,12 +34,12 @@
 
 .tri_article{
 
-    margin: $marginDesktop;
+    margin: 30px 100px 100px 100px;
     display: flex;
     justify-content: space-between;
 
         .them_event{
-            
+
                     h6{
                         color: $rouge;
                         font-size: 14px;

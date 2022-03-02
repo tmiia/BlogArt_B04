@@ -20,6 +20,13 @@
     ?>
 <!------------>
 
+<div class="search">
+
+<a href="" class="search">
+<span class="bar_search">search<img class="svg_search" src="../front/assets/magnifying-glass-solid.jpg" alt=""></span>
+</a>
+
+</div>
 
 <div class="tri_article">
     
@@ -32,13 +39,6 @@
 
     </div>
 
-    <div class="search">
-
-    <a href="" class="search">
-    <span class="bar_search">search<img class="svg_search" src="../front/assets/magnifying-glass-solid.jpg" alt=""></span>
-    </a>
-
-    </div>
 
     <div class="trier_date">
 
