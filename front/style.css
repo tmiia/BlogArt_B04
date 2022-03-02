@@ -1113,31 +1113,49 @@ button:hover {
   margin-right: 20px;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 h1 {
-  margin: 150px 100px 100px 100px;
+  margin: 150px 100px 50px 100px;
   display: flex;
   justify-content: center;
   font-family: century-gothic, sans-serif;
 }
 
 h2 {
-  margin: 100px;
+  margin: 50px 100px 100px 100px;
   display: flex;
   justify-content: center;
   font-family: century-gothic, sans-serif;
-  color: #8B8B8B;
+  color: #868686;
+  font-size: 20px;
 }
 
 p {
   display: flex;
-  padding: 25px 200px 25px 200px;
+  padding: 0 200px 0px 200px;
   justify-content: center;
   font-family: century-gothic, sans-serif;
   font-size: 14;
+}
+
+H3 {
+  margin-top: 130px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+  font-size: 20px;
+}
+
+.art {
+  padding: 0 300px 25px 300px;
+}
+
+.end {
+  margin-bottom: 100px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /*# sourceMappingURL=style.css.map */
