@@ -68,7 +68,7 @@ a {
   background-color: #D75A41;
   padding: 10px;
   transition: ease 0.3s;
-  border-radius: 10px;
+  border-radius: 3px;
   color: #f6f6f6;
 }
 #navigation .connect .btn_inscription:hover {
@@ -670,9 +670,9 @@ header h2 span {
 }
 #main_article .content_article .image_article div {
   position: sticky;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 150px);
   background-color: #2E1A1E;
-  top: 50px;
+  top: 100px;
   border-radius: 15px;
   background-size: cover;
   background-position: center;
