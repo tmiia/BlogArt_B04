@@ -12,17 +12,18 @@ header {
         display:flex;
         flex-direction: column;
         text-transform: uppercase;
-        margin: $marginDesktop;
+        margin: $marginDesktop $marginDesktop $marginMobile;
 
         span {
             display:flex;
             align-items: flex-start;
-            font-size: 2.2em;
+            font-size: 6vw;
 
             b {
                 font-family: $fontTitre;
                 font-weight: normal;
-                font-size: 2em;
+                font-size: 1.8em;
+                line-height: 100%;
             }
 
             &:nth-child(2) {
