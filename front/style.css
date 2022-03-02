@@ -294,6 +294,24 @@ footer .liens {
   margin: 20px;
 }
 
+.search .svg_search {
+  width: 20px;
+  position: absolute;
+  color: #D75A41;
+  top: 16px;
+  right: 17px;
+}
+.search .bar_search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 240px;
+  border: 1px solid #D75A41;
+  border-radius: 50px;
+  position: relative;
+}
+
 .tri_article {
   margin: 100px;
   display: flex;
