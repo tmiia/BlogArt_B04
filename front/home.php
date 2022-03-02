@@ -10,6 +10,14 @@
 </head>
 <body>
 
+    <header>
+        <h1>
+            <span>Au <b>Bord</b></span>
+            <span>des <b>Rues</b></span> 
+        </h1>
+        <h2><span>Parlons solidarité</span></h2>
+    </header>
+
     <?php
     require_once __DIR__ . '/includes/commons/headerFront.php';
     // require_once __DIR__ . '/includes/commons/navigationFront.php';

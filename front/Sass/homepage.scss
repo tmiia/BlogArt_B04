@@ -1,3 +1,57 @@
+header {
+    height: 100vh;
+    background: $noir;
+    color: $blanc;
+    font-family: $fontText;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-bottom: $marginDesktop;
+
+    h1 {
+        display:flex;
+        flex-direction: column;
+        text-transform: uppercase;
+        margin: $marginDesktop;
+
+        span {
+            display:flex;
+            align-items: flex-start;
+            font-size: 2.2em;
+
+            b {
+                font-family: $fontTitre;
+                font-weight: normal;
+                font-size: 2em;
+            }
+
+            &:nth-child(2) {
+                justify-content:flex-end;
+            }
+        }
+        
+    }
+    h2 {
+        display:flex;
+        text-transform: uppercase;
+        font-size: 2em;
+        letter-spacing: 2px;
+        width: calc(100% - calc($marginDesktop * 2));
+        margin: 0 $marginDesktop $marginDesktop;
+        align-items:center;
+
+        &::before, &::after {
+            content:"";
+            height: 2px;
+            background: $rouge;
+            flex:1;
+        }
+        span {
+            margin: 0 $marginMobile;
+        }
+    }
+
+}
 
 #main_body {
     margin: $marginDesktop;
