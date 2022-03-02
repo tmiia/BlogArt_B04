@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         setcookie('pseudoMemb', $pseudo, time() + 30003600);
 
         if(isset($_COOKIE['eMailMemb'])) {  
-            header("Location: index1.php");
+            header('Location:/BLOGART22/front/pageArticles.php');
             echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
         } else {
             echo('Merci de vous connecter.');
