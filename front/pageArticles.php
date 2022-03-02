@@ -19,6 +19,7 @@
     require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
+<div class="main_article">
 
 <div class="search">
 
@@ -38,22 +39,28 @@
 
         <label>TRIER PAR THEMATIQUE:</label>
         <br>
-            <select class="theme_select" name="theme" id="theme_select">
-                <option value="Croissant">Thèmes</option>
-                <option value="Décroissant">différents thémes</option>
+            <label class="theme_select_container" for="theme_select">
+                <select class="theme_select" name="theme" id="theme_select">
 
-            </select>
+                    <option value="Croissant">Thèmes</option>
+                    <option value="Décroissant">différents thémes</option>
 
+                </select>
+            </label>
     </div>
 
     <div>
 
         <label>TRIER PAR DATE:</label>
         <br>
-        <select class="date_select" name="date" id="date_select">
-            <option value="Croissant">Ordre croissant</option>
-            <option value="Décroissant">Ordre décroissant</option>
-        </select>
+            <label class="theme_select_container" for="date_select">
+                    <select class="date_select" name="date" id="date_select">
+                        
+                        <option value="Croissant">Ordre croissant</option>
+                        <option value="Décroissant">Ordre décroissant</option>
+                    </select>
+            </label>
+
             
     </div>
 
@@ -78,6 +85,7 @@
 </section>
 
 <!------------>
+</div>
 
 <!-- FOOTER -->
     <?php

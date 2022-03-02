@@ -1,14 +1,27 @@
-header{
-    margin: 0% 5%;
+#navigation{
+    padding: 0px $marginDesktop;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    
-    p, a{
-        font-family: $fontText;
-        text-transform: uppercase;
-        color: $noir;
-        font-weight: 600;
+    background-color: transparent;
+    z-index: 999;
+
+    .langues {
+        cursor: pointer;
+    }
+
+    span, a {
+    font-family: $fontText;
+    text-transform: uppercase;
+    color: $noir;
+    text-decoration: none;
+    font-weight: 600;
+    transition: ease .3s;
+        
+        &:hover{
+            color: $gris;
+            transition: ease .3s;
+        }
     }
     
     a:hover {
@@ -56,8 +69,8 @@ header{
         width: 21%;
         align-items: center;
         
-        .btn_inscription p{
-               color: $blanc;
+        .btn_inscription {
+               color: #f6f6f6;
 
                &:hover{
                   color: $noir; 
@@ -67,18 +80,46 @@ header{
         .btn_inscription{
             background-color: $rouge;
             padding: 10px;
-            margin-left: 15px;
+            transition: ease .3s;
 
             &:hover{
                 background-color: $blanc;
+                color: $noir;
+                transition: ease .3s;
             }
              
         }
     }
 
-    img{
+    a {
+        img{
         width: 80px;
+        transition: .3s;
+        }
     }
 
+    
+
 }
+/***** STICKY NAVBAR *****/
+
+.sticky {
+    position: fixed;
+    top: 0;
+    padding: 0px $marginDesktop;
+    width: calc(100% - calc($marginDesktop * 2));
+    background-color: #fff !important;
+    transition: ease .3s;
+
+    a {
+        img {
+            width: 60px !important;
+            transition: ease .3s;
+        }
+    }
+  }
+  
+.sticky + .body {
+    padding-top: 60px;
+  }
 

@@ -1,13 +1,13 @@
 <link href="style.css" rel="stylesheet">
 <?php require_once __DIR__ . '/imports.php'; ?>
 
-<header>
+<div id="navigation">
     
     <nav>
-        <a href="../front/home.php"><img src="../front/assets/logoAuBordDesRues.png" alt="logoAuBordDesRues"></a>
+        <a href="home.php"><img src="../front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
         <div class="langues">
-            <p>FR</p>
-            <a href="#"><img src="../front/assets/fleche_bas.svg" alt="fleche_bas"></a>
+            <span>FR</span>
+            <img src="../front/assets/fleche_bas.svg" alt="fleche_bas">
         </div>
 
         <a href="./pageArticles">Articles</a>
@@ -19,5 +19,20 @@
         <a href="../connexion.php">Connexion</a>
         <a class="btn_inscription" href="../inscription.php">Inscription</a>
     </div>
-</header>
+</div>
 
+
+
+<script>
+    window.onscroll = function() {myFunction()};
+var navbar = document.getElementById("navigation");
+var sticky = navbar.offsetTop;
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+</script>
