@@ -1,3 +1,6 @@
+<?php
+    require_once __DIR__ . '/../CONNECT/config.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

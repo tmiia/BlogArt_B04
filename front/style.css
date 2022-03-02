@@ -103,9 +103,10 @@ a {
 footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   background-color: #2E1A1E;
   padding: 20px 100px;
+  padding-top: 50px;
 }
 footer a {
   color: #DED6D1;
@@ -117,34 +118,42 @@ footer a:hover {
   color: #8B8B8B;
 }
 footer .connect_admin {
-  padding-top: 50px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100px;
 }
-footer .connect_admin .credits {
+footer .connect_admin span {
   font-size: 13px;
   font-weight: 400;
+  font-family: century-gothic, sans-serif;
+  color: #DED6D1;
+}
+footer .revenir_haut {
+  flex: 1;
 }
 footer .revenir_haut a {
   text-transform: uppercase;
-  font-family: century-gothic, sans-serif;
-  color: #DED6D1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 footer .revenir_haut a img {
   justify-content: center;
   align-self: center;
   width: 25px;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 footer .liens {
+  flex: 1;
   display: flex;
-  width: 30%;
-  justify-content: space-between;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+footer .liens a {
+  margin-left: 20px;
 }
 
 header {
@@ -1114,6 +1123,47 @@ button:hover {
 }
 #contact_page form .form_top div:first-child {
   margin-right: 20px;
+}
+
+h1 {
+  margin: 150px 100px 50px 100px;
+  display: flex;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+}
+
+h2 {
+  margin: 50px 100px 100px 100px;
+  display: flex;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+  color: #868686;
+  font-size: 20px;
+}
+
+p {
+  display: flex;
+  padding: 0 200px 0px 200px;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+  font-size: 14;
+}
+
+H3 {
+  margin-top: 130px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+  font-size: 20px;
+}
+
+.art {
+  padding: 0 300px 25px 300px;
+}
+
+.end {
+  margin-bottom: 100px;
 }
 
 html {

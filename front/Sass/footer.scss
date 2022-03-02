@@ -1,9 +1,10 @@
 footer{
     display: flex;
     justify-content: space-between;
-    align-items: center;
+    align-items: flex-start;
     background-color: $noir;
     padding: 20px 100px;
+    padding-top: 50px;
 
     a{
         color: $blanc;
@@ -19,39 +20,49 @@ footer{
 
 
     .connect_admin{
-        padding-top: 50px;
+        flex: 1;
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         height: 100px;
  
-        .credits{       
+        span{       
             font-size: 13px;
             font-weight: 400;
+            font-family: $fontText;
+            color: $blanc;
         }
         
     }
 
-    .revenir_haut a{
-        text-transform: uppercase;
-        font-family: $fontText; 
-        color: $blanc;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    .revenir_haut {
+        flex:1;
 
-        img{
-            justify-content: center;
-            align-self: center;
-            width: 25px;
-            margin: 10px;
+        a{
+            text-transform: uppercase; 
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+    
+            img{
+                justify-content: center;
+                align-self: center;
+                width: 25px;
+                margin-bottom: 10px;
+            }
         }
     }
 
     .liens{
+        flex: 1;
         display: flex;
-        width: 30%;
-        justify-content: space-between;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+
+        a {
+            margin-left: 20px;
+        }
     }
 
 

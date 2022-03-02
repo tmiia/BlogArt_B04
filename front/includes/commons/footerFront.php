@@ -3,12 +3,14 @@
 <footer>
     <div class="connect_admin">
         <a href="#connectadmin">Connexion Administrateur</a>
-        <p class="credits">@ 2022 Nebulab. All rights reserved
+        <span>@ 2022 Nebulab. All rights reserved</span>
     </div> 
 
     <div class="revenir_haut">
         <a href="#top">
-            <img src="../front/assets/flecheHautFooter.svg" alt="flèche haut">
+            <img src="<?=ROOTFRONT?>/front/assets/flecheHautFooter.svg" alt="flèche haut">
+            <!-- <img src="../front/assets/flecheHautFooter.svg" alt="flèche haut"> -->
+
             Revenir en haut
         </a>
     </div>
