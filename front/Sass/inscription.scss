@@ -1,65 +1,100 @@
-.form_inscription{
+#main_inscription {
     background-color: $noir;
-    font-family: $fontText;
-    color: $blanc;
-    padding: 50px 0 200 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
+    padding: $marginDesktop;
 
-    h2{
-        padding: 50px;
-    }
 
-    .champs_inscription{
+    .form_inscription{
+        font-family: $fontText;
+        color: $blanc;
         display: flex;
         flex-direction: column;
-        align-items: center;
         justify-content: space-around;
-        max-width: 35rem;
+        align-items: center;
     
-        input{
-            height: 3.5rem;
-            width: 35rem;
-            border-radius: 11px;
-            border: none;
-            margin-top: 15px;
-        }
+            h2{
+                padding: 50px;
+            }
     
-        label{
-            align-self: flex-start;
-        }
-
-        fieldset{
-            align-items: center;
+            .champs_inscription{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-around;
+                width: 40%;
             
-            input{
-                width: 2rem;
+                label{
+                    align-self: flex-start;
+                }
+                
+                input{
+                    padding: 15px;
+                    width: 100%;
+                    border-radius: 11px;
+                    border: none;
+                    margin-top: 15px;
+                }
+            
+                fieldset{
+                    display: flex;
+                    align-items: center;
+                    border: none;
+                    width: 100%;
+                    margin-bottom: $marginMobile;
+                    
+                    input{
+                        margin-top: 0;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
             }
+    
+            .btn_inscription_connexion {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                width: 100%;
+        
+                button, a {
+                font-family: $fontText;
+                font-weight: bold;
+                outline: none;
+                border: none;
+                font-size: 20px;
+                padding: 10px 0;
+                width: 10vw;
+                margin-top: 20px;
+                border-radius: 15px;
+                cursor: pointer;
+                transition: ease .3s;
+                display: flex;
+                justify-content: center;
+                }
+                
+                
+                button{
+                    background-color: $rouge;
+                    color: $blanc;
+                    
+                    &:hover{
+                        background-color: $blanc;
+                        color: $noir;
+                    }
+                }
+        
+                a{
+                    background-color: $noir;
+                    color: white;
+        
+                    &:hover{
+                        background-color: white;
+                        color: $noir;
+                    }
+            }
+                
+                    
         }
-    
     }
-
-
-
-    button{
-        background-color: $rouge;
-        font-family: $fontText;
-        font-size: 24px;
-        font-weight: bold;
-        color: $blanc;
-        padding: 10px;
-        margin-top: 20px;
-        outline: none;
-        border: none;
-        border-radius: 15px;
-        width: 8rem;
-        align-self: flex-end;
     
-            &:hover{
-                background-color: $blanc;
-                color: $noir;
-            }
-    }
 }
+    

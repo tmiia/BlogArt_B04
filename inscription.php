@@ -32,43 +32,50 @@ require_once __DIR__ . '/front/includes/commons/headerFront.php';
 
 <body>
 
-     <form class="form_inscription" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+    <div id="main_inscription">
 
-        <h2>Formulaire d'inscription</h2>
+        <form class="form_inscription" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
-        <div class="champs_inscription">
+            <h2>Formulaire d'inscription</h2>
+
+            <div class="champs_inscription">
+            
+                <label>Email</label>   
+                <input type="text" name="email" value=""/><br>
+
+                <label>Prénom</label>
+                <input type="text" name="prenom" value=""><br> 
+
+                <label>Nom</label>
+                <input type="text" name="nom" value=""><br>
+
+                <label>Pseudo</label>
+                <input type="text" name="pseudo" value=""><br>
+
+                <label>Mot de passe</label>
+                <input type="text" name="motDePasse" value=""><br>
+
+                <input type="hidden" name="dtCreaMemb" id="dtCreaMemb" value="<?php if(isset($_GET['id'])) echo $_POST['dtCreaMemb']; ?>" tabindex="20" placeholder="" />
+                
+                <br><label>Acceptez vous les cookies ?</label><br>
+                <fieldset>
+                    <input type="radio" name="accordMemb" value="1" />
+                        &nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp;
+                    <input type="radio" name="accordMemb" value="0" />
+                        &nbsp;&nbsp;Non&nbsp;&nbsp;&nbsp;&nbsp;
+                </fieldset>
+
+                <div class="btn_inscription_connexion">
+                    <a href="./front/home.php">Annuler</a>
+                    <button type="submit">Inscription</button>
+                </div>
+
+            </div>
         
-        <label>Email</label>   
-        <input type="text" name="email" value=""/><br>
+        </form>
 
-        <label>Prénom</label>
-        <input type="text" name="prenom" value=""><br> 
 
-        <label>Nom</label>
-        <input type="text" name="nom" value=""><br>
-
-        <label>Pseudo</label>
-        <input type="text" name="pseudo" value=""><br>
-
-        <label>Mot de passe</label>
-        <input type="text" name="motDePasse" value=""><br>
-
-        <input type="hidden" name="dtCreaMemb" id="dtCreaMemb" value="<?php if(isset($_GET['id'])) echo $_POST['dtCreaMemb']; ?>" tabindex="20" placeholder="" />
-
-        <fieldset>
-            <input type="radio" name="accordMemb" value="1" />
-                &nbsp;&nbsp;Oui&nbsp;&nbsp;&nbsp;&nbsp;
-            <input type="radio" name="accordMemb" value="0" />
-                &nbsp;&nbsp;Non&nbsp;&nbsp;&nbsp;&nbsp;
-        </fieldset>
-
-        <button type="submit">Inscription</button>
-    
-        </div>
-     </form>
-
-     <a href="connexion.php">Connexion</a>
-
+    </div>
 </body>
 
 <?php require_once __DIR__ . '../front/includes/commons/footerFront.php';?>
