@@ -50,11 +50,15 @@ header{
         justify-content: space-between;
         width: 21%;
         align-items: center;
+        
+        .btn_inscription{
+               color: $blanc; 
+        }
 
         .btn_inscription{
             background-color: $rouge;
-            color: $blanc;
             padding: 10px;
+            margin-left: 15px;
 
             &:hover{
                 background-color: $blanc;

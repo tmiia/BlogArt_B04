@@ -50,9 +50,12 @@ header .connect {
   align-items: center;
 }
 header .connect .btn_inscription {
-  background-color: #D75A41;
   color: #DED6D1;
+}
+header .connect .btn_inscription {
+  background-color: #D75A41;
   padding: 10px;
+  margin-left: 15px;
 }
 header .connect .btn_inscription:hover {
   background-color: #DED6D1;
