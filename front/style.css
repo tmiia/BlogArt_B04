@@ -956,4 +956,80 @@ header h2 span {
   color: #2E1A1E;
 }
 
+#contact_page {
+  font-family: century-gothic, sans-serif;
+  font-size: 14px;
+  margin: 100px;
+}
+#contact_page h3 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B8B8B;
+}
+#contact_page h3::before, #contact_page h3::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #D75A41;
+}
+#contact_page h3 span {
+  margin: 0 20px;
+}
+#contact_page form {
+  margin: 100px;
+}
+#contact_page form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+#contact_page form div label {
+  font-family: century-gothic, sans-serif;
+  font-size: 16px;
+  color: #8B8B8B;
+  margin-bottom: 5px;
+}
+#contact_page form div input, #contact_page form div textarea {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #8B8B8B;
+  font-family: century-gothic, sans-serif;
+  color: #2E1A1E;
+}
+#contact_page form #btn_submit {
+  background-color: #D75A41;
+  color: #f6f6f6;
+  font-family: century-gothic, sans-serif;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 15px;
+  width: 8rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+#contact_page form #btn_submit:hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
+  transition: ease 0.3s;
+}
+#contact_page form .form_top {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+#contact_page form .form_top div:first-child {
+  margin-right: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 /*# sourceMappingURL=style.css.map */

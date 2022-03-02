@@ -1,0 +1,82 @@
+#contact_page {
+    font-family: $fontText;
+    font-size: 14px;
+    margin: $marginDesktop;
+
+    h3 {
+        font-family: $fontTitre;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $gris;
+        
+        &::before, &::after {
+            content:"";
+            flex:1;
+            height: 2px;
+            background: $rouge;
+
+        }
+        span {
+            margin: 0 20px;
+        }
+    }
+
+    form {
+        margin: $marginDesktop;
+
+        div {
+            display:flex;
+            flex-direction: column;
+            margin-bottom: 40px;
+
+            label {
+                font-family: $fontText;
+                font-size: 16px;
+                color: $gris;
+                margin-bottom: 5px;
+            }
+            input, textarea {
+                border-radius: 5px;
+                padding: 10px;
+                border: 1px solid $gris;
+                font-family: $fontText;
+                color: $noir;
+            }
+    
+        }
+
+        #btn_submit {
+            background-color: $rouge;
+            color: #f6f6f6;
+            font-family: $fontText;
+            font-weight: bold;
+            outline: none;
+            border: none;
+            font-size: 20px;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 15px;
+            width: 8rem;
+            transition: ease .3s;
+            cursor: pointer;
+    
+            &:hover{
+                background-color: $blanc;
+                color: $noir;
+                transition: ease .3s;
+            }
+        }
+
+        .form_top {
+            display:flex;
+            flex-direction: row;
+            margin: 0;
+
+            div:first-child {
+                margin-right: 20px;
+            }
+        }
+    }
+}
