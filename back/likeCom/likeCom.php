@@ -18,6 +18,14 @@ require_once __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
 // Instanciation de la classe Likecom
 $monLikeCom = new LIKECOM ();
 
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+$monMembre = new MEMBRE();
+
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+$monArticle = new ARTICLE();
+
+require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
+$monCommentaire = new COMMENT();
 
 ?>
 <!DOCTYPE html>
@@ -73,30 +81,30 @@ $monLikeCom = new LIKECOM ();
     <tbody>
 <?php
     // Appel méthode : Get tous les users en BDD
-
+    $allLikesCom = $monLikeCom->get_AllLikesCom();
     // Boucle pour afficher
-    //foreach($all as $row) {
-
+    for($i = 0; $i < count($allLikesCom); $i++){
+        
 
 
 ?>
         <tr>
-        <td><h4>&nbsp; <?= "ici pseudoMemb"; ?> &nbsp;</h4></td>
+        <td><h4>&nbsp; <?= $monMembre->get_1Membre($allLikesCom[$i]['numMemb'])['pseudoMemb']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= "ici libTitrArt"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $monArticle->get_1Article($allLikesCom[$i]['numArt'])['libTitrArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= "ici libCom"; ?> &nbsp;</td>
+        <td>&nbsp; <?= $monCommentaire->get_1Comment($allLikesCom[$i]['numSeqCom'], $allLikesCom[$i]['numArt'])['libCom']; ?> &nbsp;</td>
 
-        <td>&nbsp;<span class="OK">&nbsp; <?= "ici (un)like"; ?> &nbsp;</span></td>
+        <td>&nbsp;<span class="OK">&nbsp; <?= $allLikesCom[$i]['likeC']; ?> &nbsp;</span></td>
 
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier like commentaire" title="Modifier like commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(Un)like</span>&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLikeCom.php?id1=<?=$allLikesCom[$i]['numMemb']?>&id2=<?=$allLikesCom[$i]['numSeqCom']?> &id3=<?=$allLikesCom[$i]['numArt']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier like commentaire" title="Modifier like commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(Un)like</span>&nbsp;
         <br /></td>
 
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer like commentaire" title="Supprimer like commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(S/Admin)</span>&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLikeCom.php?id1=<?=$allLikesCom[$i]['numMemb']?>&id2=<?=$allLikesCom[$i]['numSeqCom']?> &id3=<?=$allLikesCom[$i]['numArt']?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer like commentaire" title="Supprimer like commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(S/Admin)</span>&nbsp;
         <br /></td>
         </tr>
 <?php
-    // }   // End of foreach
+}   // End of foreach
 ?>
     </tbody>
     </table>
