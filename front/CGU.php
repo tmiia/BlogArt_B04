@@ -182,9 +182,6 @@ coordonnées inscrites à l’ARTICLE 1.
 <br>
 
 
-class="end"
-
-
 
 
 
