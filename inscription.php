@@ -1,10 +1,12 @@
 <?php
-
-require_once __DIR__ . '/back.php';
+ini_set('display_errors','on');
+ini_set('display_startup_errors','on');
+error_reporting(E_ALL);
+require_once 'back.php';
 
 
 // Insertion classe Membre
-require_once __DIR__ . '/CLASS_CRUD/membre.class.php';
+require_once ROOT . '/CLASS_CRUD/membre.class.php';
 // Instanciation de la classe membre
 $newMembre = new MEMBRE();
 
@@ -26,8 +28,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 
 <link href="./front/style.css" rel="stylesheet">
-<?php require_once __DIR__ . '../front/includes/commons/imports.php'; 
-require_once __DIR__ . '/front/includes/commons/headerFront.php';
+<?php require_once ROOT . '/front/includes/commons/imports.php'; 
+require_once ROOT . '/front/includes/commons/headerFront.php';
 ?>
 
 <body>
@@ -71,6 +73,6 @@ require_once __DIR__ . '/front/includes/commons/headerFront.php';
 
 </body>
 
-<?php require_once __DIR__ . '../front/includes/commons/footerFront.php';?>
+<?php require_once ROOT . '/front/includes/commons/footerFront.php';?>
 
 </html>

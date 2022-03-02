@@ -1,8 +1,8 @@
 <?php
 
-require_once __DIR__ . '/back.php';
+require_once 'back.php';
 
-require_once __DIR__ . '../CLASS_CRUD/membre.class.php';
+require_once ROOT . '/CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
 // INSCRIPTION : champ username / mdp
@@ -53,8 +53,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 
 <link href="./front/style.css" rel="stylesheet">
-<?php require_once __DIR__ . '../front/includes/commons/imports.php'; 
-require_once __DIR__ . '/front/includes/commons/headerFront.php';
+<?php require_once ROOT . '/front/includes/commons/imports.php'; 
+require_once ROOT . '/front/includes/commons/headerFront.php';
 ?>
 
 <section class="form_connexion">
@@ -77,6 +77,6 @@ require_once __DIR__ . '/front/includes/commons/headerFront.php';
 
 </section>
 
-<?php require_once __DIR__ . '../front/includes/commons/footerFront.php';?>
+<?php require_once ROOT . '/front/includes/commons/footerFront.php';?>
 
 </html>
