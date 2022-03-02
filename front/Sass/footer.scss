@@ -5,7 +5,7 @@ footer{
     background-color: $noir;
     padding: 20px 100px;
 
-    a, p{
+    a{
         color: $blanc;
         font-family: $fontText;
         font-size: 18px;
@@ -33,7 +33,9 @@ footer{
     }
 
     .revenir_haut a{
-        text-transform: uppercase; 
+        text-transform: uppercase;
+        font-family: $fontText; 
+        color: $blanc;
         display: flex;
         flex-direction: column;
         justify-content: space-between;

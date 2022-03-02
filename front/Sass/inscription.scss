@@ -1,6 +1,29 @@
 #main_inscription {
     background-color: $noir;
-    padding: $marginDesktop;
+    padding: calc($marginDesktop + $marginMobile) $marginDesktop $marginDesktop;
+
+    h3 {
+        font-family: $fontTitre;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $rouge;
+        font-weight: 400;
+        margin: 0 $marginDesktop $marginDesktop;
+        width: calc(100% - calc($marginDesktop * 2));
+        
+        &::before, &::after {
+            content:"";
+            flex:1;
+            height: 2px;
+            background: $blanc;
+
+        }
+        span {
+            margin: 0 20px;
+        }
+    }
 
 
     .form_inscription{

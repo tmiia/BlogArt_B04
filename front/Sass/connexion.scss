@@ -2,7 +2,7 @@
     background-color: $noir;
     font-family: $fontText;
     color: $blanc;
-    padding: 50px 0 200 0;
+    padding: calc($marginDesktop + $marginMobile) $marginDesktop $marginDesktop;
 
     form{
         display: flex;
@@ -10,9 +10,29 @@
         justify-content: space-around;
         //height: 500px;
         align-items: center;
-    
-        h2{
-            padding: 50px;
+
+    }
+
+    h3 {
+        font-family: $fontTitre;
+        font-size: 40px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: $rouge;
+        font-weight: 400;
+        margin: 0 $marginDesktop $marginDesktop;
+        width: calc(100% - calc($marginDesktop * 2));
+        
+        &::before, &::after {
+            content:"";
+            flex:1;
+            height: 2px;
+            background: $blanc;
+
+        }
+        span {
+            margin: 0 20px;
         }
     }
     
@@ -20,14 +40,15 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        //height: 250px;
+        width: 40%;
         justify-content: space-around;
     
         input{
-            width: 35rem;
-            height: 3.5rem;
+            width: 100%;
+            padding: 15px;
             border-radius: 11px;
             border: none;
+            font-size: 14px;
         }
     
         label{

@@ -36,7 +36,7 @@ require_once __DIR__ . '/front/includes/commons/headerFront.php';
 
         <form class="form_inscription" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
-            <h2>Formulaire d'inscription</h2>
+            <h3><span>Inscription</span></h3>
 
             <div class="champs_inscription">
             

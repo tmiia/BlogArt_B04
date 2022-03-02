@@ -107,13 +107,13 @@ footer {
   background-color: #2E1A1E;
   padding: 20px 100px;
 }
-footer a, footer p {
+footer a {
   color: #DED6D1;
   font-family: century-gothic, sans-serif;
   font-size: 18px;
   font-weight: 600;
 }
-footer a:hover, footer p:hover {
+footer a:hover {
   color: #8B8B8B;
 }
 footer .connect_admin {
@@ -129,6 +129,8 @@ footer .connect_admin .credits {
 }
 footer .revenir_haut a {
   text-transform: uppercase;
+  font-family: century-gothic, sans-serif;
+  color: #DED6D1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -870,7 +872,7 @@ header h2 span {
   background-color: #2E1A1E;
   font-family: century-gothic, sans-serif;
   color: #DED6D1;
-  padding: 50px 0 200 0;
+  padding: 150px 100px 100px;
 }
 .form_connexion form {
   display: flex;
@@ -878,20 +880,39 @@ header h2 span {
   justify-content: space-around;
   align-items: center;
 }
-.form_connexion form h2 {
-  padding: 50px;
+.form_connexion h3 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D75A41;
+  font-weight: 400;
+  margin: 0 100px 100px;
+  width: calc(100% - 200px);
+}
+.form_connexion h3::before, .form_connexion h3::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #DED6D1;
+}
+.form_connexion h3 span {
+  margin: 0 20px;
 }
 .form_connexion .champs_connexion {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
   justify-content: space-around;
 }
 .form_connexion .champs_connexion input {
-  width: 35rem;
-  height: 3.5rem;
+  width: 100%;
+  padding: 15px;
   border-radius: 11px;
   border: none;
+  font-size: 14px;
 }
 .form_connexion .champs_connexion label {
   align-self: flex-start;
@@ -920,7 +941,27 @@ button:hover {
 
 #main_inscription {
   background-color: #2E1A1E;
-  padding: 100px;
+  padding: 150px 100px 100px;
+}
+#main_inscription h3 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D75A41;
+  font-weight: 400;
+  margin: 0 100px 100px;
+  width: calc(100% - 200px);
+}
+#main_inscription h3::before, #main_inscription h3::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #DED6D1;
+}
+#main_inscription h3 span {
+  margin: 0 20px;
 }
 #main_inscription .form_inscription {
   font-family: century-gothic, sans-serif;
