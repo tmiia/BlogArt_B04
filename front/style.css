@@ -65,20 +65,17 @@ a {
   align-items: center;
 }
 #navigation .connect .btn_inscription {
-  color: #f6f6f6;
-}
-#navigation .connect .btn_inscription:hover {
-  color: #2E1A1E;
-}
-#navigation .connect .btn_inscription {
   background-color: #D75A41;
   padding: 10px;
   transition: ease 0.3s;
+  border-radius: 10px;
+  color: #f6f6f6;
 }
 #navigation .connect .btn_inscription:hover {
   background-color: #DED6D1;
   color: #2E1A1E;
   transition: ease 0.3s;
+  color: #2E1A1E;
 }
 #navigation a img {
   width: 80px;
@@ -89,7 +86,7 @@ a {
 .sticky {
   position: fixed;
   top: 0;
-  padding: 0px 100px;
+  padding: 0px 50px;
   width: calc(100% - 200px);
   background-color: #fff !important;
   transition: ease 0.3s;
