@@ -1,0 +1,47 @@
+
+h1{
+    margin: 150px 100px 50px 100px;
+    display: flex;
+    justify-content: center;
+    font-family: $fontText;
+}
+
+h2{
+    margin: 50px 100px 100px 100px;
+    display: flex;
+    justify-content: center;
+    font-family: $fontText;
+    color: #868686;
+    font-size: 20px;
+
+}
+
+p{
+    display: flex;
+    padding:  0 200px 0px 200px ;
+    justify-content: center;
+    font-family: $fontText;
+    font-size: 14;
+
+    
+}
+
+H3{
+    margin-top: 130px;
+    margin-bottom: 50px;
+
+    display: flex;
+    justify-content: center;
+    font-family: $fontText;
+    font-size: 20px;
+
+}
+
+.art{
+    padding:  0 300px 25px 300px ;
+
+    }
+
+.end{
+    margin-bottom: 100px;
+}
