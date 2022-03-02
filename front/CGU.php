@@ -15,7 +15,7 @@
 ?>
 
 <!------------>
-
+<div class="cgu">
   <H1>Conditions générales d'utilisation</H1>  
 
   <H2>En vigueur au 18/02/2022</H2>
@@ -180,7 +180,7 @@ coordonnées inscrites à l’ARTICLE 1.
 </p>
 
 <br>
-
+</div>
 
 
 
