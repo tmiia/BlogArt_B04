@@ -387,7 +387,7 @@ header h2 span {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 25px;
+  margin-top: 125px;
 }
 .search .search_butt:hover .bar_search {
   color: #8B8B8B;
