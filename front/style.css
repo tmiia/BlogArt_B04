@@ -161,17 +161,18 @@ header h1 {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
-  margin: 100px;
+  margin: 100px 100px 50px;
 }
 header h1 span {
   display: flex;
   align-items: flex-start;
-  font-size: 2.2em;
+  font-size: 6vw;
 }
 header h1 span b {
   font-family: "ltc-broadway", sans-serif;
   font-weight: normal;
-  font-size: 2em;
+  font-size: 1.8em;
+  line-height: 100%;
 }
 header h1 span:nth-child(2) {
   justify-content: flex-end;
@@ -1044,7 +1045,7 @@ button:hover {
 #contact_page {
   font-family: century-gothic, sans-serif;
   font-size: 14px;
-  margin: 100px;
+  margin: 150px 100px 100px;
 }
 #contact_page h3 {
   font-family: "ltc-broadway", sans-serif;
@@ -1053,6 +1054,8 @@ button:hover {
   align-items: center;
   justify-content: center;
   color: #8B8B8B;
+  font-weight: 400;
+  margin: 0 100px;
 }
 #contact_page h3::before, #contact_page h3::after {
   content: "";
