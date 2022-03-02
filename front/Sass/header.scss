@@ -1,21 +1,20 @@
 header{
-    margin: 0px 120px;
+    margin: 0% 5%;
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    p{
-    font-family: $fontText;
-    text-transform: uppercase;
-    color: $noir;
-    text-decoration: none;
-    font-weight: 600;
-        
-        &:hover{
-            color: $gris;
-        }
+    
+    p, a{
+        font-family: $fontText;
+        text-transform: uppercase;
+        color: $noir;
+        font-weight: 600;
     }
     
+    a:hover {
+        color: $gris;
+    }
+
 
     nav{
         display: flex;
@@ -31,6 +30,12 @@ header{
             img{
                 width: 1rem;
                 margin-left: 5px;
+
+                &:hover{
+                    transform: rotate(180deg);
+                    transition:round($number: 0);
+                    transition-duration: 0.5s;
+                }
             }
         }
 
@@ -51,8 +56,12 @@ header{
         width: 21%;
         align-items: center;
         
-        .btn_inscription{
-               color: $blanc; 
+        .btn_inscription p{
+               color: $blanc;
+
+               &:hover{
+                  color: $noir; 
+               }
         }
 
         .btn_inscription{
@@ -62,7 +71,6 @@ header{
 
             &:hover{
                 background-color: $blanc;
-                color: $noir;
             }
              
         }

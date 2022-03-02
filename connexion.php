@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/back.php';
 
-require_once __DIR__ . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '../CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
 // INSCRIPTION : champ username / mdp
@@ -52,25 +52,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <html>
 
-<link href="style.css" rel="stylesheet">
-<?php require_once __DIR__ . '../front/includes/commons/imports.php'; ?>
+<link href="./front/style.css" rel="stylesheet">
+<?php require_once __DIR__ . '../front/includes/commons/imports.php'; 
+require_once __DIR__ . '/front/includes/commons/headerFront.php';
+?>
 
-<section id="form_connexion">
+<section class="form_connexion">
 
      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
-        <h2>Connexion</h2>
+        <h2>Formulaire de connexion</h2>
 
-        <label>Pseudo</label>
-        <input type="text" name="eMailMemb" value=""/><br>
+        <div class="champs_connexion">
+            <label>Pseudo :</label><br>
+            <input type="text" name="eMailMemb" value=""/><br>
 
-        <label>Mot de passe</label>
-        <input type="text" name="passMemb" value=""/><br>
-
-        <button type="submit">Connexion</button>
-
+            <label>Mot de passe :</label><br>
+            <input type="text" name="passMemb" value=""/><br>
+        
+            <button type="submit">Se connecter</button>
+        </div>
+        
      </form>
 
 </section>
+
+<?php require_once __DIR__ . '../front/includes/commons/footerFront.php';?>
 
 </html>

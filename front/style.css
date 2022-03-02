@@ -13,19 +13,18 @@ a {
 }
 
 header {
-  margin: 0px 120px;
+  margin: 0% 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header p {
+header p, header a {
   font-family: century-gothic, sans-serif;
   text-transform: uppercase;
   color: #2E1A1E;
-  text-decoration: none;
   font-weight: 600;
 }
-header p:hover {
+header a:hover {
   color: #8B8B8B;
 }
 header nav {
@@ -43,14 +42,22 @@ header nav .langues img {
   width: 1rem;
   margin-left: 5px;
 }
+header nav .langues img:hover {
+  transform: rotate(180deg);
+  transition: 0;
+  transition-duration: 0.5s;
+}
 header .connect {
   display: flex;
   justify-content: space-between;
   width: 21%;
   align-items: center;
 }
-header .connect .btn_inscription {
+header .connect .btn_inscription p {
   color: #DED6D1;
+}
+header .connect .btn_inscription p:hover {
+  color: #2E1A1E;
 }
 header .connect .btn_inscription {
   background-color: #D75A41;
@@ -59,7 +66,6 @@ header .connect .btn_inscription {
 }
 header .connect .btn_inscription:hover {
   background-color: #DED6D1;
-  color: #2E1A1E;
 }
 header img {
   width: 80px;
@@ -443,9 +449,98 @@ footer .liens {
   border-radius: 20px;
 }
 
-#form_connexion {
+.form_connexion {
   background-color: #2E1A1E;
   font-family: century-gothic, sans-serif;
+  color: #DED6D1;
+  padding: 50px 0 200 0;
+}
+.form_connexion form {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.form_connexion form h2 {
+  padding: 50px;
+}
+.form_connexion .champs_connexion {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.form_connexion .champs_connexion input {
+  width: 35rem;
+  height: 3.5rem;
+  border-radius: 11px;
+  border: none;
+}
+.form_connexion .champs_connexion label {
+  align-self: flex-start;
+}
+.form_connexion button {
+  background-color: #D75A41;
+  font-family: century-gothic, sans-serif;
+  font-weight: bold;
+  color: #DED6D1;
+  padding: 10px;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  width: 8rem;
+  align-self: flex-end;
+}
+.form_connexion button:hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
+}
+
+.form_inscription {
+  background-color: #2E1A1E;
+  font-family: century-gothic, sans-serif;
+  color: #DED6D1;
+  padding: 50px 0 200 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.form_inscription h2 {
+  padding: 50px;
+}
+.form_inscription .champs_inscription {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+.form_inscription .champs_inscription input {
+  width: 35rem;
+  height: 3.5rem;
+  border-radius: 11px;
+  border: none;
+}
+.form_inscription .champs_inscription label {
+  align-self: flex-start;
+}
+.form_inscription button {
+  background-color: #D75A41;
+  font-family: century-gothic, sans-serif;
+  font-weight: bold;
+  color: #DED6D1;
+  padding: 10px;
+  margin-top: 20px;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  width: 8rem;
+  align-self: flex-end;
+}
+.form_inscription button:hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
 }
 
 /*# sourceMappingURL=style.css.map */
