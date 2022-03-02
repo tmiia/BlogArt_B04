@@ -51,7 +51,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <html>
-<body>
+
+<link href="style.css" rel="stylesheet">
+<?php require_once __DIR__ . '../front/includes/commons/imports.php'; ?>
+
+<section id="form_connexion">
 
      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
@@ -67,6 +71,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
      </form>
 
-</body>
+</section>
 
 </html>

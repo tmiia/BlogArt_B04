@@ -16,8 +16,18 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Comment
+require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
 
+// Instanciation de la classe Article
+$monCommentaire = new COMMENT();
 // Instanciation de la classe Comment
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+
+// Instanciation de la classe Article
+$monArticle = new ARTICLE();
+
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+$monMembre = new MEMBRE();
 
 
 // Gestion des erreurs de saisie
@@ -25,7 +35,40 @@ $erreur = false;
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    
     // controle des saisies du formulaire
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
+
+    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    
+            header("Location: ./comment.php");
+    }   // End of if ((isset($_POST["submit"])) ...
+        
+    if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
+        AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
+            // Saisies valides
+            $erreur = false;
+           
+            $numMemb = ctrlSaisies(($_POST['Membre']));
+            $numArt = ctrlSaisies(($_POST['Article']));
+            $numSeqCom = intval($monCommentaire->getNextNumCom($numArt));
+            $libCom = ctrlSaisies(($_POST['libCom']));
+            // $dtCreCom = ctrlSaisies(($_POST['dtCreCom']));
+
+
+            $monCommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
+    
+            header("Location: ./comment.php");
+        }   // Fin if ((isset($_POST['libStat']))
+        else {
+            // Saisies invalides
+            $erreur = true;
+            $errSaisies =  "Erreur, la saisie est obligatoire !";
+        }   // End of else erreur saisies
 
 
     // insertion classe comment
@@ -73,8 +116,24 @@ include __DIR__ . '/initComment.php';
             <label class="control-label" for="LibTypAngl">
                 <b>Quel membre :&nbsp;&nbsp;&nbsp;</b>
             </label>
-            <input type="text" name="idMemb" id="idMemb" size="5" maxlength="5" value="<?= ""; ?>" autocomplete="on" />
-
+            
+            <select name="Membre" id="Membre"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un membre - - -</option>
+                <?php
+                $allMembres = $monMembre->get_AllMembres();
+                
+                if($allMembres){
+                for ($i=0; $i < count($allMembres); $i++){
+                    $value = $allMembres[$i]['numMemb'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allMembres[$i]['pseudoMemb']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
             <!-- Listbox membre => 2ème temps -->
 
             </div>
@@ -89,9 +148,26 @@ include __DIR__ . '/initComment.php';
             <label class="control-label" for="LibTypThem">
                 <b>Quel article :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </label>
-            <input type="text" name="idArt" id="idArt" size="5" maxlength="5" value="<?= ""; ?>" autocomplete="on" />
+            
 
             <!-- Listbox Article => 2ème temps -->
+            <select name="Article" id="Article"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un article - - -</option>
+                <?php
+                $allArticles = $monArticle->get_AllArticles();
+                
+                if($allArticles){
+                for ($i=0; $i < count($allArticles); $i++){
+                    $value = $allArticles[$i]['numArt'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allArticles[$i]['libTitrArt']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
             </div>
         </div>
