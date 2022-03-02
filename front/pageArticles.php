@@ -19,6 +19,14 @@
     require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
+
+<div class="search">
+
+<a href="" class="search">
+    <span class="bar_search">search<img class="svg_search" src="../front/assets/down.jpg" alt=""></span>
+</a>
+
+</div>
 <div class="tri_article">
     
     <div class="them_event">
