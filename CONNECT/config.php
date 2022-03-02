@@ -13,4 +13,4 @@ $userBD = 'root';         // Votre login
 $passBD = 'root';         // Votre Pass
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/BLOGART22');
-define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/BLOGART22'); 
+define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/BLOGART22');
