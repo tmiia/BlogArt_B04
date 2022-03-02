@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $newMembre->create($_POST['prenom'], $_POST['nom'], $_POST['pseudo'], $_POST['motDePasse'], $_POST['email'], $accordMemb, $idStat);
 
-    header("Location: http://localhost/GIT%20BLOGART/BlogArt/index1.php");
+    header("Location: http://localhost/GIT%20BLOGART/BlogArt/front/home.php");
 }
 
 ?>

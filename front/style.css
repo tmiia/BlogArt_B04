@@ -68,7 +68,7 @@ a {
   background-color: #D75A41;
   padding: 10px;
   transition: ease 0.3s;
-  border-radius: 10px;
+  border-radius: 3px;
   color: #f6f6f6;
 }
 #navigation .connect .btn_inscription:hover {
@@ -385,6 +385,7 @@ header h2 span {
   align-items: center;
   justify-content: center;
   margin-top: 125px;
+  margin-bottom: 100px;
 }
 .search .search_butt:hover .bar_search {
   color: #8B8B8B;
@@ -413,9 +414,17 @@ header h2 span {
 }
 
 .tri_article {
-  margin: 30px 100px 100px 100px;
+  margin: 50px 100px 100px 100px;
   display: flex;
   justify-content: space-between;
+}
+.tri_article div {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.tri_article div:first-child {
+  align-items: flex-start;
 }
 .tri_article div label {
   color: #D75A41;
@@ -424,28 +433,32 @@ header h2 span {
 }
 .tri_article div .theme_select_container {
   position: relative;
+  display: flex;
 }
 .tri_article div .theme_select_container:after {
   display: block;
   position: absolute;
   content: "";
-  background-image: url("../assets/down.jpg");
-  width: 30px;
-  height: 30px;
-  top: 50%;
-  right: 0px;
+  background-image: url(./assets/down.jpg);
+  width: 15px;
+  height: 15px;
+  top: 43%;
+  right: 9px;
+  background-size: contain;
+  background-repeat: no-repeat;
 }
 .tri_article div .theme_select_container select {
   position: relative;
-  color: #D75A41;
+  display: inline-flex;
+  color: #929292;
   appearance: none;
-  width: 110%;
+  width: 320px;
   height: auto;
-  border: 2px #D75A41 solid;
+  border: 2px #8B8B8B solid;
   margin: 0;
   padding: 0.75em;
   border-radius: 50px;
-  margin-top: 10px;
+  margin-top: 0px;
   font-family: century-gothic, sans-serif;
   align-items: center;
   cursor: pointer;
@@ -670,9 +683,9 @@ header h2 span {
 }
 #main_article .content_article .image_article div {
   position: sticky;
-  height: calc(100vh - 100px);
+  height: calc(100vh - 150px);
   background-color: #2E1A1E;
-  top: 50px;
+  top: 100px;
   border-radius: 15px;
   background-size: cover;
   background-position: center;
@@ -985,6 +998,82 @@ button:hover {
 #main_inscription .form_inscription .btn_inscription_connexion a:hover {
   background-color: white;
   color: #2E1A1E;
+}
+
+#contact_page {
+  font-family: century-gothic, sans-serif;
+  font-size: 14px;
+  margin: 100px;
+}
+#contact_page h3 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B8B8B;
+}
+#contact_page h3::before, #contact_page h3::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #D75A41;
+}
+#contact_page h3 span {
+  margin: 0 20px;
+}
+#contact_page form {
+  margin: 100px;
+}
+#contact_page form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+#contact_page form div label {
+  font-family: century-gothic, sans-serif;
+  font-size: 16px;
+  color: #8B8B8B;
+  margin-bottom: 5px;
+}
+#contact_page form div input, #contact_page form div textarea {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #8B8B8B;
+  font-family: century-gothic, sans-serif;
+  color: #2E1A1E;
+}
+#contact_page form #btn_submit {
+  background-color: #D75A41;
+  color: #f6f6f6;
+  font-family: century-gothic, sans-serif;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 15px;
+  width: 8rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+#contact_page form #btn_submit:hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
+  transition: ease 0.3s;
+}
+#contact_page form .form_top {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+#contact_page form .form_top div:first-child {
+  margin-right: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 /*# sourceMappingURL=style.css.map */

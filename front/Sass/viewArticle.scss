@@ -158,9 +158,9 @@
 
             div {
                 position:sticky;
-                height: calc(100vh - calc($marginMobile * 2));
+                height: calc(100vh - calc($marginMobile * 3));
                 background-color: #2E1A1E;
-                top: $marginMobile;
+                top: calc($marginMobile * 2);
                 border-radius:15px; 
                 background-size: cover;
                 background-position:center;

@@ -122,7 +122,7 @@ $monMembre = new MEMBRE();
 
 
 <!-- F1 aff Comments (Modérateur / Admin / Super-admin) -->
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateComment.php?id1=<?=$allComments[$i]['numSeqCom']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier commentaire" title="Modifier commentaire" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateComment.php?id1=<?=$allComments[$i]['numSeqCom']?>&id2=<?=$allComments[$i]['numArt']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier commentaire" title="Modifier commentaire" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
         <br /></td>
 
 <!-- Del logique (Modérateur / Admin / Super-admin) -->

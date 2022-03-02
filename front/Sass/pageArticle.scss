@@ -7,6 +7,7 @@
     align-items: center;
     justify-content: center;
     margin-top: 125px;
+    margin-bottom: 100px;
 
         .search_butt{
             
@@ -15,7 +16,6 @@
                 border: 1px solid $gris;
 
             }
-
 
             .bar_search{
                 display: flex;
@@ -46,48 +46,60 @@
 
 .tri_article{
 
-    margin: 30px 100px 100px 100px;
+    margin: 50px 100px 100px 100px;
     display: flex;
     justify-content: space-between;
 
+
     div {
-        
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+
+        &:first-child {
+          align-items: flex-start;
+        }
 
         label{
             color: $rouge;
             font-size: 18px;
             font-family: $fontText;
-
         }
         .theme_select_container {
             position: relative;
+            display: flex;
 
                 &:after {
                     display: block;
                     position: absolute;
                     content: "";
-                    background-image: url("../assets/down.jpg");
-                    width: 30px;
-                    height: 30px;
-                    top: 50%;
-                    right: 0px;
+                    background-image: url(./assets/down.jpg);
+                    width: 15px;
+                    height: 15px;
+                    top: 43%;
+                    right: 9px;
+                    background-size: contain;
+                    background-repeat: no-repeat;
            }
 
         select{
             position: relative;
-            color: $rouge;
+            display: inline-flex;
+            color: #929292 ;
             // overflow: hidden;
             appearance: none;
-            width: 110%; 
+            width: 320px; 
             height: auto;
-            border: 2px $rouge solid; 
+            border: 2px $gris solid; 
             margin: 0;
             padding: .75em;
             border-radius: 50px;
-        	margin-top: 10px;
+        	margin-top: 0px;
             font-family: $fontText;
             align-items: center;
             cursor: pointer;
+          
+
             
             
 
