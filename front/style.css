@@ -18,14 +18,14 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-header a, header p {
+header p {
   font-family: century-gothic, sans-serif;
   text-transform: uppercase;
   color: #2E1A1E;
   text-decoration: none;
   font-weight: 600;
 }
-header a:hover, header p:hover {
+header p:hover {
   color: #8B8B8B;
 }
 header nav {
@@ -34,12 +34,14 @@ header nav {
   align-items: center;
   width: 30rem;
 }
-header nav .langues ::after {
-  font-family: "Font Awesome 5 Brands";
-  content: "/f107";
+header nav .langues {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
 }
-header nav img {
-  padding-right: 15px;
+header nav .langues img {
+  width: 1rem;
+  margin-left: 5px;
 }
 header .connect {
   display: flex;
@@ -48,9 +50,12 @@ header .connect {
   align-items: center;
 }
 header .connect .btn_inscription {
-  background-color: #D75A41;
   color: #DED6D1;
+}
+header .connect .btn_inscription {
+  background-color: #D75A41;
   padding: 10px;
+  margin-left: 15px;
 }
 header .connect .btn_inscription:hover {
   background-color: #DED6D1;
@@ -292,8 +297,39 @@ footer .liens {
   margin: 20px;
 }
 
+.search {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+}
+.search .search_butt:hover .bar_search {
+  color: #8B8B8B;
+  border: 1px solid #8B8B8B;
+}
+.search .search_butt .bar_search {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding-left: 50px;
+  height: 45px;
+  width: 440px;
+  border: 1px solid #D75A41;
+  border-radius: 50px;
+  position: relative;
+  color: #D75A41;
+  font-size: 18px;
+}
+.search .search_butt .bar_search img.svg_search {
+  width: 18px;
+  position: absolute;
+  color: #D75A41;
+  top: 13px;
+  left: 21px;
+}
+
 .tri_article {
-  margin: 100px;
+  margin: 30px 100px 100px 100px;
   display: flex;
   justify-content: space-between;
 }
@@ -316,6 +352,14 @@ footer .liens {
   width: 240px;
   border: 1px solid #D75A41;
   border-radius: 50px;
+  position: relative;
+}
+.tri_article .them_event .event_butt .butt .svg {
+  width: 20px;
+  position: absolute;
+  color: #D75A41;
+  top: 16px;
+  right: 17px;
 }
 .tri_article .trier_date {
   display: flex;
@@ -341,10 +385,14 @@ footer .liens {
   width: 240px;
   border: 1px solid #D75A41;
   border-radius: 50px;
+  position: relative;
 }
-.tri_article .trier_date .date_butt .butt ::after {
-  font-family: "Font Awesome 5 Brands";
-  content: "/f107";
+.tri_article .trier_date .date_butt .butt .svg {
+  width: 20px;
+  position: absolute;
+  top: 16px;
+  right: 17px;
+  color: #D75A41;
 }
 
 .articles {
@@ -420,6 +468,11 @@ footer .liens {
   background: #D75A41;
   padding: 10px 20px;
   border-radius: 20px;
+}
+
+#form_connexion {
+  background-color: #2E1A1E;
+  font-family: century-gothic, sans-serif;
 }
 
 /*# sourceMappingURL=style.css.map */
