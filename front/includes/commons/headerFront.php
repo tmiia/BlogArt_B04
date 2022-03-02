@@ -7,11 +7,10 @@ require_once __DIR__ . '/imports.php';
 <div id="navigation">
     
     <nav>
-        <a href="home.php"><img src="../front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
+        <a href="home.php"><img src="<?=ROOTFRONT?>/front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
         <div class="langues">
             <span>FR</span>
             <img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas">
-            <!-- <img src="../front/assets/fleche_bas.svg" alt="fleche_bas"> -->
         </div>
 
         <a href="./pageArticles">Articles</a>
