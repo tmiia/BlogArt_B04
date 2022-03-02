@@ -919,19 +919,28 @@ header h2 span {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  max-width: 35rem;
 }
 .form_inscription .champs_inscription input {
-  width: 35rem;
   height: 3.5rem;
+  width: 35rem;
   border-radius: 11px;
   border: none;
+  margin-top: 15px;
 }
 .form_inscription .champs_inscription label {
   align-self: flex-start;
 }
+.form_inscription .champs_inscription fieldset {
+  align-items: center;
+}
+.form_inscription .champs_inscription fieldset input {
+  width: 2rem;
+}
 .form_inscription button {
   background-color: #D75A41;
   font-family: century-gothic, sans-serif;
+  font-size: 24px;
   font-weight: bold;
   color: #DED6D1;
   padding: 10px;
