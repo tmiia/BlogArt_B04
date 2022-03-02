@@ -425,10 +425,22 @@ header h2 span {
   font-size: 18px;
   font-family: century-gothic, sans-serif;
 }
-.tri_article div select {
+.tri_article div .theme_select_container {
+  position: relative;
+}
+.tri_article div .theme_select_container:after {
+  display: block;
+  position: absolute;
+  content: "";
+  background-image: url("../assets/down.jpg");
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  right: 0px;
+}
+.tri_article div .theme_select_container select {
   position: relative;
   color: #D75A41;
-  overflow: hidden;
   appearance: none;
   width: 110%;
   height: auto;
@@ -438,13 +450,8 @@ header h2 span {
   border-radius: 50px;
   margin-top: 10px;
   font-family: century-gothic, sans-serif;
-}
-.tri_article div select::after select {
-  content: "";
-  width: 0.8em;
-  height: 0.5em;
-  background-color: var(--select-arrow);
-  clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  align-items: center;
+  cursor: pointer;
 }
 
 .articles {

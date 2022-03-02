@@ -59,10 +59,24 @@
             font-family: $fontText;
 
         }
+        .theme_select_container {
+            position: relative;
+
+                &:after {
+                    display: block;
+                    position: absolute;
+                    content: "";
+                    background-image: url("../assets/down.jpg");
+                    width: 30px;
+                    height: 30px;
+                    top: 50%;
+                    right: 0px;
+           }
+
         select{
             position: relative;
             color: $rouge;
-            overflow: hidden;
+            // overflow: hidden;
             appearance: none;
             width: 110%; 
             height: auto;
@@ -72,22 +86,17 @@
             border-radius: 50px;
         	margin-top: 10px;
             font-family: $fontText;
+            align-items: center;
+            cursor: pointer;
+            
             
 
-            &::after select{
-                content: "";
-                width: 0.8em;
-                height: 0.5em;
-                background-color: var(--select-arrow);
-                clip-path: polygon(100% 0%, 0 0%, 50% 100%);
             }
          
-          
+     
         }
     }
-
-
-      }
+ }
 
 
 
