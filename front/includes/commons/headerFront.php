@@ -1,23 +1,38 @@
 <link href="style.css" rel="stylesheet">
 <?php require_once __DIR__ . '/imports.php'; ?>
 
-<header>
+<div id="navigation">
     
     <nav>
-        <a href="home.php"><img src="../front/assets/logoAuBordDesRues.png" alt="logoAuBordDesRues"></a>
+        <a href="home.php"><img src="../front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
         <div class="langues">
-            <p>FR</p>
-            <a href="#"><img src="../front/assets/fleche_bas.svg" alt="fleche_bas"></a>
+            <span>FR</span>
+            <img src="../front/assets/fleche_bas.svg" alt="fleche_bas">
         </div>
 
-        <a href="../front/pageArticles.php"><p>Articles</p></a>
-        <a href="#"><p>Newsletter</p></a>
-        <a href="#"><p>Contact</p></a>
+        <a href="./pageArticles">Articles</a>
+        <a href="#">Newsletter</a>
+        <a href="#">Contact</a>
     </nav>
 
     <div class="connect">
-        <a href="../connexion.php"><p>Connexion</p></a>
-        <a class="btn_inscription" href="../inscription.php"><p>Inscription</p></a>
+        <a href="../connexion.php">Connexion</a>
+        <a class="btn_inscription" href="../inscription.php">Inscription</a>
     </div>
-</header>
+</div>
 
+
+
+<script>
+    window.onscroll = function() {myFunction()};
+var navbar = document.getElementById("navigation");
+var sticky = navbar.offsetTop;
+function myFunction() {
+  if (window.pageYOffset >= sticky) {
+    navbar.classList.add("sticky")
+  } else {
+    navbar.classList.remove("sticky");
+  }
+}
+
+</script>

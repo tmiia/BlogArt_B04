@@ -19,6 +19,7 @@
     require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
+<div class="main_article">
 
 <div class="search">
 
@@ -28,26 +29,39 @@
 
 </div>
 
+<!------------>
+
+
+
 <div class="tri_article">
     
-    <div class="them_event">
+    <div>
 
-        <h6>THEMATIQUES :</h6>
-        <a href="" class="event_butt">
-            <span class="butt">EVENEMENTS<img class="svg" src="../front/assets/down.jpg" alt=""></span>
-        </a>
+        <label>TRIER PAR THEMATIQUE:</label>
+        <br>
+            <label class="theme_select_container" for="theme_select">
+                <select class="theme_select" name="theme" id="theme_select">
 
+                    <option value="Croissant">Thèmes</option>
+                    <option value="Décroissant">différents thémes</option>
+
+                </select>
+            </label>
     </div>
 
+    <div>
 
-    <div class="trier_date">
+        <label>TRIER PAR DATE:</label>
+        <br>
+            <label class="theme_select_container" for="date_select">
+                    <select class="date_select" name="date" id="date_select">
+                        
+                        <option value="Croissant">Ordre croissant</option>
+                        <option value="Décroissant">Ordre décroissant</option>
+                    </select>
+            </label>
 
-        <h6>TRIER PAR :</h6>
-        <a href="" class="date_butt">
-        <span class="butt">PAR DATE<img class="svg" src="../front/assets/down.jpg" alt=""></span>
-
-        </a>
-
+            
     </div>
 
 </div>
@@ -71,6 +85,7 @@
 </section>
 
 <!------------>
+</div>
 
 <!-- FOOTER -->
     <?php

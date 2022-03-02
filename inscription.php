@@ -24,11 +24,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
 
 <html>
+
+<link href="./front/style.css" rel="stylesheet">
+<?php require_once __DIR__ . '../front/includes/commons/imports.php'; 
+require_once __DIR__ . '/front/includes/commons/headerFront.php';
+?>
+
 <body>
 
-     <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
+     <form class="form_inscription" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
-        <h2>Inscription</h2>
+        <h2>Formulaire d'inscription</h2>
+
+        <div class="champs_inscription">
         
         <label>Email</label>   
         <input type="text" name="email" value=""/><br>
@@ -39,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         <label>Nom</label>
         <input type="text" name="nom" value=""><br>
 
-        <label>pseudo</label>
+        <label>Pseudo</label>
         <input type="text" name="pseudo" value=""><br>
 
         <label>Mot de passe</label>
@@ -55,11 +63,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         </fieldset>
 
         <button type="submit">Inscription</button>
-
+    
+        </div>
      </form>
 
      <a href="connexion.php">Connexion</a>
 
 </body>
+
+<?php require_once __DIR__ . '../front/includes/commons/footerFront.php';?>
 
 </html>

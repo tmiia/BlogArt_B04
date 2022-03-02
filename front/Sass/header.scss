@@ -1,21 +1,33 @@
-header{
-    margin: 0px 120px;
+#navigation{
+    padding: 0px $marginDesktop;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: transparent;
+    z-index: 999;
 
-    p{
+    .langues {
+        cursor: pointer;
+    }
+
+    span, a {
     font-family: $fontText;
     text-transform: uppercase;
     color: $noir;
     text-decoration: none;
     font-weight: 600;
+    transition: ease .3s;
         
         &:hover{
             color: $gris;
+            transition: ease .3s;
         }
     }
     
+    a:hover {
+        color: $gris;
+    }
+
 
     nav{
         display: flex;
@@ -31,6 +43,12 @@ header{
             img{
                 width: 1rem;
                 margin-left: 5px;
+
+                &:hover{
+                    transform: rotate(180deg);
+                    transition:round($number: 0);
+                    transition-duration: 0.5s;
+                }
             }
         }
 
@@ -50,27 +68,53 @@ header{
         justify-content: space-between;
         width: 21%;
         align-items: center;
-        
-        .btn_inscription{
-               color: $blanc; 
-        }
 
         .btn_inscription{
             background-color: $rouge;
             padding: 10px;
-            margin-left: 15px;
+            transition: ease .3s;
+            border-radius: 10px;
+            color: #f6f6f6;
 
             &:hover{
                 background-color: $blanc;
                 color: $noir;
+                transition: ease .3s;
+                color: $noir; 
             }
              
         }
     }
 
-    img{
+    a {
+        img{
         width: 80px;
+        transition: .3s;
+        }
     }
 
+    
+
 }
+/***** STICKY NAVBAR *****/
+
+.sticky {
+    position: fixed;
+    top: 0;
+    padding: 0px $marginMobile;
+    width: calc(100% - calc($marginDesktop * 2));
+    background-color: #fff !important;
+    transition: ease .3s;
+
+    a {
+        img {
+            width: 60px !important;
+            transition: ease .3s;
+        }
+    }
+  }
+  
+.sticky + .body {
+    padding-top: 60px;
+  }
 
