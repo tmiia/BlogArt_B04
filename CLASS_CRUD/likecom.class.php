@@ -44,8 +44,12 @@ class LIKECOM{
 		global $db;
 
 		// select
+		$query = 'SELECT * FROM LIKECOM;';
 		// prepare
+		$result = $db->query($query);
 		// execute
+		$allLikesCom = $result->fetchAll();
+		
 		return($allLikesCom);
 	}
 
