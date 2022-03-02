@@ -8,7 +8,9 @@
 
     <div class="revenir_haut">
         <a href="#top">
-            <img src="../front/assets/flecheHautFooter.svg" alt="flèche haut">
+            <img src="<?=ROOTFRONT?>/front/assets/flecheHautFooter.svg" alt="flèche haut">
+            <!-- <img src="../front/assets/flecheHautFooter.svg" alt="flèche haut"> -->
+
             Revenir en haut
         </a>
     </div>

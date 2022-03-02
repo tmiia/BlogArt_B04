@@ -1,7 +1,7 @@
 #contact_page {
     font-family: $fontText;
     font-size: 14px;
-    margin: $marginDesktop;
+    margin: calc($marginDesktop + $marginMobile) $marginDesktop $marginDesktop;
 
     h3 {
         font-family: $fontTitre;
@@ -10,6 +10,8 @@
         align-items: center;
         justify-content: center;
         color: $gris;
+        font-weight: 400;
+        margin: 0 $marginDesktop;
         
         &::before, &::after {
             content:"";
