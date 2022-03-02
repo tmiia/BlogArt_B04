@@ -25,17 +25,17 @@ footer{
         justify-content: space-between;
         height: 100px;
  
-        .credits{       
+        span{       
             font-size: 13px;
             font-weight: 400;
+            font-family: $fontText;
+            color: $blanc;
         }
         
     }
 
     .revenir_haut a{
-        text-transform: uppercase;
-        font-family: $fontText; 
-        color: $blanc;
+        text-transform: uppercase; 
         display: flex;
         flex-direction: column;
         justify-content: space-between;

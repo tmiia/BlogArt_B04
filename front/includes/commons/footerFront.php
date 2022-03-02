@@ -3,7 +3,7 @@
 <footer>
     <div class="connect_admin">
         <a href="#connectadmin">Connexion Administrateur</a>
-        <p class="credits">@ 2022 Nebulab. All rights reserved
+        <span>@ 2022 Nebulab. All rights reserved</span>
     </div> 
 
     <div class="revenir_haut">
