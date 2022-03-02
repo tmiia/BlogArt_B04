@@ -6,7 +6,7 @@ require_once __DIR__ . '../../CONNECT/database.php';
 class COMMENT{
 	function get_1Comment($numSeqCom, $numArt){
 		global $db;
-		$query = "SELECT * FROM COMMENT WHERE numSeqCom = ?, numArt = ?";
+		$query = "SELECT * FROM COMMENT WHERE numSeqCom = ? AND numArt = ?";
 		$result = $db->prepare($query);
 		$result->execute([$numSeqCom, $numArt]);
 		return($result->fetch());
