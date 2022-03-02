@@ -16,7 +16,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Comment
-
+require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
+// Instanciation de la classe Comment
+$monCommentaire = NEW COMMENT();
 // Instanciation de la classe Comment
 
 
@@ -28,17 +30,18 @@ include __DIR__ . '/initComment.php';
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En GET
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
-
-
+    
 
 
     // create / update effective du comment
-
-
-
+    
+    $monCommentaire->delete($_GET['id1'], $_GET['id2']);
+    header("Location: ./comment.php");
 
 
 
 
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "GET")
+?>
+
