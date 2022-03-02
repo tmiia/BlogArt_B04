@@ -1,26 +1,21 @@
-.form_connexion{
+.form_inscription{
     background-color: $noir;
     font-family: $fontText;
     color: $blanc;
     padding: 50px 0 200 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
 
-    form{
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        //height: 500px;
-        align-items: center;
-    
-        h2{
-            padding: 50px;
-        }
+    h2{
+        padding: 50px;
     }
-    
-    .champs_connexion{
+
+    .champs_inscription{
         display: flex;
         flex-direction: column;
         align-items: center;
-        //height: 250px;
         justify-content: space-around;
     
         input{
@@ -35,7 +30,7 @@
         }
     
     }
-    
+
     button{
         background-color: $rouge;
         font-family: $fontText;
@@ -54,7 +49,4 @@
                 color: $noir;
             }
     }
-    
-    
 }
-

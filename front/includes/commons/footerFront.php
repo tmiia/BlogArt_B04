@@ -16,7 +16,7 @@
     <div class="liens">
         <a href="#"><p>Mentions légales</p></a>
         <a href="#"><p>CGU</p></a>
-        <a href="#"><p>Accueil</p></a>
+        <a href="./front/home.php"><p>Accueil</p></a>
     </div>
 
 </footer>

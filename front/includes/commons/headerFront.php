@@ -4,13 +4,13 @@
 <header>
     
     <nav>
-        <a href="home.php"><img src="../front/assets/logoAuBordDesRues.png" alt="logoAuBordDesRues"></a>
+        <a href="../front/home.php"><img src="../front/assets/logoAuBordDesRues.png" alt="logoAuBordDesRues"></a>
         <div class="langues">
             <p>FR</p>
             <a href="#"><img src="../front/assets/fleche_bas.svg" alt="fleche_bas"></a>
         </div>
 
-        <a href="../front/pageArticles.php">Articles</a>
+        <a href="./pageArticles">Articles</a>
         <a href="#">Newsletter</a>
         <a href="#">Contact</a>
     </nav>
