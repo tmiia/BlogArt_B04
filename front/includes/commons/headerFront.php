@@ -20,8 +20,12 @@ require_once __DIR__ . '/imports.php';
     </nav>
 
     <div class="connect">
+        <?php if(isset($_COOKIE['eMailMemb'])){?>  <a href="#"><?= $_COOKIE['pseudoMemb'] ?></a> <?php } else{?>
         <a href="../connexion.php">Connexion</a>
+        <?php } if(isset($_COOKIE['eMailMemb'])){ ?>
+        <a class="btn_inscription" href="../deconnexion.php">Déconnexion</a> <?php } else{ ?>
         <a class="btn_inscription" href="../inscription.php">Inscription</a>
+        <?php } ?>
     </div>
 </div>
 
