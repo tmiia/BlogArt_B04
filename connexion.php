@@ -61,7 +61,7 @@ require_once __DIR__ . '/front/includes/commons/headerFront.php';
 
      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
-        <h2>Formulaire de connexion</h2>
+        <h3><span>Connexion</span></h3>
 
         <div class="champs_connexion">
             <label>Pseudo :</label><br>

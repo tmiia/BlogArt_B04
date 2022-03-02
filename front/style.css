@@ -107,13 +107,13 @@ footer {
   background-color: #2E1A1E;
   padding: 20px 100px;
 }
-footer a, footer p {
+footer a {
   color: #DED6D1;
   font-family: century-gothic, sans-serif;
   font-size: 18px;
   font-weight: 600;
 }
-footer a:hover, footer p:hover {
+footer a:hover {
   color: #8B8B8B;
 }
 footer .connect_admin {
@@ -129,6 +129,8 @@ footer .connect_admin .credits {
 }
 footer .revenir_haut a {
   text-transform: uppercase;
+  font-family: century-gothic, sans-serif;
+  color: #DED6D1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -870,7 +872,7 @@ header h2 span {
   background-color: #2E1A1E;
   font-family: century-gothic, sans-serif;
   color: #DED6D1;
-  padding: 50px 0 200 0;
+  padding: 150px 100px 100px;
 }
 .form_connexion form {
   display: flex;
@@ -878,95 +880,241 @@ header h2 span {
   justify-content: space-around;
   align-items: center;
 }
-.form_connexion form h2 {
-  padding: 50px;
+.form_connexion h3 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D75A41;
+  font-weight: 400;
+  margin: 0 100px 100px;
+  width: calc(100% - 200px);
+}
+.form_connexion h3::before, .form_connexion h3::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #DED6D1;
+}
+.form_connexion h3 span {
+  margin: 0 20px;
 }
 .form_connexion .champs_connexion {
   display: flex;
   flex-direction: column;
   align-items: center;
+  width: 40%;
   justify-content: space-around;
 }
 .form_connexion .champs_connexion input {
-  width: 35rem;
-  height: 3.5rem;
+  width: 100%;
+  padding: 15px;
   border-radius: 11px;
   border: none;
+  font-size: 14px;
 }
 .form_connexion .champs_connexion label {
   align-self: flex-start;
 }
-.form_connexion button {
+
+button {
   background-color: #D75A41;
   font-family: century-gothic, sans-serif;
+  font-size: 20px;
   font-weight: bold;
-  color: #DED6D1;
+  color: white;
   padding: 10px;
   margin-top: 20px;
   outline: none;
   border: none;
   border-radius: 15px;
-  width: 8rem;
+  width: 10rem;
   align-self: flex-end;
+  cursor: pointer;
+  transition: ease 0.3s;
 }
-.form_connexion button:hover {
+button:hover {
   background-color: #DED6D1;
   color: #2E1A1E;
 }
 
-.form_inscription {
+#main_inscription {
   background-color: #2E1A1E;
+  padding: 150px 100px 100px;
+}
+#main_inscription h3 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #D75A41;
+  font-weight: 400;
+  margin: 0 100px 100px;
+  width: calc(100% - 200px);
+}
+#main_inscription h3::before, #main_inscription h3::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #DED6D1;
+}
+#main_inscription h3 span {
+  margin: 0 20px;
+}
+#main_inscription .form_inscription {
   font-family: century-gothic, sans-serif;
   color: #DED6D1;
-  padding: 50px 0 200 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
 }
-.form_inscription h2 {
+#main_inscription .form_inscription h2 {
   padding: 50px;
 }
-.form_inscription .champs_inscription {
+#main_inscription .form_inscription .champs_inscription {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  max-width: 35rem;
+  width: 40%;
 }
-.form_inscription .champs_inscription input {
-  height: 3.5rem;
-  width: 35rem;
+#main_inscription .form_inscription .champs_inscription label {
+  align-self: flex-start;
+}
+#main_inscription .form_inscription .champs_inscription input {
+  padding: 15px;
+  width: 100%;
   border-radius: 11px;
   border: none;
   margin-top: 15px;
 }
-.form_inscription .champs_inscription label {
-  align-self: flex-start;
-}
-.form_inscription .champs_inscription fieldset {
+#main_inscription .form_inscription .champs_inscription fieldset {
+  display: flex;
   align-items: center;
+  border: none;
+  width: 100%;
+  margin-bottom: 50px;
 }
-.form_inscription .champs_inscription fieldset input {
-  width: 2rem;
+#main_inscription .form_inscription .champs_inscription fieldset input {
+  margin-top: 0;
+  width: 20px;
+  height: 20px;
 }
-.form_inscription button {
-  background-color: #D75A41;
+#main_inscription .form_inscription .btn_inscription_connexion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+#main_inscription .form_inscription .btn_inscription_connexion button, #main_inscription .form_inscription .btn_inscription_connexion a {
   font-family: century-gothic, sans-serif;
-  font-size: 24px;
   font-weight: bold;
-  color: #DED6D1;
-  padding: 10px;
-  margin-top: 20px;
   outline: none;
   border: none;
+  font-size: 20px;
+  padding: 10px 0;
+  width: 10vw;
+  margin-top: 20px;
   border-radius: 15px;
-  width: 8rem;
-  align-self: flex-end;
+  cursor: pointer;
+  transition: ease 0.3s;
+  display: flex;
+  justify-content: center;
 }
-.form_inscription button:hover {
+#main_inscription .form_inscription .btn_inscription_connexion button {
+  background-color: #D75A41;
+  color: #DED6D1;
+}
+#main_inscription .form_inscription .btn_inscription_connexion button:hover {
   background-color: #DED6D1;
   color: #2E1A1E;
+}
+#main_inscription .form_inscription .btn_inscription_connexion a {
+  background-color: #2E1A1E;
+  color: white;
+}
+#main_inscription .form_inscription .btn_inscription_connexion a:hover {
+  background-color: white;
+  color: #2E1A1E;
+}
+
+#contact_page {
+  font-family: century-gothic, sans-serif;
+  font-size: 14px;
+  margin: 100px;
+}
+#contact_page h3 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B8B8B;
+}
+#contact_page h3::before, #contact_page h3::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #D75A41;
+}
+#contact_page h3 span {
+  margin: 0 20px;
+}
+#contact_page form {
+  margin: 100px;
+}
+#contact_page form div {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 40px;
+}
+#contact_page form div label {
+  font-family: century-gothic, sans-serif;
+  font-size: 16px;
+  color: #8B8B8B;
+  margin-bottom: 5px;
+}
+#contact_page form div input, #contact_page form div textarea {
+  border-radius: 5px;
+  padding: 10px;
+  border: 1px solid #8B8B8B;
+  font-family: century-gothic, sans-serif;
+  color: #2E1A1E;
+}
+#contact_page form #btn_submit {
+  background-color: #D75A41;
+  color: #f6f6f6;
+  font-family: century-gothic, sans-serif;
+  font-weight: bold;
+  outline: none;
+  border: none;
+  font-size: 20px;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 15px;
+  width: 8rem;
+  transition: ease 0.3s;
+  cursor: pointer;
+}
+#contact_page form #btn_submit:hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
+  transition: ease 0.3s;
+}
+#contact_page form .form_top {
+  display: flex;
+  flex-direction: row;
+  margin: 0;
+}
+#contact_page form .form_top div:first-child {
+  margin-right: 20px;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 h1 {
