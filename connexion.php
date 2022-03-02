@@ -30,20 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     connect_user($_POST['eMailMemb'], $_POST['passMemb']);
 
     if (password_verify($_POST['passMemb'], $passCrypt) === true) {
-        setcookie('eMailMemb', $membre, time() + 3600);
-        setcookie('pseudoMemb', $pseudo, time() + 3600);
+        setcookie('eMailMemb', $membre, time() + 3000600);
+        setcookie('pseudoMemb', $pseudo, time() + 30003600);
 
-        
+        if(isset($_COOKIE['eMailMemb'])) {  
+            header("Location: index1.php");
+            echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
+        } else {
+            echo('Merci de vous connecter.');
+        }
 
     } else {
         echo('Mauvais mdp sorry');
 
-    }
-    if(isset($_COOKIE['eMailMemb'])) {  
-        header("Location: index1.php");
-        echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
-    } else {
-        echo('Merci de vous connecter.');
     }
 
 

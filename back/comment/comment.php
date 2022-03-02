@@ -126,7 +126,7 @@ $monMembre = new MEMBRE();
         <br /></td>
 
 <!-- Del logique (Modérateur / Admin / Super-admin) -->
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" title="Suppression logique..."><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer commentaire" title="Supprimer/rétablir commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(Logique)</span>&nbsp;&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteComment.php?id1=<?=$allComments[$i]['numSeqCom']?>&id2=<?=$allComments[$i]['numArt']?>" title="Suppression logique..."><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer commentaire" title="Supprimer/rétablir commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(Logique)</span>&nbsp;&nbsp;
         <br /></td>
         </tr>
 <?php
