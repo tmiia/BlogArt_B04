@@ -19,6 +19,7 @@
     require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
+<div class="main_article">
 
 <div class="search">
 
@@ -84,6 +85,7 @@
 </section>
 
 <!------------>
+</div>
 
 <!-- FOOTER -->
     <?php
