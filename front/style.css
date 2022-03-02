@@ -422,4 +422,69 @@ footer .liens {
   border-radius: 20px;
 }
 
+#main_article {
+  margin: 100px;
+  font-family: century-gothic, sans-serif;
+}
+#main_article a.retour {
+  color: #D75A41;
+  border: 1px solid #D75A41;
+  padding: 5px 10px;
+  border-radius: 20px;
+}
+#main_article .header_article {
+  color: #8B8B8B;
+  margin: 100px;
+}
+#main_article .header_article h3 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 50px;
+  font-weight: 400;
+}
+#main_article .header_article h3::after {
+  content: "";
+  width: 50%;
+  background: #D75A41;
+  height: 1px;
+}
+#main_article .header_article h4 {
+  font-size: 16px;
+  margin-left: 50%;
+}
+#main_article .infos_article {
+  display: flex;
+  color: #8B8B8B;
+}
+#main_article .infos_article span, #main_article .infos_article a {
+  margin-right: 10px;
+}
+#main_article .infos_article .art_info {
+  border: 1px solid #8B8B8B;
+  border-radius: 20px;
+  padding: 0 10px;
+  font-size: 12px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+#main_article .infos_article a.art_btn {
+  border: 1px solid #8B8B8B;
+  color: #8B8B8B;
+  border-radius: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30Px;
+  transition: ease 0.3s;
+}
+#main_article .infos_article a.art_btn.partage:hover {
+  color: #2E1A1E;
+  transition: ease 0.3s;
+}
+#main_article .infos_article a.art_btn.like:hover {
+  color: #D75A41;
+  transition: ease 0.3s;
+}
+
 /*# sourceMappingURL=style.css.map */

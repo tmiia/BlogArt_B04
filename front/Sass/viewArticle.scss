@@ -1,0 +1,80 @@
+
+#main_article {
+    margin: $marginDesktop;
+    font-family: $fontText;
+
+    a.retour {
+        color: $rouge;
+        border: 1px solid $rouge;
+        padding: 5px 10px;
+        border-radius: 20px;
+    }
+
+    h4 {
+
+    }
+
+    .header_article {
+
+        color: $gris;
+        margin: $marginDesktop;
+
+        h3 {
+            font-family: $fontTitre;
+            font-size: 50px;
+            font-weight: 400;
+            
+            &::after {
+                content: "";
+                width: 50%;
+                background: $rouge;
+                height: 1px;
+            }
+        }
+    
+        h4 {
+            font-size: 16px;
+            margin-left: 50%;
+        }
+    }
+    .infos_article {
+        display:flex;
+        color: $gris;
+
+        span, a {
+            margin-right: 10px;
+        }
+
+        .art_info {
+            border: 1px solid $gris;
+            border-radius: 20px;
+            padding: 0 10px;
+            font-size: 12px;
+            height: 30px;
+            display:flex;
+            align-items: center;
+        }
+        a.art_btn {
+            border: 1px solid $gris;
+            color: $gris;
+            border-radius: 100%;
+            display:flex;
+            align-items: center;
+            justify-content: center;
+            width: 30px;
+            height: 30Px;
+            transition: ease .3s;
+        }
+        a.art_btn.partage:hover {
+            color: $noir;
+            transition: ease .3s;
+        }
+        a.art_btn.like:hover {
+            color: $rouge;
+            transition: ease .3s;
+        }
+    }
+    
+
+}
+
