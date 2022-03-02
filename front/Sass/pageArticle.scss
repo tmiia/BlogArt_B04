@@ -8,28 +8,39 @@
     justify-content: center;
     margin-top: 25px;
 
-    .bar_search{
-        display: flex;
-        align-items: center;
-        justify-content: flex-start;
-        padding-left: 50px;
-        height: 45px;
-        width: 440px;
-        border: 1px solid $rouge;
-        border-radius: 50px;
-        position: relative;
-        color: $rouge;
-        font-size: 18px;
+        .search_butt{
+            
+            &:hover  .bar_search{   
+                color:  $gris;
+                border: 1px solid $gris;
 
-           
+
+            }
+
+
+            .bar_search{
+                display: flex;
+                align-items: center;
+                justify-content: flex-start;
+                padding-left: 50px;
+                height: 45px;
+                width: 440px;
+                border: 1px solid $rouge;
+                border-radius: 50px;
+                position: relative;
+                color: $rouge;
+                font-size: 18px ; 
+
+            img.svg_search{
+                width: 18px;
+                position: absolute;
+                color: $rouge;
+                top: 13px;
+                left: 21px;
+            }
+            }
     }
-    .svg_search{
-        width: 18px;
-        position: absolute;
-        color: $rouge;
-        top: 13px;
-        left: 21px;
-    }
+
 }
 
 .tri_article{

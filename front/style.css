@@ -303,7 +303,11 @@ footer .liens {
   justify-content: center;
   margin-top: 25px;
 }
-.search .bar_search {
+.search .search_butt:hover .bar_search {
+  color: #8B8B8B;
+  border: 1px solid #8B8B8B;
+}
+.search .search_butt .bar_search {
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -316,7 +320,7 @@ footer .liens {
   color: #D75A41;
   font-size: 18px;
 }
-.search .svg_search {
+.search .search_butt .bar_search img.svg_search {
   width: 18px;
   position: absolute;
   color: #D75A41;

@@ -22,7 +22,7 @@
 
 <div class="search">
 
-<a href="" class="search">
+<a href="" class="search_butt">
 <span class="bar_search">search<img class="svg_search" src="../front/assets/magnifying-glass-solid.jpg" alt=""></span>
 </a>
 
