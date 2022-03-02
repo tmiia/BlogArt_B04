@@ -13,19 +13,18 @@ a {
 }
 
 header {
-  margin: 0px 120px;
+  margin: 0% 5%;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
-header p {
+header p, header a {
   font-family: century-gothic, sans-serif;
   text-transform: uppercase;
   color: #2E1A1E;
-  text-decoration: none;
   font-weight: 600;
 }
-header p:hover {
+header a:hover {
   color: #8B8B8B;
 }
 header nav {
@@ -43,14 +42,22 @@ header nav .langues img {
   width: 1rem;
   margin-left: 5px;
 }
+header nav .langues img:hover {
+  transform: rotate(180deg);
+  transition: 0;
+  transition-duration: 0.5s;
+}
 header .connect {
   display: flex;
   justify-content: space-between;
   width: 21%;
   align-items: center;
 }
-header .connect .btn_inscription {
+header .connect .btn_inscription p {
   color: #DED6D1;
+}
+header .connect .btn_inscription p:hover {
+  color: #2E1A1E;
 }
 header .connect .btn_inscription {
   background-color: #D75A41;
@@ -59,7 +66,6 @@ header .connect .btn_inscription {
 }
 header .connect .btn_inscription:hover {
   background-color: #DED6D1;
-  color: #2E1A1E;
 }
 header img {
   width: 80px;

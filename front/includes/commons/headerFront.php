@@ -10,14 +10,14 @@
             <a href="#"><img src="../front/assets/fleche_bas.svg" alt="fleche_bas"></a>
         </div>
 
-        <a href="../front/pageArticles.php"><p>Articles</p></a>
-        <a href="#"><p>Newsletter</p></a>
-        <a href="#"><p>Contact</p></a>
+        <a href="../front/pageArticles.php">Articles</a>
+        <a href="#">Newsletter</a>
+        <a href="#">Contact</a>
     </nav>
 
     <div class="connect">
-        <a href="../connexion.php"><p>Connexion</p></a>
-        <a class="btn_inscription" href="../inscription.php"><p>Inscription</p></a>
+        <a href="../connexion.php">Connexion</a>
+        <a class="btn_inscription" href="../inscription.php">Inscription</a>
     </div>
 </header>
 
