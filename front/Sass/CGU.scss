@@ -1,0 +1,24 @@
+
+h1{
+    margin: 150px 100px 100px 100px;
+    display: flex;
+    justify-content: center;
+    font-family: $fontText;
+}
+
+h2{
+    margin: 100px;
+    display: flex;
+    justify-content: center;
+    font-family: $fontText;
+    color: $gris;
+
+}
+
+p{
+    display: flex;
+    padding: 25px 200px 25px 200px ;
+    justify-content: center;
+    font-family: $fontText;
+    font-size: 14;
+}
