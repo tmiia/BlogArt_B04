@@ -6,7 +6,11 @@
     background-color: transparent;
     z-index: 999;
 
-    p{
+    .langues {
+        cursor: pointer;
+    }
+
+    span, a {
     font-family: $fontText;
     text-transform: uppercase;
     color: $noir;
@@ -20,6 +24,10 @@
         }
     }
     
+    a:hover {
+        color: $gris;
+    }
+
 
     nav{
         display: flex;
@@ -35,6 +43,12 @@
             img{
                 width: 1rem;
                 margin-left: 5px;
+
+                &:hover{
+                    transform: rotate(180deg);
+                    transition:round($number: 0);
+                    transition-duration: 0.5s;
+                }
             }
         }
 
@@ -54,10 +68,17 @@
         justify-content: space-between;
         width: 21%;
         align-items: center;
+        
+        .btn_inscription {
+               color: #f6f6f6;
+
+               &:hover{
+                  color: $noir; 
+               }
+        }
 
         .btn_inscription{
             background-color: $rouge;
-            color: $blanc;
             padding: 10px;
             transition: ease .3s;
 

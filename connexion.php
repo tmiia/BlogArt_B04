@@ -2,7 +2,7 @@
 
 require_once __DIR__ . '/back.php';
 
-require_once __DIR__ . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '../CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
 // INSCRIPTION : champ username / mdp
@@ -30,20 +30,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     connect_user($_POST['eMailMemb'], $_POST['passMemb']);
 
     if (password_verify($_POST['passMemb'], $passCrypt) === true) {
-        setcookie('eMailMemb', $membre, time() + 3600);
-        setcookie('pseudoMemb', $pseudo, time() + 3600);
+        setcookie('eMailMemb', $membre, time() + 3000600);
+        setcookie('pseudoMemb', $pseudo, time() + 30003600);
 
-        
+        if(isset($_COOKIE['eMailMemb'])) {  
+            header("Location: index1.php");
+            echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
+        } else {
+            echo('Merci de vous connecter.');
+        }
 
     } else {
         echo('Mauvais mdp sorry');
 
-    }
-    if(isset($_COOKIE['eMailMemb'])) {  
-        header("Location: index1.php");
-        echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
-    } else {
-        echo('Merci de vous connecter.');
     }
 
 
@@ -53,25 +52,31 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <html>
 
-<link href="style.css" rel="stylesheet">
-<?php require_once __DIR__ . '../front/includes/commons/imports.php'; ?>
+<link href="./front/style.css" rel="stylesheet">
+<?php require_once __DIR__ . '../front/includes/commons/imports.php'; 
+require_once __DIR__ . '/front/includes/commons/headerFront.php';
+?>
 
-<section id="form_connexion">
+<section class="form_connexion">
 
      <form action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" method="post">
 
-        <h2>Connexion</h2>
+        <h2>Formulaire de connexion</h2>
 
-        <label>Pseudo</label>
-        <input type="text" name="eMailMemb" value=""/><br>
+        <div class="champs_connexion">
+            <label>Pseudo :</label><br>
+            <input type="text" name="eMailMemb" value=""/><br>
 
-        <label>Mot de passe</label>
-        <input type="text" name="passMemb" value=""/><br>
-
-        <button type="submit">Connexion</button>
-
+            <label>Mot de passe :</label><br>
+            <input type="text" name="passMemb" value=""/><br>
+        
+            <button type="submit">Se connecter</button>
+        </div>
+        
      </form>
 
 </section>
+
+<?php require_once __DIR__ . '../front/includes/commons/footerFront.php';?>
 
 </html>

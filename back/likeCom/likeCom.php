@@ -14,9 +14,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Likecom
-
+require_once __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
 // Instanciation de la classe Likecom
-
+$monLikeCom = new LIKECOM ();
 
 
 ?>
