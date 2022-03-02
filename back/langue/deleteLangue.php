@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once ROOT . '/CLASS_CRUD/langue.class.php';
 // Instanciation de la classe langue
 
 $maLangue = new LANGUE();
@@ -22,7 +22,7 @@ $maLangue = new LANGUE();
 // Ctrl CIR
 $erreur = false;
 // Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+require_once ROOT . '/CLASS_CRUD/angle.class.php';
 // Instanciation de la classe Angle
 
 $monAngle = new ANGLE();
@@ -30,7 +30,7 @@ $monAngle = new ANGLE();
 
 
 // Insertion classe Thematique
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+require_once ROOT . '/CLASS_CRUD/thematique.class.php';
 // Instanciation de la classe Thematique
 
 $monAngle = new THEMATIQUE();
@@ -38,7 +38,7 @@ $monAngle = new THEMATIQUE();
 
 
 // Insertion classe Motcle
-require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
+require_once ROOT . '/CLASS_CRUD/motcle.class.php';
 // Instanciation de la classe Motcle
 $monMotCle = new MOTCLE();
 
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 // End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initLangue.php';
+include ROOT . '/back/langue/initLangue.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -177,9 +177,9 @@ include __DIR__ . '/initLangue.php';
     <br>
     <i><div class="error"><br>=>&nbsp;Attention, une suppression doit respecter les CIR !</div></i>
 <?php
-require_once __DIR__ . '/footerLangue.php';
+require_once ROOT . '/back/langue/footerLangue.php';
 
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/langue/footer.php';
 ?>
 </body>
 </html>

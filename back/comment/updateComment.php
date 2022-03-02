@@ -1,11 +1,11 @@
 <?php
-require_once __DIR__ . '/../../util/utilErrOn.php';
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
-require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
+require_once ROOT . '/util/utilErrOn.php';
+require_once ROOT . '/util/ctrlSaisies.php';
+require_once ROOT . '/CLASS_CRUD/comment.class.php';
 $monComment = new COMMENT();
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+require_once ROOT . '/CLASS_CRUD/article.class.php';
 $monArticle = new ARTICLE();
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+require_once ROOT . '/CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
 $erreur = false;
@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         }
     }
 }  
-include __DIR__ . '/initComment.php'; 
+include ROOT . '/back/comment/initComment.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -248,9 +248,9 @@ include __DIR__ . '/initComment.php';
         </fieldset>
         </form>
 <?php
-require_once __DIR__ . '/footerComment.php';
+require_once ROOT . '/back/comment/footerComment.php';
 
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/comment/footer.php';
 ?>
 </body>
 </html>

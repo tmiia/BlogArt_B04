@@ -13,10 +13,10 @@
 //
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Insertion classe User
 
@@ -67,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initUser.php';
+include ROOT . '/back/user/initUser.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -211,9 +211,9 @@ include __DIR__ . '/initUser.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerUser.php';
+require_once ROOT . '/back/user/footerUser.php';
 
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/user/footer.php';
 ?>
     <!-- ================================================== -->
     <!-- Le javascript                                      -->

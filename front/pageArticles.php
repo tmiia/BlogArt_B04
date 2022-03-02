@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <?php
-    require_once __DIR__ . '/includes/commons/imports.php';
+    require_once ROOT . 'front/includes/commons/imports.php';
 
     ?>
     
@@ -16,7 +16,7 @@
 <body>
 <!-- HEADER -->
     <?php
-    require_once __DIR__ . '/includes/commons/headerFront.php';
+    require_once ROOT . 'front/includes/commons/headerFront.php';
     ?>
 <!------------>
 <div class="main_article">
@@ -89,7 +89,7 @@
 
 <!-- FOOTER -->
     <?php
-    require_once __DIR__ . '/includes/commons/footerFront.php';
+    require_once ROOT . 'front/includes/commons/footerFront.php';
     ?>
 <!---------- -->
 

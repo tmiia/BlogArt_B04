@@ -8,15 +8,17 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Insertion classe Likecom
-
+require_once ROOT . '/CLASS_CRUD/likecom.class.php';
+$monLikeCom = new LIKECOM();
 // Instanciation de la classe Likecom
-
+require_once ROOT . '/CLASS_CRUD/membre.class.php';
+$monMembre = new MEMBRE();
 
 
 // Gestion des erreurs de saisie
@@ -28,7 +30,34 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     // delete effective du likcom
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+        
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./likeCom.php");
+} 
+
+    // controle CIR
+    $erreur = false;
+    // delete effective de l'likeArt
+
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+            
+        $numMemb = ctrlSaisies($_POST['numMemb']);
+        $numArt = ctrlSaisies($_POST['numArt']);
+        $numSeqCom = ctrlSaisies($_POST['numSeqCom']);
+
+
+        $monLikeCom->delete($numMemb, $numSeqCom, $numArt);
+            header("Location: ./likeCom.php");
+        } else {
+            echo("Location: likeCom.php?errCIR=1");
+    }
 
 
 
@@ -38,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initLikeCom.php';
+include ROOT . '/back/likeCom/initLikeCom.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -59,7 +88,13 @@ include __DIR__ . '/initLikeCom.php';
     // id passé en GET
 
 
+    if ((isset($_GET['id1']) and $_GET['id1'] != '') AND (isset($_GET['id2']) and $_GET['id2'] != '') AND (isset($_GET['id3']) and $_GET['id3'] != '')) {
+        $id1 = ctrlSaisies(($_GET['id1'])); //numMemb
+        $id2 = ctrlSaisies(($_GET['id2'])); //numSeqCom
+        $id3 = ctrlSaisies(($_GET['id3'])); //numArt
+     // Fin if ($query)
 
+    }
 
 
 
@@ -84,8 +119,11 @@ include __DIR__ . '/initLikeCom.php';
             </label>
             <input type="hidden" id="idTypMemb" name="idTypMemb" value="<?= $numMemb; ?>" />
 
-            <input type="text" name="idMemb" id="idMemb" size="5" maxlength="5" value="<?= $idmemb; ?>" autocomplete="on" />
-
+            <select name="Membre" id="Membre"  class="form-control form-control-create">
+                
+                <option value="-1"><?php echo($monMembre->get_1Membre($id1)['pseudoMemb']); ?> </option>
+               
+            </select>
             <!-- Listbox membre disabled => 2ème temps -->
 
             </div>
@@ -162,9 +200,9 @@ include __DIR__ . '/initLikeCom.php';
       </fieldset>
     </form>
 <<?php
-require_once __DIR__ . '/footerLikeCom.php';
+require_once ROOT . '/back/likeCom/footerLikeCom.php';
 
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/likeCom/footer.php';
 ?>
 </body>
 </html>

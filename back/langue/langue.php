@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once ROOT . '/CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe langue
 $maLangue = new LANGUE();
@@ -106,7 +106,7 @@ $errDel = 0;
 ?>
     <p>&nbsp;</p>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/langue/footer.php';
 ?>
 </body>
 </html>

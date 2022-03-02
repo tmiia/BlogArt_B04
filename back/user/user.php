@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once __DIR__ . '/../../util/dateChangeFormat.php';
+require_once ROOT . '/util/dateChangeFormat.php';
 
 // Insertion classe User
 
@@ -98,7 +98,7 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
     <div class="error"><i><br>&nbsp;&nbsp;=>&nbsp;Attention, le statut <b>SUPER ADMINISTRATEUR</b> ne peut être supprimé !</i></div>
     <br />
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/user/footer.php';
 ?>
 </body>
 </html>

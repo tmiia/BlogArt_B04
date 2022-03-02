@@ -11,13 +11,13 @@
 
 use LDAP\Result;
 
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once ROOT . '/CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe langue
 $maLangue = new LANGUE();
@@ -73,7 +73,7 @@ if (((isset($_POST['lib1Lang'])) AND !empty($_POST['lib1Lang'])) AND ((isset($_P
     }   
 }  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initLangue.php';
+include ROOT . '/back/langue/initLangue.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -166,9 +166,9 @@ include __DIR__ . '/initLangue.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerLangue.php';
+require_once ROOT . '/back/langue/footerLangue.php';
 
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/langue/footer.php';
 ?>
 </body>
 </html>

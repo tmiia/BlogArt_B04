@@ -8,44 +8,44 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // Init constantes
-include __DIR__ . '/initConst.php';
+include ROOT . '/back/article/initConst.php';
 // Init variables
-include __DIR__ . '/initVar.php';
+include ROOT . '/back/article/initVar.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 // Mise en forme date
-require_once __DIR__ . '/../../util/dateChangeFormat.php';
+require_once ROOT . '/util/dateChangeFormat.php';
 
 // Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+require_once ROOT . '/CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
 
 // Insertion classe MotCleArticle
-require_once __DIR__ . '/../../CLASS_CRUD/motclearticle.class.php';
+require_once ROOT . '/CLASS_CRUD/motclearticle.class.php';
 
 // Instanciation de la classe MotCleArticle
 $monMotCleArticle = new MOTCLEARTICLE();
 
 // Insertion classe MotCle
-require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
+require_once ROOT . '/CLASS_CRUD/motcle.class.php';
 
 // Instanciation de la classe MotCle
 $monMotCle = new MOTCLE();
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once ROOT . '/CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe langue
 $maLangue = new LANGUE();
 
 // Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+require_once ROOT . '/CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
 $monAngle = new ANGLE();
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initArticle.php';
+include ROOT . '/back/article/initArticle.php';
 // En dur
 $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 ?>
@@ -362,9 +362,9 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerArticle.php';
+require_once ROOT . '/back/article/footerArticle.php';
 
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/article/footer.php';
 ?>
 </body>
 </html>

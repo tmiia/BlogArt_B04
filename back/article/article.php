@@ -8,28 +8,28 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once __DIR__ . '/../../util/dateChangeFormat.php';
+require_once ROOT . '/util/dateChangeFormat.php';
 
 // Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+require_once ROOT . '/CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
 
 // Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+require_once ROOT . '/CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
 $monAngle = new ANGLE();
 
 // Insertion classe Thematique
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+require_once ROOT . '/CLASS_CRUD/thematique.class.php';
 // Instanciation de la classe MotCle
 $maThematique = new THEMATIQUE();
 
@@ -111,7 +111,7 @@ $maThematique = new THEMATIQUE();
     </table>
     <br/>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/back/article/footer.php';
 ?>
 </body>
 </html>
