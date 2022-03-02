@@ -1,3 +1,6 @@
+<?php
+require_once __DIR__ . '/../../../CONNECT/config.php';
+?>
 <link href="style.css" rel="stylesheet">
 
 <footer>
