@@ -121,14 +121,16 @@ class COMMENT{
 	} // End of function
 
 	// comment en attente : Moderation affComOK à FALSE
-	function create($numSeqCom, $numArt, $dtCreCom, $libCom, $numMemb){
+	function create($numSeqCom, $numArt, $libCom, $numMemb){
 		global $db;
 
 		try {
 			$db->beginTransaction();
 
-			// insert
+			$query = 'INSERT INTO COMMENT (numSeqCom, numArt, dtCreCom, libCom, numMemb) VALUES (?, ?, NOW(), ?, ?);';
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$numSeqCom, $numArt, $libCom, $numMemb]);
 			// execute
 			$db->commit();
 			$request->closeCursor();
@@ -185,14 +187,21 @@ class COMMENT{
 	function delete($numSeqCom, $numArt){	// OU à utiliser pour del logique : del => update
 		global $db;
 
+		
 		try {
 			$db->beginTransaction();
 
-			// delete
+			// insert
+			$query = 'DELETE FROM COMMENT WHERE numSeqCom=? AND numArt=?'; 
 			// prepare
+			$request = $db->prepare($query);
 			// execute
+			$request->execute([$numSeqCom, $numArt]);
+
+			$count = $request->rowCount(); 
 			$db->commit();
 			$request->closeCursor();
+			return($count); 
 		}
 		catch (PDOException $e) {
 			$db->rollBack();

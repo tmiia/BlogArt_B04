@@ -112,7 +112,7 @@ include __DIR__ . '/initLikeArt.php';
             
 
             <!-- Listbox membre => 2ème temps -->
-            <select name="Membre" id="Article"  class="form-control form-control-create">
+            <select name="Membre" id="Membre"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez un membre - - -</option>
                 <?php
                 $allMembres = $monMembre->get_AllMembres();
