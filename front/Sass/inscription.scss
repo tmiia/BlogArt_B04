@@ -1,6 +1,6 @@
 #main_inscription {
     background-color: $noir;
-    padding: calc($marginDesktop + $marginMobile) $marginDesktop $marginDesktop;
+    padding: calc(100px + 50px) 100px 100px;
 
     h3 {
         font-family: $fontTitre;
@@ -10,8 +10,8 @@
         justify-content: center;
         color: $rouge;
         font-weight: 400;
-        margin: 0 $marginDesktop $marginDesktop;
-        width: calc(100% - calc($marginDesktop * 2));
+        margin: 0 100px 100px;
+        width: calc(100% - calc(100px * 2));
         
         &::before, &::after {
             content:"";
@@ -62,7 +62,7 @@
                     align-items: center;
                     border: none;
                     width: 100%;
-                    margin-bottom: $marginMobile;
+                    margin-bottom: 50px;
                     
                     input{
                         margin-top: 0;

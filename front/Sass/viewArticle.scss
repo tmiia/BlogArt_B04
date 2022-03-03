@@ -1,6 +1,6 @@
 
 #main_article {
-    margin: $marginDesktop;
+    margin: 100px;
     font-family: $fontText;
     display: flex;
     flex-direction: column;
@@ -33,6 +33,13 @@
         span {
             position:relative;
             z-index:2;
+            display: flex;
+            align-items: center;
+
+            i {
+                font-size: 10px;
+                margin-right: 5px;
+            }
         }
 
         &:hover {
@@ -51,8 +58,8 @@
     .header_article {
 
         color: $gris;
-        margin: $marginDesktop;
-        width: calc(100% - calc($marginDesktop * 2));
+        margin: 100px;
+        width: calc(100% - calc(100px * 2));
 
         h3 {
             font-family: $fontTitre;
@@ -63,11 +70,11 @@
             
             &::after {
                 content: "";
-                width: calc(50% + calc($marginDesktop * 2));
+                width: calc(50% + calc(100px * 2));
                 background: $rouge;
                 height: 2px;
-                margin: $marginMobile 0;
-                transform: translateX(- calc($marginDesktop * 2));
+                margin: 50px 0;
+                transform: translateX(- calc(100px * 2));
             }
         }
     
@@ -147,20 +154,20 @@
 
     .content_article {
         display:flex;
-        margin: $marginDesktop 0;
+        margin: 100px 0;
         position:relative;
 
         .image_article {
-            flex:1;
+            width: 45%;
             display: flex;
             flex-direction: column;
-            margin-right: $marginMobile;
+            margin-right: 50px;
 
             div {
                 position:sticky;
-                height: calc(100vh - calc($marginMobile * 3));
+                height: calc(100vh - calc(50px * 3));
                 background-color: #2E1A1E;
-                top: calc($marginMobile * 2);
+                top: calc(50px * 2);
                 border-radius:15px; 
                 background-size: cover;
                 background-position:center;
@@ -183,8 +190,8 @@
             }
             .art_accroche {
                 border-bottom: 1px solid $gris;
-                padding-bottom: $marginMobile;
-                margin-bottom: $marginMobile ;
+                padding-bottom: 50px;
+                margin-bottom: 50px ;
                 font-style: italic;
                 text-align: right;
                 color: #555;
@@ -207,7 +214,7 @@
         span {
             color: $gris;
             text-align: center;
-            margin: 0 $marginMobile;
+            margin: 0 50px;
 
             b {
                 display:block;
@@ -218,11 +225,11 @@
 
     .article_more {
         display:flex;
-        margin-top: $marginDesktop;
+        margin-top: 100px;
         height: 400px;
 
         .article_autres {
-            flex: .8    ;
+            width: 45%;
             
             .article_preview {
                 flex:1;
@@ -299,8 +306,8 @@
                 display:flex;
                 border-top: 1px solid $gris;
                 color: $gris;
-                margin: 0 $marginMobile $marginMobile;
-                padding-top: $marginMobile;
+                margin: 0 50px 50px;
+                padding-top: 50px;
                 align-items: flex-start;
                 line-height: 18px;
 
@@ -354,7 +361,7 @@
                     }
                 }
                 &.reponse {
-                    margin-left: $marginDesktop;
+                    margin-left: 100px;
 
                     p {
                         b {
@@ -374,7 +381,7 @@
         display:flex;
         width: 100%;
         justify-content:flex-end;
-        margin-top: $marginMobile;
+        margin-top: 50px;
         a {
             flex: 1;
         }
@@ -424,7 +431,7 @@
         }
         button {
             flex:1;
-            margin-left: $marginDesktop;
+            margin-left: 100px;
             background-color: $rouge;
             color: #f6f6f6;
 
@@ -443,32 +450,153 @@
             z-index: 1;
             left: 0;
             top: 0;
-            width: 100%; 
-            height: 100%; 
+            right:0; 
+            height: 100vh; 
             overflow: auto; 
             background-color: rgb(0,0,0);
             background-color: rgba(0,0,0,0.4);
+            z-index: 1000;
+            align-items:center;
+            justify-content:center;
 
             .modal-content {
-                background-color: #fefefe;
-                margin: 15% auto; 
+                background-color: #fff;
                 padding: 20px;
                 border: 1px solid #888;
-                width: 80%; 
+                height: 70vh;
+                border-radius: 15px;
+                border: 20px solid #fff;
+                position:relative;
+                display:flex;
+                flex-direction: column;
+                font-size: 14px;
 
-                .close {
-                    color: #aaa;
+                .close_modal {
+                    color: #F6F6F6;
                     float: right;
                     font-size: 28px;
                     font-weight: bold;
+                    cursor: pointer;
+                    background: $rouge;
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    border-radius: 15px;
+                    width: 30px;
+                    height: 30px;
+                    transition: ease .3s;
+                    position: absolute;
+                    top: -5px; 
+                    left: -5px;
 
                     &:hover, &:focus {
-                      color: black;
+                      background: $noir;
                       text-decoration: none;
-                      cursor: pointer;
+                      transition: ease .3s;
                     }
-                  }
-              }
+                }
+                h5 {
+                    font-family: $fontTitre;
+                    font-size: 30px;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    color: $gris;
+                    font-weight: 400;
+                    width: 100%;
+
+                    &::before, &::after {
+                        content:"";
+                        flex:1;
+                        height: 2px;
+                        background: $rouge;
+
+                    }
+                    span {
+                        margin: 0 20px;
+                    }
+                }
+                form {
+                    flex:1;
+
+                    select {
+                        border: 1px solid $gris;
+                        border-radius: 10px;
+                        padding: 5px;
+                        color: $noir;
+                    }
+
+                    fieldset {
+                        height: 100%;
+                        border: 0;
+                        display:flex;
+                        flex-direction: column;
+
+                        .control-group {
+                            margin-bottom: 20px;
+                        }
+
+                        .control-group.textCom {
+                            flex:1;
+                            display:flex;
+                            flex-direction: column;
+
+                            label {
+                                margin-bottom: 10px;
+                            }
+        
+                            .controls {
+                                flex:1;
+                                max-height: 150px;
+
+                                textarea {
+                                    border: 1px solid $gris;
+                                    border-radius: 20px;
+                                    max-height: 100%;
+                                }
+                            }
+                        }
+                        .add_com_controls {
+                            display:flex;
+                            align-items:center;
+                            justify-content:center;
+
+                            input {
+                                background-color: $blanc;
+                                font-family: $fontText;
+                                font-size: 20px;
+                                font-weight: bold;
+                                color: $noir;
+                                padding: 10px;
+                                outline: none;
+                                border: none;
+                                border-radius: 15px;
+                                width: 10rem;
+                                align-self: flex-end;
+                                cursor: pointer;
+                                transition: ease 0.3s;
+                                font-size: 16px;
+
+                                &:hover {
+                                    background-color: $noir;
+                                    transition: ease 0.3s;
+                                    color: $blanc;
+                                }
+                            }
+                            input.btn_valid_com {
+                                background-color: $rouge;
+                                color: #f6f6f6;
+
+                                &:hover {
+                                    background-color: $noir;
+                                    transition: ease 0.3s;
+                                }
+
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 
