@@ -705,6 +705,7 @@ header h2 span {
   overflow: hidden;
   transition: ease 0.3s;
   position: relative;
+  cursor: pointer;
 }
 #main_article .infos_article a.art_btn span {
   opacity: 0;
@@ -736,6 +737,10 @@ header h2 span {
   transition: ease 0.3s;
 }
 #main_article .infos_article a.art_btn.like:hover {
+  color: #D75A41;
+  transition: ease 0.3s;
+}
+#main_article .infos_article a.art_btn.liked {
   color: #D75A41;
   transition: ease 0.3s;
 }
@@ -804,9 +809,10 @@ header h2 span {
   display: flex;
   margin-top: 100px;
   height: 400px;
+  width: 90%;
 }
 #main_article .article_more .article_autres {
-  width: 45%;
+  min-width: 55%;
 }
 #main_article .article_more .article_autres .article_preview {
   flex: 1;
@@ -859,6 +865,7 @@ header h2 span {
 #main_article .article_more .article_coms {
   flex: 1;
   overflow: auto;
+  width: 40%;
 }
 #main_article .article_more .article_coms::-webkit-scrollbar {
   width: 5px;

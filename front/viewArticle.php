@@ -10,19 +10,26 @@ require_once ROOT . '/util/ctrlSaisies.php';
 
 require_once ROOT . '/CLASS_CRUD/article.class.php';
 $monArticle = new ARTICLE();
-
-// Insertion classe Comment
 require_once ROOT . '/CLASS_CRUD/comment.class.php';
-
-// Instanciation de la classe Article
 $monCommentaire = new COMMENT();
-// Instanciation de la classe Comment
 require_once ROOT . '/CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
+
+require_once ROOT . '/CLASS_CRUD/LikeArt.class.php';
+$monLikeArt = new LIKEART();
 
 
 // Gestion des erreurs de saisie
 $erreur = false;
+
+if(isset($_COOKIE)){
+    $pseudoCurrentMemb = $_COOKIE['pseudoMemb'];
+    global $db;
+    $query = "SELECT numMemb FROM membre WHERE pseudoMemb = ?;";
+		$result2 = $db->prepare($query);
+		$result2->execute([$pseudoCurrentMemb]);
+        $currentMemb = $result2->fetch();
+}
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
@@ -136,7 +143,46 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
             <span class="art_info"><?= $dtCreArt ?></span>
             <span class="art_info">44 min de lecture</span>
             <a href="#" class="art_btn partage"><i class="fa fa-share-alt"></i><span>Partager</span></a>
-            <a href="#" class="art_btn like"><i class="fa fa-heart"></i><span>J'aime</span></a>
+            <?php  if($monLikeArt->get_1LikeArt($currentMemb['numMemb'], $id) == false){
+                $isLike = "0";
+            }
+            else{
+                $isLike = $monLikeArt->get_1LikeArt($currentMemb['numMemb'], $id)['likeA'];
+            }
+            if($isLike == "1"){ ?>
+                <a id="btn-like" class="art_btn liked" data-numart="<?=$id?>" data-membre="<?=$currentMemb['numMemb']?>"><i class="fa fa-heart"></i><span>J'aime</span></a>
+            <?php }else if($isLike == "0"){ ?>
+                <a id="btn-like" class="art_btn like" data-numart="<?=$id?>" data-membre="<?=$currentMemb['numMemb']?>"><i class="fa fa-heart"></i><span>J'aime</span></a>
+            <?php }    
+            ?>
+            <script
+            src="https://code.jquery.com/jquery-3.6.0.min.js"
+            integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+            crossorigin="anonymous"></script>
+            <script>
+                $(document).ready(function(){
+                    let like = document.querySelector('#btn-like');
+                    let numArt = like.dataset.numart;
+                    let membre = like.dataset.membre;
+                    like.addEventListener('click', ()=>{
+                        if(like.className == "art_btn liked"){
+                            like.classList.replace("liked", "like");
+                        }
+                        else if(like.className == "art_btn like"){
+                            like.classList.replace("like", "liked");
+                        }
+                        $.ajax({
+                            type: "POST",
+                            url: "like.php",
+                            data: {
+                                numArt: numArt,
+                                membre: membre,
+                                like: 1,
+                            },
+                        });
+                    })
+                })
+            </script>
         </div>
 
         <div class="content_article">
@@ -191,7 +237,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                 <?php
                     if($queryComment != []){
                         for($i = 0; $i < count($queryComment); $i++){
-                            $pseudo = $monMembre->get_1Membre($queryComment[$i])['pseudoMemb'];
+                            $pseudo = $monMembre->get_1Membre($queryComment[$i]['numMemb'])['pseudoMemb'];
                             $comment = $queryComment[$i]['libCom']; ?>
 
                             <div class="commentaire">
@@ -378,6 +424,6 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
     ?>
 
 
-    
+
 </body>
 </html>

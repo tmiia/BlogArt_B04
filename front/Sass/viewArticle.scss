@@ -114,6 +114,7 @@
             overflow: hidden;
             transition: ease .3s;
             position: relative;
+            cursor: pointer;
 
             span {
                 opacity:0;
@@ -150,6 +151,11 @@
             color: $rouge;
             transition: ease .3s;
         }
+        a.art_btn.liked {
+            color: $rouge;
+            transition: ease .3s;
+        }
+
     }
 
     .content_article {
@@ -227,9 +233,13 @@
         display:flex;
         margin-top: 100px;
         height: 400px;
+        width: 90%;
 
         .article_autres {
-            width: 45%;
+            min-width: 55%;
+            
+
+        
             
             .article_preview {
                 flex:1;
@@ -289,6 +299,7 @@
         .article_coms {
             flex:1;
             overflow:auto;
+            width: 40%;
             
             &::-webkit-scrollbar{
                 width: 5px;
