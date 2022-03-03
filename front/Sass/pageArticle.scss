@@ -162,7 +162,7 @@
                 position:relative;
                 flex-direction: column;
                 flex: 1;
-                overflow: auto;
+                overflow: hidden;
                 display: flex;
 
                 h5 {
@@ -170,12 +170,13 @@
                     text-transform: uppercase;
                     font-family: $fontText;
                     font-weight: 600;
-                    margin-bottom: calc($marginMobile / 2 );
                 }
                 p {
                     font-size: 14px;
                     flex: 1;
-                    overflow: auto;
+                    overflow: hidden;
+                    margin-top: 20px;
+
 
                     &::-webkit-scrollbar{
                         width: 5px;

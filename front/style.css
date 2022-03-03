@@ -521,7 +521,7 @@ header h2 span {
   position: relative;
   flex-direction: column;
   flex: 1;
-  overflow: auto;
+  overflow: hidden;
   display: flex;
 }
 .articles a.article_recent .article_recent_top h5 {
@@ -529,12 +529,12 @@ header h2 span {
   text-transform: uppercase;
   font-family: "century-gothic", sans-serif;
   font-weight: 600;
-  margin-bottom: 25px;
 }
 .articles a.article_recent .article_recent_top p {
   font-size: 14px;
   flex: 1;
-  overflow: auto;
+  overflow: hidden;
+  margin-top: 20px;
 }
 .articles a.article_recent .article_recent_top p::-webkit-scrollbar {
   width: 5px;
