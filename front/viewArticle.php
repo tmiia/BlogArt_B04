@@ -237,7 +237,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                 <?php
                     if($queryComment != []){
                         for($i = 0; $i < count($queryComment); $i++){
-                            $pseudo = $monMembre->get_1Membre($queryComment[$i])['pseudoMemb'];
+                            $pseudo = $monMembre->get_1Membre($queryComment[$i]['numMemb'])['pseudoMemb'];
                             $comment = $queryComment[$i]['libCom']; ?>
 
                             <div class="commentaire">
