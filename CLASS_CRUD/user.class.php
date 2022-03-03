@@ -78,19 +78,38 @@ class USER{
 		global $db;
 
 		try {
-			$db->beginTransaction();
-
-			// update
+            $db->beginTransaction();
+            
+            if ($passUser == -1) { //request 1: le mdp n'a pas été modifié
+            // updateUser
+			$query = 'UPDATE USER SET pseudoUser= ?, passUser = ?, nomUser = ?, prenomUser = ?, emailUser = ?, idStat = ?';
 			// prepare
+			$request1 = $db->prepare($query);
 			// execute
-			$db->commit();
-			$request->closeCursor();
+			$request1->execute([$pseudoUser, $passUser,  $nomUser, $prenomUser, $emailUser, $idStat,]);
+                $db->commit();
+                $request1->closeCursor();
+            }
+            else { //request 2: le mdp a été modifié
+            // update
+			$query = 'UPDATE USER SET pseudoUser= ?, passUser = ?, nomUser = ?, prenomUser = ?, emailUser = ?, idStat = ?';
+			// prepare
+			$request2 = $db->prepare($query);
+			// execute
+			$request2->execute([$pseudoUser, $passUser, $nomUser, $prenomUser, $emailUser, $idStat,]);
+                $db->commit();
+                $request2->closeCursor();
+            }
 		}
 		catch (PDOException $e) {
-			$db->rollBack();
-			$request->closeCursor();
-			die('Erreur update USER : ' . $e->getMessage());
-		}
+            $db->rollBack();
+            if ($passUser == -1) {
+                $request1->closeCursor();
+            } else {
+                $request2->closeCursor();
+            }
+            die('Erreur update USER : ' . $e->getMessage());
+        }
 	}
 
 	function delete($pseudoUser, $passUser){
