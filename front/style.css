@@ -477,16 +477,16 @@ header h2 span {
 }
 
 .articles {
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
   font-size: 14px;
-  display: flex;
-  margin: 100px;
-  display: flex;
-  padding-bottom: 20px;
-  justify-content: space-between;
   font-family: century-gothic, sans-serif;
+  margin: 100px;
+  justify-content: space-between;
 }
 .articles a.article_recent {
   min-width: 280px;
+  max-width: 300px;
   height: 300px;
   color: #fff;
   background-color: #2E1A1E;
@@ -495,7 +495,8 @@ header h2 span {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin-bottom: 50px;
+  margin: 0 0 100px;
 }
 .articles a.article_recent .article_illustration {
   position: absolute;
@@ -518,16 +519,33 @@ header h2 span {
   margin: 20px;
   z-index: 2;
   position: relative;
+  flex-direction: column;
+  flex: 1;
+  overflow: auto;
+  display: flex;
 }
 .articles a.article_recent .article_recent_top h5 {
   font-size: 20px;
   text-transform: uppercase;
   font-family: century-gothic, sans-serif;
   font-weight: 600;
-  margin-bottom: 50px;
+  margin-bottom: 25px;
 }
 .articles a.article_recent .article_recent_top p {
   font-size: 14px;
+  flex: 1;
+  overflow: auto;
+}
+.articles a.article_recent .article_recent_top p::-webkit-scrollbar {
+  width: 5px;
+}
+.articles a.article_recent .article_recent_top p::-webkit-scrollbar-track {
+  background: #DED6D1;
+  border: 2px solid transparent;
+}
+.articles a.article_recent .article_recent_top p::-webkit-scrollbar-thumb {
+  background: #8B8B8B;
+  border-radius: 50px;
 }
 .articles a.article_recent .article_recent_bot {
   margin: 20px;

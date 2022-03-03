@@ -72,31 +72,69 @@
 
 
 <!------------>
-<section class="articles">
-<?php
-    require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
-    $monArticle = new ARTICLE();
+<div class="articles">
 
-    $allArticle = $monArticle->get_AllArticles();
-
-    for($i = 0; $i <count($allArticle); $i++){ ?>
-
-        <a class="article_recent" href="viewArticle.php?id=<?=$allArticle[$i]['numArt']?>">
-        <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
+        <a class="article_recent" href="#">
+        <div class="article_illustration" style="background-image: url();"></div>
         <div class="article_recent_top">
-            <h5><?= $allArticle[$i]['libTitrArt'] ?></h5>
-            <p><?= $allArticle[$i]['libChapoArt'] ?></p>
+            <h5>djndjknzdjnzdzn </h5>
+            <p>djzndjbzdjbzkdjkzdkzjdnzdnzndjznd</p>
         </div>
         <div class="article_recent_bot">
             <div class="article_like"><i class="fa fa-heart-o"></i></div>
             <div class="article_btn">Consulter l'article</div>
         </div>
         </a>
-    <?php 
-    }
-?>
 
-</section>
+        <a class="article_recent" href="#">
+        <div class="article_illustration" style="background-image: url();"></div>
+        <div class="article_recent_top">
+            <h5>djndjknzdjnzdzn </h5>
+            <p>djzndjbzdjbzkdjkzdkzjdnzdnzndjznd</p>
+        </div>
+        <div class="article_recent_bot">
+            <div class="article_like"><i class="fa fa-heart-o"></i></div>
+            <div class="article_btn">Consulter l'article</div>
+        </div>
+        </a>
+        <a class="article_recent" href="#">
+        <div class="article_illustration" style="background-image: url();"></div>
+        <div class="article_recent_top">
+            <h5>djndjknzdjnzdzn </h5>
+            <p>djzndjbzdjbzkdjkzdkzjdnzdnzndjznd</p>
+        </div>
+        <div class="article_recent_bot">
+            <div class="article_like"><i class="fa fa-heart-o"></i></div>
+            <div class="article_btn">Consulter l'article</div>
+        </div>
+        </a>
+
+        <a class="article_recent" href="#">
+        <div class="article_illustration" style="background-image: url();"></div>
+        <div class="article_recent_top">
+            <h5>djndjknzdjnzdzn </h5>
+            <p>djzndjbzdjbzkdjkzdkzjdnzdnzndjznd</p>
+        </div>
+        <div class="article_recent_bot">
+            <div class="article_like"><i class="fa fa-heart-o"></i></div>
+            <div class="article_btn">Consulter l'article</div>
+        </div>
+        </a>
+
+        <a class="article_recent" href="#">
+        <div class="article_illustration" style="background-image: url();"></div>
+        <div class="article_recent_top">
+            <h5>djndjknzdjnzdzn </h5>
+            <p>djzndjbzdjbzkdjkzdkzjdnzdnzndjznd</p>
+        </div>
+        <div class="article_recent_bot">
+            <div class="article_like"><i class="fa fa-heart-o"></i></div>
+            <div class="article_btn">Consulter l'article</div>
+        </div>
+        </a>
+
+</div>
+
 
 <!------------>
 </div>
