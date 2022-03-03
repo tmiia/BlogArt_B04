@@ -1,119 +1,113 @@
-
-
-
-
-.search{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-top: 125px;
-    margin-bottom: 100px;
-
-        .search_butt{
-            
-            &:hover  .bar_search{   
-                color:  $gris;
-                border: 1px solid $gris;
-
-            }
-
-            .bar_search{
-                display: flex;
-                align-items: center;
-                justify-content: flex-start;
-                padding-left: 50px;
-                height: 45px;
-                width: 440px;
-                border: 1px solid $rouge;
-                border-radius: 50px;
-                position: relative;
-                color: $rouge;
-                font-size: 18px ; 
-                font-family: $fontText;
-
-
-            img.svg_search{
-                width: 18px;
-                position: absolute;
-                color: $rouge;
-                top: 13px;
-                left: 21px;
-            }
-            }
-    }
-
-}
-
-.tri_article{
-
-    margin: 50px 100px 100px 100px;
-    display: flex;
-    justify-content: space-between;
-
-
-    div {
+#main_page_articles {
+    .search{
         display: flex;
-        flex-direction: column;
-        align-items: flex-end;
+        align-items: center;
+        justify-content: center;
+        margin-top: 125px;
+        margin-bottom: 100px;
 
-        &:first-child {
-          align-items: flex-start;
-        }
+            .search_butt{
+                
+                &:hover  .bar_search{   
+                    color:  $gris;
+                    border: 1px solid $gris;
 
-        label{
-            color: $rouge;
-            font-size: 18px;
-            font-family: $fontText;
-        }
-        .theme_select_container {
-            position: relative;
-            display: flex;
+                }
 
-                &:after {
-                    display: block;
+                .bar_search{
+                    display: flex;
+                    align-items: center;
+                    justify-content: flex-start;
+                    padding-left: 50px;
+                    height: 45px;
+                    width: 440px;
+                    border: 1px solid $rouge;
+                    border-radius: 50px;
+                    position: relative;
+                    color: $rouge;
+                    font-size: 18px ; 
+                    font-family: $fontText;
+
+
+                img.svg_search{
+                    width: 18px;
                     position: absolute;
-                    content: "";
-                    background-image: url(./assets/down.jpg);
-                    width: 15px;
-                    height: 15px;
-                    top: 43%;
-                    right: 9px;
-                    background-size: contain;
-                    background-repeat: no-repeat;
-           }
+                    color: $rouge;
+                    top: 13px;
+                    left: 21px;
+                }
+                }
+        }
 
-        select{
-            position: relative;
-            display: inline-flex;
-            color: #929292 ;
-            // overflow: hidden;
-            appearance: none;
-            width: 320px; 
-            height: auto;
-            border: 2px $gris solid; 
-            margin: 0;
-            padding: .75em;
-            border-radius: 50px;
-        	margin-top: 0px;
-            font-family: $fontText;
-            align-items: center;
-            cursor: pointer;
-          
+    }
 
-            
-            
+    .tri_article{
 
+        margin: 50px 100px 100px 100px;
+        display: flex;
+        justify-content: space-between;
+
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+
+            &:first-child {
+            align-items: flex-start;
             }
-         
-     
+
+            label{
+                color: $rouge;
+                font-size: 18px;
+                font-family: $fontText;
+            }
+            .theme_select_container {
+                position: relative;
+                display: flex;
+
+                    &:after {
+                        display: block;
+                        position: absolute;
+                        content: "";
+                        background-image: url(./assets/down.jpg);
+                        width: 15px;
+                        height: 15px;
+                        top: 43%;
+                        right: 9px;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+            }
+
+            select{
+                position: relative;
+                display: inline-flex;
+                color: #929292 ;
+                // overflow: hidden;
+                appearance: none;
+                width: 320px; 
+                height: auto;
+                border: 2px $gris solid; 
+                margin: 0;
+                padding: .75em;
+                border-radius: 50px;
+                margin-top: 0px;
+                font-family: $fontText;
+                align-items: center;
+                cursor: pointer;
+            
+
+                
+                
+
+                }
+            
+        
+            }
         }
     }
- }
 
-
-
-
-  .articles {
+    .articles {
         display: grid;
         grid-template-columns: 25% 25% 25%;
         font-size: 14px;
@@ -219,4 +213,11 @@
         
 
     }
+
+}
+
+
+
+
+    
 

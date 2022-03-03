@@ -1,12 +1,12 @@
 header {
-    height: 70vh;
+    height: 80vh;
     background: $noir;
     color: $blanc;
     font-family: $fontText;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: 100px;
+    margin-bottom: 25px;
 
     h1 {
         display:flex;
@@ -28,6 +28,7 @@ header {
 
             &:nth-child(2) {
                 justify-content:flex-end;
+                margin-top: -0.5em;
             }
         }
         
@@ -75,6 +76,20 @@ header {
         overflow-x: auto;
         padding-bottom: 20px;
 
+        &::-webkit-scrollbar{
+            height: 6px;
+        } 
+        &::-webkit-scrollbar-track{
+            background: $blanc;
+            border: 2px solid #fff;
+            border-radius: 50px;
+
+        } 
+        &::-webkit-scrollbar-thumb{
+            background: $gris;
+            border-radius: 50px;
+        }
+
         a.article_recent {
             min-width: 250px;
             height: 300px;
@@ -111,6 +126,10 @@ header {
                 margin: 20px;
                 z-index: 2;
                 position:relative;
+                flex-direction: column;
+                flex: 1;
+                overflow: hidden;
+                display: flex;
 
                 h5 {
                     font-size: 20px;
@@ -120,6 +139,9 @@ header {
                 }
                 p {
                     font-size: 14px;
+                    flex: 1;
+                    overflow: hidden;
+                    margin-top: 20px;
                 }
             }
             .article_recent_bot {

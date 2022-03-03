@@ -103,7 +103,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="/js/modal.js"></script>
+    <script src="../js/modal.js"></script>
     <link href="style.css" rel="stylesheet">
     <title>Article / Titre</title>
 
@@ -120,7 +120,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
     <div id="main_article">
 
         <a href="pageArticles.php" class="retour">
-            <span>Retour à la liste des articles</span>
+            <span><i class="fas fa-chevron-left"></i> Retour à la liste des articles</span>
             <div></div>
         </a> 
 
@@ -244,20 +244,16 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                 <span>Ajouter un commentaire</span>
             </button>
 
-            <div class="modal" id="modal_commentaire">
-                <button id="modal-outside"></button>
-                
+            <div class="modal" id="modal_commentaire">                
                 <div class="modal-content">
                     
                     <span class="close_modal">&times;</span>
 
-                    <h5>Ajouter un commentaire</h5>
+                    <h5><span>Ajouter un commentaire</span></h5>
 
                     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
                         <fieldset>
-                            <legend class="legend1">Commentez un commentaire...</legend>
-
                             <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
                             <!-- --------------------------------------------------------------- -->
@@ -326,17 +322,19 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                         <!-- --------------------------------------------------------------- -->
                             <!-- Fin FK : Membre, Article -->
                         <!-- --------------------------------------------------------------- -->
-                            <!-- textarea comment -->
-                            <br>
-                            <div class="control-group">
-                                <label class="control-label" for="libCom"><b>Ajoutez votre Commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-                                <div class="controls">
-                                <textarea name="libCom" id="editor1" tabindex="30" style="height:400px; width:700px; padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;" rows="20" cols="100" title="Texte à mettre en forme" value="<? if(isset($_GET['libCom'])) echo $_POST['libCom']; ?>"></textarea>
-                                </div>
+                            
+                        <!-- textarea comment -->
+                        <div class="control-group textCom">
+                            <label class="control-label" for="libCom"><b>Ajoutez votre Commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                            <div class="controls">
+                                <textarea name="libCom" id="editor1" tabindex="30" rows="20" cols="100" title="Texte à mettre en forme" value="<? if(isset($_GET['libCom'])) echo $_POST['libCom']; ?>"></textarea>
                             </div>
-                            <br>
+                        </div>
                         <!-- End textarea comment -->
-                    <!-- --------------------------------------------------------------- -->
+
+                        <div class="add_comm_btns">
+                    
+                        <!-- --------------------------------------------------------------- -->
                         <small class="error">Votre post est soumis à validation avant son affichage sur le blog (moins d'une semaine)...</small><br><br>
 
                             <div class="control-group">
@@ -351,25 +349,40 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                     ?>
                                 </div>
                             </div>
-
-                            <div class="control-group">
-                                <div class="controls">
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="submit" value="Initialiser" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
-                                    &nbsp;&nbsp;&nbsp;&nbsp;
-                                    <input type="submit" value="Valider" style="cursor:pointer; padding:5px 20px; background-color:lightsteelblue; border:dotted 2px grey; border-radius:5px;" name="Submit" />
-                                    <br>
-                                </div>
+                            <div class="add_com_controls">
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input type="submit" value="Initialiser" name="Submit" />
+                                &nbsp;&nbsp;&nbsp;&nbsp;
+                                <input class="btn_valid_com" type="submit" value="Valider" name="Submit" />
+                                <br>
                             </div>
-                        </fieldset>
-                        </form>
-
-                    
-                </div>
+                        </div>
+                    </fieldset>
+                </form>
             </div>
         </div>
-
     </div>
+</div>
+
+    <script>
+        var modalCom = document.getElementById("modal_commentaire");
+        var modalBtn = document.getElementById("modal_btn");
+        var modalSpan = document.getElementsByClassName("close_modal")[0];
+
+        modalBtn.onclick = function() {
+        modalCom.style.display = "flex";
+        }
+
+        modalSpan.onclick = function() {
+        modalCom.style.display = "none";
+        }
+
+        window.onclick = function(event) {
+        if (event.target == modalCom) {
+            modalCom.style.display = "none";
+        }
+        }
+            </script>
 
 
 
