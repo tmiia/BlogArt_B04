@@ -11,6 +11,9 @@
     <link href="style.css" rel="stylesheet">
     <?php
     require_once __DIR__ . '/includes/commons/imports.php';
+    require_once __DIR__ . '/../CLASS_CRUD/thematique.class.php';
+    $maThematique = new THEMATIQUE();
+
 
     ?>
     
@@ -44,14 +47,31 @@
             <label>TRIER PAR THEMATIQUE:</label>
             <br>
                 <label class="theme_select_container" for="theme_select">
-                    <select class="theme_select" name="theme" id="theme_select">
+                   
 
-                        <option value="Croissant">Thèmes</option>
-                        <option value="Décroissant">différents thémes</option>
-
-                    </select>
+                       <select class="theme_select" name="theme" id="theme_select">
+                            <option value="-1">- - - Choisissez une thématique - - -</option>
+                                <?php
+                                        $allThem = $maThematique->get_AllThematiques();
+                                        if($allThem){
+                                            for ($i=0; $i < count($allThem); $i++){
+                                                $value = $allThem[$i]['numThem'];
+                                            ?>
+                                            
+                                            <option value="<?php echo($value); ?>"> <?php echo($allThem[$i]['libThem']); ?> </option>
+                                            
+                                            <?php
+                                            }
+                                        }
+                                        // if ($result)
+                                    
+                                    ?>
+                        </select>
                 </label>
         </div>
+
+        
+
 
         <div>
 

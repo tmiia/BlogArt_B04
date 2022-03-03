@@ -15,56 +15,83 @@ a {
   justify-content: space-between;
   align-items: center;
   background-color: transparent;
-  z-index: 999; }
-  #navigation .langues {
-    cursor: pointer; }
-  #navigation span, #navigation a {
-    font-family: "century-gothic", sans-serif;
-    text-transform: uppercase;
-    color: #2E1A1E;
-    text-decoration: none;
-    font-weight: 600;
-    transition: ease .3s; }
-    #navigation span:hover, #navigation a:hover {
-      color: #8B8B8B;
-      transition: ease .3s; }
-  #navigation a:hover {
-    color: #8B8B8B; }
-  #navigation nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 30rem; }
-    #navigation nav .langues {
-      display: flex;
-      margin-left: 10px;
-      align-items: center; }
-      #navigation nav .langues img {
-        width: 1rem;
-        margin-left: 5px; }
-        #navigation nav .langues img:hover {
-          transform: rotate(180deg);
-          transition: 0;
-          transition-duration: 0.5s; }
-  #navigation .connect {
-    display: flex;
-    justify-content: space-between;
-    width: 21%;
-    align-items: center; }
-    #navigation .connect .btn_inscription {
-      background-color: #D75A41;
-      padding: 10px;
-      transition: ease .3s;
-      border-radius: 3px;
-      color: #f6f6f6; }
-      #navigation .connect .btn_inscription:hover {
-        background-color: #DED6D1;
-        color: #2E1A1E;
-        transition: ease .3s;
-        color: #2E1A1E; }
-  #navigation a img {
-    width: 80px;
-    transition: .3s; }
+  z-index: 999;
+}
+#navigation .langues {
+  cursor: pointer;
+  border: none;
+  font-family: "century-gothic", sans-serif;
+  text-transform: uppercase;
+  color: #2E1A1E;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+}
+#navigation .langues option, #navigation .langues .allez {
+  font-family: "century-gothic", sans-serif;
+  text-transform: uppercase;
+  color: #2E1A1E;
+  text-decoration: none;
+  font-weight: 600;
+}
+#navigation span, #navigation a {
+  font-family: "century-gothic", sans-serif;
+  text-transform: uppercase;
+  color: #2E1A1E;
+  text-decoration: none;
+  font-weight: 600;
+  transition: ease 0.3s;
+}
+#navigation span:hover, #navigation a:hover {
+  color: #8B8B8B;
+  transition: ease 0.3s;
+}
+#navigation a:hover {
+  color: #8B8B8B;
+}
+#navigation nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 30rem;
+}
+#navigation nav .langues {
+  display: flex;
+  margin-left: 10px;
+  align-items: center;
+}
+#navigation nav .langues img {
+  width: 1rem;
+  margin-left: 5px;
+}
+#navigation nav .langues img:hover {
+  transform: rotate(180deg);
+  transition: 0;
+  transition-duration: 0.5s;
+}
+#navigation .connect {
+  display: flex;
+  justify-content: space-between;
+  width: 21%;
+  align-items: center;
+}
+#navigation .connect .btn_inscription {
+  background-color: #D75A41;
+  padding: 10px;
+  transition: ease 0.3s;
+  border-radius: 3px;
+  color: #f6f6f6;
+}
+#navigation .connect .btn_inscription:hover {
+  background-color: #DED6D1;
+  color: #2E1A1E;
+  transition: ease 0.3s;
+  color: #2E1A1E;
+}
+#navigation a img {
+  width: 80px;
+  transition: 0.3s;
+}
 
 /***** STICKY NAVBAR *****/
 .sticky {
