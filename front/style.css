@@ -586,6 +586,12 @@ header h2 span {
 #main_article a.retour span {
   position: relative;
   z-index: 2;
+  display: flex;
+  align-items: center;
+}
+#main_article a.retour span i {
+  font-size: 10px;
+  margin-right: 5px;
 }
 #main_article a.retour:hover div {
   transform: translateX(0%) rotate(45deg);
@@ -690,7 +696,7 @@ header h2 span {
   position: relative;
 }
 #main_article .content_article .image_article {
-  flex: 1;
+  width: 45%;
   display: flex;
   flex-direction: column;
   margin-right: 50px;
@@ -751,7 +757,7 @@ header h2 span {
   height: 400px;
 }
 #main_article .article_more .article_autres {
-  flex: 0.8;
+  width: 45%;
 }
 #main_article .article_more .article_autres .article_preview {
   flex: 1;
@@ -947,29 +953,137 @@ header h2 span {
   z-index: 1;
   left: 0;
   top: 0;
-  width: 100%;
-  height: 100%;
+  right: 0;
+  height: 100vh;
   overflow: auto;
   background-color: black;
   background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1000;
+  align-items: center;
+  justify-content: center;
 }
 #main_article .add_commentaire .modal .modal-content {
-  background-color: #fefefe;
-  margin: 15% auto;
+  background-color: #fff;
   padding: 20px;
   border: 1px solid #888;
-  width: 80%;
+  height: 70vh;
+  border-radius: 15px;
+  border: 20px solid #fff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  font-size: 14px;
 }
-#main_article .add_commentaire .modal .modal-content .close {
-  color: #aaa;
+#main_article .add_commentaire .modal .modal-content .close_modal {
+  color: #F6F6F6;
   float: right;
   font-size: 28px;
   font-weight: bold;
-}
-#main_article .add_commentaire .modal .modal-content .close:hover, #main_article .add_commentaire .modal .modal-content .close:focus {
-  color: black;
-  text-decoration: none;
   cursor: pointer;
+  background: #D75A41;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  width: 30px;
+  height: 30px;
+  transition: ease 0.3s;
+  position: absolute;
+  top: -5px;
+  left: -5px;
+}
+#main_article .add_commentaire .modal .modal-content .close_modal:hover, #main_article .add_commentaire .modal .modal-content .close_modal:focus {
+  background: #2E1A1E;
+  text-decoration: none;
+  transition: ease 0.3s;
+}
+#main_article .add_commentaire .modal .modal-content h5 {
+  font-family: "ltc-broadway", sans-serif;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #8B8B8B;
+  font-weight: 400;
+  width: 100%;
+}
+#main_article .add_commentaire .modal .modal-content h5::before, #main_article .add_commentaire .modal .modal-content h5::after {
+  content: "";
+  flex: 1;
+  height: 2px;
+  background: #D75A41;
+}
+#main_article .add_commentaire .modal .modal-content h5 span {
+  margin: 0 20px;
+}
+#main_article .add_commentaire .modal .modal-content form {
+  flex: 1;
+}
+#main_article .add_commentaire .modal .modal-content form select {
+  border: 1px solid #8B8B8B;
+  border-radius: 10px;
+  padding: 5px;
+  color: #2E1A1E;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset {
+  height: 100%;
+  border: 0;
+  display: flex;
+  flex-direction: column;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .control-group {
+  margin-bottom: 20px;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .control-group.textCom {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .control-group.textCom label {
+  margin-bottom: 10px;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .control-group.textCom .controls {
+  flex: 1;
+  max-height: 150px;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .control-group.textCom .controls textarea {
+  border: 1px solid #8B8B8B;
+  border-radius: 20px;
+  max-height: 100%;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .add_com_controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .add_com_controls input {
+  background-color: #DED6D1;
+  font-family: century-gothic, sans-serif;
+  font-size: 20px;
+  font-weight: bold;
+  color: #2E1A1E;
+  padding: 10px;
+  outline: none;
+  border: none;
+  border-radius: 15px;
+  width: 10rem;
+  align-self: flex-end;
+  cursor: pointer;
+  transition: ease 0.3s;
+  font-size: 16px;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .add_com_controls input:hover {
+  background-color: #2E1A1E;
+  transition: ease 0.3s;
+  color: #DED6D1;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .add_com_controls input.btn_valid_com {
+  background-color: #D75A41;
+  color: #f6f6f6;
+}
+#main_article .add_commentaire .modal .modal-content form fieldset .add_com_controls input.btn_valid_com:hover {
+  background-color: #2E1A1E;
+  transition: ease 0.3s;
 }
 
 .form_connexion {
@@ -1205,8 +1319,7 @@ header h2 span {
   cursor: pointer;
 }
 #contact_page form #btn_submit:hover {
-  background-color: #DED6D1;
-  color: #2E1A1E;
+  background-color: #2E1A1E;
   transition: ease 0.3s;
 }
 #contact_page form .form_top {
