@@ -35,11 +35,11 @@ class COMMENT{
         // select
         $sql = "SELECT * FROM COMMENT WHERE numArt = ?";
         // prepare
-        $req = $db->prepare($sql);
-        // execute
-        $req->execute([$numArt]);
+		$result = $db->prepare($sql);
+		// execute
+		$result->execute([$numArt]);
 
-        $allCommentsByArt = $req->rowCount();
+        $allCommentsByArt =  $result->fetchAll();
 
 		return($allCommentsByArt);
 	}

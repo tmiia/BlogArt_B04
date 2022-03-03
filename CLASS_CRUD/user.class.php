@@ -7,7 +7,7 @@ class USER{
 	function get_1User($pseudoUser){
 		global $db;
 
-		$query = "SELECT * FROM USER WHERE pseudoUser=?";
+		$query = "SELECT * FROM USER WHERE pseudoUser = ?;";
 		// prepare
 		$result = $db->prepare($query);
 		// execute

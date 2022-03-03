@@ -40,7 +40,7 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
-    $idStat = $_POST['id'];
+    // $idStat = $_POST['id1'];
 
 
     if(isset($_POST['Submit'])){
@@ -54,36 +54,35 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 // ON VEUT REINITIALISER LA VALEUR
 
     if($_POST['Submit'] == 'Initialiser'){ 
-        header("Location: updateUser.php?id=$idStat");
-        $_POST['$libelle'];
+        header("Location: ./user.php");
+        
     }
 
     // ON VEUT VALIDER LA MODIFICATION
 
     elseif($_POST['Submit'] == 'Valider'){
 
-        if(isset($_POST['id'])){ 
+        if(isset($_POST['id1'])){ 
             
-            if(!empty($_POST['id'])){
-
-                if((isset($_POST['pseudoUser']) && !empty($_POST['pseudoUser'])) && 
+            if(!empty($_POST['id1'])){
+              
+                if(
                 (isset($_POST['pass1User']) && !empty($_POST['pass1User'])) &&
                 (isset($_POST['pass2User']) && !empty($_POST['pass2User'])) && 
                 (isset($_POST['nomUser']) && !empty($_POST['nomUser'])) && 
                 (isset($_POST['prenomUser']) && !empty($_POST['prenomUser'])) && 
                 (isset($_POST['eMail1User']) && !empty($_POST['eMail1User'])) && 
                 (isset($_POST['eMail2User']) && !empty($_POST['eMail2User']))){
-
+                    
 
                     if ((($_POST['eMail1User']) == ($_POST['eMail2User'])) && (($_POST['pass1User']) == ($_POST['pass2User']))){
-                        $numUser = ctrlSaisies($_POST['id']);
-                        $prenomUser = ctrlSaisies($_POST['prenomUser']);
-                        $nomUser = ctrlSaisies($_POST['nomUser']);
+                        $pseudoUser =ctrlSaisies($_POST['id1']);
                         $passUser = ctrlSaisies($_POST['pass1User']);
-                        $eMailUser = ctrlSaisies($_POST['eMail1User']);
-                        $idStat = ctrlSaisies(intval($_POST['idStat']));
-                        $accordUser = ctrlSaisies($_POST['accordUser']);
-            
+                        $nomUser = ctrlSaisies($_POST['nomUser']);
+                        $prenomUser = ctrlSaisies($_POST['prenomUser']);
+                        $emailUser = ctrlSaisies($_POST['eMail1User']);
+                        $idStat = ctrlSaisies(intval($_POST['Statut']));
+                        
                         
                     // CLE PRIMAIRE
 
@@ -92,11 +91,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         header("Location: ./user.php");
 
                     }else{
-                        header("Location: updateUser.php?id=$idUser&err=empty");
+                        header("Location: ./user.php?err=empty");
                     }
                 }
                 else{
-                    header("Location: updateUser.php?id=$idUser&err=empty");
+                    header("Location: ./user.php?err=empty");
                 }
             }
             else{
@@ -158,16 +157,9 @@ include __DIR__ . '/initUser.php';
     // Modif : récup id à 
     
     
-    // if (isset($_GET['id']) and $_GET['id'] != '') {
-    //     $id = ctrlSaisies(($_GET['id']));
-    //     $query = (array)$monUser->get_1User($id);
-
-        if (isset($_GET['id1']) and $_GET['id1'] != '' and isset($_GET['id2']) and $_GET['id2'] != '') {
-
-            $pseudoUser = intval(ctrlSaisies($_GET['id1']));
-            $passUser = intval(ctrlSaisies($_GET['id2']));
-    
-            $query = $monUser->get_1User($pseudoUser, $passUser)['query'];
+    if (isset($_GET['id1']) and $_GET['id1'] != '') {
+        $query = $monUser->get_1User($_GET['id1']);
+            
         //$queryStat = (array)$monMembre->get_1MembrebyStatut($_POST['idStat']);
 
         if ($query) {
@@ -176,8 +168,8 @@ include __DIR__ . '/initUser.php';
             $pass2User = $query['passUser'];
             $nomUser = $query['nomUser'];
             $prenomUser = $query['prenomUser'];
-            $eMail1User = $query['emailUser'];
-            $eMail2User = $query['emailUser'];
+            $eMail1User = $query['eMailUser'];
+            $eMail2User = $query['eMailUser'];
             $idStat = $query['idStat'];
 
         } 
@@ -262,8 +254,6 @@ include __DIR__ . '/initUser.php';
         <div class="control-group">
             <label class="control-label" for="LibTypStat"><b>Statut :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idStat" name="idStat" value="<?= isset($_GET['idStat']) ? $_GET['idStat'] : '' ?>" />
-
-                <input type="text" name="idStat" id="idStat" size="5" maxlength="5" value="<?= $idStat; ?>" autocomplete="on" />
 
                 <!-- Listbox statut => 2ème temps -->
 

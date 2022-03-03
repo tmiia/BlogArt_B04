@@ -8,6 +8,23 @@
 
     .langues {
         cursor: pointer;
+        border: none;
+        font-family: $fontText;
+        text-transform: uppercase;
+        color: $noir;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 16px;
+
+        option, .allez{
+        font-family: $fontText;
+        text-transform: uppercase;
+        color: $noir;
+        text-decoration: none;
+        font-weight: 600;
+        }
+
+
     }
 
     span, a {

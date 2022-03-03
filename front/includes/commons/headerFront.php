@@ -1,16 +1,36 @@
 <link href="style.css" rel="stylesheet">
 <?php require_once __DIR__ . '/imports.php'; 
 require_once __DIR__ . '/../../../CONNECT/config.php';
+require_once __DIR__ . '/../../../CLASS_CRUD/langue.class.php';
+$maLangue = new LANGUE();
 ?>
 
 <div id="navigation">
     
     <nav>
         <a href="<?=ROOTFRONT?>/front/home.php"><img src="<?=ROOTFRONT?>/front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
-        <div class="langues">
-            <span>FR</span>
-            <img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas">
-        </div>
+            
+              <select name="Langue" id="Langue"  class="langues" onchange="change()">
+                  <option value="-1"><?php echo('LANGUE'); ?><img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas"></option>
+                  <?php
+                  $allLangues = $maLangue->get_AllLangues();
+                  
+                  if($allLangues){
+                  for ($i=0; $i < count($allLangues); $i++){
+                      $langue = $allLangues[$i]['numLang'];
+                  ?>
+                  
+                  <option class="allez" value="<?php echo($langue); ?>"> <?=$allLangues[$i]['numPays']; ?> </option>
+                  
+                  <?php
+                      } // End of foreach
+                  }   // if ($result)
+                  ?>
+              </select>
+    
+        
+                
+      
 
         <a href="<?=ROOTFRONT?>/front/pageArticles.php">Articles</a>
         <a href="#">Newsletter</a>
