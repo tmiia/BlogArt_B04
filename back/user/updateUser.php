@@ -80,7 +80,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
                         $prenomUser = ctrlSaisies($_POST['prenomUser']);
                         $nomUser = ctrlSaisies($_POST['nomUser']);
                         $passUser = ctrlSaisies($_POST['pass1User']);
-                        $eMailUser = ctrlSaisies($_POST['eMail1User']);
+                        $emailUser = ctrlSaisies($_POST['eMail1User']);
                         $idStat = ctrlSaisies(intval($_POST['idStat']));
                         $accordUser = ctrlSaisies($_POST['accordUser']);
             
@@ -158,17 +158,9 @@ include __DIR__ . '/initUser.php';
     // Modif : récup id à 
     
     
-    // if (isset($_GET['id']) and $_GET['id'] != '') {
-    //     $id = ctrlSaisies(($_GET['id']));
-    //     $query = (array)$monUser->get_1User($id);
-
-        if (isset($_GET['id1']) and $_GET['id1'] != '' and isset($_GET['id2']) and $_GET['id2'] != '') {
-
-            $pseudoUser = intval(ctrlSaisies($_GET['id1']));
-            $passUser = intval(ctrlSaisies($_GET['id2']));
-    
-            $query = $monUser->get_1User($pseudoUser, $passUser)['query'];
-
+    if (isset($_GET['id']) and $_GET['id'] != '') {
+        $id = ctrlSaisies(($_GET['id']));
+        $query = (array)$monUser->get_1User($id);
             
         //$queryStat = (array)$monMembre->get_1MembrebyStatut($_POST['idStat']);
 
@@ -264,8 +256,6 @@ include __DIR__ . '/initUser.php';
         <div class="control-group">
             <label class="control-label" for="LibTypStat"><b>Statut :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idStat" name="idStat" value="<?= isset($_GET['idStat']) ? $_GET['idStat'] : '' ?>" />
-
-                <input type="text" name="idStat" id="idStat" size="5" maxlength="5" value="<?= $idStat; ?>" autocomplete="on" />
 
                 <!-- Listbox statut => 2ème temps -->
 

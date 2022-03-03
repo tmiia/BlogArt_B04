@@ -4,14 +4,14 @@
 require_once __DIR__ . '../../CONNECT/database.php';
 
 class USER{
-	function get_1User($pseudoUser, $passUser){
+	function get_1User($pseudoUser){
 		global $db;
 
-		$query = "SELECT * FROM LANGUE WHERE pseudoUser = ? AND passUser = ?;";
+		$query = "SELECT * FROM LANGUE WHERE pseudoUser = ?;";
 		// prepare
 		$result = $db->prepare($query);
 		// execute
-		$result->execute([$pseudoUser, $passUser]);
+		$result->execute([$pseudoUser]);
 		return($result->fetch());
 	}
 

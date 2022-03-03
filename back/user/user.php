@@ -91,7 +91,7 @@ $allUsers = $monUser->get_AllUsers();
 
             <td>&nbsp; <?= $monStatut->get_1Statut($allUsers[$i]['idStat'])['libStat'];?> &nbsp;</td> 
 
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateUser.php?id1=<?=$allUsers[$i]['pseudoUser']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier user" title="Modifier user" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateUser.php?id=<?=$allUsers[$i]['pseudoUser']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier user" title="Modifier user" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br /></td>
 
             <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteUser.php?id1=<?=$allUsers[$i]['pseudoUser']?>" class="superAdmin"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Suppression user impossible" title="Suppression user impossible" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
