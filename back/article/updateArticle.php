@@ -320,22 +320,22 @@ include __DIR__ . '/initArticle.php';
                 <!-- Listbox langue => 2ème temps -->
 
                 <select name="Langue" id="Langue"  class="form-control form-control-create" onchange="change()">
-                <option value="-1"><?= $maLangue -> get_1LangueByThemArticle($numArt)['lib1Lang'] ?></option>
-                <?php
-                $allLangueAngle = $monAngle->get_AllLangues();
-                
-                if($allLangueAngle){
-                for ($i=0; $i < count($allLangueAngle); $i++){
-                    $value = $allLangueAngle[$i]['numLang'];
-                ?>
-                
-                <option value="<?php echo($value); ?>"> <?= $allLangueAngle[$i]['lib2Lang']; ?> </option>
-                
-                <?php
-                    } // End of foreach
-                }   // if ($result)
-                ?>
-            </select>
+                        <option value="-1"><?= $maLangue -> get_1LangueByThemArticle($numArt)['lib1Lang'] ?></option>
+                        <?php
+                        $allLangueAngle = $monAngle->get_AllLangues();
+                        
+                        if($allLangueAngle){
+                            for ($i=0; $i < count($allLangueAngle); $i++){
+                                $value = $allLangueAngle[$i]['numLang'];
+                        ?>
+                        
+                        <option value="<?php echo($value); ?>"> <?= $allLangueAngle[$i]['lib2Lang']; ?> </option>
+                        
+                        <?php
+                            } // End of foreach
+                        }   // if ($result)
+                        ?>
+                </select>
 
             </div>
         </div>
