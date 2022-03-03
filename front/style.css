@@ -478,7 +478,7 @@ header h2 span {
 
 .articles {
   display: grid;
-  grid-template-columns: 300px 300px 300px;
+  grid-template-columns: 25% 25% 25%;
   font-size: 14px;
   font-family: century-gothic, sans-serif;
   margin: 100px;
@@ -496,7 +496,7 @@ header h2 span {
   display: flex;
   flex-direction: column;
   margin-bottom: 50px;
-  margin: 0 0 50px;
+  margin: 0 0 100px;
 }
 .articles a.article_recent .article_illustration {
   position: absolute;
