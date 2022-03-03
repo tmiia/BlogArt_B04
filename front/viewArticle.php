@@ -234,7 +234,15 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         </div>
 
         <div class="add_commentaire">
-            <button id="modal_btn"><span>Ajouter un commentaire</span></button>
+            <a href="/pagearticles.php">
+                <div></div>
+                <span>Retour à la liste des articles</span>
+            </a>
+
+            <button id="modal_btn">
+                <div></div>
+                <span>Ajouter un commentaire</span>
+            </button>
 
             <div class="modal" id="modal_commentaire">
                 <button id="modal-outside"></button>
