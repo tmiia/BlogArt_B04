@@ -12,7 +12,7 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
             <img src="../front/assets/fleche_bas.svg" alt="fleche_bas">
         </div>
 
-        <a href="./pageArticles">Articles</a>
+        <a href="./pageArticles.php">Articles</a>
         <a href="#">Newsletter</a>
         <a href="#">Contact</a>
     </nav>

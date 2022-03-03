@@ -1,3 +1,31 @@
+<?php
+require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
+$monArticle = new ARTICLE();
+
+
+if (isset($_GET['id']) and $_GET['id'] != '') {
+    $id = $_GET['id'];
+
+    $query = $monArticle->get_1Article($id);
+
+    if($query) {
+        $libTitrArt = $query['libTitrArt'];
+        $dtCreArt = $query['dtCreArt'];
+        $libChapoArt = $query['libChapoArt'];
+        $libAccrochArt = $query['libAccrochArt'];
+        $parag1Art = $query['parag1Art'];
+        $libSsTitr1Art = $query['libSsTitr1Art'];
+        $libSsTitr2Art = $query['libSsTitr2Art'];
+        $parag2Art = $query['parag2Art'];
+        $parag3Art = $query['parag3Art'];
+        $libConclArt = $query['libConclArt'];
+        $urlPhotArt = $query['urlPhotArt'];
+        $numAngl = $query['numAngl'];
+        $numThem = $query['numThem'];
+    } 
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,12 +53,12 @@
         </a> 
 
         <div class="header_article">
-            <h3>Les restos du coeur</h3>
-            <h4>Chapeau de l'article ? Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore architecto, deleniti ratione iure error aspernatur, ab voluptatibus eius quos, aliquid excepturi labore.</h4>
+            <h3><?= $libTitrArt ?></h3>
+            <h4><?= $libChapoArt ?></h4>
         </div>
 
         <div class="infos_article">
-            <span class="art_info">20 janvier 2022</span>
+            <span class="art_info"><?= $dtCreArt ?></span>
             <span class="art_info">44 min de lecture</span>
             <a href="#" class="art_btn partage"><i class="fa fa-share-alt"></i><span>Partager</span></a>
             <a href="#" class="art_btn like"><i class="fa fa-heart"></i><span>J'aime</span></a>
@@ -39,19 +67,18 @@
         <div class="content_article">
 
             <div class="image_article">
-                <div class="article_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
+                <div class="article_illustration" style="background-image: url(../uploads/<?=$urlPhotArt?>);"></div>
             </div>
 
             <div class="body_article">
-                <div class="art_accroche">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos soluta culpa excepturi illo nam harum debitis esse corporis? </div> 
-                <h4>Sous-titre</h4>
-                <div class="art_paragraphe">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, quisquam. Porro cupiditate cum est, quibusdam maxime dolorem illo quia labore alias vel possimus tenetur soluta nobis sed! Mollitia, nostrum doloremque. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Suscipit assumenda error omnis id nostrum officiis aliquid maiores, culpa obcaecati quaerat explicabo, sint expedita eius. Vero vitae impedit illo eligendi libero.</div>
-                <h4>Sous-titre</h4>
-                <div class="art_paragraphe">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, quisquam. Porro cupiditate cum est, quibusdam maxime dolorem illo quia labore alias vel possimus tenetur soluta nobis sed! Mollitia, nostrum doloremque. Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe eius et veniam assumenda autem nam vel. Error minima voluptates ex beatae dolorem vitae. Doloribus suscipit, aut iusto cumque corrupti facere!</div>
-                <h4>Sous-titre</h4>
-                <div class="art_paragraphe">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Reprehenderit, quisquam. Porro cupiditate cum est, quibusdam maxime dolorem illo quia labore alias vel possimus tenetur soluta nobis sed! Mollitia, nostrum doloremque. Lorem ipsum dolor sit, amet consectetur adipisicing elit. Fugiat dignissimos molestias, aliquam repudiandae dolor autem? Voluptatibus tempore nemo, dolor perspiciatis quas cumque temporibus repellat libero minima eveniet voluptas. Maiores, suscipit?</div>
+                <div class="art_accroche"><?= $libAccrochArt ?></div> 
+                <div class="art_paragraphe"><?= $parag1Art ?></div>
+                <h4><?= $libSsTitr1Art ?></h4>
+                <div class="art_paragraphe"><?= $parag2Art ?></div>
+                <h4><?= $libSsTitr2Art ?></h4>
+                <div class="art_paragraphe"><?= $parag3Art ?></div>
                 <h4>Conclusion</h4>
-                <div class="art_conclusion">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias earum nobis aperiam, illo nihil magnam maxime aliquam architecto, soluta minima velit facilis? Obcaecati voluptas voluptates expedita excepturi reiciendis error repellat!</div>
+                <div class="art_conclusion"><?= $libConclArt ?></div>
             </div>
         
         </div>
