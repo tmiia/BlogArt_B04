@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
-    <title>Home</title>
+    <title>Au bord des rues</title>
 
 </head>
 <body>
@@ -38,15 +38,15 @@
             require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
             $monArticle = new ARTICLE();
 
-            $allArticle = $monArticle->get_AllArticles();
+            $lastArticles = $monArticle->get_LastArticles();
 
-            for($i = 0; $i <count($allArticle); $i++){ ?>
+            for($i = 0; $i < 5; $i++){ ?>
 
-                <a class="article_recent" href="viewArticle.php?id=<?=$allArticle[$i]['numArt']?>">
-                <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
+                <a class="article_recent" href="viewArticle.php?id=<?=$lastArticles[$i]['numArt']?>">
+                <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>);"></div>
                 <div class="article_recent_top">
-                <h5><?= $allArticle[$i]['libTitrArt'] ?></h5>
-                <p><?= $allArticle[$i]['libChapoArt'] ?></p>
+                <h5><?= $lastArticles[$i]['libTitrArt'] ?></h5>
+                <p><?= $lastArticles[$i]['libChapoArt'] ?></p>
                 </div>
                 <div class="article_recent_bot">
                     <div class="article_like"><i class="fa fa-heart"></i></div>

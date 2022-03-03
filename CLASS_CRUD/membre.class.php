@@ -178,7 +178,7 @@ class MEMBRE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete STATUT : ' . $e->getMessage());
+			die('Erreur delete MEMBRE : ' . $e->getMessage());
 		}
     }
 }    // End of class

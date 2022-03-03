@@ -20,7 +20,10 @@ require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 $monUser = new USER();
 // Instanciation de la classe User
 
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
 
+// Instanciation de la classe User
+$monStatut = new STATUT();
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -38,13 +41,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
         
-        $monUser->get_AllUsersByStat()
-        if()
-                $monUser->delete($pseudoUser, $passUser)
-                header("Location: ./user.php");
-            } else {
-                header("Location: user.php?errCIR=1");
-        }
+            $monUser->delete($_POST['id1']);
+            header("Location: ./user.php");
+        } else {
+            header("Location: user.php?errCIR=1");
+        
     }
 
     // controle CIR
@@ -95,7 +96,20 @@ include __DIR__ . '/initUser.php';
 <?php
     // Supp : récup id à supprimer
     // id passé en GET
+    if (isset($_GET['id1']) and $_GET['id1'] > '') {
 
+        $id = ctrlSaisies(($_GET['id1']));
+        $query = $monUser->get_1User($id);
+
+        if ($query) {
+            $prenomUser = $query['prenomUser'];
+            $nomUser = $query['nomUser']; 
+            $pseudoUser = $query['pseudoUser']; 
+            $eMail1User = $query['eMailUser']; 
+            $idStat = $query['idStat']; 
+            $pass1User = $query['passUser'];
+        }   
+    }
 
 
 
@@ -111,31 +125,31 @@ include __DIR__ . '/initUser.php';
 
         <div class="control-group">
             <label class="control-label" for="pseudoUser"><b>Pseudonyme :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="pseudoUser" id="pseudoUser" size="80" maxlength="80" value="<?= $pseudoUser; ?>" disabled />
+            <input type="text" name="pseudoUser" id="pseudoUser" size="80" maxlength="80" value="<?php echo($pseudoUser); ?>" disabled />
         </div>
 
         <br>
         <div class="control-group">
             <label class="control-label" for="pass1User"><b>Mot passe :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="pass1User" id="pass1User" size="80" maxlength="80" value="<?= $pass1User; ?>" disabled />
+            <input type="password" name="pass1User" id="pass1User" size="80" maxlength="80" value="<?php echo($pass1User); ?>" disabled />
         </div>
 
         <br>
         <div class="control-group">
             <label class="control-label" for="prenomUser"><b>Prénom :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="prenomUser" id="prenomUser" size="80" maxlength="80" value="<?= $prenomUser; ?>" disabled />
+            <input type="text" name="prenomUser" id="prenomUser" size="80" maxlength="80" value="<?php echo($prenomUser); ?>" disabled />
         </div>
 
         <br>
         <div class="control-group">
             <label class="control-label" for="nomUser"><b>Nom :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="nomUser" id="nomUser" size="80" maxlength="80" value="<?= $nomUser; ?>" disabled />
+            <input type="text" name="nomUser" id="nomUser" size="80" maxlength="80" value="<?php echo($nomUser); ?>" disabled />
         </div>
 
         <br>
         <div class="control-group">
             <label class="control-label" for="eMail1User"><b>eMail :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="email" name="eMail1User" id="eMail1User" size="80" maxlength="80" value="<?= $eMail1User; ?>" disabled />
+            <input type="email" name="eMail1User" id="eMail1User" size="80" maxlength="80" value="<?php echo($eMail1User); ?>" disabled />
         </div>
 
 <!-- --------------------------------------------------------------- -->
@@ -148,8 +162,13 @@ include __DIR__ . '/initUser.php';
             <label class="control-label" for="LibTypStat"><b>Statut :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idStat" name="idStat" value="<?= isset($_GET['idStat']) ? $_GET['idStat'] : '' ?>" />
 
-                <input type="text" name="idStat" id="idStat" size="5" maxlength="5" value="<?= $idStat; ?>" autocomplete="on" />
+                <select name="Statut" id="Statut"  class="form-control form-control-create">
+                <?php
+                    $oneStat = $monStatut->get_1Statut($idStat);
+                ?>
+                <option value="<?= ($oneStat['idStat']); ?>"> <?= $oneStat['libStat']; ?> </option>                
 
+            </select>
                 <!-- Listbox statut disabled => 2ème temps -->
 
         </div>
