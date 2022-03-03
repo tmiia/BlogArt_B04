@@ -102,7 +102,7 @@
     position: fixed;
     top: 0;
     padding: 0px $marginMobile;
-    width: calc(100% - calc($marginDesktop * 2));
+    width: calc(100% - calc(100px * 2));
     background-color: #fff !important;
     transition: ease .3s;
 
