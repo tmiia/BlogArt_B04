@@ -41,7 +41,7 @@ class ARTICLE{
 	function get_LastArticles() {
 		global $db;
 
-		$query = 'SELECT * FROM `article` ORDER BY numArt DESC;';
+		$query = 'SELECT * FROM ARTICLE ORDER BY numArt DESC;';
 		// prepare
 		$result = $db->query($query);
 		// execute
