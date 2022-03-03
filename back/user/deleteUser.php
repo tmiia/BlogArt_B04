@@ -14,7 +14,10 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe User
+require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 
+// Instanciation de la classe User
+$monUser = new USER();
 // Instanciation de la classe User
 
 
@@ -22,7 +25,27 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
+    if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
+    
+        header("Location: ./user.php");
+} 
+
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
+        
+        $monUser->get_AllUsersByStat()
+        if()
+                $monUser->delete($pseudoUser, $passUser)
+                header("Location: ./user.php");
+            } else {
+                header("Location: user.php?errCIR=1");
+        }
+    }
 
     // controle CIR
 

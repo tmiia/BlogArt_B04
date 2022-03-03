@@ -7,7 +7,7 @@ class USER{
 	function get_1User($pseudoUser, $passUser){
 		global $db;
 
-		$query = "SELECT * FROM LANGUE WHERE pseudoUser = ?;";
+		$query = "SELECT * FROM LANGUE WHERE pseudoUser = ? AND passUser = ?;";
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -47,7 +47,7 @@ class USER{
 	function get_NbAllUsersByidStat($idStat){
 		global $db;
 
-		$query = "SELECT COUNT(*) FROM STATUT WHERE idStat = ?;";
+		$query = "SELECT COUNT(*) FROM USER WHERE idStat = ?;";
 		$request = $db->prepare($query);
 
 		$request->execute([$idStat]);
@@ -62,7 +62,10 @@ class USER{
 			$db->beginTransaction();
 
 			// insert
+			$query = 'INSERT INTO USER (pseudoUser, passUser, nomUser, prenomUser, emailUser, idStat) VALUES (?, ?, ?, ?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
 			// prepare
+			$request = $db->prepare($query);
+			$request->execute([$pseudoUser, $passUser, $nomUser, $prenomUser, $emailUser, $idStat]);
 			// execute
 			$db->commit();
 			$request->closeCursor();
@@ -78,32 +81,58 @@ class USER{
 		global $db;
 
 		try {
-			$db->beginTransaction();
-
-			// update
+            $db->beginTransaction();
+            
+            if ($passUser == -1) { //request 1: le mdp n'a pas été modifié
+            // updateUser
+			$query = 'UPDATE USER SET pseudoUser= ?, passUser = ?, nomUser = ?, prenomUser = ?, emailUser = ?, idStat = ?';
 			// prepare
+			$request1 = $db->prepare($query);
 			// execute
-			$db->commit();
-			$request->closeCursor();
+			$request1->execute([$pseudoUser, $passUser,  $nomUser, $prenomUser, $emailUser, $idStat,]);
+                $db->commit();
+                $request1->closeCursor();
+            }
+            else { //request 2: le mdp a été modifié
+            // update
+			$query = 'UPDATE USER SET pseudoUser= ?, passUser = ?, nomUser = ?, prenomUser = ?, emailUser = ?, idStat = ?';
+			// prepare
+			$request2 = $db->prepare($query);
+			// execute
+			$request2->execute([$pseudoUser, $passUser, $nomUser, $prenomUser, $emailUser, $idStat,]);
+                $db->commit();
+                $request2->closeCursor();
+            }
 		}
 		catch (PDOException $e) {
-			$db->rollBack();
-			$request->closeCursor();
-			die('Erreur update USER : ' . $e->getMessage());
-		}
+            $db->rollBack();
+            if ($passUser == -1) {
+                $request1->closeCursor();
+            } else {
+                $request2->closeCursor();
+            }
+            die('Erreur update USER : ' . $e->getMessage());
+        }
 	}
 
 	function delete($pseudoUser, $passUser){
 		global $db;
 		
-		try {
+		
+        try {
 			$db->beginTransaction();
 
-			// delete
+			// insert
+			$query = 'DELETE FROM USER WHERE pseudoUser=? AND passUser=?'; 
 			// prepare
+			$request = $db->prepare($query);
 			// execute
+			$request->execute([$pseudoUser, $passUser]);
+
+			$count = $request->rowCount(); 
 			$db->commit();
 			$request->closeCursor();
+			return($count); 
 		}
 		catch (PDOException $e) {
 			$db->rollBack();

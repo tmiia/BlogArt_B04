@@ -19,8 +19,16 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe User
+require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 
 // Instanciation de la classe User
+$monUser = new USER();
+
+// Insertion classe Statut
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+
+// Instanciation de la classe Statut
+$monStatut = new STATUT();
 
 
 
@@ -32,18 +40,79 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    $idStat = $_POST['id'];
 
+
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
 
     // controle des saisies du formulaire
+
+// ON VEUT REINITIALISER LA VALEUR
+
+    if($_POST['Submit'] == 'Initialiser'){ 
+        header("Location: updateUser.php?id=$idStat");
+        $_POST['$libelle'];
+    }
+
+    // ON VEUT VALIDER LA MODIFICATION
+
+    elseif($_POST['Submit'] == 'Valider'){
+
+        if(isset($_POST['id'])){ 
+            
+            if(!empty($_POST['id'])){
+
+                if((isset($_POST['pseudoUser']) && !empty($_POST['pseudoUser'])) && 
+                (isset($_POST['pass1User']) && !empty($_POST['pass1User'])) &&
+                (isset($_POST['pass2User']) && !empty($_POST['pass2User'])) && 
+                (isset($_POST['nomUser']) && !empty($_POST['nomUser'])) && 
+                (isset($_POST['prenomUser']) && !empty($_POST['prenomUser'])) && 
+                (isset($_POST['eMail1User']) && !empty($_POST['eMail1User'])) && 
+                (isset($_POST['eMail2User']) && !empty($_POST['eMail2User']))){
+
+
+                    if ((($_POST['eMail1User']) == ($_POST['eMail2User'])) && (($_POST['pass1User']) == ($_POST['pass2User']))){
+                        $numUser = ctrlSaisies($_POST['id']);
+                        $prenomUser = ctrlSaisies($_POST['prenomUser']);
+                        $nomUser = ctrlSaisies($_POST['nomUser']);
+                        $passUser = ctrlSaisies($_POST['pass1User']);
+                        $eMailUser = ctrlSaisies($_POST['eMail1User']);
+                        $idStat = ctrlSaisies(intval($_POST['idStat']));
+                        $accordUser = ctrlSaisies($_POST['accordUser']);
+            
+                        
+                    // CLE PRIMAIRE
+
+                        $monUser->update($pseudoUser, $passUser, $nomUser, $prenomUser, $emailUser, $idStat);
+                        
+                        header("Location: ./user.php");
+
+                    }else{
+                        header("Location: updateUser.php?id=$idUser&err=empty");
+                    }
+                }
+                else{
+                    header("Location: updateUser.php?id=$idUser&err=empty");
+                }
+            }
+            else{
+                $erreur = "Erreur";
+            }
+        }
+        else{
+            $erreur = "Erreur";
+        }
+    }
 
     // modification effective du user
 
 
 
     // Gestion des erreurs => msg si saisies ko
-
-
-
 
 
 
@@ -86,7 +155,34 @@ include __DIR__ . '/initUser.php';
     <h1>BLOGART22 Admin - CRUD User</h1>
     <h2>Modification d'un user</h2>
 <?php
-    // Modif : récup id à modifier
+    // Modif : récup id à 
+    
+    
+    // if (isset($_GET['id']) and $_GET['id'] != '') {
+    //     $id = ctrlSaisies(($_GET['id']));
+    //     $query = (array)$monUser->get_1User($id);
+
+        if (isset($_GET['id1']) and $_GET['id1'] != '' and isset($_GET['id2']) and $_GET['id2'] != '') {
+
+            $pseudoUser = intval(ctrlSaisies($_GET['id1']));
+            $passUser = intval(ctrlSaisies($_GET['id2']));
+    
+            $query = $monUser->get_1User($pseudoUser, $passUser)['query'];
+        //$queryStat = (array)$monMembre->get_1MembrebyStatut($_POST['idStat']);
+
+        if ($query) {
+            $pseudoUser = $query['pseudoUser'];
+            $pass1User = $query['passUser'];
+            $pass2User = $query['passUser'];
+            $nomUser = $query['nomUser'];
+            $prenomUser = $query['prenomUser'];
+            $eMail1User = $query['emailUser'];
+            $eMail2User = $query['emailUser'];
+            $idStat = $query['idStat'];
+
+        } 
+        
+       }// Fin if ($query)
     // id passé en GET
 
 
@@ -170,6 +266,23 @@ include __DIR__ . '/initUser.php';
                 <input type="text" name="idStat" id="idStat" size="5" maxlength="5" value="<?= $idStat; ?>" autocomplete="on" />
 
                 <!-- Listbox statut => 2ème temps -->
+
+                <select name="Statut" id="Statut"  class="form-control form-control-create">
+                <option value="-1"><?php $oneStat = $monStatut->get_1Statut($idStat); echo($oneStat['libStat']); ?></option>
+                <?php
+                $result = $monStatut->get_AllStatuts();
+                
+                if($result){
+                for ($i=1; $i < count($result); $i++){
+                    $value = $result[$i]['idStat'];
+                ?>
+                
+                <option value="<?= $value?>"> <?= $result[$i]['libStat']; ?> </option>
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
         </div>
     <!-- FIN Listbox statut -->
