@@ -1,7 +1,6 @@
 <link href="style.css" rel="stylesheet">
-<?php
+<?php require_once __DIR__ . '/imports.php'; 
 require_once __DIR__ . '/../../../CONNECT/config.php';
-require_once __DIR__ . '/imports.php'; 
 ?>
 
 <div id="navigation">
@@ -13,7 +12,7 @@ require_once __DIR__ . '/imports.php';
             <img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas">
         </div>
 
-        <a href="./pageArticles">Articles</a>
+        <a href="./pageArticles.php">Articles</a>
         <a href="#">Newsletter</a>
         <a href="#">Contact</a>
     </nav>

@@ -1,3 +1,7 @@
+<?php
+
+   
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -69,18 +73,28 @@
 
 <!------------>
 <section class="articles">
+<?php
+    require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
+    $monArticle = new ARTICLE();
 
-<a class="article_recent" href="#">
-    <div class="article_illustration" style="background-image: url('https://www.aurore.asso.fr/images/medias/21552.png');"></div>
-    <div class="article_recent_top">
-        <h5>TitreArticle</h5>
-        <p>ChapeauArticle</p>
-    </div>
-    <div class="article_recent_bot">
-        <div class="article_like"><i class="fa fa-heart-o"></i></div>
-        <div class="article_btn">Consulter l'article</div>
-    </div>
-</a>
+    $allArticle = $monArticle->get_AllArticles();
+
+    for($i = 0; $i <count($allArticle); $i++){ ?>
+
+        <a class="article_recent" href="viewArticle.php?id=<?=$allArticle[$i]['numArt']?>">
+        <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
+        <div class="article_recent_top">
+            <h5><?= $allArticle[$i]['libTitrArt'] ?></h5>
+            <p><?= $allArticle[$i]['libChapoArt'] ?></p>
+        </div>
+        <div class="article_recent_bot">
+            <div class="article_like"><i class="fa fa-heart-o"></i></div>
+            <div class="article_btn">Consulter l'article</div>
+        </div>
+        </a>
+    <?php 
+    }
+?>
 
 </section>
 
