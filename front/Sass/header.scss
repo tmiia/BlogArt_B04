@@ -1,5 +1,5 @@
 #navigation{
-    padding: 0px $marginDesktop;
+    padding: 0px 100px;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -101,7 +101,7 @@
 .sticky {
     position: fixed;
     top: 0;
-    padding: 0px $marginMobile;
+    padding: 0px 50px;
     width: calc(100% - calc(100px * 2));
     background-color: #fff !important;
     transition: ease .3s;

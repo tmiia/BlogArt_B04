@@ -118,7 +118,7 @@
         grid-template-columns: 25% 25% 25%;
         font-size: 14px;
         font-family: $fontText;
-        margin: $marginDesktop;
+        margin: 100px;
         justify-content: space-between;
         
 
@@ -134,7 +134,7 @@
             display:flex;
             flex-direction: column;
             margin-bottom: 50px;
-            margin: 0 0 $marginDesktop;
+            margin: 0 0 100px;
             
 
             .article_illustration {
