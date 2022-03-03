@@ -1,6 +1,5 @@
 /*-------VARIABLES--------*/
 /*Couleurs*/
-/*Marges*/
 /*Font Family*/
 /*---------GENERALE--------*/
 * {
@@ -24,7 +23,7 @@ a {
   cursor: pointer;
 }
 #navigation span, #navigation a {
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   text-transform: uppercase;
   color: #2E1A1E;
   text-decoration: none;
@@ -110,7 +109,7 @@ footer {
 }
 footer a {
   color: #DED6D1;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-size: 18px;
   font-weight: 600;
 }
@@ -127,7 +126,7 @@ footer .connect_admin {
 footer .connect_admin span {
   font-size: 13px;
   font-weight: 400;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   color: #DED6D1;
 }
 footer .revenir_haut {
@@ -157,10 +156,10 @@ footer .liens a {
 }
 
 header {
-  height: 100vh;
+  height: 70vh;
   background: #2E1A1E;
   color: #DED6D1;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -207,7 +206,7 @@ header h2 span {
 
 #main_body {
   margin: 100px;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
 }
 #main_body h4 {
   font-family: "ltc-broadway", sans-serif;
@@ -415,7 +414,7 @@ header h2 span {
   position: relative;
   color: #D75A41;
   font-size: 18px;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
 }
 .search .search_butt .bar_search img.svg_search {
   width: 18px;
@@ -441,7 +440,7 @@ header h2 span {
 .tri_article div label {
   color: #D75A41;
   font-size: 18px;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
 }
 .tri_article div .theme_select_container {
   position: relative;
@@ -471,22 +470,22 @@ header h2 span {
   padding: 0.75em;
   border-radius: 50px;
   margin-top: 0px;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   align-items: center;
   cursor: pointer;
 }
 
 .articles {
+  display: grid;
+  grid-template-columns: 25% 25% 25%;
   font-size: 14px;
-  display: flex;
+  font-family: "century-gothic", sans-serif;
   margin: 100px;
-  display: flex;
-  padding-bottom: 20px;
   justify-content: space-between;
-  font-family: century-gothic, sans-serif;
 }
 .articles a.article_recent {
   min-width: 280px;
+  max-width: 300px;
   height: 300px;
   color: #fff;
   background-color: #2E1A1E;
@@ -495,7 +494,8 @@ header h2 span {
   overflow: hidden;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  margin-bottom: 50px;
+  margin: 0 0 100px;
 }
 .articles a.article_recent .article_illustration {
   position: absolute;
@@ -518,16 +518,33 @@ header h2 span {
   margin: 20px;
   z-index: 2;
   position: relative;
+  flex-direction: column;
+  flex: 1;
+  overflow: hidden;
+  display: flex;
 }
 .articles a.article_recent .article_recent_top h5 {
   font-size: 20px;
   text-transform: uppercase;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-weight: 600;
-  margin-bottom: 50px;
 }
 .articles a.article_recent .article_recent_top p {
   font-size: 14px;
+  flex: 1;
+  overflow: hidden;
+  margin-top: 20px;
+}
+.articles a.article_recent .article_recent_top p::-webkit-scrollbar {
+  width: 5px;
+}
+.articles a.article_recent .article_recent_top p::-webkit-scrollbar-track {
+  background: #DED6D1;
+  border: 2px solid transparent;
+}
+.articles a.article_recent .article_recent_top p::-webkit-scrollbar-thumb {
+  background: #8B8B8B;
+  border-radius: 50px;
 }
 .articles a.article_recent .article_recent_bot {
   margin: 20px;
@@ -555,7 +572,7 @@ header h2 span {
 
 #main_article {
   margin: 100px;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
@@ -895,7 +912,7 @@ header h2 span {
   flex: 1;
 }
 #main_article .add_commentaire button, #main_article .add_commentaire a {
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   color: #D75A41;
   background: #fff;
   border: 1px solid #D75A41;
@@ -1058,7 +1075,7 @@ header h2 span {
 }
 #main_article .add_commentaire .modal .modal-content form fieldset .add_com_controls input {
   background-color: #DED6D1;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: #2E1A1E;
@@ -1088,7 +1105,7 @@ header h2 span {
 
 .form_connexion {
   background-color: #2E1A1E;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   color: #DED6D1;
   padding: 150px 100px 100px;
 }
@@ -1137,7 +1154,7 @@ header h2 span {
 }
 .form_connexion .champs_connexion button {
   background-color: #D75A41;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-size: 20px;
   font-weight: bold;
   color: white;
@@ -1181,7 +1198,7 @@ header h2 span {
   margin: 0 20px;
 }
 #main_inscription .form_inscription {
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   color: #DED6D1;
   display: flex;
   flex-direction: column;
@@ -1227,7 +1244,7 @@ header h2 span {
   width: 100%;
 }
 #main_inscription .form_inscription .btn_inscription_connexion button, #main_inscription .form_inscription .btn_inscription_connexion a {
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-weight: bold;
   outline: none;
   border: none;
@@ -1259,7 +1276,7 @@ header h2 span {
 }
 
 #contact_page {
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-size: 14px;
   margin: 150px 100px 100px;
 }
@@ -1291,7 +1308,7 @@ header h2 span {
   margin-bottom: 40px;
 }
 #contact_page form div label {
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-size: 16px;
   color: #8B8B8B;
   margin-bottom: 5px;
@@ -1300,13 +1317,13 @@ header h2 span {
   border-radius: 5px;
   padding: 10px;
   border: 1px solid #8B8B8B;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   color: #2E1A1E;
 }
 #contact_page form #btn_submit {
   background-color: #D75A41;
   color: #f6f6f6;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-weight: bold;
   outline: none;
   border: none;
@@ -1335,13 +1352,13 @@ header h2 span {
   margin: 150px 100px 50px 100px;
   display: flex;
   justify-content: center;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
 }
 .cgu h2 {
   margin: 50px 100px 100px 100px;
   display: flex;
   justify-content: center;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   color: #868686;
   font-size: 20px;
 }
@@ -1349,7 +1366,7 @@ header h2 span {
   display: flex;
   padding: 0 200px 0px 200px;
   justify-content: center;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-size: 14;
   text-align: justify;
 }
@@ -1358,7 +1375,7 @@ header h2 span {
   margin-bottom: 50px;
   display: flex;
   justify-content: center;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
   font-size: 20px;
 }
 .cgu .art {
@@ -1370,7 +1387,7 @@ header h2 span {
 
 #main_administration {
   display: flex;
-  font-family: century-gothic, sans-serif;
+  font-family: "century-gothic", sans-serif;
 }
 #main_administration .admin_liens {
   background: #2E1A1E;

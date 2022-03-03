@@ -2,7 +2,7 @@
     background-color: $noir;
     font-family: $fontText;
     color: $blanc;
-    padding: calc($marginDesktop + $marginMobile) $marginDesktop $marginDesktop;
+    padding: calc(100px + 50px) 100px 100px;
 
     form{
         display: flex;
@@ -21,8 +21,8 @@
         justify-content: center;
         color: $rouge;
         font-weight: 400;
-        margin: 0 $marginDesktop $marginDesktop;
-        width: calc(100% - calc($marginDesktop * 2));
+        margin: 0 100px 100px;
+        width: calc(100% - calc(100px * 2));
         
         &::before, &::after {
             content:"";

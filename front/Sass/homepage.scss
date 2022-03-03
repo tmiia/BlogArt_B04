@@ -1,18 +1,18 @@
 header {
-    height: 100vh;
+    height: 70vh;
     background: $noir;
     color: $blanc;
     font-family: $fontText;
     display:flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-bottom: $marginDesktop;
+    margin-bottom: 100px;
 
     h1 {
         display:flex;
         flex-direction: column;
         text-transform: uppercase;
-        margin: $marginDesktop $marginDesktop $marginMobile;
+        margin: 100px 100px 50px;
 
         span {
             display:flex;
@@ -37,8 +37,8 @@ header {
         text-transform: uppercase;
         font-size: 2em;
         letter-spacing: 2px;
-        width: calc(100% - calc($marginDesktop * 2));
-        margin: 0 $marginDesktop $marginDesktop;
+        width: calc(100% - calc(100px * 2));
+        margin: 0 100px 100px;
         align-items:center;
 
         &::before, &::after {
@@ -48,14 +48,14 @@ header {
             flex:1;
         }
         span {
-            margin: 0 $marginMobile;
+            margin: 0 50px;
         }
     }
 
 }
 
 #main_body {
-    margin: $marginDesktop;
+    margin: 100px;
     font-family: $fontText;
 
     h4 {
@@ -70,7 +70,7 @@ header {
     .articles {
         font-size: 14px;
         display:flex;
-        margin: $marginDesktop 0 $marginDesktop $marginDesktop;
+        margin: 100px 0 100px 100px;
         display:flex;
         overflow-x: auto;
         padding-bottom: 20px;
@@ -81,7 +81,7 @@ header {
             color: #fff;    
             background-color: $noir;
             border-radius: 15px;
-            margin-right: $marginMobile;
+            margin-right: 50px;
             position:relative;
             overflow:hidden;
             display:flex;
@@ -116,7 +116,7 @@ header {
                     font-size: 20px;
                     text-transform: uppercase;
                     font-weight: 600;
-                    margin-bottom: $marginMobile;
+                    margin-bottom: 50px;
                 }
                 p {
                     font-size: 14px;
@@ -151,12 +151,12 @@ header {
 
     }
     .redirection {
-        margin: $marginDesktop 0;
+        margin: 100px 0;
         display:flex;
         justify-content: space-between;
         
         a.outSite {
-            width: calc(50% - $marginMobile);
+            width: calc(50% - 50px);
             height: 200px;
             color: #fff;    
             background-color: $noir;
@@ -192,13 +192,13 @@ header {
                 z-index: 2;
                 font-size: 25px;
                 font-weight: 600;
-                margin: $marginMobile $marginMobile 0;
+                margin: 50px 50px 0;
                 text-transform: uppercase;
             }
             p {
                 z-index: 2;
                 font-size: 14px;
-                margin: 20px $marginMobile $marginMobile;
+                margin: 20px 50px 50px;
                 width: 70%;
                 font-weight: 400;
             }
@@ -208,7 +208,7 @@ header {
         display:flex;
         align-items:center;
         justify-content: space-between;
-        margin: $marginDesktop 0;
+        margin: 100px 0;
         
 
         a.association_lien {
