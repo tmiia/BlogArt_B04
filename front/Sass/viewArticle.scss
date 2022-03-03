@@ -1,6 +1,6 @@
 
 #main_article {
-    margin: $marginDesktop;
+    margin: 100px;
     font-family: $fontText;
     display: flex;
     flex-direction: column;
@@ -51,8 +51,8 @@
     .header_article {
 
         color: $gris;
-        margin: $marginDesktop;
-        width: calc(100% - calc($marginDesktop * 2));
+        margin: 100px;
+        width: calc(100% - calc(100px * 2));
 
         h3 {
             font-family: $fontTitre;
@@ -63,11 +63,11 @@
             
             &::after {
                 content: "";
-                width: calc(50% + calc($marginDesktop * 2));
+                width: calc(50% + calc(100px * 2));
                 background: $rouge;
                 height: 2px;
-                margin: $marginMobile 0;
-                transform: translateX(- calc($marginDesktop * 2));
+                margin: 50px 0;
+                transform: translateX(- calc(100px * 2));
             }
         }
     
@@ -147,20 +147,20 @@
 
     .content_article {
         display:flex;
-        margin: $marginDesktop 0;
+        margin: 100px 0;
         position:relative;
 
         .image_article {
             flex:1;
             display: flex;
             flex-direction: column;
-            margin-right: $marginMobile;
+            margin-right: 50px;
 
             div {
                 position:sticky;
-                height: calc(100vh - calc($marginMobile * 3));
+                height: calc(100vh - calc(50px * 3));
                 background-color: #2E1A1E;
-                top: calc($marginMobile * 2);
+                top: calc(50px * 2);
                 border-radius:15px; 
                 background-size: cover;
                 background-position:center;
@@ -183,8 +183,8 @@
             }
             .art_accroche {
                 border-bottom: 1px solid $gris;
-                padding-bottom: $marginMobile;
-                margin-bottom: $marginMobile ;
+                padding-bottom: 50px;
+                margin-bottom: 50px ;
                 font-style: italic;
                 text-align: right;
                 color: #555;
@@ -207,7 +207,7 @@
         span {
             color: $gris;
             text-align: center;
-            margin: 0 $marginMobile;
+            margin: 0 50px;
 
             b {
                 display:block;
@@ -218,7 +218,7 @@
 
     .article_more {
         display:flex;
-        margin-top: $marginDesktop;
+        margin-top: 100px;
         height: 400px;
 
         .article_autres {
@@ -299,8 +299,8 @@
                 display:flex;
                 border-top: 1px solid $gris;
                 color: $gris;
-                margin: 0 $marginMobile $marginMobile;
-                padding-top: $marginMobile;
+                margin: 0 50px 50px;
+                padding-top: 50px;
                 align-items: flex-start;
                 line-height: 18px;
 
@@ -354,7 +354,7 @@
                     }
                 }
                 &.reponse {
-                    margin-left: $marginDesktop;
+                    margin-left: 100px;
 
                     p {
                         b {
@@ -374,7 +374,7 @@
         display:flex;
         width: 100%;
         justify-content:flex-end;
-        margin-top: $marginMobile;
+        margin-top: 50px;
         a {
             flex: 1;
         }
@@ -424,7 +424,7 @@
         }
         button {
             flex:1;
-            margin-left: $marginDesktop;
+            margin-left: 100px;
             background-color: $rouge;
             color: #f6f6f6;
 
