@@ -113,24 +113,18 @@
 
 
 
-
-
   .articles {
+        display: grid;
+        grid-template-columns: 25% 25% 25%;
         font-size: 14px;
-        display:flex;
-        margin: $marginDesktop;
-        display:flex;
-        // overflow-x: auto;
-        padding-bottom: 20px;
-        justify-content: space-between;
         font-family: $fontText;
-
-    
-
-
+        margin: $marginDesktop;
+        justify-content: space-between;
+        
 
         a.article_recent {
             min-width: 280px;
+            max-width: 300px;
             height: 300px;
             color: #fff;    
             background-color: $noir;
@@ -139,7 +133,8 @@
             overflow:hidden;
             display:flex;
             flex-direction: column;
-            justify-content: space-between;
+            margin-bottom: 50px;
+            margin: 0 0 $marginDesktop;
             
 
             .article_illustration {
@@ -165,17 +160,35 @@
                 margin: 20px;
                 z-index: 2;
                 position:relative;
+                flex-direction: column;
+                flex: 1;
+                overflow: auto;
+                display: flex;
 
                 h5 {
                     font-size: 20px;
                     text-transform: uppercase;
                     font-family: $fontText;
                     font-weight: 600;
-                    margin-bottom: $marginMobile;
+                    margin-bottom: calc($marginMobile / 2 );
                 }
                 p {
                     font-size: 14px;
-                }
+                    flex: 1;
+                    overflow: auto;
+
+                    &::-webkit-scrollbar{
+                        width: 5px;
+                    } 
+                    &::-webkit-scrollbar-track{
+                        background: $blanc;
+                        border: 2px solid transparent;
+                    } 
+                    &::-webkit-scrollbar-thumb{
+                        background: $gris;
+                        border-radius: 50px;
+                    }
+                }   
             }
             .article_recent_bot {
                 margin: 20px;
@@ -205,3 +218,4 @@
         
 
     }
+
