@@ -1,7 +1,7 @@
 #contact_page {
     font-family: $fontText;
     font-size: 14px;
-    margin: calc($marginDesktop + $marginMobile) $marginDesktop $marginDesktop;
+    margin: calc(100px + 50px) 100px 100px;
 
     h3 {
         font-family: $fontTitre;
@@ -11,7 +11,7 @@
         justify-content: center;
         color: $gris;
         font-weight: 400;
-        margin: 0 $marginDesktop;
+        margin: 0 100px;
         
         &::before, &::after {
             content:"";
@@ -26,7 +26,7 @@
     }
 
     form {
-        margin: $marginDesktop;
+        margin: 100px;
 
         div {
             display:flex;
@@ -65,8 +65,7 @@
             cursor: pointer;
     
             &:hover{
-                background-color: $blanc;
-                color: $noir;
+                background-color: $noir;
                 transition: ease .3s;
             }
         }

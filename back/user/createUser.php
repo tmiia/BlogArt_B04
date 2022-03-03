@@ -24,7 +24,11 @@ require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 // Instanciation de la classe User
 $monUser = new USER();
 // Instanciation de la classe User
+// Insertion classe Statut
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
 
+// Instanciation de la classe Statut
+$monStatut = new STATUT();
 
 
 // Gestion des erreurs de saisie
@@ -41,22 +45,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         $Submit = "";
     }
 
-    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    if (isset($_POST["Submit"]) AND $Submit === "Initialiser") {
     
-            header("Location: ./createMembre.php");
+            header("Location: ./user.php");
     }   // End of if ((isset($_POST["submit"])) ...
         
     if((isset($_POST['prenomUser']) && !empty($_POST['prenomUser'])) && 
     (isset($_POST['nomUser']) && !empty($_POST['nomUser'])) && 
-    (isset($_POST['pass1User']) && !empty($_POST['pass1User'])) &&
-    (isset($_POST['pass2User']) && !empty($_POST['pass2User'])) && 
     (isset($_POST['eMail1User']) && !empty($_POST['eMail1User'])) && 
     (isset($_POST['eMail2User']) && !empty($_POST['eMail2User'])) && 
-    (isset($_POST['accordUser']) && !empty($_POST['accordUser'])) && 
-
+    (isset($_POST['pass1User']) && !empty($_POST['pass1User'])) && 
+    (isset($_POST['pass2User']) && !empty($_POST['pass2User'])) && 
+    (isset($_POST['pseudoUser']) && !empty($_POST['pseudoUser'])) && 
     (!empty($_POST['Submit'])) && ($Submit === "Valider")) {
 
-        if ((($_POST['eMail1User']) == ($_POST['eMail2User'])) && (($_POST['pass1User']) == ($_POST['pass2User']))){
+        if ($_POST['eMail1User'] == $_POST['eMail2User'] && $_POST['pass1User'] == $_POST['pass2User']){
             // Saisies valides
             $erreur = false;
     
@@ -65,22 +68,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $pseudoUser = ctrlSaisies(($_POST['pseudoUser']));
             $passUser = ctrlSaisies(($_POST['pass1User']));
             $eMailUser = ctrlSaisies(($_POST['eMail1User']));
-            $accordUser = ctrlSaisies(($_POST['accordUser']));
             $idStat = $_POST['Statut'];
 
 
-            if($accordUser == "on"){
-                $accordOk = 1;
-            }
-            else{
-                $accordUser = 0;
-            }
-
-            $monMembre->create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $accordOk, $idStat);
+            $monUser->create($pseudoUser, $passUser, $nomUser, $prenomUser, $eMailUser, $idStat);
     
-            header("Location: ./membre.php");
+            header("Location: ./user.php");
         }
-        }   // Fin if ((isset($_POST['libStat']))
+        }
+          // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
             $erreur = true;
@@ -167,13 +163,13 @@ include __DIR__ . '/initUser.php';
 
         <div class="control-group">
             <label class="control-label" for="pseudoUser"><b>Pseudonyme<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="pseudoUser" id="pseudoUser" size="80" maxlength="80" value="<?= $pseudoUser; ?>" placeholder="6 car. minimum" autocomplete="on" autofocus="autofocus" />
+            <input type="text" name="pseudoUser" id="pseudoUser" size="80" maxlength="80" value="<?php if(isset($_POST['pseudoUser'])) echo $_POST['pseudoUser']; ?>" placeholder="6 car. minimum" autocomplete="on" autofocus="autofocus" />
         </div>
 
         <br>
         <div class="control-group">
             <label class="control-label" for="pass1User"><b>Mot passe<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="pass1User" id="myInput1" size="80" maxlength="80" value="<?= $pass1User; ?>" autocomplete="on" />
+            <input type="password" name="pass1User" id="myInput1" size="80" maxlength="80" value="<?php if(isset($_POST['pass1User'])) echo $_POST['pass1User']; ?>" autocomplete="on" />
             <br>
             <input type="checkbox" onclick="myFunction('myInput1')">
             &nbsp;&nbsp;
@@ -183,7 +179,7 @@ include __DIR__ . '/initUser.php';
         <br>
         <div class="control-group">
             <label class="control-label" for="pass2User"><b>Confirmez la Mot passe<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="password" name="pass2User" id="myInput2" size="80" maxlength="80" value="<?= $pass2User; ?>" autocomplete="on" />
+            <input type="password" name="pass2User" id="myInput2" size="80" maxlength="80" value="<?php if(isset($_POST['pass2User'])) echo $_POST['pass2User']; ?>" autocomplete="on" />
             <br>
             <input type="checkbox" onclick="myFunction('myInput2')">
             &nbsp;&nbsp;
@@ -193,25 +189,25 @@ include __DIR__ . '/initUser.php';
         <br>
         <div class="control-group">
             <label class="control-label" for="prenomUser"><b>Prénom<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="prenomUser" id="prenomUser" size="80" maxlength="80" value="<?= $prenomUser; ?>" autocomplete="on" />
+            <input type="text" name="prenomUser" id="prenomUser" size="80" maxlength="80" value="<?php if(isset($_POST['prenomUser'])) echo $_POST['prenomUser']; ?>" autocomplete="on" />
         </div>
 
         <br>
         <div class="control-group">
             <label class="control-label" for="nomUser"><b>Nom<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="text" name="nomUser" id="nomUser" size="80" maxlength="80" value="<?= $nomUser; ?>" autocomplete="on" />
+            <input type="text" name="nomUser" id="nomUser" size="80" maxlength="80" value="<?php if(isset($_POST['nomUser'])) echo $_POST['nomUser']; ?>" autocomplete="on" />
         </div>
 
         <br>
         <div class="control-group">
             <label class="control-label" for="eMail1User"><b>eMail<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="email" name="eMail1User" id="eMail1User" size="80" maxlength="80" value="<?= $eMail1User; ?>" autocomplete="on" />
+            <input type="email" name="eMail1User" id="eMail1User" size="80" maxlength="80" value="<?php if(isset($_POST['eMail1User'])) echo $_POST['eMail1User']; ?>" autocomplete="on" />
         </div>
 
         <br>
         <div class="control-group">
             <label class="control-label" for="eMail2User"><b>Confirmez l'eMail<span class="error">(*)</span> :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
-            <input type="email" name="eMail2User" id="eMail2User" size="80" maxlength="80" value="<?= $eMail2User; ?>" autocomplete="on" />
+            <input type="email" name="eMail2User" id="eMail2User" size="80" maxlength="80" value="<?php if(isset($_POST['eMail2User'])) echo $_POST['eMail2User']; ?>" autocomplete="on" />
         </div>
         <i><div class="error"><br>*&nbsp;Champs obligatoires</div></i>
 
@@ -225,8 +221,23 @@ include __DIR__ . '/initUser.php';
             <label class="control-label" for="LibTypStat"><b>Statut :&nbsp;&nbsp;&nbsp;</b></label>
                 <input type="hidden" id="idStat" name="idStat" value="<?= isset($_GET['idStat']) ? $_GET['idStat'] : '' ?>" />
 
-            <input type="text" name="idStat" id="idStat" size="5" maxlength="5" value="<?= $idStat; ?>" autocomplete="on" />
-
+                <select name="Statut" id="Statut"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un statut - - -</option>
+                <?php
+                $allStatuts = $monStatut->get_AllStatuts();
+                
+                if($allStatuts){
+                for ($i=0; $i < count($allStatuts); $i++){
+                    $value = $allStatuts[$i]['idStat'];
+                ?>
+                
+                <option value="<?php echo($value); ?>"> <?= $value . " - " . $allStatuts[$i]['libStat']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
             <!-- Listbox statut => 2ème temps -->
 
         </div>

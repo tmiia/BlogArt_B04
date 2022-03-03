@@ -24,6 +24,12 @@ require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 // Instanciation de la classe User
 $monUser = new USER();
 
+// Insertion classe Statut
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+
+// Instanciation de la classe Statut
+$monStatut = new STATUT();
+
 
 
 // Gestion des erreurs de saisie
@@ -152,11 +158,16 @@ include __DIR__ . '/initUser.php';
     // Modif : récup id à 
     
     
-    if (isset($_GET['id']) and $_GET['id'] != '') {
+    // if (isset($_GET['id']) and $_GET['id'] != '') {
+    //     $id = ctrlSaisies(($_GET['id']));
+    //     $query = (array)$monUser->get_1User($id);
 
-        $id = ctrlSaisies(($_GET['id']));
+        if (isset($_GET['id1']) and $_GET['id1'] != '' and isset($_GET['id2']) and $_GET['id2'] != '') {
 
-        $query = (array)$monUser->get_1Membre($id);
+            $pseudoUser = intval(ctrlSaisies($_GET['id1']));
+            $passUser = intval(ctrlSaisies($_GET['id2']));
+    
+            $query = $monUser->get_1User($pseudoUser, $passUser)['query'];
         //$queryStat = (array)$monMembre->get_1MembrebyStatut($_POST['idStat']);
 
         if ($query) {
@@ -255,6 +266,23 @@ include __DIR__ . '/initUser.php';
                 <input type="text" name="idStat" id="idStat" size="5" maxlength="5" value="<?= $idStat; ?>" autocomplete="on" />
 
                 <!-- Listbox statut => 2ème temps -->
+
+                <select name="Statut" id="Statut"  class="form-control form-control-create">
+                <option value="-1"><?php $oneStat = $monStatut->get_1Statut($idStat); echo($oneStat['libStat']); ?></option>
+                <?php
+                $result = $monStatut->get_AllStatuts();
+                
+                if($result){
+                for ($i=1; $i < count($result); $i++){
+                    $value = $result[$i]['idStat'];
+                ?>
+                
+                <option value="<?= $value?>"> <?= $result[$i]['libStat']; ?> </option>
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
 
         </div>
     <!-- FIN Listbox statut -->

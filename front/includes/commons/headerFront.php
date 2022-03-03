@@ -14,7 +14,7 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
 
         <a href="./pageArticles.php">Articles</a>
         <a href="#">Newsletter</a>
-        <a href="#">Contact</a>
+        <a href="./contact.php">Contact</a>
     </nav>
 
     <div class="connect">
