@@ -103,9 +103,10 @@ a {
 footer {
   display: flex;
   justify-content: space-between;
-  align-items: center;
+  align-items: flex-start;
   background-color: #2E1A1E;
   padding: 20px 100px;
+  padding-top: 50px;
 }
 footer a {
   color: #DED6D1;
@@ -117,34 +118,42 @@ footer a:hover {
   color: #8B8B8B;
 }
 footer .connect_admin {
-  padding-top: 50px;
+  flex: 1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   height: 100px;
 }
-footer .connect_admin .credits {
+footer .connect_admin span {
   font-size: 13px;
   font-weight: 400;
+  font-family: century-gothic, sans-serif;
+  color: #DED6D1;
+}
+footer .revenir_haut {
+  flex: 1;
 }
 footer .revenir_haut a {
   text-transform: uppercase;
-  font-family: century-gothic, sans-serif;
-  color: #DED6D1;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 footer .revenir_haut a img {
   justify-content: center;
   align-self: center;
   width: 25px;
-  margin: 10px;
+  margin-bottom: 10px;
 }
 footer .liens {
+  flex: 1;
   display: flex;
-  width: 30%;
-  justify-content: space-between;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+footer .liens a {
+  margin-left: 20px;
 }
 
 header {
@@ -161,17 +170,18 @@ header h1 {
   display: flex;
   flex-direction: column;
   text-transform: uppercase;
-  margin: 100px;
+  margin: 100px 100px 50px;
 }
 header h1 span {
   display: flex;
   align-items: flex-start;
-  font-size: 2.2em;
+  font-size: 6vw;
 }
 header h1 span b {
   font-family: "ltc-broadway", sans-serif;
   font-weight: normal;
-  font-size: 2em;
+  font-size: 1.8em;
+  line-height: 100%;
 }
 header h1 span:nth-child(2) {
   justify-content: flex-end;
@@ -473,6 +483,7 @@ header h2 span {
   display: flex;
   padding-bottom: 20px;
   justify-content: space-between;
+  font-family: century-gothic, sans-serif;
 }
 .articles a.article_recent {
   min-width: 280px;
@@ -511,6 +522,7 @@ header h2 span {
 .articles a.article_recent .article_recent_top h5 {
   font-size: 20px;
   text-transform: uppercase;
+  font-family: century-gothic, sans-serif;
   font-weight: 600;
   margin-bottom: 50px;
 }
@@ -1044,7 +1056,7 @@ button:hover {
 #contact_page {
   font-family: century-gothic, sans-serif;
   font-size: 14px;
-  margin: 100px;
+  margin: 150px 100px 100px;
 }
 #contact_page h3 {
   font-family: "ltc-broadway", sans-serif;
@@ -1053,6 +1065,8 @@ button:hover {
   align-items: center;
   justify-content: center;
   color: #8B8B8B;
+  font-weight: 400;
+  margin: 0 100px;
 }
 #contact_page h3::before, #contact_page h3::after {
   content: "";
@@ -1111,6 +1125,43 @@ button:hover {
 }
 #contact_page form .form_top div:first-child {
   margin-right: 20px;
+}
+
+.cgu h1 {
+  margin: 150px 100px 50px 100px;
+  display: flex;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+}
+.cgu h2 {
+  margin: 50px 100px 100px 100px;
+  display: flex;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+  color: #868686;
+  font-size: 20px;
+}
+.cgu p {
+  display: flex;
+  padding: 0 200px 0px 200px;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+  font-size: 14;
+  text-align: justify;
+}
+.cgu H3 {
+  margin-top: 130px;
+  margin-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  font-family: century-gothic, sans-serif;
+  font-size: 20px;
+}
+.cgu .art {
+  padding: 0 300px 25px 300px;
+}
+.cgu .end {
+  margin-bottom: 100px;
 }
 
 html {

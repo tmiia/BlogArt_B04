@@ -9,7 +9,8 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
         <a href="home.php"><img src="../front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
         <div class="langues">
             <span>FR</span>
-            <img src="../front/assets/fleche_bas.svg" alt="fleche_bas">
+            <img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas">
+            <!-- <img src="../front/assets/fleche_bas.svg" alt="fleche_bas"> -->
         </div>
 
         <a href="./pageArticles.php">Articles</a>
