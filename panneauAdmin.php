@@ -10,8 +10,8 @@
 // Mode DEV
 
 require_once __DIR__ . '/CONNECT/config.php';  
-require_once __DIR__ . '/util/utilErrOn.php';
-require_once ROOT . '/front/includes/commons/imports.php';
+require_once __DIR__ . '/util/.php';
+require_once __DIR__ . '/front/includes/commons/imports.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -69,7 +69,7 @@ require_once ROOT . '/front/includes/commons/imports.php';
 		</div>
 </div>
 <?php
-require_once ROOT . '/front/includes/commons/footerback.php';
+require_once __DIR__ . '/front/includes/commons/footerback.php';
 ?>
 </body>
 </html>
