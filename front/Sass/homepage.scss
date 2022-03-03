@@ -76,6 +76,20 @@ header {
         overflow-x: auto;
         padding-bottom: 20px;
 
+        &::-webkit-scrollbar{
+            height: 6px;
+        } 
+        &::-webkit-scrollbar-track{
+            background: $blanc;
+            border: 2px solid #fff;
+            border-radius: 50px;
+
+        } 
+        &::-webkit-scrollbar-thumb{
+            background: $gris;
+            border-radius: 50px;
+        }
+
         a.article_recent {
             min-width: 250px;
             height: 300px;
@@ -112,6 +126,10 @@ header {
                 margin: 20px;
                 z-index: 2;
                 position:relative;
+                flex-direction: column;
+                flex: 1;
+                overflow: hidden;
+                display: flex;
 
                 h5 {
                     font-size: 20px;
@@ -121,6 +139,9 @@ header {
                 }
                 p {
                     font-size: 14px;
+                    flex: 1;
+                    overflow: hidden;
+                    margin-top: 20px;
                 }
             }
             .article_recent_bot {
