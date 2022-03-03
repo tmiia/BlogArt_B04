@@ -1,7 +1,6 @@
 <link href="style.css" rel="stylesheet">
-<?php
+<?php require_once __DIR__ . '/imports.php'; 
 require_once __DIR__ . '/../../../CONNECT/config.php';
-require_once __DIR__ . '/imports.php'; 
 ?>
 
 <div id="navigation">
