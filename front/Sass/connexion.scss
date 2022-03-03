@@ -54,12 +54,9 @@
         label{
             align-self: flex-start;
         }
-    
-    } 
-   
-}
 
-button{
+        
+        button{
             background-color: $rouge;
             font-family: $fontText;
             font-size: 20px;
@@ -74,11 +71,15 @@ button{
             align-self: flex-end;
             cursor: pointer;
             transition: ease .3s;
-    
+
             &:hover{
                 background-color: $blanc;
                 color: $noir;
             }
-    }
+        }
     
-    
+    } 
+
+   
+}
+
