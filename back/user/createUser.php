@@ -19,7 +19,10 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe User
+require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 
+// Instanciation de la classe User
+$monUser = new USER();
 // Instanciation de la classe User
 
 
@@ -32,6 +35,57 @@ $erreur = false;
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
+    if(isset($_POST['Submit'])){
+        $Submit = $_POST['Submit'];
+    } else {
+        $Submit = "";
+    }
+
+    if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
+    
+            header("Location: ./createMembre.php");
+    }   // End of if ((isset($_POST["submit"])) ...
+        
+    if((isset($_POST['prenomUser']) && !empty($_POST['prenomUser'])) && 
+    (isset($_POST['nomUser']) && !empty($_POST['nomUser'])) && 
+    (isset($_POST['pass1User']) && !empty($_POST['pass1User'])) &&
+    (isset($_POST['pass2User']) && !empty($_POST['pass2User'])) && 
+    (isset($_POST['eMail1User']) && !empty($_POST['eMail1User'])) && 
+    (isset($_POST['eMail2User']) && !empty($_POST['eMail2User'])) && 
+    (isset($_POST['accordUser']) && !empty($_POST['accordUser'])) && 
+
+    (!empty($_POST['Submit'])) && ($Submit === "Valider")) {
+
+        if ((($_POST['eMail1User']) == ($_POST['eMail2User'])) && (($_POST['pass1User']) == ($_POST['pass2User']))){
+            // Saisies valides
+            $erreur = false;
+    
+            $prenomUser = ctrlSaisies(($_POST['prenomUser']));
+            $nomUser = ctrlSaisies(($_POST['nomUser']));
+            $pseudoUser = ctrlSaisies(($_POST['pseudoUser']));
+            $passUser = ctrlSaisies(($_POST['pass1User']));
+            $eMailUser = ctrlSaisies(($_POST['eMail1User']));
+            $accordUser = ctrlSaisies(($_POST['accordUser']));
+            $idStat = $_POST['Statut'];
+
+
+            if($accordUser == "on"){
+                $accordOk = 1;
+            }
+            else{
+                $accordUser = 0;
+            }
+
+            $monMembre->create($prenomMemb, $nomMemb, $pseudoMemb, $passMemb, $eMailMemb, $accordOk, $idStat);
+    
+            header("Location: ./membre.php");
+        }
+        }   // Fin if ((isset($_POST['libStat']))
+        else {
+            // Saisies invalides
+            $erreur = true;
+            $errSaisies =  "Erreur, la saisie est obligatoire !";
+        }   // End of else erreur saisies
 
 
 
