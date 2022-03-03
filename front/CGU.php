@@ -15,6 +15,7 @@
 ?>
 
 <!------------>
+<div class="cgu">
 
   <H1>Conditions générales d'utilisation</H1>  
 
@@ -181,7 +182,7 @@ coordonnées inscrites à l’ARTICLE 1.
 
 <br>
 
-
+</div>
 
 
 
