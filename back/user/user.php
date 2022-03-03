@@ -56,7 +56,7 @@ $monStatut = new STATUT();
     <h1>BLOGART22 Admin - CRUD User</h1>
 
 	<hr />
-	<h2>Nouveau User :&nbsp;<a href="#" class="superAdmin" title="User déjà créé"><i>Créer un User</i></a></h2>
+	<h2>Nouveau User :&nbsp;<a href="./createUser.php" class="superAdmin" title="User déjà créé"><i>Créer un User</i></a></h2>
     <hr />
 	<h2>Tous les Users</h2>
 
@@ -91,10 +91,10 @@ $allUsers = $monUser->get_AllUsers();
 
             <td>&nbsp; <?= $monStatut->get_1Statut($allUsers[$i]['idStat'])['libStat'];?> &nbsp;</td> 
 
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateUser.php?id1=<?=$allUsers[$i]['pseudoUser'] ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier user" title="Modifier user" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateUser.php?id1=<?=$allUsers[$i]['pseudoUser']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier user" title="Modifier user" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br /></td>
 
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="superAdmin"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Suppression user impossible" title="Suppression user impossible" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteUser.php?id1=<?=$allUsers[$i]['pseudoUser']?>" class="superAdmin"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Suppression user impossible" title="Suppression user impossible" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br /></td>
         </tr>
 <?php
