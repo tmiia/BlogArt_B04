@@ -36,6 +36,20 @@ class ARTICLE{
 		return($allArticles);
 	}
 
+	// POUR AFFICHER UN NOMBRE LIMITE SEULEMENT D ARTICLES SUR LA FRONTPAGE
+
+	function get_LastArticles() {
+		global $db;
+
+		$query = 'SELECT * FROM ARTICLE ORDER BY numArt DESC;';
+		// prepare
+		$result = $db->query($query);
+		// execute
+		$lastArticles = $result->fetchAll();
+		return($lastArticles);
+
+	}
+
 	function get_AllArticlesByNumAnglNumThem(){
 		global $db;
 

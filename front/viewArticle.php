@@ -94,6 +94,9 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         $numAngl = $query['numAngl'];
         $numThem = $query['numThem'];
     } 
+
+    $queryComment = $monCommentaire->get_AllCommentsByNumArt($id);
+
 }
 
 ?>
@@ -185,51 +188,34 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
             </div>
 
             <div class="article_coms">
+                <?php
+                    if($queryComment != []){
+                        for($i = 0; $i < count($queryComment); $i++){
+                            $pseudo = $monMembre->get_1Membre($queryComment[$i])['pseudoMemb'];
+                            $comment = $queryComment[$i]['libCom']; ?>
 
+                            <div class="commentaire">
+                            <div class="com_membre">
+                                <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar USERNAME"/>
+                                <div class="btn_like_com" title="J'aime"><i class="fa fa-heart"></i></div>
+                            </div>
+                            <div class="com_cont">
+                                <span>membre<b><?=$pseudo?></b></span>
+                                <p><?= $comment ?></p>
+                            </div>
+                        </div>
+
+                <?php
+                        }
+                    }
+                    else{
+                ?>
                 <div class="commentaire">
-                    <div class="com_membre">
-                        <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar USERNAME"/>
-                        <div class="btn_like_com" title="J'aime"><i class="fa fa-heart"></i></div>
-                    </div>
-                    <div class="com_cont">
-                        <span>Prénom <b>Nom</b></span>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum animi sunt est facilis, eum, non mollitia suscipit dolorem eveniet voluptatem minus consequatur repudiandae, quis ratione iste officia magnam perspiciatis.</p>
+                    <div class="com_cont">  
+                        Pas de commentaire.
                     </div>
                 </div>
-
-                <div class="commentaire reponse">
-                    <div class="com_membre">
-                        <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar USERNAME"/>
-                        <div class="btn_like_com" title="J'aime"><i class="fa fa-heart"></i></div>
-                    </div>
-                    <div class="com_cont">
-                        <span>Prénom <b>Nom</b></span>
-                        <p><b><i class="fas fa-share"></i> En réponse à @PseudoMembre : </b>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum animi sunt est facilis, eum, non mollitia suscipit dolorem eveniet voluptatem minus consequatur repudiandae, quis ratione iste officia magnam perspiciatis.</p>
-                    </div>
-                </div>
-
-                <div class="commentaire">
-                    <div class="com_membre">
-                        <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar USERNAME"/>
-                        <div class="btn_like_com" title="J'aime"><i class="fa fa-heart"></i></div>
-                    </div>
-                    <div class="com_cont">
-                        <span>Prénom <b>Nom</b></span>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum animi sunt est facilis, eum, non mollitia suscipit dolorem eveniet voluptatem minus consequatur repudiandae, quis ratione iste officia magnam perspiciatis.</p>
-                    </div>
-                </div>
-
-                <div class="commentaire">
-                    <div class="com_membre">
-                        <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar USERNAME"/>
-                        <div class="btn_like_com" title="J'aime"><i class="fa fa-heart"></i></div>
-                    </div>
-                    <div class="com_cont">
-                        <span>Prénom <b>Nom</b></span>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas dolorum animi sunt est facilis, eum, non mollitia suscipit dolorem eveniet voluptatem minus consequatur repudiandae, quis ratione iste officia magnam perspiciatis.</p>
-                    </div>
-                </div>
-
+                <?php } ?>
             </div>
         </div>
 
