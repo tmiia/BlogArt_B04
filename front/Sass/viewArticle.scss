@@ -233,9 +233,13 @@
         display:flex;
         margin-top: 100px;
         height: 400px;
+        width: 90%;
 
         .article_autres {
-            width: 45%;
+            min-width: 55%;
+            
+
+        
             
             .article_preview {
                 flex:1;
@@ -295,6 +299,7 @@
         .article_coms {
             flex:1;
             overflow:auto;
+            width: 40%;
             
             &::-webkit-scrollbar{
                 width: 5px;
