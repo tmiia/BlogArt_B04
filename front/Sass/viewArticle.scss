@@ -114,6 +114,7 @@
             overflow: hidden;
             transition: ease .3s;
             position: relative;
+            cursor: pointer;
 
             span {
                 opacity:0;
@@ -150,6 +151,11 @@
             color: $rouge;
             transition: ease .3s;
         }
+        a.art_btn.liked {
+            color: $rouge;
+            transition: ease .3s;
+        }
+
     }
 
     .content_article {
