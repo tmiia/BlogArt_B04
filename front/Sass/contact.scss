@@ -65,8 +65,7 @@
             cursor: pointer;
     
             &:hover{
-                background-color: $blanc;
-                color: $noir;
+                background-color: $noir;
                 transition: ease .3s;
             }
         }
