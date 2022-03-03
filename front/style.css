@@ -156,14 +156,14 @@ footer .liens a {
 }
 
 header {
-  height: 70vh;
+  height: 80vh;
   background: #2E1A1E;
   color: #DED6D1;
   font-family: "century-gothic", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-bottom: 100px;
+  margin-bottom: 25px;
 }
 header h1 {
   display: flex;
@@ -184,6 +184,7 @@ header h1 span b {
 }
 header h1 span:nth-child(2) {
   justify-content: flex-end;
+  margin-top: -0.5em;
 }
 header h2 {
   display: flex;
