@@ -8,14 +8,15 @@ require_once ROOT . '/util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once ROOT . '/util/ctrlSaisies.php';
 
+require_once ROOT . '/CLASS_CRUD/article.class.php';
+$monArticle = new ARTICLE();
+
 // Insertion classe Comment
 require_once ROOT . '/CLASS_CRUD/comment.class.php';
 
 // Instanciation de la classe Article
 $monCommentaire = new COMMENT();
 // Instanciation de la classe Comment
-require_once ROOT . '/CLASS_CRUD/article.class.php';
-
 require_once ROOT . '/CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
@@ -71,8 +72,6 @@ include ROOT . '/back/comment/initComment.php';
 ?>
 
 <?php
-require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
-$monArticle = new ARTICLE();
 
 
 if (isset($_GET['id']) and $_GET['id'] != '') {
