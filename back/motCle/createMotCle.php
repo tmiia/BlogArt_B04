@@ -8,20 +8,20 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once ROOT . '/util/dateChangeFormat.php';
+require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe MotCle
-require_once ROOT . '/CLASS_CRUD/motcle.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
 // Instanciation de la classe MotCle
 $monMotCle = new MOTCLE();
 
-require_once ROOT . '/CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 // Instanciation de la classe langue
 
 $maLangue = new LANGUE();
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } 
    // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include ROOT . '/back/motCle/initMotCle.php';
+include __DIR__ . '/initMotCle.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -166,9 +166,9 @@ include ROOT . '/back/motCle/initMotCle.php';
       </fieldset>
     </form>
 <?php
-require_once ROOT . '/back/motCle/footerMotCle.php';
+require_once __DIR__ . '/footerMotCle.php';
 
-require_once ROOT . '/back/motCle/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

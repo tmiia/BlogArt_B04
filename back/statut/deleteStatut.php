@@ -8,29 +8,29 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Del accents sur string
-require_once ROOT . '/util/delAccents.php';
+require_once __DIR__ . '/../../util/delAccents.php';
 
 // Insertion classe Statut
-require_once ROOT . '/CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
 
 // Instanciation de la classe Statut
 $monStatut = new STATUT();
 
 // Ctrl CIR
 // Insertion classe User
-require_once ROOT . '/CLASS_CRUD/user.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 
 // Instanciation de la classe User
 $monUser = new USER();
 
 
 // Insertion classe Membre
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 
 // Instanciation de la classe Membre
 $monMembre = new MEMBRE();
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }
 // Init variables form
-include ROOT . '/back/statut/initStatut.php';
+include __DIR__ . '/initStatut.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -150,9 +150,9 @@ include ROOT . '/back/statut/initStatut.php';
     <br>
     <i><div class="error"><br>=>&nbsp;Attention, une suppression doit respecter les CIR !</div></i>
 <?php
-require_once ROOT . '/back/statut/footerStatut.php';
+require_once __DIR__ . '/footerStatut.php';
 
-require_once ROOT . '/back/statut/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

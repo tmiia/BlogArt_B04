@@ -8,12 +8,12 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
-require_once ROOT . '/util/dateChangeFormat.php';
+require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Comment
 
@@ -122,7 +122,7 @@ require_once ROOT . '/util/dateChangeFormat.php';
     </table>
     <p>&nbsp;</p>
 <?php
-require_once ROOT . '/back/commentPlus/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

@@ -8,20 +8,20 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once ROOT . '/util/dateChangeFormat.php';
+require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Comment
-require_once ROOT . '/CLASS_CRUD/comment.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
 // Instanciation de la classe Comment
 $monCommentaire = NEW COMMENT();
 
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 
 // Instanciation de la classe Article
 $monMembre = new MEMBRE();
@@ -136,7 +136,7 @@ $monMembre = new MEMBRE();
     </table>
     <p>&nbsp;</p>
 <?php
-require_once ROOT . '/back/comment/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

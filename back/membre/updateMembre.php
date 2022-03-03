@@ -8,22 +8,22 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once ROOT . '/util/dateChangeFormat.php';
+require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Statut
-require_once ROOT . '/CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
 
 // Instanciation de la classe Statut
 $monStatut = new STATUT();
 
 // Insertion classe Membre
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 
 // Instanciation de la classe Membre
 $monMembre = new MEMBRE();
@@ -123,7 +123,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include ROOT . '/back/membre/initMembre.php';
+include __DIR__ . '/initMembre.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -334,9 +334,9 @@ include ROOT . '/back/membre/initMembre.php';
       </fieldset>
     </form>
 <?php
-require_once ROOT . '/back/membre/footerMembre.php';
+require_once __DIR__ . '/footerMembre.php';
 
-require_once ROOT . '/back/membre/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

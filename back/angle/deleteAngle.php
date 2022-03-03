@@ -8,23 +8,23 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Del accents sur string
-require_once ROOT . '/util/delAccents.php';
+require_once __DIR__ . '/../../util/delAccents.php';
 
 // Insertion classe Angle
-require_once ROOT . '/CLASS_CRUD/angle.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
 $monAngle = new ANGLE();
 
 
 
-require_once ROOT . '/CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 
 $maLangue = new LANGUE();
 
@@ -33,7 +33,7 @@ $maLangue = new LANGUE();
 $erreur = false;
 
 // Insertion classe Article
-require_once ROOT . '/CLASS_CRUD/article.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
@@ -70,7 +70,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }// End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
 
-include ROOT . '/back/angle/initAngle.php';
+include __DIR__ . '/initAngle.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -174,9 +174,9 @@ include ROOT . '/back/angle/initAngle.php';
     <br>
     <i><div class="error"><br>=>&nbsp;Attention, une suppression doit respecter les CIR !</div></i>
 <?php
-require_once ROOT . '/back/angle/footerAngle.php';
+require_once __DIR__ . '/footerAngle.php';
 
-require_once ROOT . '/back/angle/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

@@ -10,9 +10,9 @@
 
 
     <?php
-    require_once ROOT . 'front/includes/commons/headerFront.php';
-    // require_once ROOT . '/includes/commons/navigationFront.php';
-    require_once ROOT . 'front/includes/commons/imports.php';
+    require_once __DIR__ . '/includes/commons/headerFront.php';
+    // require_once __DIR__ . '/includes/commons/navigationFront.php';
+    require_once __DIR__ . '/includes/commons/imports.php';
 
     ?>
 
@@ -50,7 +50,7 @@
     </div>
     
     <?php
-    require_once __DIR__ . 'front/includes/commons/footerFront.php';
+    require_once __DIR__ . '/includes/commons/footerFront.php';
     ?>
     
 </body>

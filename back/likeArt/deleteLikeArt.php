@@ -8,21 +8,21 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Likeart
-require_once ROOT . '/CLASS_CRUD/likeart.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/likeart.class.php';
 $monLikeArt = new LIKEART();
 
-require_once ROOT . '/CLASS_CRUD/article.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
 
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
 // Gestion des erreurs de saisie
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include ROOT . '/back/likeArt/initLikeArt.php';
+include __DIR__ . '/initLikeArt.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -180,9 +180,9 @@ include ROOT . '/back/likeArt/initLikeArt.php';
       </fieldset>
     </form>
 <?php
-require_once ROOT . '/back/likeArt/footerLikeArt.php';
+require_once __DIR__ . '/footerLikeArt.php';
 
-require_once ROOT . '/back/likeArt/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

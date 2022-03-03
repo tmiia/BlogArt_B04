@@ -5,13 +5,13 @@
 */
 // Mode DEV
 
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // connexion
-require_once ROOT . '/CONNECT/database.php';
+require_once __DIR__ . '/../../CONNECT/database.php';
 
 // Insertion classe Angle
-require_once ROOT . '/CLASS_CRUD/angle.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
 $monAngle = new ANGLE();

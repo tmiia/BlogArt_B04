@@ -10,23 +10,23 @@
 // EDI WYSIWYG : ckeditor4
 //
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Comment
-require_once ROOT . '/CLASS_CRUD/comment.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
 
 // Instanciation de la classe Article
 $monCommentaire = new COMMENT();
 // Instanciation de la classe Comment
-require_once ROOT . '/CLASS_CRUD/article.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
 
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
 
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include ROOT . '/back/comment/initComment.php';
+include __DIR__ . '/initComment.php';
 // Var init
 
 
@@ -214,9 +214,9 @@ include ROOT . '/back/comment/initComment.php';
       </fieldset>
     </form>
 <?php
-require_once ROOT . '/back/comment/footerComment.php';
+require_once __DIR__ . '/footerComment.php';
 
-require_once ROOT . '/back/comment/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

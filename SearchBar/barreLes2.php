@@ -10,13 +10,13 @@
 // Plusieurs tags
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../util/ctrlSaisies.php';
 
 // Recup et mise en forme mots clés pour prépar requete SQL
-require_once ROOT . '/util/preparerTags.php';
+require_once __DIR__ . '/../util/preparerTags.php';
 
 // Insertion classe Article
 
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
     <br><br>
 <?php
-require_once ROOT . 'SearchBar/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

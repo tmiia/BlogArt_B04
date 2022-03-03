@@ -8,25 +8,25 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Likecom
-require_once ROOT . '/CLASS_CRUD/likecom.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
 // Instanciation de la classe Likecom
 $monLikeCom = new LIKECOM ();
 
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
-require_once ROOT . '/CLASS_CRUD/article.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
 $monArticle = new ARTICLE();
 
-require_once ROOT . '/CLASS_CRUD/comment.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
 $monCommentaire = new COMMENT();
 
 
@@ -39,7 +39,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
     if(isset($_POST['Submit'])){
         $Submit = $_POST['Submit'];
-        
     } else {
         $Submit = "";
     }
@@ -50,13 +49,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }   // End of if ((isset($_POST["submit"])) ...
         
     if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) 
+    AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))
     AND (isset($_POST['Commentaire'])) AND (!empty($_POST['Commentaire']))
         AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
             // Saisies valides
             $erreur = false;
             
             $numMemb = ctrlSaisies(($_POST['Membre']));
-            
+            $numArt = ctrlSaisies(($_POST['Article']));
             $numSeqCom = ctrlSaisies($_POST['Commentaire']);
             $likeC = 1;
             
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include ROOT . '/back/likeCom/initLikeCom.php';
+include __DIR__ . '/initLikeCom.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -158,19 +158,35 @@ include ROOT . '/back/likeCom/initLikeCom.php';
             <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
             <input type="hidden" id="idTypSeqCom" name="idTypSeqCom" value="<?= $numSeqCom; ?>" />
 
-            <select name="Commentaire" id="Commentaire"  class="form-control form-control-create">
-                <option value="-1">- - - Choisissez un Commentaire - - -</option>
+            <select name="Article" id="Article"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un article - - -</option>
                 <?php
-                $allComments = $monCommentaire->get_AllComments();
+                $allArticles = $monArticle->get_AllArticles();
                 
-
-                if($allComments){
-                for ($i=0; $i < count($allComments); $i++){
-                    $value = $allComments[$i]['numSeqCom'];
-                    
+                if($allArticles){
+                for ($i=0; $i < count($allArticles); $i++){
+                    $value = $allArticles[$i]['numArt'];
                 ?>
                 
-                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allComments[$i]['libCom']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allArticles[$i]['libTitrArt']; ?> </option>
+                
+                <?php
+                    } // End of foreach
+                }   // if ($result)
+                ?>
+            </select>
+        <br><br>        
+            <select name="Commentaire" id="Commentaire"  class="form-control form-control-create">
+                <option value="-1">- - - Choisissez un commentaire - - -</option>
+                <?php
+                $allCommentsbyArt = $monCommentaire->get_AllCommentsByNumArt($value);
+                
+                if($allCommentsbyArt){
+                for ($i=0; $i < count($allCommentsbyArt); $i++){
+                    $value1 = $allCommentsbyArt[$i]['numSeqCom'];
+                ?>
+                
+                <option value="<?php echo($value1); ?>"> <?= $value1 ." - " . $allCommentsbyArt[$i]['libCom']; ?> </option>
                 
                 <?php
                     } // End of foreach
@@ -213,9 +229,9 @@ include ROOT . '/back/likeCom/initLikeCom.php';
       </fieldset>
     </form>
 <?php
-require_once ROOT . '/back/likeCom/footerLikeCom.php';
+require_once __DIR__ . '/footerLikeCom.php';
 
-require_once ROOT . '/back/likeCom/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

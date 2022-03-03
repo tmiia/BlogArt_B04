@@ -2,7 +2,7 @@
 // CRUD MEMBRE
 // ETUD
 // A tester sur Blog'Art
-require_once ROOT . '/CONNECT/database.php';
+require_once __DIR__ . '../../CONNECT/database.php';
 
 class MEMBRE{
     function get_1Membre($numMemb){

@@ -8,23 +8,23 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Likecom
-require_once ROOT . '/CLASS_CRUD/likecom.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
 // Instanciation de la classe Likecom
 $monLikeCom = new LIKECOM ();
 
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
 $monMembre = new MEMBRE();
 
-require_once ROOT . '/CLASS_CRUD/article.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
 $monArticle = new ARTICLE();
 
-require_once ROOT . '/CLASS_CRUD/comment.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
 $monCommentaire = new COMMENT();
 
 ?>
@@ -111,7 +111,7 @@ $monCommentaire = new COMMENT();
 
     <p>&nbsp;</p>
 <?php
-require_once ROOT . '/back/likeCom/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

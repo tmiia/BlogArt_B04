@@ -8,22 +8,22 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
-require_once ROOT . '/util/dateChangeFormat.php';
+require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Thematique
-require_once ROOT . '/CLASS_CRUD/thematique.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
 
 // Instanciation de la classe Thematique
 $maThematique = new THEMATIQUE();
 
 
 // Insertion classe Langue
-require_once ROOT . '/CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe Langue
 $maLangue = new LANGUE();
@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
    // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 
 // Init variables form
-include ROOT . '/back/thematique/initThematique.php';
+include __DIR__ . '/initThematique.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -204,9 +204,9 @@ include ROOT . '/back/thematique/initThematique.php';
       </fieldset>
     </form>
 <?php
-require_once ROOT . '/back/thematique/footerThematique.php';
+require_once __DIR__ . '/footerThematique.php';
 
-require_once ROOT . '/back/thematique/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

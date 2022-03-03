@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once __DIR__ . '/util/utilErrOn.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -110,7 +110,7 @@ require_once ROOT . '/util/utilErrOn.php';
 	<br /><br />
 	</div>
 <?php
-require_once ROOT . '/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>
