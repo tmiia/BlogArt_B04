@@ -168,6 +168,8 @@ include __DIR__ . '/initUser.php';
             $passUser = intval(ctrlSaisies($_GET['id2']));
     
             $query = $monUser->get_1User($pseudoUser, $passUser)['query'];
+
+            
         //$queryStat = (array)$monMembre->get_1MembrebyStatut($_POST['idStat']);
 
         if ($query) {
