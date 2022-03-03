@@ -34,17 +34,29 @@
 
         <section class="articles">
 
-            <a class="article_recent" href="#">
-                <div class="article_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
+        <?php
+            require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
+            $monArticle = new ARTICLE();
+
+            $allArticle = $monArticle->get_AllArticles();
+
+            for($i = 0; $i <count($allArticle); $i++){ ?>
+
+                <a class="article_recent" href="viewArticle.php?id=<?=$allArticle[$i]['numArt']?>">
+                <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
                 <div class="article_recent_top">
-                    <h5>TitreArticle</h5>
-                    <p>ChapeauArticle</p>
+                <h5><?= $allArticle[$i]['libTitrArt'] ?></h5>
+                <p><?= $allArticle[$i]['libChapoArt'] ?></p>
                 </div>
                 <div class="article_recent_bot">
                     <div class="article_like"><i class="fa fa-heart"></i></div>
                     <div class="article_btn">Consulter l'article</div>
                 </div>
             </a>
+            <?php 
+            }
+?>
+
 
 
         </section>
