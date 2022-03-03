@@ -1,0 +1,64 @@
+#main_administration {
+    display:flex;
+    font-family: $fontText;
+
+    .admin_liens {
+        background: $noir;
+        width: 20%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+
+        a {
+            color: $blanc;
+        }
+        .accueil {
+            font-family: $fontTitre;
+            margin: 20px;
+            font-size: 20px;
+            text-align: center;
+        }
+
+        span {
+            font-size: 18px;
+            color: $blanc;
+            text-transform: uppercase;
+            font-weight: bold;
+            display:block;
+        }
+        ul {
+            margin: 20px 0;
+            width: calc(100% - 40px);
+            li {
+                margin-left: 40px;
+                a {
+                    color: $blanc;
+
+                    &:hover {
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+
+    .admin_body {
+        text-align: center;
+        flex:1; 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        height: 100vh;
+
+        h1 {
+            font-weight: bold;
+            font-size: 60px;
+        }
+        h2 {
+            color: $rouge;
+            font-family: $fontTitre;
+            font-weight: normal;
+        }
+    }
+}
