@@ -4,14 +4,14 @@
 require_once __DIR__ . '../../CONNECT/database.php';
 
 class USER{
-	function get_1User($pseudoUser, $passUser){
+	function get_1User($pseudoUser){
 		global $db;
 
-		$query = "SELECT * FROM LANGUE WHERE pseudoUser = ?;";
+		$query = "SELECT * FROM USER WHERE pseudoUser=?";
 		// prepare
 		$result = $db->prepare($query);
 		// execute
-		$result->execute([$pseudoUser, $passUser]);
+		$result->execute([$pseudoUser]);
 		return($result->fetch());
 	}
 
@@ -33,6 +33,16 @@ class USER{
 		$result = $db->prepare($query);
 		$result->execute(array($pseudoUser));
 		return($result->rowCount());
+	}
+
+	function get_PassByUser($pseudoUser) {
+		global $db;
+
+		$query = 'SELECT passUser FROM USER WHERE pseudoUser = ?;';
+		$request = $db->prepare($query);
+		$request->execute([$pseudoUser]);
+		$passUser = $request->fetch();
+		return($passUser);
 	}
 
 	function get_AllUsersByStat(){
@@ -96,7 +106,7 @@ class USER{
 		}
 	}
 
-	function delete($pseudoUser, $passUser){
+	function delete($pseudoUser){
 		global $db;
 		
 		
@@ -104,11 +114,11 @@ class USER{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'DELETE FROM USER WHERE pseudoUser=? AND passUser=?'; 
+			$query = 'DELETE FROM USER WHERE pseudoUser=?'; 
 			// prepare
 			$request = $db->prepare($query);
 			// execute
-			$request->execute([$pseudoUser, $passUser]);
+			$request->execute([$pseudoUser]);
 
 			$count = $request->rowCount(); 
 			$db->commit();
