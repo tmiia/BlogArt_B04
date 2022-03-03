@@ -1236,13 +1236,14 @@ header h2 span {
   margin-right: 20px;
 }
 
-.cgu h1 {
+h1 {
   margin: 150px 100px 50px 100px;
   display: flex;
   justify-content: center;
   font-family: century-gothic, sans-serif;
 }
-.cgu h2 {
+
+h2 {
   margin: 50px 100px 100px 100px;
   display: flex;
   justify-content: center;
@@ -1250,7 +1251,8 @@ header h2 span {
   color: #868686;
   font-size: 20px;
 }
-.cgu p {
+
+p {
   display: flex;
   padding: 0 200px 0px 200px;
   justify-content: center;
@@ -1258,7 +1260,8 @@ header h2 span {
   font-size: 14;
   text-align: justify;
 }
-.cgu H3 {
+
+H3 {
   margin-top: 130px;
   margin-bottom: 50px;
   display: flex;
@@ -1266,10 +1269,12 @@ header h2 span {
   font-family: century-gothic, sans-serif;
   font-size: 20px;
 }
-.cgu .art {
+
+.art {
   padding: 0 300px 25px 300px;
 }
-.cgu .end {
+
+.end {
   margin-bottom: 100px;
 }
 

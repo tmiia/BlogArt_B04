@@ -17,9 +17,15 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe User
+require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
 
 // Instanciation de la classe User
+$monUser = new USER();
+// Instanciation de la classe Statut
+require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
 
+// Instanciation de la classe Statut
+$monStatut = new STATUT();
 
 ?>
 <!DOCTYPE html>
@@ -67,30 +73,32 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
     <tbody>
 <?php
     // Appel méthode : Get tous les users en BDD
-
+$allUsers = $monUser->get_AllUsers();
+    for ($i=0; $i< count($allUsers); $i++){
+        
+    
     // Boucle pour afficher
     //foreach($all as $row) {
 
 ?>
             <tr>
 
-            <td><h4>&nbsp; <?= "ici pseudoUser"; ?> &nbsp;</h4></td>
+            <td><h4>&nbsp; <?= $allUsers[$i]['pseudoUser']; ?> &nbsp;</h4></td>
 
-            <td>&nbsp; <?= "ici prenomUser" . " " . "ici nomUser"; ?> &nbsp;</td>
+            <td>&nbsp; <?=   $allUsers[$i]['prenomUser'] . " " . $allUsers[$i]['nomUser']; ?> &nbsp;</td>
 
-            <td>&nbsp; <?= "ici eMailUser"; ?> &nbsp;</td>
+            <td>&nbsp; <?= $allUsers[$i]['eMailUser']; ?> &nbsp;</td>
 
-            <td>&nbsp; <?= "ici libStat"; ?> &nbsp;</td>
+            <td>&nbsp; <?= $monStatut->get_1Statut($allUsers[$i]['idStat'])['libStat'];?> &nbsp;</td> 
 
-            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateUser.php?id1=<?=1; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier user" title="Modifier user" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateUser.php?id1=<?=$allUsers[$i]['pseudoUser'] ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier user" title="Modifier user" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br /></td>
 
             <td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="#" class="superAdmin"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Suppression user impossible" title="Suppression user impossible" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
             <br /></td>
         </tr>
 <?php
-
-	// }	// End of foreach
+ }	// End of foreach
 ?>
     </tbody>
     </table>

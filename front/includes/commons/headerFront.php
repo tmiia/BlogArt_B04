@@ -10,7 +10,6 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
         <div class="langues">
             <span>FR</span>
             <img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas">
-            <!-- <img src="../front/assets/fleche_bas.svg" alt="fleche_bas"> -->
         </div>
 
         <a href="./pageArticles.php">Articles</a>
@@ -19,12 +18,8 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
     </nav>
 
     <div class="connect">
-        <?php if(isset($_COOKIE['eMailMemb'])){?>  <a href="#"><?= $_COOKIE['pseudoMemb'] ?></a> <?php } else{?>
         <a href="../connexion.php">Connexion</a>
-        <?php } if(isset($_COOKIE['eMailMemb'])){ ?>
-        <a class="btn_inscription" href="../deconnexion.php">Déconnexion</a> <?php } else{ ?>
         <a class="btn_inscription" href="../inscription.php">Inscription</a>
-        <?php } ?>
     </div>
 </div>
 
