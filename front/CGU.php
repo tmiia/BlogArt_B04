@@ -40,7 +40,7 @@ des présentes CGU.</p>
 <H3>ARTICLE 1 : Les mentions légales</H3>
 
                 <p class="art">L’édition et la direction de la publication du site www.AuBordDesRues.fr est assurée par Nébula
-                agency, domicilié 1 Rue Jacques Ellul.
+                agency (Nehémia Telusma, Ayline TRAVERS, Olivia SIMONET, Auriane-Mirana SICARD-RAZAKA, Lyam Roux), domicilié 1 Rue Jacques Ellul.
                 Numéro de téléphone est 07 ** ** ** **
                 Adresse e-mail Nébula.agency@gmail.com.</p>
 

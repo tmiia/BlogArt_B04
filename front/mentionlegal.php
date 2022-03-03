@@ -33,16 +33,17 @@ mentions légales.
 <br>
 
 <p>La connexion et la navigation sur le Site par l’Utilisateur implique acceptation intégrale et sans réserve
-des présentes mentions légales. <br>
+des présentes mentions légales.
 Ces dernières sont accessibles sur le Site à la rubrique « Mentions légales ».
 </p>
 
 <h3>ARTICLE 1 - L'EDITEUR</h3>
-<P>L’édition et la direction de la publication du Site est assurée par Nébula, domiciliée 1 rue jack Ellul
-33000 bordeaux, dont le numéro de téléphone est 07********, et l'adresse e-mail
-Nébula.agency@gmail.com..
-ci-après l'"Editeur".
-</P>
+
+            <P>L’édition et la direction de la publication du Site est assurée par Nébula Agency (Nehémia Telusma, Ayline TRAVERS, Olivia SIMONET, Auriane-Mirana SICARD-RAZAKA, Lyam Roux), domiciliée 1 rue jack Ellul
+            33000 bordeaux, dont le numéro de téléphone est 07********, et l'adresse e-mail
+            Nébula.agency@gmail.com..
+            ci-après l'"Editeur".
+            </P>
 
 <h3>ARTICLE 2 - L'HEBERGEUR
 </h3>
