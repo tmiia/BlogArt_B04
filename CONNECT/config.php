@@ -12,10 +12,7 @@ $userBD = 'root';         // Votre login
 // mot de passe de connexion à la BDD
 $passBD = '';         // Votre Pass
 
-if(defined(ROOT) == false) {
-    define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/blogart22');
-}
 
-if(defined(ROOTFRONT) == false) {
-    define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/blogart22'); 
-}
+define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/blogart22');
+
+define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/blogart22'); 
