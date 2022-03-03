@@ -64,7 +64,7 @@ require_once ROOT . '/front/includes/commons/headerFront.php';
         <h3><span>Connexion</span></h3>
 
         <div class="champs_connexion">
-            <label>Pseudo :</label><br>
+            <label>Adresse mail :</label><br>
             <input type="text" name="eMailMemb" value=""/><br>
 
             <label>Mot de passe :</label><br>
