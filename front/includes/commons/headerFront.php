@@ -18,8 +18,12 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
     </nav>
 
     <div class="connect">
+        <?php if(isset($_COOKIE['eMailMemb'])){?>  <a href="#"><?= $_COOKIE['pseudoMemb'] ?></a> <?php } else{?>
         <a href="<?=ROOTFRONT?>/connexion.php">Connexion</a>
+        <?php } if(isset($_COOKIE['eMailMemb'])){ ?>
+        <a class="btn_inscription" href="<?=ROOTFRONT?>/deconnexion.php">Déconnexion</a> <?php } else{ ?>
         <a class="btn_inscription" href="<?=ROOTFRONT?>/inscription.php">Inscription</a>
+        <?php } ?>
     </div>
 </div>
 
