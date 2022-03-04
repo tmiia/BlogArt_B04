@@ -48,7 +48,7 @@ require_once ROOT . '/front/includes/commons/headerFront.php';
             <input type="text" name="pseudoUser" value=""/><br>
 
             <label>Mot de passe :</label><br>
-            <input type="text" name="passUser" value=""/><br>
+            <input type="password" name="passUser" value=""/><br>
         
             <button type="submit">Se connecter</button>
         </div>
