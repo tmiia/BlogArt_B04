@@ -23,9 +23,9 @@ $maThematique = new THEMATIQUE();
 
 ?>
 <select name='thematique' id='thematique' style='padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;' >
-    <option value="-1"><?= var_dump($_POST)?></option>
+    <option value="-1">- - - Choisissez une thématique - - -</option>
         <?php
-            $numThem = $_POST["numThem"];
+            $numThem =  $_REQUEST["numThem2"];
             
             if (isset($numThem)) {
                 $allThem = $maThematique->get_AllThematiquesByLang($numThem);
@@ -39,7 +39,7 @@ $maThematique = new THEMATIQUE();
                     <?php
                     }
                 }else{ ?>
-                    <option value='-1'><?=var_dump($_POST);?></option>
+                    <option value='-1'>lalala</option>
                 <?php  }
                 // if ($result)
             }

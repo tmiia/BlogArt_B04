@@ -49,7 +49,7 @@ $maThematique = new THEMATIQUE();
 <body>
 <!-- HEADER -->
     <?php
-    require_once __DIR__ . '/includes/commons/headerFront.php';
+        require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
 <div id="main_page_articles">
@@ -63,51 +63,54 @@ $maThematique = new THEMATIQUE();
     </div>
 
     <!------------>
-
-
-
+    
     <div class="tri_article">
         <div>
-            <select name="Langue" id="Langue"  class="form-control form-control-create" onchange="change()">
-                <option value="-1">- - - Choisissez une langue - - -</option>
+            <label>Trier par Langue :</label>
+            <div class="theme_select_container" for="theme_select">
+                <select name="Langue" id="Langue"  class="form-control form-control-create" onchange="change()">
+                    <option value="-1">- - - Choisissez une langue - - -</option>
+                        <?php
+                            $allLangueAngle = $monAngle->get_AllLangues();
+
+                            
+                            if($allLangueAngle){
+                                for ($i=0; $i < count($allLangueAngle); $i++){
+                                    $value = $allLangueAngle[$i]['numLang'];
+                        ?>
+                            
+                    <option value="<?php echo($value); ?>"> <?= $allLangueAngle[$i]['lib2Lang']; ?> </option>
+                            
                     <?php
-                        $allLangueAngle = $monAngle->get_AllLangues();
+                        } // End of foreach
                         
-                        if($allLangueAngle){
-                            for ($i=0; $i < count($allLangueAngle); $i++){
-                                $value = $allLangueAngle[$i]['numLang'];
+                    }   // if ($result)
                     ?>
-                        
-                <option value="<?php echo($value); ?>"> <?= $allLangueAngle[$i]['lib2Lang']; ?> </option>
-                        
-                <?php
-                    } // End of foreach
-                }   // if ($result)
-                ?>
-            </select>
+                </select>
+            </div>
         </div>
+
         <div>
 
-            <label>TRIER PAR THEMATIQUE:</label>
+            <label>Trier par thématique :</label>
             
-            <label class="theme_select_container" for="theme_select">
-                <select name="thematique" id="thematique"  class="form-control form-control-create">
-                    <option value='-1'>- - - Choisissez une thématique - - -</option>
+            <div class="theme_select_container" for="theme_select">
+                <select name="thematique2" id="thematique2"  class="form-control form-control-create" onchange="change()">
+                    <option style="text-align:center;" value='-1'>- - - Choisissez une thématique - - -</option>
                 </select>
-            </label>
+            </div>
         </div>
         
         <div>
 
-            <label>TRIER PAR DATE:</label>
-            <br>
-                <label class="theme_select_container" for="date_select">
+            <label>Trier par date :</label>
+                <div class="theme_select_container" for="date_select">
                         <select class="date_select" name="date" id="date_select">
                             
                             <option value="Croissant">Ordre croissant</option>
                             <option value="Décroissant">Ordre décroissant</option>
                         </select>
-                </label>
+                </div>
 
                 
         </div>
@@ -150,20 +153,44 @@ $maThematique = new THEMATIQUE();
 			xhr2.onreadystatechange = function() {
 				// test si tout est reçu et si serveur est ok
                 if(xhr2.readyState == 4 && xhr2.status == 200){
-                    di2 = document.getElementById('thematique');
+                    di2 = document.getElementById('thematique2');
                     di2.innerHTML = xhr2.responseText;
                 }
+
+			}
+            xhr.onreadystatechange = function() {
+				// test si tout est reçu et si serveur est ok
+                if(xhr.readyState == 4 && xhr.status == 200){
+
+                    di3 = document.getElementById('articles_list');
+                    di3.innerHTML = xhr.responseText;
+                }
+
 			}
             // Traitement en POST
 			xhr2.open("POST","./includes/commons/ajaxThematiqueArticles.php",true);
 			// pour le post
 			xhr2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
-			numThem = document.getElementById('Langue').options[document.getElementById('Langue').selectedIndex].value;
+			numThem2 = document.getElementById('Langue').options[document.getElementById('Langue').selectedIndex].value;
+			// Recup numClas à classe (PK) à passer en "m" à etudiant (FK)
+			xhr2.send("numThem2="+numThem2);
+
+            // Traitement en POST
+			xhr.open("POST","./includes/commons/ajaxTriArticles.php",true);
+			// pour le post
+			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
+			// poster arguments : ici, numClas
+            numThem = document.getElementById('thematique2')
+            console.log(numThem);
+			numThem = document.getElementById('thematique2').options[document.getElementById('thematique2').selectedIndex].value;
             console.log(numThem);
 			// Recup numClas à classe (PK) à passer en "m" à etudiant (FK)
-			xhr2.send("numThem="+numThem);
+			xhr.send("numThem="+numThem);
+
 		}	// End of function
+
+
   </script>
 
 <!-- --------------------------------------------------------------- -->
@@ -173,7 +200,7 @@ $maThematique = new THEMATIQUE();
 
 
     <!------------>
-    <div class="articles">
+    <div id="articles_list" class="articles">
 
             <?php
                 require_once __DIR__ . '/../CLASS_CRUD/article.class.php';

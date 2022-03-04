@@ -10,7 +10,7 @@ $maLangue = new LANGUE();
     <nav>
         <a href="<?=ROOTFRONT?>/front/home.php"><img src="<?=ROOTFRONT?>/front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
             
-              <select name="Langue" id="Langue"  class="langues">
+              <select name="LangueNav" id="LangueNav"  class="langues">
                   <option value="-1"><?php echo('LANGUE'); ?><img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas"></option>
                   <?php
                   $allLangues = $maLangue->get_AllLangues();

@@ -141,7 +141,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
         <div class="infos_article">
             <span class="art_info"><?= $dtCreArt ?></span>
-            <span class="art_info">44 min de lecture</span>
+            <span class="art_info">3 min de lecture</span>
             <a href="#" class="art_btn partage"><i class="fa fa-share-alt"></i><span>Partager</span></a>
             <?php  if($monLikeArt->get_1LikeArt($currentMemb['numMemb'], $id) == false){
                 $isLike = "0";
