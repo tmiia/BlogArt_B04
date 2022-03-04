@@ -821,6 +821,7 @@ header h2 span {
 }
 #main_article .article_more .article_autres {
   min-width: 45%;
+  max-width: 45%;
   margin-right: 50px;
 }
 #main_article .article_more .article_autres .article_preview {
@@ -870,6 +871,8 @@ header h2 span {
   width: 70%;
   font-weight: 400;
   margin: 20px;
+  flex: 1;
+  overflow: hidden;
 }
 #main_article .article_more .article_coms {
   flex: 1;

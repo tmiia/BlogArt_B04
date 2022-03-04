@@ -102,6 +102,19 @@ class ARTICLE{
 		return($allArticlesByMotsCles);
 	}
 
+	function get_articlesimilaires($motcle) {
+		global $db;
+
+		$sql = "SELECT * FROM article WHERE motcle = ? ORDER BY numArt DESC";
+        // prepare
+        $result = $db->prepare($sql);
+        // execute
+        $result->execute([$motcle]);
+		
+		$allArticlesByMotsCles = $result->fetchAll();
+		return($allArticlesByMotsCles);
+	}
+
 	// Barre de recherche JOIN : mots clés par MOTCLE (TJ) dans ARTICLE
 	function get_MotsClesByArticles($listMotcles){
 		global $db;

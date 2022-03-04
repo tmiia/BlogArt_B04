@@ -40,17 +40,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
-    
+        
         header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
     }   // End of if ((isset($_POST["submit"])) ...
         
-    if (((isset($_POST['idMembCom'])) AND (!empty($_POST['idMembCom'])) AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
+    if (((isset($_POST['currentMemb'])) AND (!empty($_POST['currentMemb'])) AND (isset($_POST['reponse'])) AND (!empty($_POST['reponse']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
         AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
+
             // Saisies valides
+    
+            header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
+
             $erreur = false;
            
-            $numMemb = ctrlSaisies(($_POST['idMembCom']));
-            $numArt = ctrlSaisies(($_POST['Article']));
+            $numMemb = ctrlSaisies(($_POST['currentMemb']));
+            $numArt = ctrlSaisies(($_POST['reponse']));
             $numSeqCom = intval($monCommentaire->getNextNumCom($numArt));
             $libCom = ctrlSaisies(($_POST['libCom']));
             // $dtCreCom = ctrlSaisies(($_POST['dtCreCom']));
@@ -59,6 +63,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $monCommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
     
             header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
+
+            if ((isset($_POST['reponse'])) != $id){
+
+                ?>
+
+                <script>
+                    let repCom = document.querySelector('.commentaire');
+                    repCom.classList.add("reponse");
+
+                    
+                </script>
+
+                <?php
+
+            }
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
@@ -98,7 +117,6 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         $urlPhotArt = $query['urlPhotArt'];
         $numAngl = $query['numAngl'];
         $numThem = $query['numThem'];
-        $idMembCom = $query['idMembCom'];
     } 
 
     $queryComment = $monCommentaire->get_AllCommentsByNumArt($id);
@@ -214,22 +232,19 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
             <div class="article_autres">
 
-                <a class="article_preview" href="#">
-                    <div class="preview_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
-                    <h5>Titre de l'article</h5>
-                    <p>Chapeau Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
-                </a>
-                <a class="article_preview" href="#">
-                    <div class="preview_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
-                    <h5>Titre de l'article</h5>
-                    <p>Chapeau Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
-                </a>
-                <a class="article_preview" href="#">
-                    <div class="preview_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
-                    <h5>Titre de l'article</h5>
-                    <p>Chapeau Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
-                </a>
+                <?php
+                    $lastArticles = $monArticle->get_LastArticles();
 
+                    for($i = 0; $i < 3; $i++){
+                        ?>
+                        <a class="article_preview" href="./viewArticle.phpviewArticle.php?id=<?=$lastArticles[$i]['numArt'] ?>">
+                                <div class="preview_illustration" style="background-image: url('../uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>');"></div>
+                                    <h5><?= $lastArticles[$i]['libTitrArt'] ?></h5>
+                                    <p><?= $lastArticles[$i]['libChapoArt'] ?></p>
+                                </a>
+                <?php
+                        }
+                ?>
             </div>
 
             <div class="article_coms">
@@ -241,7 +256,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
                             <div class="commentaire">
                             <div class="com_membre">
-                                <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar USERNAME"/>
+                                <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar <?=$pseudo?>"/>
                                 <div class="btn_like_com" title="J'aime"><i class="fa fa-heart"></i></div>
                             </div>
                             <div class="com_cont">
@@ -286,7 +301,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
                         <fieldset>
                             <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
-                            <input type="hidden" id="idMembCom" name="idMembCom" value="<?php $currentMemb['numMemb']; ?>" />
+                            <input type="hidden" id="currentMemb" name="currentMemb" value="<?= $currentMemb['numMemb']; ?>" />
 
                             <!-- --------------------------------------------------------------- -->
                                 <!-- FK : Membre, Article -->
@@ -301,8 +316,9 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                                     </label>
 
                                     <!-- Listbox Article => 2ème temps -->
-                                    <select name="Article" id="Article"  class="form-control form-control-create">
-                                        <option value="-1">L'article</option>
+                                    <select name="reponse" id="reponse"  class="form-control form-control-create">
+                                        <option value="-1">Choisir</option>
+                                        <option value="<?= $id ?>"> -  L'article</option>
                                         <?php
                                             $allMembByArt = $monCommentaire->get_allmembresbyarticle($id);
                                             
