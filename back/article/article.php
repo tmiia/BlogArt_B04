@@ -57,41 +57,10 @@ require_once __DIR__ . '../../../front/includes/commons/imports.php';
 
 </head>
 <body>
-    <div id="main_administration">
-
-    <div class="admin_liens">
-
-        <a class="accueil" href="/panneauAdmin.pnp">Accueil</a>
-        <span>Gestion des articles</span>
-        <ul>
-            <li><a href="./back/article/article.php">Liste des articles</a></li>
-            <li><a href="./back/article/createarticle.php">Créer un article</a></li>
-        </ul>
-        <span>Gestion des utilisateurs</span>
-        <ul>
-            <li><a href="./back/article/article.php">Liste des statuts</a></li>
-            <li><a href="./back/membre/membre.php">Liste des membres</a></li>
-            <li><a href="#">Gérer membre</a></li>
-        </ul>
-        <span>Gestion des Langues</span>
-        <ul>
-            <li><a href="./back/article/article.php">Gestion des langues</a></li>
-            <li><a href="./back/langue/langue.php">Liste des langues</a></li>
-            <li><a href="./back/langue//createLangue.php">Ajouter une langue</a></li>
-        </ul>
-        <span>Gestion des Thèmes</span>
-        <ul>
-            <li><a href="./back/article/article.php">Gestion des thèmes</a></li>
-            <li><a href="./back/thematique/thematique.php">Liste des thématiques</a></li>
-            <li><a href="./back/angle/angle.php">Liste des angles</a></li>
-            <li><a href="./back/motcle/motcle.php">Liste des mots-clef</a></li>
-        </ul>
-        <span>Gestion des articles</span>
-        <ul>
-            <li><a href="./back/article/article.php">Liste des articles</a></li>
-            <li><a href="./back/article/createarticle.php">Créer un article</a></li>
-        </ul>
-    </div>
+    
+	<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
 
         <div class="admin_body">
             <h1>Panneau Admin : Liste des articles</h1>
