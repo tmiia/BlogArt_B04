@@ -30,7 +30,7 @@ function connect_user($pseudoUser, $passUser) {
     $user = $result->fetch();
 
     if($user) {
-        setcookie('user', $user['eMailUser, passUser']);
+        setcookie('user', $user['eMailUser, passUser'], 1000000, "/");
         header('Location: ' . ROOT . '/front/pageArticles.php');
     }
 }
