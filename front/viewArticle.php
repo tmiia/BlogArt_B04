@@ -30,10 +30,8 @@ if(isset($_COOKIE)){
 		$result2->execute([$pseudoCurrentMemb]);
         $currentMemb = $result2->fetch();
 }
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    
+   $id = $_POST['id'];
     // controle des saisies du formulaire
     if(isset($_POST['Submit'])){
         $Submit = $_POST['Submit'];
@@ -43,15 +41,15 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
-            header("Location: ./comment.php");
+        header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
     }   // End of if ((isset($_POST["submit"])) ...
         
-    if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
+    if (((isset($_POST['idMembCom'])) AND (!empty($_POST['idMembCom'])) AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
         AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
             // Saisies valides
             $erreur = false;
            
-            $numMemb = ctrlSaisies(($_POST['Membre']));
+            $numMemb = ctrlSaisies(($_POST['idMembCom']));
             $numArt = ctrlSaisies(($_POST['Article']));
             $numSeqCom = intval($monCommentaire->getNextNumCom($numArt));
             $libCom = ctrlSaisies(($_POST['libCom']));
@@ -60,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $monCommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
     
-            header("Location: ./comment.php");
+            header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
@@ -100,6 +98,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         $urlPhotArt = $query['urlPhotArt'];
         $numAngl = $query['numAngl'];
         $numThem = $query['numThem'];
+        $idMembCom = $query['idMembCom'];
     } 
 
     $queryComment = $monCommentaire->get_AllCommentsByNumArt($id);
@@ -115,7 +114,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/modal.js"></script>
     <link href="style.css" rel="stylesheet">
-    <title>Article / Titre</title>
+    <title><?= $libTitrArt ?></title>
 
 </head>
 <body>
@@ -207,7 +206,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         <div class="article_auteurs">
             <span>
                 <b>By.</b>
-                La team du turfu
+                Au bord des rues
             </span>
         </div>
 
@@ -257,8 +256,8 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                     else{
                 ?>
                 <div class="commentaire">
-                    <div class="com_cont">  
-                        Pas de commentaire.
+                    <div class="com_cont no_com">  
+                        Aucun commentaire pour le moment.
                     </div>
                 </div>
                 <?php } ?>
@@ -287,60 +286,32 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
                         <fieldset>
                             <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+                            <input type="hidden" id="idMembCom" name="idMembCom" value="<?php $currentMemb['numMemb']; ?>" />
 
                             <!-- --------------------------------------------------------------- -->
                                 <!-- FK : Membre, Article -->
                             <!-- --------------------------------------------------------------- -->
                             <!-- --------------------------------------------------------------- -->
                             
-                            <!-- Listbox Membre -->
-                            <div class="control-group">
-                                <div class="controls">
-                                    <label class="control-label" for="LibTypAngl">
-                                        <b>Quel membre :&nbsp;&nbsp;&nbsp;</b>
-                                    </label>
-                                
-                                    <select name="Membre" id="Membre"  class="form-control form-control-create">
-                                        <option value="-1">- - - Choisissez un membre - - -</option>
-                                        <?php
-                                        $allMembres = $monMembre->get_AllMembres();
-                                        
-                                        if($allMembres){
-                                        for ($i=0; $i < count($allMembres); $i++){
-                                            $value = $allMembres[$i]['numMemb'];
-                                        ?>
-                                        
-                                        <option value="<?php echo($value); ?>"> <?= $value ." - " . $allMembres[$i]['pseudoMemb']; ?> </option>
-                                        
-                                        <?php
-                                            } // End of foreach
-                                        }   // if ($result)
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- FIN Listbox Membre -->
-                            <!-- --------------------------------------------------------------- -->
-                            <!-- --------------------------------------------------------------- -->
                             <!-- Listbox Article -->
                             <div class="control-group">
                                 <div class="controls">
                                     <label class="control-label" for="LibTypThem">
-                                        <b>Quel article :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                                        <b>Répondre à :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
                                     </label>
 
                                     <!-- Listbox Article => 2ème temps -->
                                     <select name="Article" id="Article"  class="form-control form-control-create">
-                                        <option value="-1">- - - Choisissez un article - - -</option>
+                                        <option value="-1">L'article</option>
                                         <?php
-                                        $allArticles = $monArticle->get_AllArticles();
-                                        
-                                        if($allArticles){
-                                        for ($i=0; $i < count($allArticles); $i++){
-                                            $value = $allArticles[$i]['numArt'];
+                                            $allMembByArt = $monCommentaire->get_allmembresbyarticle($id);
+                                            
+                                            if($allMembByArt){
+                                            for ($i=0; $i < count($allMembByArt); $i++){
+                                                $value = $allMembByArt[$i]['numMemb'];
                                         ?>
                                         
-                                        <option value="<?php echo($value); ?>"> <?= $value ." - " . $allArticles[$i]['libTitrArt']; ?> </option>
+                                        <option value="<?php echo($value); ?>"> <?= $monMembre->get_1Membre($allMembByArt[$i]['numMemb'])['pseudoMemb'] . " - " .  $allMembByArt[$i]['libCom'] ?> </option>
                                         
                                         <?php
                                             } // End of foreach

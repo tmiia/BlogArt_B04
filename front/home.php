@@ -64,15 +64,15 @@
         <h4>La solidarité en action</h4>
 
         <section class="redirection">
-            <a class="outSite" href="#">
-                <div class="event_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
-                <h5>Les restos du coeur</h5>
-                <p>Faire un don. La générosité des donateurs est essentielle pour le fonctionnement des Restos. Sans les dons, nous ne pourrions par assurer nos ...</p>
+            <a class="outSite" href="https://collecte.restosducoeur.org/" target="_blank">
+                <div class="event_illustration" style="background-image: url('https://collecte.restosducoeur.org/wp-content/uploads/2021/12/cropped-Bandeau-site-CN22.png'); background-position:right;"></div>
+                <h5>Collecte nationale 2022 : </h5>
+                <p>Les équipes de bénévoles des Restos seront présentes dans des centaines de supermarchés et commerces dans toute la France pour récolter des denrées alimentaires et des produits d’hygiène. </p>
             </a>
-            <a class="outSite" href="#">
-              <div class="event_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
-                <h5>Deuxième lien externe</h5>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum quis soluta pariatur nulla cumque minima omnis accusantium, reiciendis beatae enim nihil.</p>
+            <a class="outSite" href="https://www.bordeaux.fr/p148833/la-nuit-de-la-solidarite">
+              <div class="event_illustration" style="background-image: url('https://www.bordeaux.fr/images/ebx/fr/presentationStandard/148833/nuit-solidarites_550_2gif_1.gif');"></div>
+                <h5>Nuit de la solidarité 2022</h5>
+                <p>Pour la première fois, Bordeau s'est unie au mouvement national des Nuits de la Solidarité, dans le cadre d'une grande enquête visant à prévoir des solutions solidaires.</p>
             </a>
         </section>
 
