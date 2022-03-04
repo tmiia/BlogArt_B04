@@ -62,7 +62,7 @@ require_once __DIR__ . '../../../front/includes/commons/imports.php';
 		include __DIR__ . '../../../front/includes/commons/navigationback.php';
 	?>
 
-        <div class="admin_body">
+        
             <h1>Panneau Admin : Liste des articles</h1>
 
             <hr />

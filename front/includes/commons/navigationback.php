@@ -29,3 +29,5 @@
 				<li><a href="<?=ROOTFRONT?>/back/likeCom/likeCom.php">Liste des likes de commentaire</a></li>
 			</ul>
 		</div>
+
+        <div class="admin_body">
