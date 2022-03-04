@@ -25,20 +25,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 
     // fonction qui vérifie que l'utilisateur a bien tapé ce qui correspond au hash de la BDD
-    password_verify($_POST['passMemb'], $passCrypt); // retourne un booleen
-
-    connect_user($_POST['eMailMemb'], $_POST['passMemb']);
 
     if (password_verify($_POST['passMemb'], $passCrypt) === true) {
-        setcookie('eMailMemb', $membre, time() + 3000600);
-        setcookie('pseudoMemb', $pseudo, time() + 30003600);
+        setcookie('eMailMemb', $membre, time() + 3000600, "/");
+        setcookie('pseudoMemb', $pseudo, time() + 30003600, "/");
 
-        if(isset($_COOKIE['eMailMemb'])) {  
             header("Location: /blogart22/front/pageArticles.php");
-            echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
-        } else {
-            echo('Merci de vous connecter.');
-        }
 
     } else {
         echo('Mauvais mdp sorry');
