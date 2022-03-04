@@ -7,25 +7,19 @@ require_once __DIR__ . '/../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../util/ctrlSaisies.php';
 
-// Insertion classe Article
-require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
-
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
-
 // Insertion classe Angle
-require_once __DIR__ . '/../CLASS_CRUD/angle.class.php';
+require_once __DIR__ . '/../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
 $monAngle = new ANGLE();
 
 // Insertion classe Langue
-require_once __DIR__ . '/../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../class_crud/langue.class.php';
 
-// Instanciation de la classe langue
+// // Instanciation de la classe langue
 $maLangue = new LANGUE();
 
-require_once __DIR__ . '/../CLASS_CRUD/thematique.class.php';
+require_once __DIR__ . '/../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
 $maThematique = new THEMATIQUE();
    
