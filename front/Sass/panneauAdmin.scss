@@ -1,10 +1,12 @@
 #main_administration {
     display:flex;
     font-family: $fontText;
+    height: 100%;
 
     .admin_liens {
         background: $noir;
-        width: 20vw;
+        width: 20%;
+        height: 100vh;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -43,6 +45,7 @@
     }
 
     .admin_body {
+        width: 80%;
         text-align: center;
         flex:1; 
         display: flex;
@@ -60,4 +63,14 @@
             font-weight: normal;
         }
     }
+}
+i{
+    font-style: normal;
+}
+.footer_admin{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 30px;
+    z-index: 20;
 }

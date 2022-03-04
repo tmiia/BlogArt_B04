@@ -94,7 +94,7 @@ require_once __DIR__ . '../../../front/includes/commons/imports.php';
     </div>
 
         <div class="admin_body">
-            <h1>BLOGART22 Admin - CRUD article</h1>
+            <h1>Panneau Admin : Liste des articles</h1>
 
             <hr />
             <h2>Nouvel article :&nbsp;<a href="./createarticle.php"><i>Créer un article</i></a></h2>
