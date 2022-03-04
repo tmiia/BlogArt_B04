@@ -44,6 +44,21 @@ class COMMENT{
 		return($allCommentsByArt);
 	}
 
+	function get_allmembresbyarticle($numArt){
+        global $db;
+
+        // select
+        $sql = "SELECT * FROM comment WHERE numArt = ?";
+        // prepare
+        $req = $db->prepare($sql);
+        // execute
+        $req->execute([$numArt]);
+
+        $allmembresbyarticle = $req->fetchAll();
+
+        return($allmembresbyarticle);
+    }
+
 	// function get_1CommentsByNumSeqComNumArt($numSeqCom, $numArt){
 	// 	global $db;
 

@@ -497,6 +497,7 @@ header h2 span {
   right: 9px;
   background-size: contain;
   background-repeat: no-repeat;
+  pointer-events: none;
 }
 #main_page_articles .tri_article div .theme_select_container select {
   position: relative;
@@ -773,6 +774,7 @@ header h2 span {
 #main_article .content_article .body_article {
   flex: 1;
   font-size: 14px;
+  line-height: 20px;
 }
 #main_article .content_article .body_article h4 {
   color: #8B8B8B;
@@ -815,10 +817,11 @@ header h2 span {
   display: flex;
   margin-top: 100px;
   height: 400px;
-  width: 90%;
+  width: 100%;
 }
 #main_article .article_more .article_autres {
-  min-width: 55%;
+  min-width: 45%;
+  margin-right: 50px;
 }
 #main_article .article_more .article_autres .article_preview {
   flex: 1;
@@ -936,6 +939,13 @@ header h2 span {
 }
 #main_article .article_more .article_coms .commentaire .com_cont p {
   margin-top: 10px;
+}
+#main_article .article_more .article_coms .commentaire .com_cont.no_com {
+  margin: 0;
+  font-size: 16px;
+  font-style: italic;
+  text-align: center;
+  width: 100%;
 }
 #main_article .article_more .article_coms .commentaire.reponse {
   margin-left: 100px;
