@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD LIKEART (PDO) - Modifié : 4 Juillet 2021
+//  CRUD likeart (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : deleteLikeArt.php  -  (ETUD)  BLOGART22
+//  Script  : deletelikeart.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,17 +13,17 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Likeart
-require_once __DIR__ . '/../../CLASS_CRUD/likeart.class.php';
-$monLikeArt = new LIKEART();
+// Insertion classe likeart
+require_once __DIR__ . '/../../class_crud/likeart.class.php';
+$monlikeart = new likeart();
 
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
-$monMembre = new MEMBRE();
+require_once __DIR__ . '/../../class_crud/membre.class.php';
+$monMembre = new membre();
 
 // Gestion des erreurs de saisie
 $erreur = false;
@@ -39,19 +39,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
     
-        header("Location: ./likeArt.php");
+        header("Location: ./likeart.php");
 } 
 
     // controle CIR
     $erreur = false;
-    // delete effective de l'likeArt
+    // delete effective de l'likeart
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
             
-        $monLikeArt->delete($_POST['id1'], $_POST['id2']);
-            header("Location: ./likeArt.php");
+        $monlikeart->delete($_POST['id1'], $_POST['id2']);
+            header("Location: ./likeart.php");
         } else {
-            echo("Location: likeArt.php?errCIR=1");
+            echo("Location: likeart.php?errCIR=1");
     }
 
 
@@ -66,13 +66,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initLikeArt.php';
+include __DIR__ . '/initlikeart.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Like Article</title>
+    <title>Admin - CRUD Like article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -80,8 +80,8 @@ include __DIR__ . '/initLikeArt.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Like Article</h1>
-    <h2>Suppression d'un (un)like sur Article</h2>
+    <h1>BLOGART22 Admin - CRUD Like article</h1>
+    <h2>Suppression d'un (un)like sur article</h2>
 <?php
     // Supp : récup id à supprimer
     // id passé en GET
@@ -101,7 +101,7 @@ include __DIR__ . '/initLikeArt.php';
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Like Article...</legend>
+        <legend class="legend1">Formulaire Like article...</legend>
 
         <input type="hidden" id="id1" name="id1" value="<?= isset($_GET['id1']) ? $_GET['id1'] : '' ?>" />
         <input type="hidden" id="id2" name="id2" value="<?= isset($_GET['id2']) ? $_GET['id2'] : '' ?>" />
@@ -133,7 +133,7 @@ include __DIR__ . '/initLikeArt.php';
 
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Article -->
+    <!-- Listbox article -->
         <br>
         <div class="control-group">
             <div class="controls">
@@ -142,16 +142,16 @@ include __DIR__ . '/initLikeArt.php';
             </label>
             <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
 
-            <select name="Article" id="Article"  class="form-control form-control-create">
+            <select name="article" id="article"  class="form-control form-control-create">
                 
-                <option value="-1"><?php echo($monArticle->get_1Article($id2)['libTitrArt']); ?> </option>
+                <option value="-1"><?php echo($monarticle->get_1article($id2)['libTitrArt']); ?> </option>
                
             </select>
                 <!-- Listbox aricle disabled => 2ème temps -->
                 
             </div>
         </div>
-    <!-- FIN Listbox Article -->
+    <!-- FIN Listbox article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
         <div class="control-group">
@@ -180,7 +180,7 @@ include __DIR__ . '/initLikeArt.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerLikeArt.php';
+require_once __DIR__ . '/footerlikeart.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

@@ -1,9 +1,9 @@
 <?php
 /*
-* Table ARTICLE
-* initArticle.php
+* Table article
+* initarticle.php
 */
-// PK Article
+// PK article
 $numArt = "";
 // Date de création article
 $dtCreArt = "";

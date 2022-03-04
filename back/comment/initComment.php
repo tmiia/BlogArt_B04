@@ -1,11 +1,11 @@
 <?php
 /*
-* Table COMMENT
-* initComment.php
+* Table comment
+* initcomment.php
 */
-// PK Comment
+// PK comment
 $numSeqCom = "";
-// FK PK numArt de Comment
+// FK PK numArt de comment
 $numArt = "";
 $idArt = "";
 $dtCreCom = "";

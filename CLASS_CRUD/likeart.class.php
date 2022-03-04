@@ -1,13 +1,13 @@
  <?php
-// CRUD LIKEART
+// CRUD likeart
 // ETUD
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
-class LIKEART{
-	function get_1LikeArt($numMemb, $numArt){
+class likeart{
+	function get_1likeart($numMemb, $numArt){
 		global $db;
 
-		$query = "SELECT * FROM LIKEART WHERE numMemb = ? AND numArt = ?;";
+		$query = "SELECT * FROM likeart WHERE numMemb = ? AND numArt = ?;";
 		$result = $db->prepare($query);
 		$result->execute([$numMemb, $numArt]);
 		return($result->fetch());
@@ -17,7 +17,7 @@ class LIKEART{
 		global $db;
 
 		// select
-		$query = "SELECT * FROM LIKEART;";
+		$query = "SELECT * FROM likeart;";
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -28,7 +28,7 @@ class LIKEART{
 	function get_AllLikesArtByNumArt($numArt){
 		global $db;
 
-		$query = 'SELECT * FROM `LIKEART` WHERE numArt = ?;';
+		$query = 'SELECT * FROM `likeart` WHERE numArt = ?;';
 		$result = $db->prepare($query);
 		$result->execute([$numArt]);
 		$allLikesArtByNumArt = $result->fetchAll();
@@ -38,21 +38,21 @@ class LIKEART{
 	function get_AllLikesArtByNumMemb($numMemb){
 		global $db;
 
-		$query = 'SELECT * FROM LIKEART WHERE numMemb = ?;';
+		$query = 'SELECT * FROM likeart WHERE numMemb = ?;';
 		$result = $db->prepare($query);
 		$result->execute([$numMemb]);
 		$allLikesArtByNumMemb = $result->fetchAll();
 		return($allLikesArtByNumMemb);
 	}
 
-	function get_nbLikesArtByArticle($numArt){
+	function get_nbLikesArtByarticle($numArt){
 		global $db;
 
-		$query = 'SELECT COUNT(likeA) FROM LIKEART WHERE numArt = ?;';
+		$query = 'SELECT COUNT(likeA) FROM likeart WHERE numArt = ?;';
 		$result = $db->prepare($query);
 		$result->execute([$numArt]);
-		$bLikesArtByArticle = $result->fetchAll();
-		return($bLikesArtByArticle);
+		$bLikesArtByarticle = $result->fetchAll();
+		return($bLikesArtByarticle);
 	}
 
 	function get_nbLikesArtByMembre($numMemb){
@@ -71,7 +71,7 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO LIKEART (numMemb, numArt, likeA) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
+			$query = 'INSERT INTO likeart (numMemb, numArt, likeA) VALUES (?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$numMemb, $numArt, $likeA]);
@@ -82,7 +82,7 @@ class LIKEART{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert LIKEART : ' . $e->getMessage() . " L'utilisateur a déjà liké ce post");
+			die('Erreur insert likeart : ' . $e->getMessage() . " L'utilisateur a déjà liké ce post");
 		}
 	}
 
@@ -93,7 +93,7 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// update
-			$query = 'UPDATE LIKEART SET likeA = ? WHERE numMemb = ? AND numArt = ?;';
+			$query = 'UPDATE likeart SET likeA = ? WHERE numMemb = ? AND numArt = ?;';
 			
 			$request = $db->prepare($query);
 			$request->execute([$likeA, $numMemb, $numArt]);
@@ -104,7 +104,7 @@ class LIKEART{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update LIKEART : ' . $e->getMessage());
+			die('Erreur update likeart : ' . $e->getMessage());
 		}
 	}
 
@@ -124,7 +124,7 @@ class LIKEART{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert Or Update LIKEART : ' . $e->getMessage());
+			die('Erreur insert Or Update likeart : ' . $e->getMessage());
 		}
 	}
 
@@ -136,7 +136,7 @@ class LIKEART{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'DELETE FROM LIKEART WHERE numMemb=? AND numArt=?'; 
+			$query = 'DELETE FROM likeart WHERE numMemb=? AND numArt=?'; 
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -150,7 +150,7 @@ class LIKEART{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete LIKEART : ' . $e->getMessage());
+			die('Erreur delete likeart : ' . $e->getMessage());
 		}
 	}
 }	// End of class

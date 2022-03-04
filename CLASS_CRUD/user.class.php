@@ -1,13 +1,13 @@
 <?php
-// CRUD USER
+// CRUD user
 // ETUD
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
-class USER{
+class user{
 	function get_1User($pseudoUser){
 		global $db;
 
-		$query = "SELECT * FROM USER WHERE pseudoUser = ?;";
+		$query = "SELECT * FROM user WHERE pseudoUser = ?;";
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -18,7 +18,7 @@ class USER{
 	function get_AllUsers(){
 		global $db;
 
-		$requete = "SELECT * FROM USER";
+		$requete = "SELECT * FROM user";
 		$result = $db->query($requete);
 
 		$allUsers = $result->fetchAll(); // ON MET TOUS LES RESULTATS DANS UNE VARIABLE
@@ -29,7 +29,7 @@ class USER{
 	function get_ExistPseudo($pseudoUser) {
 		global $db;
 
-		$query = 'SELECT * FROM USER WHERE pseudoUser = ?;';
+		$query = 'SELECT * FROM user WHERE pseudoUser = ?;';
 		$result = $db->prepare($query);
 		$result->execute(array($pseudoUser));
 		return($result->rowCount());
@@ -38,7 +38,7 @@ class USER{
 	function get_PassByUser($pseudoUser) {
 		global $db;
 
-		$query = 'SELECT passUser FROM USER WHERE pseudoUser = ?;';
+		$query = 'SELECT passUser FROM user WHERE pseudoUser = ?;';
 		$request = $db->prepare($query);
 		$request->execute([$pseudoUser]);
 		$passUser = $request->fetch();
@@ -57,7 +57,7 @@ class USER{
 	function get_NbAllUsersByidStat($idStat){
 		global $db;
 
-		$query = "SELECT COUNT(*) FROM USER WHERE idStat = ?;";
+		$query = "SELECT COUNT(*) FROM user WHERE idStat = ?;";
 		$request = $db->prepare($query);
 
 		$request->execute([$idStat]);
@@ -72,7 +72,7 @@ class USER{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO USER (pseudoUser, passUser, nomUser, prenomUser, emailUser, idStat) VALUES (?, ?, ?, ?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
+			$query = 'INSERT INTO user (pseudoUser, passUser, nomUser, prenomUser, emailUser, idStat) VALUES (?, ?, ?, ?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$pseudoUser, $passUser, $nomUser, $prenomUser, $emailUser, $idStat]);
@@ -83,7 +83,7 @@ class USER{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert USER : ' . $e->getMessage());
+			die('Erreur insert user : ' . $e->getMessage());
 		}
 	}
 
@@ -95,7 +95,7 @@ class USER{
             
             if ($passUser == -1) { //request 1: le mdp n'a pas été modifié
             // updateUser
-			$query = 'UPDATE USER SET pseudoUser= ?, passUser = ?, nomUser = ?, prenomUser = ?, emailUser = ?, idStat = ?';
+			$query = 'UPDATE user SET pseudoUser= ?, passUser = ?, nomUser = ?, prenomUser = ?, emailUser = ?, idStat = ?';
 			// prepare
 			$request1 = $db->prepare($query);
 			// execute
@@ -105,7 +105,7 @@ class USER{
             }
             else { //request 2: le mdp a été modifié
             // update
-			$query = 'UPDATE USER SET pseudoUser= ?, passUser = ?, nomUser = ?, prenomUser = ?, emailUser = ?, idStat = ?';
+			$query = 'UPDATE user SET pseudoUser= ?, passUser = ?, nomUser = ?, prenomUser = ?, emailUser = ?, idStat = ?';
 			// prepare
 			$request2 = $db->prepare($query);
 			// execute
@@ -121,7 +121,7 @@ class USER{
             } else {
                 $request2->closeCursor();
             }
-            die('Erreur update USER : ' . $e->getMessage());
+            die('Erreur update user : ' . $e->getMessage());
         }
 	}
 
@@ -133,7 +133,7 @@ class USER{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'DELETE FROM USER WHERE pseudoUser=?'; 
+			$query = 'DELETE FROM user WHERE pseudoUser=?'; 
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -147,7 +147,7 @@ class USER{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete USER : ' . $e->getMessage());
+			die('Erreur delete user : ' . $e->getMessage());
 		}
 	}
 }	// End of class

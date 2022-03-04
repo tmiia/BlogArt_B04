@@ -1,9 +1,9 @@
 <?php
 /*
-* Table ANGLE
-* initAngle.php
+* Table angle
+* initangle.php
 */
-// PK Angle
+// PK angle
 $numAngl = "";
 // libellé
 $libAngl = "";

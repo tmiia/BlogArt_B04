@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD USER (PDO) - Modifié : 4 Juillet 2021
+//  CRUD user (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : deleteUser.php  -  (ETUD)  BLOGART22
 //
@@ -14,16 +14,16 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe User
-require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
+require_once __DIR__ . '/../../class_crud/user.class.php';
 
 // Instanciation de la classe User
-$monUser = new USER();
+$monUser = new user();
 // Instanciation de la classe User
 
-require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe User
-$monStatut = new STATUT();
+$monStatut = new statut();
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -39,11 +39,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         header("Location: ./user.php");
 } 
 
-    if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-        
+    if (((isset($_POST["Submit"])) AND ($Submit === "Valider")) AND ($_POST['Statut'] != 1)) {
+       
             $monUser->delete($_POST['id1']);
             header("Location: ./user.php");
-        } else {
+   
+    
+    } else {
             header("Location: user.php?errCIR=1");
         
     }
@@ -51,14 +53,6 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // controle CIR
 
     // delete effective du user
-
-
-
-
-
-
-
-
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form

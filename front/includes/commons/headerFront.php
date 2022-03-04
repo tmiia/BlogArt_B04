@@ -1,8 +1,8 @@
 <link href="style.css" rel="stylesheet">
 <?php require_once __DIR__ . '/imports.php'; 
-require_once __DIR__ . '/../../../CONNECT/config.php';
-require_once __DIR__ . '/../../../CLASS_CRUD/langue.class.php';
-$maLangue = new LANGUE();
+require_once __DIR__ . '/../../../connect/config.php';
+require_once __DIR__ . '/../../../class_crud/langue.class.php';
+$maLangue = new langue();
 ?>
 
 <div id="navigation">
@@ -11,7 +11,7 @@ $maLangue = new LANGUE();
         <a href="<?=ROOTFRONT?>/front/home.php"><img src="<?=ROOTFRONT?>/front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
             
               <select name="Langue" id="Langue"  class="langues" onchange="change()">
-                  <option value="-1"><?php echo('LANGUE'); ?><img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas"></option>
+                  <option value="-1"><?php echo('langue'); ?><img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas"></option>
                   <?php
                   $allLangues = $maLangue->get_AllLangues();
                   
@@ -32,7 +32,7 @@ $maLangue = new LANGUE();
                 
       
 
-        <a href="<?=ROOTFRONT?>/front/pageArticles.php">Articles</a>
+        <a href="<?=ROOTFRONT?>/front/pagearticles.php">articles</a>
         <a href="#">Newsletter</a>
         <a href="./contact.php">Contact</a>
     </nav>

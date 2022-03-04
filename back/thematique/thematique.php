@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD THEMATIQUE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD thematique (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : thematique.php  -  (ETUD)  BLOGART22
 //
@@ -15,14 +15,14 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Del accents sur string
 require_once __DIR__ . '/../../util/delAccents.php';
 
-// Insertion classe Thematique
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+// Insertion classe thematique
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
-// Instanciation de la classe Thematique
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+$mathematique = new thematique();
+// Instanciation de la classe thematique
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 // Instanciation de la classe Langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
 
 // BBCode
@@ -37,7 +37,7 @@ $errDel = 0;
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
-	<title>Admin - CRUD Thematique</title>
+	<title>Admin - CRUD thematique</title>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
@@ -53,20 +53,20 @@ $errDel = 0;
     </style>
 </head>
 <body>
-	<h1>BLOGART22 Admin - CRUD Thematique</h1>
+	<h1>BLOGART22 Admin - CRUD thematique</h1>
 
 	<hr />
-	<h2>Nouvelle thematique :&nbsp;<a href="./createThematique.php"><i>Créer une thematique</i></a></h2>
+	<h2>Nouvelle thematique :&nbsp;<a href="./createthematique.php"><i>Créer une thematique</i></a></h2>
 <?php
     if ($errDel == 99) {
 ?>
 	    <br />
-        <i><div class="error"><br>=>&nbsp;Erreur delete THEMATIQUE : la suppression s'est mal passée !</div></i>
+        <i><div class="error"><br>=>&nbsp;Erreur delete thematique : la suppression s'est mal passée !</div></i>
 <?php
     }   // End of if ($errDel == 99)
 ?>
     <hr />
-	<h2>Toutes les Thematiques</h2>
+	<h2>Toutes les thematiques</h2>
 
 	<table border="3" bgcolor="aliceblue">
     <thead>
@@ -79,24 +79,24 @@ $errDel = 0;
     </thead>
     <tbody>
 <?php
-    // Appel méthode : Get toutes les Thematiques en BDD
-    $allThematiques = $maThematique->get_AllThematiques();
+    // Appel méthode : Get toutes les thematiques en bdd
+    $allthematiques = $mathematique->get_Allthematiques();
     $allLangues = $maLangue->get_AllLangues();
-    for($i = 1; $i < count($allThematiques); $i++){
+    for($i = 1; $i < count($allthematiques); $i++){
     // Boucle pour afficher
     //foreach($all as $row) {
 ?>
         <tr>
 
-		<td><h4>&nbsp; <?= $allThematiques[$i]['numThem']; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $allthematiques[$i]['numThem']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= $allThematiques[$i]['libThem']; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allthematiques[$i]['libThem']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= $maThematique->get_1ThematiqueByLang($allThematiques[$i]['numLang'])[0]  ?> &nbsp;</td>
+        <td>&nbsp; <?= $mathematique->get_1thematiqueByLang($allthematiques[$i]['numLang'])[0]  ?> &nbsp;</td>
 
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateThematique.php?id=<?=$allThematiques[$i]['numThem']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier thématique" title="Modifier thématique" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updatethematique.php?id=<?=$allthematiques[$i]['numThem']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier thématique" title="Modifier thématique" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteThematique.php?id=<?=$allThematiques[$i]['numThem']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer thématique" title="Supprimer thématique" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deletethematique.php?id=<?=$allthematiques[$i]['numThem']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer thématique" title="Supprimer thématique" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
 
         </tr>

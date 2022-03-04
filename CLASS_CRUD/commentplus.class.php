@@ -1,10 +1,10 @@
 <?php
-// CRUD COMMENTPLUS
+// CRUD commentplus
 // ETUD
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
-class COMMENTPLUS{
-	function get_AllCommentPlusByArticle($numArt){
+class commentplus{
+	function get_AllcommentplusByarticle($numArt){
 		global $db;
 
 		// select
@@ -13,7 +13,7 @@ class COMMENTPLUS{
 		return($result->fetchAll());
 	}
 
-	function get_AllCommentPlusR(){
+	function get_AllcommentplusR(){
 		global $db;
 
 		// select
@@ -37,7 +37,7 @@ class COMMENTPLUS{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert COMMENTPLUS : ' . $e->getMessage());
+			die('Erreur insert commentplus : ' . $e->getMessage());
 		}
 	}
 }	// End of class

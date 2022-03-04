@@ -9,7 +9,7 @@
 
 // Mode DEV
 
-require_once __DIR__ . '/CONNECT/config.php';  
+require_once __DIR__ . '/connect/config.php';  
 require_once __DIR__ . '/util/utilErrOn.php';
 require_once __DIR__ . '/front/includes/commons/imports.php';
 ?>
@@ -35,7 +35,7 @@ require_once __DIR__ . '/front/includes/commons/imports.php';
 			<span>Gestion des articles</span>
 			<ul>
 				<li><a href="./back/article/article.php">Liste des articles</a></li>
-				<li><a href="./back/article/createArticle.php">Créer un article</a></li>
+				<li><a href="./back/article/createarticle.php">Créer un article</a></li>
 			</ul>
 			<span>Gestion des utilisateurs</span>
 			<ul>
@@ -59,7 +59,7 @@ require_once __DIR__ . '/front/includes/commons/imports.php';
 			<span>Gestion des articles</span>
 			<ul>
 				<li><a href="./back/article/article.php">Liste des articles</a></li>
-				<li><a href="./back/article/createArticle.php">Créer un article</a></li>
+				<li><a href="./back/article/createarticle.php">Créer un article</a></li>
 			</ul>
 		</div>
 

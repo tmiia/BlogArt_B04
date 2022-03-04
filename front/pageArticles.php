@@ -11,8 +11,8 @@
     <link href="style.css" rel="stylesheet">
     <?php
     require_once __DIR__ . '/includes/commons/imports.php';
-    require_once __DIR__ . '/../CLASS_CRUD/thematique.class.php';
-    $maThematique = new THEMATIQUE();
+    require_once __DIR__ . '/../class_crud/thematique.class.php';
+    $mathematique = new thematique();
 
 
     ?>
@@ -44,7 +44,7 @@
         
         <div>
 
-            <label>TRIER PAR THEMATIQUE:</label>
+            <label>TRIER PAR thematique:</label>
             <br>
                 <label class="theme_select_container" for="theme_select">
                    
@@ -52,7 +52,7 @@
                        <select class="theme_select" name="theme" id="theme_select">
                             <option value="-1">- - - Choisissez une thématique - - -</option>
                                 <?php
-                                        $allThem = $maThematique->get_AllThematiques();
+                                        $allThem = $mathematique->get_Allthematiques();
                                         if($allThem){
                                             for ($i=0; $i < count($allThem); $i++){
                                                 $value = $allThem[$i]['numThem'];
@@ -95,18 +95,18 @@
     <div class="articles">
 
             <?php
-                require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
-                $monArticle = new ARTICLE();
+                require_once __DIR__ . '/../class_crud/article.class.php';
+                $monarticle = new article();
 
-                $allArticle = $monArticle->get_AllArticles();
+                $allarticle = $monarticle->get_Allarticles();
 
-                for($i = 0; $i <count($allArticle); $i++){ ?>
+                for($i = 0; $i <count($allarticle); $i++){ ?>
 
-                    <a class="article_recent" href="viewArticle.php?id=<?=$allArticle[$i]['numArt']?>">
-                    <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
+                    <a class="article_recent" href="viewarticle.php?id=<?=$allarticle[$i]['numArt']?>">
+                    <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($allarticle[$i]['urlPhotArt']) ?>);"></div>
                     <div class="article_recent_top">
-                        <h5><?= $allArticle[$i]['libTitrArt'] ?></h5>
-                        <p><?= $allArticle[$i]['libChapoArt'] ?></p>
+                        <h5><?= $allarticle[$i]['libTitrArt'] ?></h5>
+                        <p><?= $allarticle[$i]['libChapoArt'] ?></p>
                     </div>
                     <div class="article_recent_bot">
                         <div class="article_like"><i class="fa fa-heart-o"></i></div>

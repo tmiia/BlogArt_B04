@@ -3,7 +3,7 @@
 //
 //  Footer tous les CRUD (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : footerThematique.php  -  (ETUD)  BLOGART22
+//  Script  : footerthematique.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 

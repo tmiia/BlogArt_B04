@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD MEMBRE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD membre (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : deleteMembre.php  -  (ETUD)  BLOGART22
 //
@@ -16,22 +16,22 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Membre
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../class_crud/membre.class.php';
 
 // Instanciation de la classe Membre
-$monMembre = new MEMBRE();
+$monMembre = new membre();
 
-// Insertion classe Comment
-require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
+// Insertion classe comment
+require_once __DIR__ . '/../../class_crud/comment.class.php';
 
-// Instanciation de la classe Commentaire
-$monMembCom = new COMMENT();
+// Instanciation de la classe commentaire
+$monMembCom = new comment();
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
-$monStatut = new STATUT();
+$monStatut = new statut();
 
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } 
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-        $nbMembre = $monMembCom->get_NbAllCommentsBynumMemb($_POST["id"]);
+        $nbMembre = $monMembCom->get_NbAllcommentsBynumMemb($_POST["id"]);
         //print_r($nbMembre);
         //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
         if ($nbMembre < 1) {

@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ARTICLE (PDO) - Modifié : 10 Juillet 2021
+//  CRUD article (PDO) - Modifié : 10 Juillet 2021
 //
-//  Script  : createArticle.php  -  (ETUD)  BLOGART22
+//  Script  : createarticle.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -17,27 +17,27 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+// Insertion classe article
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 
 // Instanciation de la classe langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$mathematique = new thematique();
 
 
 
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // ON VEUT REINITIALISER LA VALEUR
 
     if($_POST['Submit'] == 'Initialiser'){ 
-        header("Location: updateAngle.php?id=$numAngl");
+        header("Location: updateangle.php?id=$numAngl");
         $_POST['$libelle']; // jsp ce que c'est donc maybe à changer
     }
 
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
-        header("Location: ./createArticle.php");
+        header("Location: ./createarticle.php");
     }   // End of if ((isset($_POST["submit"])) ...
     
     if (((isset($_POST['libTitrArt'])) AND !empty($_POST['libTitrArt'])) 
@@ -97,7 +97,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             $numThem = ctrlSaisies($_POST['thematique']);
 
             require_once './ctrlerUploadImage.php';
-            $monArticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $nomImage, $numAngl, $numThem);
+            $monarticle->create($libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $nomImage, $numAngl, $numThem);
 
             header("Location: ./article.php");
         }   // Fin if ((isset($_POST['']))
@@ -116,14 +116,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initArticle.php';
+include __DIR__ . '/initarticle.php';
 
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />    
-    <title>Admin - CRUD Article</title>
+    <title>Admin - CRUD article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -135,13 +135,13 @@ include __DIR__ . '/initArticle.php';
 
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Article</h1>
+    <h1>BLOGART22 Admin - CRUD article</h1>
     <h2>Ajout d'un article</h2>
 
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8" id="chgLang">
 
       <fieldset>
-        <legend class="legend1">Formulaire Article...</legend>
+        <legend class="legend1">Formulaire article...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
@@ -240,14 +240,14 @@ include __DIR__ . '/initArticle.php';
                 <select name="Langue" id="Langue"  class="form-control form-control-create" onchange="change()">
                 <option value="-1">- - - Choisissez une langue - - -</option>
                 <?php
-                $allLangueAngle = $monAngle->get_AllLangues();
+                $allLangueangle = $monangle->get_AllLangues();
                 
-                if($allLangueAngle){
-                for ($i=0; $i < count($allLangueAngle); $i++){
-                    $value = $allLangueAngle[$i]['numLang'];
+                if($allLangueangle){
+                for ($i=0; $i < count($allLangueangle); $i++){
+                    $value = $allLangueangle[$i]['numLang'];
                 ?>
                 
-                <option value="<?php echo($value); ?>"> <?=$allLangueAngle[$i]['lib2Lang']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?=$allLangueangle[$i]['lib2Lang']; ?> </option>
                 
                 <?php
                     } // End of foreach
@@ -263,10 +263,10 @@ include __DIR__ . '/initArticle.php';
 <!-- --------------------------------------------------------------- -->
 
 <!-- --------------------------------------------------------------- -->
-    <!-- FK : Angle, Thématique + TJ Mots Clés -->
+    <!-- FK : angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Angle live share -->
+    <!-- Listbox angle live share -->
         <br>
         <div class="control-group">
             <div class="controls">
@@ -282,7 +282,7 @@ include __DIR__ . '/initArticle.php';
 
             </div>
         </div>
-    <!-- FIN Listbox Angle -->
+    <!-- FIN Listbox angle -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
     <!-- Listbox Thématique -->
@@ -327,7 +327,7 @@ include __DIR__ . '/initArticle.php';
 
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Fin FK : Angle, Thématique + TJ Mots Clés -->
+    <!-- Fin FK : angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 
         <div class="control-group">
@@ -357,7 +357,7 @@ include __DIR__ . '/initArticle.php';
     </form>
 
 <!-- --------------------------------------------------------------- -->
-    <!-- Début Ajax : Langue => Angle, Thématique + TJ Mots Clés -->
+    <!-- Début Ajax : Langue => angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 
     <!-- A faire dans un 3ème temps  -->
@@ -402,7 +402,7 @@ include __DIR__ . '/initArticle.php';
 			}
 
 			// Traitement en POST
-			xhr.open("POST","./ajaxAngle.php",true);
+			xhr.open("POST","./ajaxangle.php",true);
 			// pour le post
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
@@ -411,7 +411,7 @@ include __DIR__ . '/initArticle.php';
 			xhr.send("numLang="+numLang);
 
             // Traitement en POST
-			xhr2.open("POST","./ajaxThematique.php",true);
+			xhr2.open("POST","./ajaxthematique.php",true);
 			// pour le post
 			xhr2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
@@ -422,11 +422,11 @@ include __DIR__ . '/initArticle.php';
   </script>
 
 <!-- --------------------------------------------------------------- -->
-    <!-- Fin Ajax : Langue => Angle, Thématique + TJ Mots Clés -->
+    <!-- Fin Ajax : Langue => angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 
 <?php
-require_once __DIR__ . '/footerArticle.php';
+require_once __DIR__ . '/footerarticle.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

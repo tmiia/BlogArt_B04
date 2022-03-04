@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ARTICLE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD article (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : barreF2.php  -  (ETUD)  BLOGART22
 //
@@ -15,9 +15,9 @@ require_once __DIR__ . '/../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../util/ctrlSaisies.php';
 
-// Insertion classe Article
+// Insertion classe article
 
-// Instanciation Classe Article
+// Instanciation Classe article
 
 // Initialisation var
 
@@ -48,7 +48,7 @@ require_once __DIR__ . '/../util/ctrlSaisies.php';
     </style>
 </head>
 <body>
-    <h1>BLOGART22 Admin - Barre de recherche des Articles</h1>
+    <h1>BLOGART22 Admin - Barre de recherche des articles</h1>
     <h2>Un seul mot clé parmi les articles (F2 en GET)</h2>
     <br /><hr /><br />
     <form method="GET">

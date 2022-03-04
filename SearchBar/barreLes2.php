@@ -18,19 +18,19 @@ require_once __DIR__ . '/../util/ctrlSaisies.php';
 // Recup et mise en forme mots clés pour prépar requete SQL
 require_once __DIR__ . '/../util/preparerTags.php';
 
-// Insertion classe Article
+// Insertion classe article
 
-// Instanciation Classe Article
+// Instanciation Classe article
 
 // Initialisation var
 
 
 /*------------------------------------------------------------------*/
-// F2 de 2 façons : à partir de table MOTCLE ET de table ARTICLE
+// F2 de 2 façons : à partir de table motcle ET de table article
 /*------------------------------------------------------------------*/
 
 /*------------------------------------------------------------------*/
-// F2 à partir de table MOTCLE
+// F2 à partir de table motcle
 /*------------------------------------------------------------------*/
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -40,7 +40,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 
 /*------------------------------------------------------------------*/
-// Recherche à partir de table ARTICLE & table THEMATIQUE
+// Recherche à partir de table article & table thematique
 /*------------------------------------------------------------------*/
 
 // Instanciation classe article
@@ -65,7 +65,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     <link href="./../back/css/style4.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-	<h1>BLOGART22 Admin - Barre de recherche dans ARTICLE & MOTCLE (CONCAT & JOIN)</h1>
+	<h1>BLOGART22 Admin - Barre de recherche dans article & motcle (CONCAT & JOIN)</h1>
   	<form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 		<br>
 		<input type="search" name="motcle" required="required" size="70" maxlength="70" placeholder="Mots clés séparés par un espace..." />

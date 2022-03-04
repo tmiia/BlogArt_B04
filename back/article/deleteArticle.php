@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ARTICLE (PDO) - Modifié : 10 Juillet 2021
+//  CRUD article (PDO) - Modifié : 10 Juillet 2021
 //
-//  Script  : deleteArticle.php  -  (ETUD)  BLOGART22
+//  Script  : deletearticle.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -20,35 +20,35 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
-// Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+// Insertion classe article
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 
-// Insertion classe MotCleArticle
-require_once __DIR__ . '/../../CLASS_CRUD/motclearticle.class.php';
+// Insertion classe motclearticle
+require_once __DIR__ . '/../../class_crud/motclearticle.class.php';
 
-// Instanciation de la classe MotCleArticle
-$monMotCleArticle = new MOTCLEARTICLE();
+// Instanciation de la classe motclearticle
+$monmotclearticle = new motclearticle();
 
 // Insertion classe MotCle
-require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
+require_once __DIR__ . '/../../class_crud/motcle.class.php';
 
 // Instanciation de la classe MotCle
-$monMotCle = new MOTCLE();
+$monMotCle = new motcle();
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 
 // Instanciation de la classe langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
 
 
@@ -74,11 +74,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } 
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-        $nbArticle = $monArticle->get_NbAllArticlesByNumAngl($_POST["id"]);
+        $nbarticle = $monarticle->get_NbAllarticlesByNumAngl($_POST["id"]);
         //print_r($nbMembre);
         //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
-        if ($nbArticle < 1) {
-                $monArticle->delete($_POST["id"]);
+        if ($nbarticle < 1) {
+                $monarticle->delete($_POST["id"]);
                 header("Location: ./article.php");
             } else {
                 header("Location: article.php?errCIR=1");
@@ -86,11 +86,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
-        $nbArticle = $monArticle->get_NbAllArticlesByNumThem($_POST["id"]);
+        $nbarticle = $monarticle->get_NbAllarticlesByNumThem($_POST["id"]);
         //print_r($nbMembre);
         //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
-        if ($nbArticle < 1) {
-                $monArticle->delete($_POST["id"]);
+        if ($nbarticle < 1) {
+                $monarticle->delete($_POST["id"]);
                 header("Location: ./article.php");
             } else {
                 header("Location: article.php?errCIR=1");
@@ -99,7 +99,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initArticle.php';
+include __DIR__ . '/initarticle.php';
 // En dur
 $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 ?>
@@ -107,7 +107,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Article</title>
+    <title>Admin - CRUD article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -118,7 +118,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Article</h1>
+    <h1>BLOGART22 Admin - CRUD article</h1>
     <h2>Suppression d'un article</h2>
 
 <?php
@@ -129,7 +129,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 
         $id = ctrlSaisies(($_GET['id']));
 
-        $query = (array)$monArticle->get_1Article($id);
+        $query = (array)$monarticle->get_1article($id);
 
         if ($query) {
             $numArt = $query['numArt'];
@@ -160,7 +160,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Article...</legend>
+        <legend class="legend1">Formulaire article...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
@@ -266,7 +266,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 
             <select name="Langue" id="Langue"  class="form-control form-control-create">
                 <?php
-                    $oneLang = $monAngle->get_1LangByAngle($numAngl);
+                    $oneLang = $monangle->get_1LangByangle($numAngl);
                 ?>
                 <option value="<?= ($oneLang['numLang']); ?>"> <?= $oneLang['lib1Lang']; ?> </option>                
 
@@ -278,10 +278,10 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 <!-- --------------------------------------------------------------- -->
 
 <!-- --------------------------------------------------------------- -->
-    <!-- FK : Angle, Thématique + TJ Mots Clés -->
+    <!-- FK : angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Angle live share -->
+    <!-- Listbox angle live share -->
         <br>
         <div class="control-group">
             <div class="controls">
@@ -296,7 +296,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 
             </div>
         </div>
-    <!-- FIN Listbox Angle -->
+    <!-- FIN Listbox angle -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
     <!-- Listbox Thématique -->
@@ -333,7 +333,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
     <!-- FIN Drag and drop Mot Clé -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Fin FK : Angle, Thématique + TJ Mots Clés -->
+    <!-- Fin FK : angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 
         <div class="control-group">
@@ -362,7 +362,7 @@ $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerArticle.php';
+require_once __DIR__ . '/footerarticle.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

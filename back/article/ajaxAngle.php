@@ -8,13 +8,13 @@
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // connexion
-require_once __DIR__ . '/../../CONNECT/database.php';
+require_once __DIR__ . '/../../connect/database.php';
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
 ?>
 <select name='angle' style='padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;' >
@@ -22,13 +22,13 @@ $monAngle = new ANGLE();
         <?php
             $numLang = $_REQUEST["numLang"];
             if (isset($numLang)) {
-                $allAngle = $monAngle->get_AllAnglesByLang($numLang);
-                if($allAngle){
-                    for ($i=0; $i < count($allAngle); $i++){
-                        $value = $allAngle[$i]['numAngl'];
+                $allangle = $monangle->get_AllanglesByLang($numLang);
+                if($allangle){
+                    for ($i=0; $i < count($allangle); $i++){
+                        $value = $allangle[$i]['numAngl'];
                     ?>
                     
-                    <option value="<?php echo($value); ?>"> <?= $allAngle[$i]['libAngl']; ?> </option>
+                    <option value="<?php echo($value); ?>"> <?= $allangle[$i]['libAngl']; ?> </option>
                     
                     <?php
                     }

@@ -2,8 +2,8 @@
 
 require_once 'back.php';
 
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
-$monMembre = new MEMBRE();
+require_once ROOT . '/class_crud/membre.class.php';
+$monMembre = new membre();
 
 // INSCRIPTION : champ username / mdp
 // qd utilisateur tape mdp > haché (nouvelle chaîne de chara unique)
@@ -24,7 +24,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $monMembre->get_1MembreByEmail($_POST['eMailMemb']);
 
 
-    // fonction qui vérifie que l'utilisateur a bien tapé ce qui correspond au hash de la BDD
+    // fonction qui vérifie que l'utilisateur a bien tapé ce qui correspond au hash de la bdd
     password_verify($_POST['passMemb'], $passCrypt); // retourne un booleen
 
     connect_user($_POST['eMailMemb'], $_POST['passMemb']);
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         setcookie('pseudoMemb', $pseudo, time() + 30003600);
 
         if(isset($_COOKIE['eMailMemb'])) {  
-            header("Location: /blogart22/front/pageArticles.php");
+            header("Location: /blogart22/front/pagearticles.php");
             echo('bonjour ' . $_COOKIE['pseudoMemb'] . '<br>');
         } else {
             echo('Merci de vous connecter.');

@@ -6,9 +6,9 @@ require_once 'back.php';
 
 
 // Insertion classe Membre
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
+require_once ROOT . '/class_crud/membre.class.php';
 // Instanciation de la classe membre
-$newMembre = new MEMBRE();
+$newMembre = new membre();
 
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En POST

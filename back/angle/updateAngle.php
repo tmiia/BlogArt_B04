@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ANGLE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD angle (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : updateAngle.php  -  (ETUD)  BLOGART22
+//  Script  : updateangle.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,27 +13,27 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 
 // Instanciation de la classe langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$mathematique = new thematique();
 
 
 
@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // ON VEUT REINITIALISER LA VALEUR
 
     if($_POST['Submit'] == 'Initialiser'){ 
-        header("Location: updateAngle.php?id=$idAngl");
+        header("Location: updateangle.php?id=$idAngl");
         //$_POST['$libelle'];
     }
 
@@ -76,11 +76,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
                     // CLE PRIMAIRE
 
-                    $monAngle->update($clredlib, $clredlang, $clredid);
+                    $monangle->update($clredlib, $clredlang, $clredid);
                     header("Location: ./angle.php");
                 }
                 else{
-                    header("Location: updateAngle.php?id=$idAngl&err=empty");
+                    header("Location: updateangle.php?id=$idAngl&err=empty");
                 }
             }
             else{
@@ -94,13 +94,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }
       // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initAngle.php';
+include __DIR__ . '/initangle.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Angle</title>
+    <title>Admin - CRUD angle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -108,7 +108,7 @@ include __DIR__ . '/initAngle.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Angle</h1>
+    <h1>BLOGART22 Admin - CRUD angle</h1>
     <h2>Modification d'un angle</h2>
 <?php
     // Modif : récup id à modifier
@@ -117,7 +117,7 @@ include __DIR__ . '/initAngle.php';
 
         $id = ctrlSaisies(($_GET['id']));
 
-        $query = (array)$monAngle->get_1Angle($id);
+        $query = (array)$monangle->get_1angle($id);
 
         if ($query) {
             $libAngl = $query['libAngl'];
@@ -137,7 +137,7 @@ include __DIR__ . '/initAngle.php';
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Angle...</legend>
+        <legend class="legend1">Formulaire angle...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
@@ -161,7 +161,7 @@ include __DIR__ . '/initAngle.php';
             <select name="Langue" id="Langue"  class="form-control form-control-create">
             <option value="-1"><?php $oneLangue = $maLangue->get_1Langue($numLang); echo($oneLangue['lib1Lang']); ?></option>
                 <?php
-                $allLangue = $monAngle->get_AllLangues();
+                $allLangue = $monangle->get_AllLangues();
                 
                 if($allLangue){
                 for ($i=1; $i < count($allLangue); $i++){
@@ -207,7 +207,7 @@ include __DIR__ . '/initAngle.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerAngle.php';
+require_once __DIR__ . '/footerangle.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

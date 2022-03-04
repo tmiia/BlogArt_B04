@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD COMMENTPLUS (PDO) - Modifié : 4 Juillet 2021
+//  CRUD commentplus (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : commentPlus.php  -  (ETUD)  BLOGART22
+//  Script  : commentplus.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -15,21 +15,21 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
-// Insertion classe Comment
+// Insertion classe comment
 
-// Instanciation de la classe Comment
-
-
-
-// Insertion classe CommentPlus
-
-// Instanciation de la classe CommentPlus
+// Instanciation de la classe comment
 
 
 
-// Insertion classe Article
+// Insertion classe commentplus
 
-// Instanciation de la classe Article
+// Instanciation de la classe commentplus
+
+
+
+// Insertion classe article
+
+// Instanciation de la classe article
 
 
 
@@ -37,7 +37,7 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
-    <title>Gestion des Commentaires & Réponses</title>
+    <title>Gestion des commentaires & Réponses</title>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
@@ -53,7 +53,7 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
     </style>
 </head>
 <body>
-  <h1>BLOGART22 Admin - Gestion du CRUD Commentaires & Réponses</h1>
+  <h1>BLOGART22 Admin - Gestion du CRUD commentaires & Réponses</h1>
 
   <hr /><br />
   <h2>Nouveau commentaire sur un commentaire :&nbsp;<a href="#"><i>Créer une réponse à commentaire</i></a></h2>
@@ -64,17 +64,17 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
   <table border="3" bgcolor="aliceblue">
     <thead>
         <tr>
-            <th>&nbsp;Numéro <br>Article&nbsp;</th>
-            <th>&nbsp;Date <br>Article&nbsp;</th>
-            <th>&nbsp;Numéro <br>Comment&nbsp;</th>
-            <th>&nbsp;Commentaire&nbsp;</th>
-            <th>&nbsp;Date <br>Comment&nbsp;</th>
+            <th>&nbsp;Numéro <br>article&nbsp;</th>
+            <th>&nbsp;Date <br>article&nbsp;</th>
+            <th>&nbsp;Numéro <br>comment&nbsp;</th>
+            <th>&nbsp;commentaire&nbsp;</th>
+            <th>&nbsp;Date <br>comment&nbsp;</th>
 
             <th>&nbsp;Pseudo&nbsp;</th>
             <th>&nbsp;Visa modération&nbsp;</th>
             <th>&nbsp;Visible après modération&nbsp;</th>
-            <th>&nbsp;Commentaire <br>si non visible&nbsp;</th>
-            <th>&nbsp;Commentaire <br>affiché&nbsp;</th>
+            <th>&nbsp;commentaire <br>si non visible&nbsp;</th>
+            <th>&nbsp;commentaire <br>affiché&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
         </tr>
     </thead>
@@ -84,7 +84,7 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
     $from = 'Y-m-d H:i:s';
     $to = 'd/m/Y H:i:s';
 
-    // Appel méthode : Get tous les articles en BDD
+    // Appel méthode : Get tous les articles en bdd
 
     // Boucle pour afficher
     //foreach($all as $row) {
@@ -108,7 +108,7 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
         <td>&nbsp; <?= "ici notifComKOAff"; ?> &nbsp;</td>
 
         <td>&nbsp; <?= "ici delLogiq"; ?> &nbsp;</td>
-<!-- F1 aff Comments (Modérateur / Admin / Super-admin) -->
+<!-- F1 aff comments (Modérateur / Admin / Super-admin) -->
         <td>&nbsp;<a href="#"><i>Modifier</i></a>&nbsp;
         <br /></td>
 <!-- Del logique (Modérateur / Admin / Super-admin) -->

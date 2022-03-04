@@ -8,17 +8,17 @@
 require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // connexion
-require_once __DIR__ . '/../../CONNECT/database.php';
+require_once __DIR__ . '/../../connect/database.php';
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$mathematique = new thematique();
 
 
 ?>
@@ -27,7 +27,7 @@ $maThematique = new THEMATIQUE();
         <?php
             $numThem = $_REQUEST["numThem"];
             if (isset($numThem)) {
-                $allThem = $maThematique->get_AllThematiquesByLang($numThem);
+                $allThem = $mathematique->get_AllthematiquesByLang($numThem);
                 if($allThem){
                     for ($i=0; $i < count($allThem); $i++){
                         $value = $allThem[$i]['numThem'];

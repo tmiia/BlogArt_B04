@@ -1,10 +1,10 @@
 <?php
-// CRUD LIKECOM
+// CRUD likecom
 // ETUD
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
-class LIKECOM{
-	function get_1LikeCom($numMemb, $numSeqCom, $numArt){
+class likecom{
+	function get_1likecom($numMemb, $numSeqCom, $numArt){
 		global $db;
 
 		// select
@@ -13,7 +13,7 @@ class LIKECOM{
 		return($result->fetch());
 	}
 
-	function get_1LikeComPlusMemb($numMemb, $numSeqCom, $numArt){
+	function get_1likecomPlusMemb($numMemb, $numSeqCom, $numArt){
 		global $db;
 
 		// select
@@ -22,7 +22,7 @@ class LIKECOM{
 		return($result->fetch());
 	}
 
-	function get_1LikeComPlusCom($numMemb, $numSeqCom, $numArt){
+	function get_1likecomPlusCom($numMemb, $numSeqCom, $numArt){
 		global $db;
 
 		// select
@@ -31,7 +31,7 @@ class LIKECOM{
 		return($result->fetch());
 	}
 
-	function get_1LikeComPlusArt($numSeqCom, $numArt){
+	function get_1likecomPlusArt($numSeqCom, $numArt){
 		global $db;
 
 		// select
@@ -44,7 +44,7 @@ class LIKECOM{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM LIKECOM;';
+		$query = 'SELECT * FROM likecom;';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -53,7 +53,7 @@ class LIKECOM{
 		return($allLikesCom);
 	}
 
-	function get_AllLikesComByComment($numSeqCom, $numArt){
+	function get_AllLikesComBycomment($numSeqCom, $numArt){
 		global $db;
 
 		// select
@@ -86,7 +86,7 @@ class LIKECOM{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert LIKECOM : ' . $e->getMessage());
+			die('Erreur insert likecom : ' . $e->getMessage());
 		}
 	}
 
@@ -105,7 +105,7 @@ class LIKECOM{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update LIKECOM : ' . $e->getMessage());
+			die('Erreur update likecom : ' . $e->getMessage());
 		}
 	}
 
@@ -125,7 +125,7 @@ class LIKECOM{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert Or Update LIKECOM : ' . $e->getMessage());
+			die('Erreur insert Or Update likecom : ' . $e->getMessage());
 		}
 	}
 
@@ -147,7 +147,7 @@ class LIKECOM{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete LIKECOM : ' . $e->getMessage());
+			die('Erreur delete likecom : ' . $e->getMessage());
 		}
 	}
 }	// End of class

@@ -1,9 +1,9 @@
 <?php
 /*
-* Table THEMATIQUE
-* initThematique.php
+* Table thematique
+* initthematique.php
 */
-// PK Thematique
+// PK thematique
 $numThem = "";
 $libThem = "";
 $numLang = "";

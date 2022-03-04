@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD MEMBRE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD membre (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : updateMembre.php  -  (ETUD)  BLOGART22
 //
@@ -17,16 +17,16 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
-$monStatut = new STATUT();
+$monStatut = new statut();
 
 // Insertion classe Membre
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../class_crud/membre.class.php';
 
 // Instanciation de la classe Membre
-$monMembre = new MEMBRE();
+$monMembre = new membre();
 
 
 // Gestion des erreurs de saisie

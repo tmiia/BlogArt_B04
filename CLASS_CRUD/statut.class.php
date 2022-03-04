@@ -1,12 +1,12 @@
 <?php
-// CRUD STATUT
+// CRUD statut
 // ETUD
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
-class STATUT{
+class statut{
 	function get_1Statut($idStat){
 		global $db;
-		$query = "SELECT * FROM STATUT WHERE idStat = ?";
+		$query = "SELECT * FROM statut WHERE idStat = ?";
 		$result = $db->prepare($query);
 		$result->execute([$idStat]);
 		return($result->fetch());
@@ -16,7 +16,7 @@ class STATUT{
 		global $db;
 
 		// select
-		$query = 'SELECT * FROM STATUT;';
+		$query = 'SELECT * FROM statut;';
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -31,7 +31,7 @@ class STATUT{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO STATUT (libStat) VALUES (?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
+			$query = 'INSERT INTO statut (libStat) VALUES (?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à libStat
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$libStat]);
@@ -42,7 +42,7 @@ class STATUT{
 		catch (PDOException $e) {
 			$db->rollBack();	// DANS LE CAS OU CA PLANTE ON ENVOIE UNE ERREUR
 			$request->closeCursor();
-			die('Erreur insert STATUT : ' . $e->getMessage());
+			die('Erreur insert statut : ' . $e->getMessage());
 		}
 	}
 
@@ -53,7 +53,7 @@ class STATUT{
 			$db->beginTransaction();
 
 			// update
-			$query = "UPDATE STATUT SET libStat = ? WHERE idStat = $idStat;";
+			$query = "UPDATE statut SET libStat = ? WHERE idStat = $idStat;";
 			// prepare
             $request = $db->prepare($query);
             // execute
@@ -65,7 +65,7 @@ class STATUT{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update STATUT : ' . $e->getMessage());
+			die('Erreur update statut : ' . $e->getMessage());
 		}
 	}
 
@@ -76,7 +76,7 @@ class STATUT{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'DELETE FROM STATUT WHERE idStat=?'; 
+			$query = 'DELETE FROM statut WHERE idStat=?'; 
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -90,7 +90,7 @@ class STATUT{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete STATUT : ' . $e->getMessage());
+			die('Erreur delete statut : ' . $e->getMessage());
 		}
 	}
 }	// End of class

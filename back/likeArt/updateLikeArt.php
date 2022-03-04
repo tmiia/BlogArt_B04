@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD LIKEART (PDO) - Modifié : 4 Juillet 2021
+//  CRUD likeart (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : updateLikeArt.php  -  (ETUD)  BLOGART22
+//  Script  : updatelikeart.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,9 +13,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Likeart
-require_once __DIR__ . '/../../CLASS_CRUD/likeart.class.php';
-$monLikeArt = new LIKEART();
+// Insertion classe likeart
+require_once __DIR__ . '/../../class_crud/likeart.class.php';
+$monlikeart = new likeart();
 
 
 
@@ -23,7 +23,7 @@ $monLikeArt = new LIKEART();
 $erreur = false;
 
 // Init variables form
-include __DIR__ . '/initLikeArt.php';
+include __DIR__ . '/initlikeart.php';
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En GET
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -36,7 +36,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         $numMemb = intval(ctrlSaisies($_GET['id1']));
         $numArt = intval(ctrlSaisies($_GET['id2']));
 
-        $likeA = $monLikeArt->get_1LikeArt($numMemb, $numArt)['likeA'];
+        $likeA = $monlikeart->get_1likeart($numMemb, $numArt)['likeA'];
 
         if($likeA == 1){
             $likeA = 0;
@@ -45,8 +45,8 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
             $likeA = 1;
         }
 
-        $monLikeArt->update($numMemb, $numArt, $likeA);
-        header("Location: ./likeArt.php");
+        $monlikeart->update($numMemb, $numArt, $likeA);
+        header("Location: ./likeart.php");
     }
     else{
         $erreur = true;

@@ -1,9 +1,9 @@
 <?php
 /*
-* Table MOTCLEARTICLE
-* initMotCleArticle.php
+* Table motclearticle
+* initmotclearticle.php
 */
-// FK PK MotCleArticle
+// FK PK motclearticle
 $numArt = "";
-// FK PK MotCleArticle
+// FK PK motclearticle
 $numMotCle = "";

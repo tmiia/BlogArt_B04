@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD THEMATIQUE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD thematique (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : createThematique.php  -  (ETUD)  BLOGART22
+//  Script  : createthematique.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,18 +13,18 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Thematique
+// Insertion classe thematique
 
 // Instanciation de la classe thématique
 
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$mathematique = new thematique();
 
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 // Instanciation de la classe langue
 
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
 
 // BBCode
@@ -48,7 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
-            header("Location: ./createThematique.php");
+            header("Location: ./createthematique.php");
     }   // End of if ((isset($_POST["submit"])) ...
         
     if (((isset($_POST['libThem'])) AND (!empty($_POST['libThem']))
@@ -58,9 +58,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
             $libThem = ctrlSaisies(($_POST['libThem']));
             $numLang = $_POST['Langue'];
-            $numThem = $maThematique->getNextNumThem($numThem);
+            $numThem = $mathematique->getNextNumThem($numThem);
     
-            $maThematique->create($numThem, $libThem, $numLang);
+            $mathematique->create($numThem, $libThem, $numLang);
     
             header("Location: ./thematique.php");
         }   // Fin if ((isset($_POST['libStat']))
@@ -76,13 +76,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initThematique.php';
+include __DIR__ . '/initthematique.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Thematique</title>
+    <title>Admin - CRUD thematique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -90,13 +90,13 @@ include __DIR__ . '/initThematique.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Thematique</h1>
-    <h2>Ajout d'une Thematique</h2>
+    <h1>BLOGART22 Admin - CRUD thematique</h1>
+    <h2>Ajout d'une thematique</h2>
 
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Thematique...</legend>
+        <legend class="legend1">Formulaire thematique...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
@@ -166,7 +166,7 @@ include __DIR__ . '/initThematique.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerThematique.php';
+require_once __DIR__ . '/footerthematique.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

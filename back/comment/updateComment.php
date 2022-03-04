@@ -1,12 +1,12 @@
 <?php
 require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
-require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
-$monComment = new COMMENT();
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
-$monArticle = new ARTICLE();
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
-$monMembre = new MEMBRE();
+require_once __DIR__ . '/../../class_crud/comment.class.php';
+$moncomment = new comment();
+require_once __DIR__ . '/../../class_crud/article.class.php';
+$monarticle = new article();
+require_once __DIR__ . '/../../class_crud/membre.class.php';
+$monMembre = new membre();
 
 $erreur = false;
 
@@ -19,7 +19,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
     }
 
     if($_POST['Submit'] == 'Initialiser'){
-        header("Location: updateComment.php?id1=$numSeqCom&id2=$idArt");
+        header("Location: updatecomment.php?id1=$numSeqCom&id2=$idArt");
     }
 
     if(isset($_POST['Submit']) AND $_POST['Submit'] === 'Valider'){
@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
             else{
                 $delLogiq =  0;
             }
-            $monComment->update($numSeqCom, $idArt, $attModOK, $notifComKOAff, $delLogiq);
+            $moncomment->update($numSeqCom, $idArt, $attModOK, $notifComKOAff, $delLogiq);
 
             header("Location: ./comment.php");
         }
@@ -59,13 +59,13 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         }
     }
 }  
-include __DIR__ . '/initComment.php'; 
+include __DIR__ . '/initcomment.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
     <head>
         <meta charset="utf-8" />
-        <title>Admin - CRUD Commentaire</title>
+        <title>Admin - CRUD commentaire</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="" />
         <meta name="author" content="" />
@@ -81,7 +81,7 @@ include __DIR__ . '/initComment.php';
         </style>
     </head>
     <body>
-        <h1>BLOGART22 Admin - CRUD Commentaire</h1>
+        <h1>BLOGART22 Admin - CRUD commentaire</h1>
         <h2>Mise à jour d'un commentaire</h2>
 <?php
     // Modif : récup id à modifier
@@ -92,12 +92,12 @@ include __DIR__ . '/initComment.php';
         $id1 = intval($_GET['id1']);
         $id2 = intval($_GET['id2']);
         
-        $query = $monComment->get_1Comment($id1, $id2);
+        $query = $moncomment->get_1comment($id1, $id2);
         
     
         if($query){
             $idMemb = $monMembre->get_1Membre($query['numMemb']);
-            $idArt = $monArticle->get_1Article($id2);
+            $idArt = $monarticle->get_1article($id2);
             $libCom = $query['libCom'];
             $notifComKOAff = $query['notifComKOAff'];
             $attModOK =  $query['attModOK'];
@@ -119,7 +119,7 @@ include __DIR__ . '/initComment.php';
             <input type="hidden" id="id2" name="id2" value="<?= isset($_GET['id2']) ? $_GET['id2'] : '' ?>" />
 
 <!-- --------------------------------------------------------------- -->
-    <!-- FK : Membre, Article -->
+    <!-- FK : Membre, article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
     <!-- Listbox Membre -->
@@ -142,7 +142,7 @@ include __DIR__ . '/initComment.php';
     <!-- FIN Listbox Membre -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Article -->
+    <!-- Listbox article -->
             <br>
             <div class="control-group">
                 <div class="controls">
@@ -159,16 +159,16 @@ include __DIR__ . '/initComment.php';
 
                 </div>
             </div>
-    <!-- FIN Listbox Article -->
+    <!-- FIN Listbox article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Fin FK : Membre, Article -->
+    <!-- Fin FK : Membre, article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
     <!-- textarea comment -->
             <br>
             <div class="control-group">
-                <label class="control-label" for="libCom"><b>Commentaire à valider :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                <label class="control-label" for="libCom"><b>commentaire à valider :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                 <div class="controls">
 
                     <textarea name="libCom" id="libCom" tabindex="30"  rows="20" cols="70" style="background-color:white;" disabled="disabled"><?= $libCom; ?></textarea>
@@ -248,7 +248,7 @@ include __DIR__ . '/initComment.php';
         </fieldset>
         </form>
 <?php
-require_once __DIR__ . '/footerComment.php';
+require_once __DIR__ . '/footercomment.php';
 
 require_once __DIR__ . '/footer.php';
 ?>
