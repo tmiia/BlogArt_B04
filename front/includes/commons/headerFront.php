@@ -41,9 +41,9 @@ $maLangue = new LANGUE();
     </nav>
 
     <div class="connect">
-        <?php if(isset($_COOKIE['eMailMemb'])){?>  <a href="#"><?= $_COOKIE['pseudoMemb'] ?></a> <?php } else{?>
+        <?php if(isset($_COOKIE['eMailMemb']) || isset($_COOKIE['pseudoUser'])){?>  <a href="#"><?php if(isset($_COOKIE['pseudoMemb'])){ echo($_COOKIE['pseudoMemb']); } elseif(isset($_COOKIE['pseudoUser'])){ echo($_COOKIE['pseudoUser']); } ?></a> <?php } else{?>
         <a href="<?=ROOTFRONT?>/connexion.php">Connexion</a>
-        <?php } if(isset($_COOKIE['eMailMemb'])){ ?>
+        <?php } if(isset($_COOKIE['eMailMemb']) || isset($_COOKIE['pseudoUser'])){ ?>
         <a class="btn_inscription" href="<?=ROOTFRONT?>/deconnexion.php">Déconnexion</a> <?php } else{ ?>
         <a class="btn_inscription" href="<?=ROOTFRONT?>/inscription.php">Inscription</a>
         <?php } ?>

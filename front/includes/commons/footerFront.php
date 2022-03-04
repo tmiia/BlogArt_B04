@@ -5,7 +5,7 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
 
 <footer>
     <div class="connect_admin">
-        <a href="../panneauAdmin.php">Connexion Administrateur</a>
+        <a href="<?=ROOTFRONT?>/connexionAdmin.php">Connexion Administrateur</a>
         <span>@ 2022 Nebulab. All rights reserved</span>
     </div> 
 
