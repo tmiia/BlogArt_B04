@@ -11,23 +11,23 @@ require_once __DIR__ . '/../util/ctrlSaisies.php';
 require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
 
 // Instanciation de la classe Article
-$monArticle = new ARTICLE();
+$monArticle = new article();
 
 // Insertion classe Angle
 require_once __DIR__ . '/../CLASS_CRUD/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monAngle = new angle();
 
 // Insertion classe Langue
 require_once __DIR__ . '/../CLASS_CRUD/langue.class.php';
 
 // Instanciation de la classe langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
 require_once __DIR__ . '/../CLASS_CRUD/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$maThematique = new thematique();
    
 ?>
 <!DOCTYPE html>
