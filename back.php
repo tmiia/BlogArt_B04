@@ -24,14 +24,15 @@ function insert_user($pseudoUser, $passUser, $nomUser, $prenomUser, $eMailUser) 
 function connect_user($pseudoUser, $passUser) {
     global $db;
 
-    $query = 'SELECT * FROM USER WHERE eMailUser = ? AND passUser = ?;';
+    $query = 'SELECT * FROM USER WHERE pseudoUser = ? AND passUser = ?;';
     $result = $db->prepare($query);
     $result->execute([$pseudoUser, $passUser]);
     $user = $result->fetch();
 
     if($user) {
-        setcookie('user', $user['eMailUser, passUser'], 1000000, "/");
-        header('Location: ' . ROOT . '/front/pageArticles.php');
+        setcookie('pseudoUser', $user['pseudoUser'], time() + 3000600, "/");
+        setcookie('passUser', $user['passUser'], time() + 30003600, "/");
+        header('Location: ' . ROOTFRONT . '/panneauAdmin.php');
     }
 }
 
