@@ -52,19 +52,26 @@
             display: flex;
             flex-direction: column;
             align-items: flex-end;
+            width: 25%;
 
             &:first-child {
-            align-items: flex-start;
+                align-items: flex-start;
             }
-
+            &:nth-child(2) {
+                align-items: center;
+            }
             label{
                 color: $rouge;
                 font-size: 18px;
                 font-family: $fontText;
+                text-transform: uppercase;
+                margin-bottom: 20px;
             }
+
             .theme_select_container {
                 position: relative;
                 display: flex;
+                width: 100%;
 
                     &:after {
                         display: block;
@@ -77,32 +84,24 @@
                         right: 9px;
                         background-size: contain;
                         background-repeat: no-repeat;
-            }
-
-            select{
-                position: relative;
-                display: inline-flex;
-                color: #929292 ;
-                // overflow: hidden;
-                appearance: none;
-                width: 320px; 
-                height: auto;
-                border: 2px $gris solid; 
-                margin: 0;
-                padding: .75em;
-                border-radius: 50px;
-                margin-top: 0px;
-                font-family: $fontText;
-                align-items: center;
-                cursor: pointer;
-            
-
-                
-                
-
-                }
-            
-        
+                        pointer-events: none;
+                    }
+                    select{
+                        position: relative;
+                        display: inline-flex;
+                        color: #929292 ;
+                        // overflow: hidden;
+                        appearance: none;
+                        width: 100%; 
+                        height: auto;
+                        border: 2px $gris solid; 
+                        margin: 0;
+                        padding: .75em;
+                        border-radius: 50px;
+                        font-family: $fontText;
+                        align-items: center;
+                        cursor: pointer;
+                    }
             }
         }
     }

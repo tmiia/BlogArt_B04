@@ -30,10 +30,8 @@ if(isset($_COOKIE)){
 		$result2->execute([$pseudoCurrentMemb]);
         $currentMemb = $result2->fetch();
 }
-
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    
+   $id = $_POST['id'];
     // controle des saisies du formulaire
     if(isset($_POST['Submit'])){
         $Submit = $_POST['Submit'];
@@ -42,25 +40,44 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
-    
-            header("Location: ./comment.php");
+        
+        header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
     }   // End of if ((isset($_POST["submit"])) ...
         
-    if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['article'])) AND (!empty($_POST['article']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
+    if (((isset($_POST['currentMemb'])) AND (!empty($_POST['currentMemb'])) AND (isset($_POST['reponse'])) AND (!empty($_POST['reponse']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
         AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
+
             // Saisies valides
+    
+            header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
+
             $erreur = false;
            
-            $numMemb = ctrlSaisies(($_POST['Membre']));
-            $numArt = ctrlSaisies(($_POST['article']));
-            $numSeqCom = intval($moncommentaire->getNextNumCom($numArt));
+            $numMemb = ctrlSaisies(($_POST['currentMemb']));
+            $numArt = ctrlSaisies(($_POST['reponse']));
+            $numSeqCom = intval($monCommentaire->getNextNumCom($numArt));
             $libCom = ctrlSaisies(($_POST['libCom']));
             // $dtCreCom = ctrlSaisies(($_POST['dtCreCom']));
 
 
             $moncommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
     
-            header("Location: ./comment.php");
+            header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
+
+            if ((isset($_POST['reponse'])) != $id){
+
+                ?>
+
+                <script>
+                    let repCom = document.querySelector('.commentaire');
+                    repCom.classList.add("reponse");
+
+                    
+                </script>
+
+                <?php
+
+            }
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
@@ -115,7 +132,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/modal.js"></script>
     <link href="style.css" rel="stylesheet">
-    <title>article / Titre</title>
+    <title><?= $libTitrArt ?></title>
 
 </head>
 <body>
@@ -141,7 +158,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
         <div class="infos_article">
             <span class="art_info"><?= $dtCreArt ?></span>
-            <span class="art_info">44 min de lecture</span>
+            <span class="art_info">3 min de lecture</span>
             <a href="#" class="art_btn partage"><i class="fa fa-share-alt"></i><span>Partager</span></a>
             <?php  if($monlikeart->get_1likeart($currentMemb['numMemb'], $id) == false){
                 $isLike = "0";
@@ -207,7 +224,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         <div class="article_auteurs">
             <span>
                 <b>By.</b>
-                La team du turfu
+                Au bord des rues
             </span>
         </div>
 
@@ -215,22 +232,19 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
             <div class="article_autres">
 
-                <a class="article_preview" href="#">
-                    <div class="preview_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
-                    <h5>Titre de l'article</h5>
-                    <p>Chapeau Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
-                </a>
-                <a class="article_preview" href="#">
-                    <div class="preview_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
-                    <h5>Titre de l'article</h5>
-                    <p>Chapeau Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
-                </a>
-                <a class="article_preview" href="#">
-                    <div class="preview_illustration" style="background-image: url('https://cdn.pixabay.com/photo/2013/03/02/02/41/alley-89197_960_720.jpg');"></div>
-                    <h5>Titre de l'article</h5>
-                    <p>Chapeau Lorem ipsum dolor sit amet consectetur, adipisicing elit. </p>
-                </a>
+                <?php
+                    $lastArticles = $monArticle->get_LastArticles();
 
+                    for($i = 0; $i < 3; $i++){
+                        ?>
+                        <a class="article_preview" href="./viewArticle.phpviewArticle.php?id=<?=$lastArticles[$i]['numArt'] ?>">
+                                <div class="preview_illustration" style="background-image: url('../uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>');"></div>
+                                    <h5><?= $lastArticles[$i]['libTitrArt'] ?></h5>
+                                    <p><?= $lastArticles[$i]['libChapoArt'] ?></p>
+                                </a>
+                <?php
+                        }
+                ?>
             </div>
 
             <div class="article_coms">
@@ -242,7 +256,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
                             <div class="commentaire">
                             <div class="com_membre">
-                                <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar userNAME"/>
+                                <img src="https://i.pinimg.com/564x/15/c1/ec/15c1ec0f3beb08c3587d65462fd0fc7a.jpg" alt="avatar <?=$pseudo?>"/>
                                 <div class="btn_like_com" title="J'aime"><i class="fa fa-heart"></i></div>
                             </div>
                             <div class="com_cont">
@@ -257,8 +271,8 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                     else{
                 ?>
                 <div class="commentaire">
-                    <div class="com_cont">  
-                        Pas de commentaire.
+                    <div class="com_cont no_com">  
+                        Aucun commentaire pour le moment.
                     </div>
                 </div>
                 <?php } ?>
@@ -266,7 +280,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         </div>
 
         <div class="add_commentaire">
-            <a href="/pagearticles.php">
+            <a href="<?=ROOTFRONT?>/front/pagearticles.php">
                 <div></div>
                 <span>Retour à la liste des articles</span>
             </a>
@@ -287,60 +301,33 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
                         <fieldset>
                             <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
+                            <input type="hidden" id="currentMemb" name="currentMemb" value="<?= $currentMemb['numMemb']; ?>" />
 
                             <!-- --------------------------------------------------------------- -->
                                 <!-- FK : Membre, article -->
                             <!-- --------------------------------------------------------------- -->
                             <!-- --------------------------------------------------------------- -->
                             
-                            <!-- Listbox Membre -->
-                            <div class="control-group">
-                                <div class="controls">
-                                    <label class="control-label" for="LibTypAngl">
-                                        <b>Quel membre :&nbsp;&nbsp;&nbsp;</b>
-                                    </label>
-                                
-                                    <select name="Membre" id="Membre"  class="form-control form-control-create">
-                                        <option value="-1">- - - Choisissez un membre - - -</option>
-                                        <?php
-                                        $allMembres = $monMembre->get_AllMembres();
-                                        
-                                        if($allMembres){
-                                        for ($i=0; $i < count($allMembres); $i++){
-                                            $value = $allMembres[$i]['numMemb'];
-                                        ?>
-                                        
-                                        <option value="<?php echo($value); ?>"> <?= $value ." - " . $allMembres[$i]['pseudoMemb']; ?> </option>
-                                        
-                                        <?php
-                                            } // End of foreach
-                                        }   // if ($result)
-                                        ?>
-                                    </select>
-                                </div>
-                            </div>
-                            <!-- FIN Listbox Membre -->
-                            <!-- --------------------------------------------------------------- -->
-                            <!-- --------------------------------------------------------------- -->
-                            <!-- Listbox article -->
+                            <!-- Listbox Article -->
                             <div class="control-group">
                                 <div class="controls">
                                     <label class="control-label" for="LibTypThem">
-                                        <b>Quel article :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                                        <b>Répondre à :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
                                     </label>
 
-                                    <!-- Listbox article => 2ème temps -->
-                                    <select name="article" id="article"  class="form-control form-control-create">
-                                        <option value="-1">- - - Choisissez un article - - -</option>
+                                    <!-- Listbox Article => 2ème temps -->
+                                    <select name="reponse" id="reponse"  class="form-control form-control-create">
+                                        <option value="-1">Choisir</option>
+                                        <option value="<?= $id ?>"> -  L'article</option>
                                         <?php
-                                        $allarticles = $monarticle->get_Allarticles();
-                                        
-                                        if($allarticles){
-                                        for ($i=0; $i < count($allarticles); $i++){
-                                            $value = $allarticles[$i]['numArt'];
+                                            $allMembByArt = $monCommentaire->get_allmembresbyarticle($id);
+                                            
+                                            if($allMembByArt){
+                                            for ($i=0; $i < count($allMembByArt); $i++){
+                                                $value = $allMembByArt[$i]['numMemb'];
                                         ?>
                                         
-                                        <option value="<?php echo($value); ?>"> <?= $value ." - " . $allarticles[$i]['libTitrArt']; ?> </option>
+                                        <option value="<?php echo($value); ?>"> <?= $monMembre->get_1Membre($allMembByArt[$i]['numMemb'])['pseudoMemb'] . " - " .  $allMembByArt[$i]['libCom'] ?> </option>
                                         
                                         <?php
                                             } // End of foreach

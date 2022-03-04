@@ -50,13 +50,17 @@ class article{
 
 	}
 
-	function get_AllarticlesByNumAnglNumThem(){
+	function get_AllArticlesByNumThem($numThem){
 		global $db;
 
-		// select
+		$query = 'SELECT * FROM article WHERE numThem =?;';
 		// prepare
+        $result = $db->prepare($query);
+        // execute
+        $result->execute([$numThem]);
 		// execute
-		// return($allarticlesByNumAnglNumThem);
+		$articleByThem = $result->fetchAll();
+		return($articleByThem);
 	}
 
 	function get_NbAllarticlesByNumAngl($numAngl){
@@ -98,8 +102,21 @@ class article{
 		return($allarticlesByMotsCles);
 	}
 
-	// Barre de recherche JOIN : mots clés par motcle (TJ) dans article
-	function get_MotsClesByarticles($listMotcles){
+	function get_articlesimilaires($motcle) {
+		global $db;
+
+		$sql = "SELECT * FROM article WHERE motcle = ? ORDER BY numArt DESC";
+        // prepare
+        $result = $db->prepare($sql);
+        // execute
+        $result->execute([$motcle]);
+		
+		$allArticlesByMotsCles = $result->fetchAll();
+		return($allArticlesByMotsCles);
+	}
+
+	// Barre de recherche JOIN : mots clés par MOTCLE (TJ) dans ARTICLE
+	function get_MotsClesByArticles($listMotcles){
 		global $db;
 
 		/*

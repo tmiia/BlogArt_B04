@@ -182,6 +182,7 @@
         .body_article {
             flex:1;
             font-size: 14px;
+            line-height: 20px;
 
             h4 {
                 color: $gris;
@@ -233,13 +234,12 @@
         display:flex;
         margin-top: 100px;
         height: 400px;
-        width: 90%;
+        width: 100%;
 
         .article_autres {
-            min-width: 55%;
-            
-
-        
+            min-width: 45%;
+            max-width: 45%;
+            margin-right: 50px;
             
             .article_preview {
                 flex:1;
@@ -292,6 +292,8 @@
                     width: 70%;
                     font-weight: 400;
                     margin: 20px;
+                    flex:1;
+                    overflow:hidden;
                 }
             }
         }
@@ -369,6 +371,13 @@
                     }
                     p {
                         margin-top: 10px;
+                    }
+                    &.no_com {
+                        margin: 0;
+                        font-size: 16px;
+                        font-style: italic;
+                        text-align: center;
+                        width: 100%;
                     }
                 }
                 &.reponse {

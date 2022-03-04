@@ -12,6 +12,8 @@
 require_once __DIR__ . '/connect/config.php';  
 require_once __DIR__ . '/util/utilErrOn.php';
 require_once __DIR__ . '/front/includes/commons/imports.php';
+
+	if(isset($_COOKIE['pseudoUser'])){
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -65,7 +67,7 @@ require_once __DIR__ . '/front/includes/commons/imports.php';
 
 		<div class="admin_body">
 			<h1>Bienvenue sur votre panneau d'administration,</h1>
-			<h2><?= $_COOKIE['pseudoMemb'] ?></h2>
+			<h2><?= $_COOKIE['pseudoUser'] ?></h2>
 		</div>
 </div>
 <?php
@@ -73,3 +75,8 @@ require_once __DIR__ . '/front/includes/commons/footerback.php';
 ?>
 </body>
 </html>
+<?php 
+	}else{
+		header('Location: ' . ROOTFRONT . '/front/home.php');
+	}
+?>

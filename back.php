@@ -24,7 +24,7 @@ function insert_user($pseudoUser, $passUser, $nomUser, $prenomUser, $eMailUser) 
 function connect_user($pseudoUser, $passUser) {
     global $db;
 
-    $query = 'SELECT * FROM user WHERE eMailUser = ? AND passUser = ?;';
+    $query = 'SELECT * FROM user WHERE pseudoUser = ? AND passUser = ?;';
     $result = $db->prepare($query);
     $result->execute([$pseudoUser, $passUser]);
     $user = $result->fetch();
