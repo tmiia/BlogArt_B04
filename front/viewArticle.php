@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
            
             $numMemb = ctrlSaisies(($_POST['currentMemb']));
             $numArt = ctrlSaisies(($_POST['reponse']));
-            $numSeqCom = intval($monCommentaire->getNextNumCom($numArt));
+            $numSeqCom = intval($moncommentaire->getNextNumCom($numArt));
             $libCom = ctrlSaisies(($_POST['libCom']));
             // $dtCreCom = ctrlSaisies(($_POST['dtCreCom']));
 
@@ -233,7 +233,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
             <div class="article_autres">
 
                 <?php
-                    $lastArticles = $monArticle->get_LastArticles();
+                    $lastArticles = $monarticle->get_LastArticles();
 
                     for($i = 0; $i < 3; $i++){
                         ?>
@@ -280,7 +280,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         </div>
 
         <div class="add_commentaire">
-            <a href="<?=ROOTFRONT?>/front/pagearticles.php">
+            <a href="<?=ROOTFRONT?>/front/pageArticles.php">
                 <div></div>
                 <span>Retour à la liste des articles</span>
             </a>
@@ -320,7 +320,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                                         <option value="-1">Choisir</option>
                                         <option value="<?= $id ?>"> -  L'article</option>
                                         <?php
-                                            $allMembByArt = $monCommentaire->get_allmembresbyarticle($id);
+                                            $allMembByArt = $moncommentaire->get_allmembresbyarticle($id);
                                             
                                             if($allMembByArt){
                                             for ($i=0; $i < count($allMembByArt); $i++){

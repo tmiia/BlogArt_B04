@@ -1,5 +1,5 @@
 <?php
-require_once './CONNECT/database.php';
+require_once './connect/database.php';
 if(isset($_COOKIE['eMailMemb'])){
     setcookie('eMailMemb', "", time() - 3000600, "/");
     setcookie('pseudoMemb', "",time() - 3000600, "/");

@@ -30,8 +30,9 @@ function connect_user($pseudoUser, $passUser) {
     $user = $result->fetch();
 
     if($user) {
-        setcookie('user', $user['eMailUser, passUser']);
-        header('Location: ' . ROOT . '/front/pagearticles.php');
+        setcookie('pseudoUser', $user['pseudoUser'], time() + 3000600, "/");
+        setcookie('passUser', $user['passUser'], time() + 30003600, "/");
+        header('Location: ' . ROOTFRONT . '/panneauAdmin.php');
     }
 }
 
