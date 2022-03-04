@@ -266,7 +266,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         </div>
 
         <div class="add_commentaire">
-            <a href="/pagearticles.php">
+            <a href="<?=ROOTFRONT?>/front/pagearticles.php">
                 <div></div>
                 <span>Retour à la liste des articles</span>
             </a>
