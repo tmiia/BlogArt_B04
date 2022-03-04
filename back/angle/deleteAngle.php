@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ANGLE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD angle (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : deleteAngle.php  -  (ETUD)  BLOGART22
+//  Script  : deleteangle.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -16,27 +16,27 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Del accents sur string
 require_once __DIR__ . '/../../util/delAccents.php';
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
 
 
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
 
 // Ctrl CIR
 $erreur = false;
 
-// Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+// Insertion classe article
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 
 
 // Gestion des erreurs de saisie
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
             
-        $monAngle->delete($_POST["id"]);
+        $monangle->delete($_POST["id"]);
             header("Location: ./angle.php");
         } else {
             echo("Location: angle.php?errCIR=1");
@@ -70,13 +70,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 }// End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
 
-include __DIR__ . '/initAngle.php';
+include __DIR__ . '/initangle.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Angle</title>
+    <title>Admin - CRUD angle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -93,7 +93,7 @@ include __DIR__ . '/initAngle.php';
     </style>
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Angle</h1>
+    <h1>BLOGART22 Admin - CRUD angle</h1>
     <h2>Suppression d'un angle</h2>
 <?php
       // Supp : récup id à supprimer
@@ -101,7 +101,7 @@ include __DIR__ . '/initAngle.php';
 
         $id = ctrlSaisies(($_GET['id']));
 
-        $query = $monAngle->get_1Angle($id);
+        $query = $monangle->get_1angle($id);
 
         if ($query) {
             $libAngl = $query['libAngl'];
@@ -116,7 +116,7 @@ include __DIR__ . '/initAngle.php';
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Angle...</legend>
+        <legend class="legend1">Formulaire angle...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
@@ -127,7 +127,7 @@ include __DIR__ . '/initAngle.php';
         <br>
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
-    <!-- Listbox Angle -->
+    <!-- Listbox angle -->
 
         <br>
         <div class="control-group">
@@ -142,7 +142,7 @@ include __DIR__ . '/initAngle.php';
 <<<<<<< HEAD
             <option value="-1"><?php var_dump($maLangue->get_1LangueByPays($id)) ?> </option>
 =======
-                <option value="-1"><?php echo($monAngle->get_1LangByAngle($numAngl)['lib1Lang']) ?></option>
+                <option value="-1"><?php echo($monangle->get_1LangByangle($numAngl)['lib1Lang']) ?></option>
 
 >>>>>>> 00be2cb35f57fd6ae16a02adb2c1b880835b9806
             </select>
@@ -156,7 +156,7 @@ include __DIR__ . '/initAngle.php';
             </div>
         </div>
 
-    <!-- FIN Listbox Angle -->
+    <!-- FIN Listbox angle -->
 <!-- ---------------------------------------------------------------------- -->
 <!-- ---------------------------------------------------------------------- -->
         <div class="control-group">
@@ -174,7 +174,7 @@ include __DIR__ . '/initAngle.php';
     <br>
     <i><div class="error"><br>=>&nbsp;Attention, une suppression doit respecter les CIR !</div></i>
 <?php
-require_once __DIR__ . '/footerAngle.php';
+require_once __DIR__ . '/footerangle.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

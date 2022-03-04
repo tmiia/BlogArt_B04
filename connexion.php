@@ -2,8 +2,8 @@
 
 require_once 'back.php';
 
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
-$monMembre = new MEMBRE();
+require_once ROOT . '/class_crud/membre.class.php';
+$monMembre = new membre();
 
 // INSCRIPTION : champ username / mdp
 // qd utilisateur tape mdp > haché (nouvelle chaîne de chara unique)

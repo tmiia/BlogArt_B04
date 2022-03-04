@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/../CONNECT/config.php';
+    require_once __DIR__ . '/../connect/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,23 +30,23 @@
 
     <div id="main_body">
 
-        <h4>Articles récents</h4>
+        <h4>articles récents</h4>
 
         <section class="articles">
 
         <?php
-            require_once __DIR__ . '/../CLASS_CRUD/article.class.php';
-            $monArticle = new ARTICLE();
+            require_once __DIR__ . '/../class_crud/article.class.php';
+            $monarticle = new article();
 
-            $lastArticles = $monArticle->get_LastArticles();
+            $lastarticles = $monarticle->get_Lastarticles();
 
             for($i = 0; $i < 5; $i++){ ?>
 
-                <a class="article_recent" href="viewArticle.php?id=<?=$lastArticles[$i]['numArt']?>">
-                <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>);"></div>
+                <a class="article_recent" href="viewarticle.php?id=<?=$lastarticles[$i]['numArt']?>">
+                <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($lastarticles[$i]['urlPhotArt']) ?>);"></div>
                 <div class="article_recent_top">
-                <h5><?= $lastArticles[$i]['libTitrArt'] ?></h5>
-                <p><?= $lastArticles[$i]['libChapoArt'] ?></p>
+                <h5><?= $lastarticles[$i]['libTitrArt'] ?></h5>
+                <p><?= $lastarticles[$i]['libChapoArt'] ?></p>
                 </div>
                 <div class="article_recent_bot">
                     <div class="article_like"><i class="fa fa-heart"></i></div>

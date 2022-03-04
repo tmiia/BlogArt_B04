@@ -1,47 +1,47 @@
 <?php
-// CRUD COMMENT
+// CRUD comment
 // ETUD
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
-class COMMENT{
-	function get_1Comment($numSeqCom, $numArt){
+class comment{
+	function get_1comment($numSeqCom, $numArt){
 		global $db;
-		$query = "SELECT * FROM COMMENT WHERE numSeqCom = ? AND numArt = ?";
+		$query = "SELECT * FROM comment WHERE numSeqCom = ? AND numArt = ?";
 		$result = $db->prepare($query);
 		$result->execute([$numSeqCom, $numArt]);
 		return($result->fetch());
 		
 	}
 
-	// function get_AllCommentByArticle($numArt){
+	// function get_AllcommentByarticle($numArt){
 	// 	global $db;
 
 	// }
-	function get_AllComments(){
+	function get_Allcomments(){
 		global $db;
 
-		$query = 'SELECT * FROM COMMENT;';
+		$query = 'SELECT * FROM comment;';
 		// prepare
 		$result = $db->query($query);
 		// execute
-		$allComments = $result->fetchAll();
-		return($allComments);
+		$allcomments = $result->fetchAll();
+		return($allcomments);
 	}
 
 
-	function get_AllCommentsByNumArt($numArt){
+	function get_AllcommentsByNumArt($numArt){
 		global $db;
 
         // select
-        $sql = "SELECT * FROM COMMENT WHERE numArt = ?";
+        $sql = "SELECT * FROM comment WHERE numArt = ?";
         // prepare
 		$result = $db->prepare($sql);
 		// execute
 		$result->execute([$numArt]);
 
-        $allCommentsByArt =  $result->fetchAll();
+        $allcommentsByArt =  $result->fetchAll();
 
-		return($allCommentsByArt);
+		return($allcommentsByArt);
 	}
 
 	function get_allmembresbyarticle($numArt){
@@ -68,46 +68,46 @@ class COMMENT{
 	// 	return($result->fetch());
 	// }
 
-	// function get_AllCommentsByNumSeqComNumArt($numSeqCom, $numArt){
+	// function get_AllcommentsByNumSeqComNumArt($numSeqCom, $numArt){
 	// 	global $db;
 
 	// 	// select
 	// 	// prepare
 	// 	// execute
-	// 	return($allCommentsByNumSeqComNumArt);
+	// 	return($allcommentsByNumSeqComNumArt);
 	// }
 
-	// function get_AllCommentsByArticleByMemb(){
+	// function get_AllcommentsByarticleByMemb(){
 	// 	global $db;
 
 	// 	// select
 	// 	// prepare
 	// 	// execute
-	// 	return($allCommentsByArticleByMemb);
+	// 	return($allcommentsByarticleByMemb);
 	// }
 
-	function get_NbAllCommentsBynumMemb($numMemb){
+	function get_NbAllcommentsBynumMemb($numMemb){
 		global $db;
 
         // select
-        $sql = "SELECT * FROM COMMENT WHERE numMemb = ?;";
+        $sql = "SELECT * FROM comment WHERE numMemb = ?;";
         // prepare
         $req = $db->prepare($sql);
         // execute
         $req->execute([$numMemb]);
 
-        $allNbAllCommentsBynumMemb = $req->rowCount();
-		return($allNbAllCommentsBynumMemb);
+        $allNbAllcommentsBynumMemb = $req->rowCount();
+		return($allNbAllcommentsBynumMemb);
 	}
 
-	// Fonction : recupérer next numéro séquence de article recherché (PK COMMENT)
-	// Commentaire suivant sur un article
-	// => Pour table COMMENT & table COMMENTPLUS
+	// Fonction : recupérer next numéro séquence de article recherché (PK comment)
+	// commentaire suivant sur un article
+	// => Pour table comment & table commentplus
 	function getNextNumCom($numArt) {
 		global $db;
 
 		//récup id de l'article et num séquence comment
-		$queryText = "SELECT CO.numArt, MAX(numSeqCom) AS numSeqCom FROM ARTICLE AR INNER JOIN COMMENT CO ON AR.numArt = CO.numArt WHERE AR.numArt = ?;";
+		$queryText = "SELECT CO.numArt, MAX(numSeqCom) AS numSeqCom FROM article AR INNER JOIN comment CO ON AR.numArt = CO.numArt WHERE AR.numArt = ?;";
 		$result = $db->prepare($queryText);
 		$result->execute(array($numArt));
 
@@ -115,7 +115,7 @@ class COMMENT{
 			$tuple = $result->fetch();
 			$numArtCom = $tuple["numArt"];
 			$numSeqCom = $tuple["numSeqCom"];
-			// New comment dans COMMENT ou REPONSE pour ARTICLE
+			// New comment dans comment ou REPONSE pour article
 			if (is_null($numArtCom)) { // si l'id de l'article est null
 				// Init no séquence
 				$numSeqCom = 1; //première fois qu'on rentre un commentaire pour cet article
@@ -131,7 +131,7 @@ class COMMENT{
 			return $numSeqCom;
 		}   // End of if ($result)
 		else {
-		return -1;  // Pbl select / BDD
+		return -1;  // Pbl select / bdd
 		}
 	} // End of function
 
@@ -142,7 +142,7 @@ class COMMENT{
 		try {
 			$db->beginTransaction();
 
-			$query = 'INSERT INTO COMMENT (numSeqCom, numArt, dtCreCom, libCom, numMemb) VALUES (?, ?, NOW(), ?, ?);';
+			$query = 'INSERT INTO comment (numSeqCom, numArt, dtCreCom, libCom, numMemb) VALUES (?, ?, NOW(), ?, ?);';
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$numSeqCom, $numArt, $libCom, $numMemb]);
@@ -153,7 +153,7 @@ class COMMENT{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert COMMENT : ' . $e->getMessage());
+			die('Erreur insert comment : ' . $e->getMessage());
 		}
 	}
 
@@ -165,7 +165,7 @@ class COMMENT{
 		try {
 			$db->beginTransaction();
 
-			$query = 'UPDATE COMMENT SET attModOK = ?, notifComKOAff = ?, delLogiq = ? WHERE numSeqCom = ? AND numArt = ?';
+			$query = 'UPDATE comment SET attModOK = ?, notifComKOAff = ?, delLogiq = ? WHERE numSeqCom = ? AND numArt = ?';
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$attModOK, $notifComKOAff, $delLogiq, $numSeqCom, $numArt]);
@@ -175,11 +175,11 @@ class COMMENT{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update COMMENT : ' . $e->getMessage());
+			die('Erreur update comment : ' . $e->getMessage());
 		}
 	}
 
-	// Create et Update en même temps => Del logique du Comment
+	// Create et Update en même temps => Del logique du comment
 	// function createOrUpdate($numSeqCom, $numArt){
 	// 	global $db;
 
@@ -195,7 +195,7 @@ class COMMENT{
 	// 	catch (PDOException $e) {
 	// 		$db->rollBack();
 	// 		$request->closeCursor();
-	// 		die('Erreur insert Or Update COMMENT : ' . $e->getMessage());
+	// 		die('Erreur insert Or Update comment : ' . $e->getMessage());
 	// 	}
 	// }
 
@@ -208,7 +208,7 @@ class COMMENT{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'DELETE FROM COMMENT WHERE numSeqCom=? AND numArt=?'; 
+			$query = 'DELETE FROM comment WHERE numSeqCom=? AND numArt=?'; 
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -222,7 +222,7 @@ class COMMENT{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete COMMENT : ' . $e->getMessage());
+			die('Erreur delete comment : ' . $e->getMessage());
 		}
 	}
 }	// End of class

@@ -1,13 +1,13 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD COMMENT (PDO) - Modifié : 4 Juillet 2021
+//  CRUD comment (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : deleteComment.php  -  (ETUD)  BLOGART22
+//  Script  : deletecomment.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
-// Del logique du Comment
+// Del logique du comment
 //
 // Mode DEV
 require_once __DIR__ . '/../../util/utilErrOn.php';
@@ -15,18 +15,18 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Comment
-require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
-// Instanciation de la classe Comment
-$monCommentaire = NEW COMMENT();
-// Instanciation de la classe Comment
+// Insertion classe comment
+require_once __DIR__ . '/../../class_crud/comment.class.php';
+// Instanciation de la classe comment
+$moncommentaire = NEW comment();
+// Instanciation de la classe comment
 
 
 // Gestion des erreurs de saisie
 $erreur = false;
 
 // Init variables form
-include __DIR__ . '/initComment.php';
+include __DIR__ . '/initcomment.php';
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En GET
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -35,7 +35,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
 
     // create / update effective du comment
     
-    $monCommentaire->delete($_GET['id1'], $_GET['id2']);
+    $moncommentaire->delete($_GET['id1'], $_GET['id2']);
     header("Location: ./comment.php");
 
 

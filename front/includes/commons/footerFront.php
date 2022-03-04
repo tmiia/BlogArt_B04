@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../CONNECT/config.php';
+require_once __DIR__ . '/../../../connect/config.php';
 ?>
 <link href="style.css" rel="stylesheet">
 
@@ -19,9 +19,9 @@ require_once __DIR__ . '/../../../CONNECT/config.php';
     </div>
 
     <div class="liens">
-        <a href="../front/mentionlegal.php">Mentions légales</a>
-        <a href="../front/CGU.php">CGU</a>
-        <a href="../front/home.php">Accueil</a>
+        <a href="<?=ROOTFRONT?>/front/mentionlegal.php">Mentions légales</a>
+        <a href="<?=ROOTFRONT?>/front/CGU.php">CGU</a>
+        <a href="<?=ROOTFRONT?>/front/home.php">Accueil</a>
     </div>
 
 </footer>

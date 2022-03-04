@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD MOTCLE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD motcle (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : motCle.php  -  (ETUD)  BLOGART22
 //
@@ -14,13 +14,13 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe MotCle
-require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
+require_once __DIR__ . '/../../class_crud/motcle.class.php';
 // Instanciation de la classe MotCle
-$monMotCle = new MOTCLE();
+$monMotCle = new motcle();
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 // Instanciation de la classe Langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
 
 
@@ -54,7 +54,7 @@ $maLangue = new LANGUE();
     <tbody>
 
 <?php
-    // Appel méthode : Get toutes les mots cles en BDD
+    // Appel méthode : Get toutes les mots cles en bdd
     $allMotCles = $monMotCle->get_AllMotCles();
     $allLangues = $maLangue->get_AllLangues();
     for($i = 1; $i < count($allMotCles); $i++){

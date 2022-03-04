@@ -1,6 +1,6 @@
 <?php 
 
-require_once __DIR__ . '/../CONNECT/config.php';
+require_once __DIR__ . '/../connect/config.php';
 
 // Mode DEV
 require_once ROOT . '/util/utilErrOn.php';
@@ -8,15 +8,15 @@ require_once ROOT . '/util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once ROOT . '/util/ctrlSaisies.php';
 
-require_once ROOT . '/CLASS_CRUD/article.class.php';
-$monArticle = new ARTICLE();
-require_once ROOT . '/CLASS_CRUD/comment.class.php';
-$monCommentaire = new COMMENT();
-require_once ROOT . '/CLASS_CRUD/membre.class.php';
-$monMembre = new MEMBRE();
+require_once ROOT . '/class_crud/article.class.php';
+$monarticle = new article();
+require_once ROOT . '/class_crud/comment.class.php';
+$moncommentaire = new comment();
+require_once ROOT . '/class_crud/membre.class.php';
+$monMembre = new membre();
 
-require_once ROOT . '/CLASS_CRUD/LikeArt.class.php';
-$monLikeArt = new LIKEART();
+require_once ROOT . '/class_crud/likeart.class.php';
+$monlikeart = new likeart();
 
 
 // Gestion des erreurs de saisie
@@ -55,12 +55,12 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
            
             $numMemb = ctrlSaisies(($_POST['currentMemb']));
             $numArt = ctrlSaisies(($_POST['reponse']));
-            $numSeqCom = intval($monCommentaire->getNextNumCom($numArt));
+            $numSeqCom = intval($moncommentaire->getNextNumCom($numArt));
             $libCom = ctrlSaisies(($_POST['libCom']));
             // $dtCreCom = ctrlSaisies(($_POST['dtCreCom']));
 
 
-            $monCommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
+            $moncommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
     
             header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
 
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include ROOT . '/back/comment/initComment.php';
+include ROOT . '/back/comment/initcomment.php';
 // Var init
 ?>
 
@@ -101,7 +101,7 @@ include ROOT . '/back/comment/initComment.php';
 if (isset($_GET['id']) and $_GET['id'] != '') {
     $id = $_GET['id'];
 
-    $query = $monArticle->get_1Article($id);
+    $query = $monarticle->get_1article($id);
 
     if($query) {
         $libTitrArt = $query['libTitrArt'];
@@ -119,7 +119,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         $numThem = $query['numThem'];
     } 
 
-    $queryComment = $monCommentaire->get_AllCommentsByNumArt($id);
+    $querycomment = $moncommentaire->get_AllcommentsByNumArt($id);
 
 }
 
@@ -146,7 +146,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
     <div id="main_article">
 
-        <a href="pageArticles.php" class="retour">
+        <a href="pagearticles.php" class="retour">
             <span><i class="fas fa-chevron-left"></i> Retour à la liste des articles</span>
             <div></div>
         </a> 
@@ -160,11 +160,11 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
             <span class="art_info"><?= $dtCreArt ?></span>
             <span class="art_info">3 min de lecture</span>
             <a href="#" class="art_btn partage"><i class="fa fa-share-alt"></i><span>Partager</span></a>
-            <?php  if($monLikeArt->get_1LikeArt($currentMemb['numMemb'], $id) == false){
+            <?php  if($monlikeart->get_1likeart($currentMemb['numMemb'], $id) == false){
                 $isLike = "0";
             }
             else{
-                $isLike = $monLikeArt->get_1LikeArt($currentMemb['numMemb'], $id)['likeA'];
+                $isLike = $monlikeart->get_1likeart($currentMemb['numMemb'], $id)['likeA'];
             }
             if($isLike == "1"){ ?>
                 <a id="btn-like" class="art_btn liked" data-numart="<?=$id?>" data-membre="<?=$currentMemb['numMemb']?>"><i class="fa fa-heart"></i><span>J'aime</span></a>
@@ -233,7 +233,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
             <div class="article_autres">
 
                 <?php
-                    $lastArticles = $monArticle->get_LastArticles();
+                    $lastArticles = $monarticle->get_LastArticles();
 
                     for($i = 1; $i < 4; $i++){
                         ?>
@@ -249,10 +249,10 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
             <div class="article_coms">
                 <?php
-                    if($queryComment != []){
-                        for($i = 0; $i < count($queryComment); $i++){
-                            $pseudo = $monMembre->get_1Membre($queryComment[$i]['numMemb'])['pseudoMemb'];
-                            $comment = $queryComment[$i]['libCom']; ?>
+                    if($querycomment != []){
+                        for($i = 0; $i < count($querycomment); $i++){
+                            $pseudo = $monMembre->get_1Membre($querycomment[$i]['numMemb'])['pseudoMemb'];
+                            $comment = $querycomment[$i]['libCom']; ?>
 
                             <div class="commentaire">
                             <div class="com_membre">
@@ -280,7 +280,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         </div>
 
         <div class="add_commentaire">
-            <a href="<?=ROOTFRONT?>/front/pagearticles.php">
+            <a href="<?=ROOTFRONT?>/front/pageArticles.php">
                 <div></div>
                 <span>Retour à la liste des articles</span>
             </a>
@@ -304,7 +304,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                             <input type="hidden" id="currentMemb" name="currentMemb" value="<?= $currentMemb['numMemb']; ?>" />
 
                             <!-- --------------------------------------------------------------- -->
-                                <!-- FK : Membre, Article -->
+                                <!-- FK : Membre, article -->
                             <!-- --------------------------------------------------------------- -->
                             <!-- --------------------------------------------------------------- -->
                             
@@ -320,7 +320,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                                         <option value="-1">Choisir</option>
                                         <option value="<?= $id ?>"> -  L'article</option>
                                         <?php
-                                            $allMembByArt = $monCommentaire->get_allmembresbyarticle($id);
+                                            $allMembByArt = $moncommentaire->get_allmembresbyarticle($id);
                                             
                                             if($allMembByArt){
                                             for ($i=0; $i < count($allMembByArt); $i++){
@@ -336,15 +336,15 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                                     </select>
                                 </div>
                             </div>
-                            <!-- FIN Listbox Article -->
+                            <!-- FIN Listbox article -->
                             <!-- --------------------------------------------------------------- -->
                         <!-- --------------------------------------------------------------- -->
-                            <!-- Fin FK : Membre, Article -->
+                            <!-- Fin FK : Membre, article -->
                         <!-- --------------------------------------------------------------- -->
                             
                         <!-- textarea comment -->
                         <div class="control-group textCom">
-                            <label class="control-label" for="libCom"><b>Ajoutez votre Commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+                            <label class="control-label" for="libCom"><b>Ajoutez votre commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
                             <div class="controls">
                                 <textarea name="libCom" id="editor1" tabindex="30" rows="20" cols="100" title="Texte à mettre en forme" value="<? if(isset($_GET['libCom'])) echo $_POST['libCom']; ?>"></textarea>
                             </div>

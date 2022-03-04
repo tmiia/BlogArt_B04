@@ -7,10 +7,10 @@ $nomBD = "BLOGART22";
 // Avec encodage UTF8
 $serverBD = "mysql:dbname=$nomBD;host=$hostBD;charset=utf8";
 
-// nom utilisateur de connexion à la BDD
+// nom utilisateur de connexion à la bdd
 $userBD = 'root';         // Votre login
-// mot de passe de connexion à la BDD
-$passBD = 'root';         // Votre Pass
+// mot de passe de connexion à la bdd
+$passBD = '';         // Votre Pass
 
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/BLOGART22');

@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD LANGUE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD langue (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : langue.php  -  (ETUD)  BLOGART22
 //
@@ -14,10 +14,10 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 
 // Instanciation de la classe langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
 
 // Ctrl CIR
@@ -53,7 +53,7 @@ $errDel = 0;
     if ($errDel == 99) {
 ?>
 	    <br />
-        <i><div class="error"><br>=>&nbsp;Erreur delete LANGUE : la suppression s'est mal passée !</div></i>
+        <i><div class="error"><br>=>&nbsp;Erreur delete langue : la suppression s'est mal passée !</div></i>
 <?php
     }   // End of if ($errDel == 99)
 ?>
@@ -72,7 +72,7 @@ $errDel = 0;
     </thead>
     <tbody>
 <?php
-    // Appel méthode : Get toutes les langues en BDD
+    // Appel méthode : Get toutes les langues en bdd
 
     // Boucle pour afficher
     $allLangues = $maLangue->get_AllLangues();

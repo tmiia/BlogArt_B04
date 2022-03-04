@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ARTICLE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD article (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : article.php  -  (ETUD)  BLOGART22
 //
@@ -16,29 +16,29 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
-// Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+// Insertion classe article
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
-// Insertion classe Thematique
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+// Insertion classe thematique
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$mathematique = new thematique();
 
 
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
-	<title>Admin - CRUD Article</title>
+	<title>Admin - CRUD article</title>
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
@@ -54,10 +54,10 @@ $maThematique = new THEMATIQUE();
     </style>
 </head>
 <body>
-	<h1>BLOGART22 Admin - CRUD Article</h1>
+	<h1>BLOGART22 Admin - CRUD article</h1>
 
 	<hr />
-	<h2>Nouvel article :&nbsp;<a href="./createArticle.php"><i>Créer un article</i></a></h2>
+	<h2>Nouvel article :&nbsp;<a href="./createarticle.php"><i>Créer un article</i></a></h2>
     <hr />
 	<h2>Tous les articles</h2>
 
@@ -69,39 +69,39 @@ $maThematique = new THEMATIQUE();
             <th>&nbsp;Titre&nbsp;</th>
             <th>&nbsp;Chapeau&nbsp;</th>
             <th>&nbsp;Accroche&nbsp;</th>
-            <th>&nbsp;Angle&nbsp;</th>
+            <th>&nbsp;angle&nbsp;</th>
             <th>&nbsp;Thématique&nbsp;</th>
             <th colspan="2">&nbsp;Action&nbsp;</th>
         </tr>
     </thead>
     <tbody>
 <?php
-    // Appel méthode : Get tous les articles en BDD
-    $allArticles = $monArticle->get_AllArticles();
+    // Appel méthode : Get tous les articles en bdd
+    $allarticles = $monarticle->get_Allarticles();
     
     // Boucle pour afficher
-    for($i =0; $i < count($allArticles); $i++){
+    for($i =0; $i < count($allarticles); $i++){
     //foreach($all as $row) {
 
 ?>
         <tr>
-		<td><h4>&nbsp; <?= $allArticles[$i]['numArt']; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $allarticles[$i]['numArt']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= $allArticles[$i]['dtCreArt']; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allarticles[$i]['dtCreArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?=  $allArticles[$i]['libTitrArt']; ?> &nbsp;</td>
+        <td>&nbsp; <?=  $allarticles[$i]['libTitrArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= $allArticles[$i]['libChapoArt']; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allarticles[$i]['libChapoArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?=  $allArticles[$i]['libAccrochArt']; ?> &nbsp;</td>
+        <td>&nbsp; <?=  $allarticles[$i]['libAccrochArt']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= $monAngle->get_1Angle($allArticles[$i]['numAngl'])['libAngl'] ; ?> &nbsp;</td>
+        <td>&nbsp; <?= $monangle->get_1angle($allarticles[$i]['numAngl'])['libAngl'] ; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= $maThematique->get_1Thematique($allArticles[$i]['numThem'])['libThem']; ?> &nbsp;</td>
+        <td>&nbsp; <?= $mathematique->get_1thematique($allarticles[$i]['numThem'])['libThem']; ?> &nbsp;</td>
 
-		<td>&nbsp;&nbsp;<a href="./updateArticle.php?id=<?=$allArticles[$i]['numArt']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier article" title="Modifier article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;<a href="./updatearticle.php?id=<?=$allarticles[$i]['numArt']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier article" title="Modifier article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;<a href="./deleteArticle.php?id=<?=$allArticles[$i]['numArt']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer article" title="Supprimer article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;<a href="./deletearticle.php?id=<?=$allarticles[$i]['numArt']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer article" title="Supprimer article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
         </tr>
 <?php

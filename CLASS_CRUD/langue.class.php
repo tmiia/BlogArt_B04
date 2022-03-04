@@ -1,13 +1,13 @@
 <?php
-// CRUD LANGUE
+// CRUD langue
 // ETUD
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
-class LANGUE{
+class langue{
 	function get_1Langue($numLang){
 		global $db;
 
-		$query = "SELECT * FROM LANGUE WHERE numLang = ?;";
+		$query = "SELECT * FROM langue WHERE numLang = ?;";
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -18,10 +18,10 @@ class LANGUE{
 	function get_1LangueByPays($numPays){ //pour récupérer la langue d'un pays
 		global $db;
 
-		// $query = "SELECT * FROM LANGUE WHERE numPays = ?;";
+		// $query = "SELECT * FROM langue WHERE numPays = ?;";
 		// var_dump($numPays);
 		// exit;
-		$query = 'SELECT frPays FROM PAYS INNER JOIN LANGUE ON PAYS.numPays = LANGUE.numPays WHERE LANGUE.numLang = ?;';
+		$query = 'SELECT frPays FROM pays INNER JOIN langue ON pays.numPays = langue.numPays WHERE langue.numLang = ?;';
 		// prepare
 		$result = $db->prepare($query);
 		// execute
@@ -33,7 +33,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = "SELECT * FROM LANGUE;";
+		$query = "SELECT * FROM langue;";
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -45,7 +45,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = "SELECT frPays FROM PAYS INNER JOIN LANGUE ON PAYS.numPays = LANGUE.numPays;";
+		$query = "SELECT frPays FROM pays INNER JOIN langue ON pays.numPays = langue.numPays;";
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -57,7 +57,7 @@ class LANGUE{
 		global $db;
 
 		// select
-		$query = "SELECT * FROM LANGUE WHERE lib1Lang = ?;";
+		$query = "SELECT * FROM langue WHERE lib1Lang = ?;";
 		// prepare
 		$result = $db->query($query);
 		// execute
@@ -65,7 +65,7 @@ class LANGUE{
 		return($allLanguesByLib1Lang);
 	}
 
-	function get_1LangueByThemArticle($numArt){
+	function get_1LangueByThemarticle($numArt){
 		global $db;
 
 		$query = "SELECT lib1Lang FROM langue INNER JOIN thematique ON Langue.numLang = thematique.numLang INNER JOIN article ON thematique.numThem = article.numThem WHERE numArt = ?;";
@@ -78,7 +78,7 @@ class LANGUE{
 	function get_AllPays(){
         global $db;
 
-        $query = 'SELECT * FROM PAYS;';
+        $query = 'SELECT * FROM pays;';
         $result = $db->query($query);
         $allPays = $result->fetchAll();
         return($allPays);
@@ -94,7 +94,7 @@ class LANGUE{
 		$numPaysSelect = $numPays;  // exemple : 'CHIN'
 		$parmNumLang = $numPaysSelect . '%';
 	
-		$requete = "SELECT MAX(numLang) AS numLang FROM LANGUE WHERE numLang LIKE '$parmNumLang';";
+		$requete = "SELECT MAX(numLang) AS numLang FROM langue WHERE numLang LIKE '$parmNumLang';";
 	
 		$result = $db->query($requete);
 	
@@ -132,7 +132,7 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'INSERT INTO LANGUE (numLang , lib1Lang, lib2Lang, numPays) VALUES (?, ?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
+			$query = 'INSERT INTO langue (numLang , lib1Lang, lib2Lang, numPays) VALUES (?, ?, ?, ?)'; // ON met la liste des attributs de la table, ici il n'y en a qu'un donc on s'arrête à l
 			// prepare
 			$request = $db->prepare($query);
 			$request->execute([$numLang, $lib1Lang, $lib2Lang, $numPays]);
@@ -143,7 +143,7 @@ class LANGUE{
 		catch (PDOException $e) {
 			$db->rollBack();	// DANS LE CAS OU CA PLANTE ON ENVOIE UNE ERREUR
 			$request->closeCursor();
-			die('Erreur insert STATUT : ' . $e->getMessage());
+			die('Erreur insert statut : ' . $e->getMessage());
 		}
 	}
 
@@ -154,7 +154,7 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// update
-			$query = 'UPDATE LANGUE SET lib1Lang = ?, lib2Lang = ?, numPays = ? WHERE numLang = ?;';
+			$query = 'UPDATE langue SET lib1Lang = ?, lib2Lang = ?, numPays = ? WHERE numLang = ?;';
 			// prepare
             $request = $db->prepare($query);
             // execute
@@ -166,11 +166,11 @@ class LANGUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur update LANGUE : ' . $e->getMessage());
+			die('Erreur update langue : ' . $e->getMessage());
 		}
 	}
 
-	// Ctrl FK sur THEMATIQUE, ANGLE, MOTCLE avec del
+	// Ctrl FK sur thematique, angle, motcle avec del
 	function delete($numLang){
 		global $db;
 
@@ -178,7 +178,7 @@ class LANGUE{
 			$db->beginTransaction();
 
 			// insert
-			$query = 'DELETE FROM LANGUE WHERE numLang=?'; 
+			$query = 'DELETE FROM langue WHERE numLang=?'; 
 			// prepare
 			$request = $db->prepare($query);
 			// execute
@@ -192,7 +192,7 @@ class LANGUE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete LANGUE : ' . $e->getMessage());
+			die('Erreur delete langue : ' . $e->getMessage());
 		}
 	}
 }	// End of class

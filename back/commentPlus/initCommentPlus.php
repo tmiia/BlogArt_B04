@@ -1,13 +1,13 @@
 <?php
 /*
-* Table COMMENTPLUS
-* initCommentPlus.php
+* Table commentplus
+* initcommentplus.php
 */
-// FK PK CommentPlus
+// FK PK commentplus
 $numSeqCom = "";
-// FK PK CommentPlus
+// FK PK commentplus
 $numArt = "";
-// FK PK CommentPlus
+// FK PK commentplus
 $numSeqComR = "";
-// FK PK CommentPlus
+// FK PK commentplus
 $numArtR = "";

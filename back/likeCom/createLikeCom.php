@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD LIKECOM (PDO) - Modifié : 4 Juillet 2021
+//  CRUD likecom (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : createLikeCom.php  -  (ETUD)  BLOGART22
+//  Script  : createlikecom.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,21 +13,21 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Likecom
-require_once __DIR__ . '/../../CLASS_CRUD/likecom.class.php';
-// Instanciation de la classe Likecom
-$monLikeCom = new LIKECOM ();
+// Insertion classe likecom
+require_once __DIR__ . '/../../class_crud/likecom.class.php';
+// Instanciation de la classe likecom
+$monlikecom = new likecom ();
 
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
-$monMembre = new MEMBRE();
+require_once __DIR__ . '/../../class_crud/membre.class.php';
+$monMembre = new membre();
 
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 
-require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
-$monCommentaire = new COMMENT();
+require_once __DIR__ . '/../../class_crud/comment.class.php';
+$moncommentaire = new comment();
 
 
 // Gestion des erreurs de saisie
@@ -45,24 +45,24 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
-            header("Location: ./likeCom.php");
+            header("Location: ./likecom.php");
     }   // End of if ((isset($_POST["submit"])) ...
         
     if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) 
-    AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))
-    AND (isset($_POST['Commentaire'])) AND (!empty($_POST['Commentaire']))
+    AND (isset($_POST['article'])) AND (!empty($_POST['article']))
+    AND (isset($_POST['commentaire'])) AND (!empty($_POST['commentaire']))
         AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
             // Saisies valides
             $erreur = false;
             
             $numMemb = ctrlSaisies(($_POST['Membre']));
-            $numArt = ctrlSaisies(($_POST['Article']));
-            $numSeqCom = ctrlSaisies($_POST['Commentaire']);
+            $numArt = ctrlSaisies(($_POST['article']));
+            $numSeqCom = ctrlSaisies($_POST['commentaire']);
             $likeC = 1;
             
-            $monLikeCom->create($numMemb, $numSeqCom, $numArt, $likeC);
+            $monlikecom->create($numMemb, $numSeqCom, $numArt, $likeC);
     
-            header("Location: ./likeCom.php");
+            header("Location: ./likecom.php");
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
@@ -83,13 +83,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initLikeCom.php';
+include __DIR__ . '/initlikecom.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Like Commentaire</title>
+    <title>Admin - CRUD Like commentaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -97,13 +97,13 @@ include __DIR__ . '/initLikeCom.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Like Commentaire</h1>
-    <h2>Ajout d'un like sur un Commentaire d'un Article</h2>
+    <h1>BLOGART22 Admin - CRUD Like commentaire</h1>
+    <h2>Ajout d'un like sur un commentaire d'un article</h2>
 
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Like Commentaire d'un Article...</legend>
+        <legend class="legend1">Formulaire Like commentaire d'un article...</legend>
 
         <input type="hidden" id="id1" name="id1" value="<?= isset($_GET['id1']) ? $_GET['id1'] : '' ?>" />
         <input type="hidden" id="id2" name="id2" value="<?= isset($_GET['id2']) ? $_GET['id2'] : '' ?>" />
@@ -148,7 +148,7 @@ include __DIR__ . '/initLikeCom.php';
 
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Commentaire / Article -->
+    <!-- Listbox commentaire / article -->
         <br>
         <div class="control-group">
             <div class="controls">
@@ -158,17 +158,17 @@ include __DIR__ . '/initLikeCom.php';
             <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
             <input type="hidden" id="idTypSeqCom" name="idTypSeqCom" value="<?= $numSeqCom; ?>" />
 
-            <select name="Article" id="Article"  class="form-control form-control-create">
+            <select name="article" id="article"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez un article - - -</option>
                 <?php
-                $allArticles = $monArticle->get_AllArticles();
+                $allarticles = $monarticle->get_Allarticles();
                 
-                if($allArticles){
-                for ($i=0; $i < count($allArticles); $i++){
-                    $value = $allArticles[$i]['numArt'];
+                if($allarticles){
+                for ($i=0; $i < count($allarticles); $i++){
+                    $value = $allarticles[$i]['numArt'];
                 ?>
                 
-                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allArticles[$i]['libTitrArt']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allarticles[$i]['libTitrArt']; ?> </option>
                 
                 <?php
                     } // End of foreach
@@ -176,17 +176,17 @@ include __DIR__ . '/initLikeCom.php';
                 ?>
             </select>
         <br><br>        
-            <select name="Commentaire" id="Commentaire"  class="form-control form-control-create">
+            <select name="commentaire" id="commentaire"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez un commentaire - - -</option>
                 <?php
-                $allCommentsbyArt = $monCommentaire->get_AllCommentsByNumArt($value);
+                $allcommentsbyArt = $moncommentaire->get_AllcommentsByNumArt($value);
                 
-                if($allCommentsbyArt){
-                for ($i=0; $i < count($allCommentsbyArt); $i++){
-                    $value1 = $allCommentsbyArt[$i]['numSeqCom'];
+                if($allcommentsbyArt){
+                for ($i=0; $i < count($allcommentsbyArt); $i++){
+                    $value1 = $allcommentsbyArt[$i]['numSeqCom'];
                 ?>
                 
-                <option value="<?php echo($value1); ?>"> <?= $value1 ." - " . $allCommentsbyArt[$i]['libCom']; ?> </option>
+                <option value="<?php echo($value1); ?>"> <?= $value1 ." - " . $allcommentsbyArt[$i]['libCom']; ?> </option>
                 
                 <?php
                     } // End of foreach
@@ -199,7 +199,7 @@ include __DIR__ . '/initLikeCom.php';
 
             </div>
         </div>
-    <!-- FIN Listbox Commentaire / Article -->
+    <!-- FIN Listbox commentaire / article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
 
@@ -229,7 +229,7 @@ include __DIR__ . '/initLikeCom.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerLikeCom.php';
+require_once __DIR__ . '/footerlikecom.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ANGLE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD angle (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : createAngle.php  -  (ETUD)  BLOGART22
+//  Script  : createangle.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,11 +13,11 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
 
 // Gestion des erreurs de saisie
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // ON VEUT REINITIALISER LA VALEUR
 
     if($_POST['Submit'] == 'Initialiser'){ 
-        header("Location: updateAngle.php?id=$numAngl");
+        header("Location: updateangle.php?id=$numAngl");
         $_POST['$libelle']; // jsp ce que c'est donc maybe à changer
     }
 
@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
-        header("Location: ./createAngle.php");
+        header("Location: ./createangle.php");
     }   // End of if ((isset($_POST["submit"])) ...
     
     if (((isset($_POST['libAngl'])) AND !empty($_POST['libAngl']))
@@ -55,9 +55,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $libAngl = ctrlSaisies(($_POST['libAngl']));
             $numLang = $_POST['Langue'];
-            $numAngl = $monAngle->getNextNumAngl($numLang);
+            $numAngl = $monangle->getNextNumAngl($numLang);
 
-            $monAngle->create($numAngl, $libAngl, $numLang);
+            $monangle->create($numAngl, $libAngl, $numLang);
 
             header("Location: ./angle.php");
         }   // Fin if ((isset($_POST['lib1Lang']))
@@ -68,13 +68,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }   
 }  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initAngle.php';
+include __DIR__ . '/initangle.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Angle</title>
+    <title>Admin - CRUD angle</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -82,13 +82,13 @@ include __DIR__ . '/initAngle.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Angle</h1>
+    <h1>BLOGART22 Admin - CRUD angle</h1>
     <h2>Ajout d'un angle</h2>
 
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Angle...</legend>
+        <legend class="legend1">Formulaire angle...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
@@ -112,7 +112,7 @@ include __DIR__ . '/initAngle.php';
             <select name="Langue" id="Langue"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez une langue - - -</option>
                 <?php
-                $allLangue = $monAngle->get_AllLangues();
+                $allLangue = $monangle->get_AllLangues();
                 
                 if($allLangue){
                 for ($i=1; $i < count($allLangue); $i++){
@@ -157,7 +157,7 @@ include __DIR__ . '/initAngle.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerAngle.php';
+require_once __DIR__ . '/footerangle.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

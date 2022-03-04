@@ -1,9 +1,9 @@
 <?php
 /////////////////////////////////////////////////////
 //
-//  CRUD MOTCLEARTICLE (PDO) - Modifié : 6 Juillet 2021
+//  CRUD motclearticle (PDO) - Modifié : 6 Juillet 2021
 //
-//  Script  : motCleArticle.php  -  (ETUD)  BLOGART22
+//  Script  : motclearticle.php  -  (ETUD)  BLOGART22
 //
 /////////////////////////////////////////////////////
 
@@ -15,7 +15,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Mots-Clés / Article</title>
+    <title>Admin - CRUD Mots-Clés / article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -23,11 +23,11 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Mots-Clés / Article</h1>
+    <h1>BLOGART22 Admin - CRUD Mots-Clés / article</h1>
 
     <br><br>
 
-    <h2>Les Mots-Clés à lier à un article sont traités directement dans le CRUD Article</h2>
+    <h2>Les Mots-Clés à lier à un article sont traités directement dans le CRUD article</h2>
 
     <br><br>
 

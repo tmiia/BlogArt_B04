@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD COMMENT (PDO) - Modifié : 4 Juillet 2021
+//  CRUD comment (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : createComment.php  -  (ETUD)  BLOGART22
+//  Script  : createcomment.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -15,19 +15,19 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Comment
-require_once __DIR__ . '/../../CLASS_CRUD/comment.class.php';
+// Insertion classe comment
+require_once __DIR__ . '/../../class_crud/comment.class.php';
 
-// Instanciation de la classe Article
-$monCommentaire = new COMMENT();
-// Instanciation de la classe Comment
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+// Instanciation de la classe article
+$moncommentaire = new comment();
+// Instanciation de la classe comment
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
-$monMembre = new MEMBRE();
+require_once __DIR__ . '/../../class_crud/membre.class.php';
+$monMembre = new membre();
 
 
 // Gestion des erreurs de saisie
@@ -48,19 +48,19 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             header("Location: ./comment.php");
     }   // End of if ((isset($_POST["submit"])) ...
         
-    if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
+    if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['article'])) AND (!empty($_POST['article']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
         AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
             // Saisies valides
             $erreur = false;
            
             $numMemb = ctrlSaisies(($_POST['Membre']));
-            $numArt = ctrlSaisies(($_POST['Article']));
-            $numSeqCom = intval($monCommentaire->getNextNumCom($numArt));
+            $numArt = ctrlSaisies(($_POST['article']));
+            $numSeqCom = intval($moncommentaire->getNextNumCom($numArt));
             $libCom = ctrlSaisies(($_POST['libCom']));
             // $dtCreCom = ctrlSaisies(($_POST['dtCreCom']));
 
 
-            $monCommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
+            $moncommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
     
             header("Location: ./comment.php");
         }   // Fin if ((isset($_POST['libStat']))
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initComment.php';
+include __DIR__ . '/initcomment.php';
 // Var init
 
 
@@ -85,7 +85,7 @@ include __DIR__ . '/initComment.php';
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Commentaire</title>
+    <title>Admin - CRUD commentaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -95,18 +95,18 @@ include __DIR__ . '/initComment.php';
 
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Commentaire</h1>
+    <h1>BLOGART22 Admin - CRUD commentaire</h1>
     <h2>Ajout d'un commentaire</h2>
 
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Commentez un commentaire...</legend>
+        <legend class="legend1">commentez un commentaire...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
 <!-- --------------------------------------------------------------- -->
-    <!-- FK : Membre, Article -->
+    <!-- FK : Membre, article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
     <!-- Listbox Membre -->
@@ -141,7 +141,7 @@ include __DIR__ . '/initComment.php';
     <!-- FIN Listbox Membre -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Article -->
+    <!-- Listbox article -->
         <br>
         <div class="control-group">
             <div class="controls">
@@ -150,18 +150,18 @@ include __DIR__ . '/initComment.php';
             </label>
             
 
-            <!-- Listbox Article => 2ème temps -->
-            <select name="Article" id="Article"  class="form-control form-control-create">
+            <!-- Listbox article => 2ème temps -->
+            <select name="article" id="article"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez un article - - -</option>
                 <?php
-                $allArticles = $monArticle->get_AllArticles();
+                $allarticles = $monarticle->get_Allarticles();
                 
-                if($allArticles){
-                for ($i=0; $i < count($allArticles); $i++){
-                    $value = $allArticles[$i]['numArt'];
+                if($allarticles){
+                for ($i=0; $i < count($allarticles); $i++){
+                    $value = $allarticles[$i]['numArt'];
                 ?>
                 
-                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allArticles[$i]['libTitrArt']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allarticles[$i]['libTitrArt']; ?> </option>
                 
                 <?php
                     } // End of foreach
@@ -171,15 +171,15 @@ include __DIR__ . '/initComment.php';
 
             </div>
         </div>
-    <!-- FIN Listbox Article -->
+    <!-- FIN Listbox article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Fin FK : Membre, Article -->
+    <!-- Fin FK : Membre, article -->
 <!-- --------------------------------------------------------------- -->
     <!-- textarea comment -->
         <br>
         <div class="control-group">
-            <label class="control-label" for="libCom"><b>Ajoutez votre Commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
+            <label class="control-label" for="libCom"><b>Ajoutez votre commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b></label>
             <div class="controls">
               <textarea name="libCom" id="editor1" tabindex="30" style="height:400px; width:700px; padding:2px; border:solid 1px black; color:steelblue; border-radius:5px;" rows="20" cols="100" title="Texte à mettre en forme" value="<? if(isset($_GET['libCom'])) echo $_POST['libCom']; ?>"></textarea>
             </div>
@@ -214,7 +214,7 @@ include __DIR__ . '/initComment.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerComment.php';
+require_once __DIR__ . '/footercomment.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

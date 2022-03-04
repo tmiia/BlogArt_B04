@@ -3,7 +3,7 @@
 //
 //  Footer tous les CRUD (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : footerLikeCom.php  -  (ETUD)  BLOGART22
+//  Script  : footerlikecom.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,5 +13,5 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 
 <footer>
     <br /><br /><hr />
-    <h2>Retour à la gestion des (un)Likes / Commentaire : <a href="./likecom.php">CRUD Like / Commentaire</a></h2>
+    <h2>Retour à la gestion des (un)Likes / commentaire : <a href="./likecom.php">CRUD Like / commentaire</a></h2>
 </footer>

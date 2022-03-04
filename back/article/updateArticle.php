@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ARTICLE (PDO) - Modifié : 10 Juillet 2021
+//  CRUD article (PDO) - Modifié : 10 Juillet 2021
 //
-//  Script  : updateArticle.php  -  (ETUD)  BLOGART22
+//  Script  : updatearticle.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -25,35 +25,35 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
-// Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+// Insertion classe article
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 
-// Insertion classe MotCleArticle
-require_once __DIR__ . '/../../CLASS_CRUD/motclearticle.class.php';
+// Insertion classe motclearticle
+require_once __DIR__ . '/../../class_crud/motclearticle.class.php';
 
-// Instanciation de la classe MotCleArticle
-$monMotCleArticle = new MOTCLEARTICLE();
+// Instanciation de la classe motclearticle
+$monmotclearticle = new motclearticle();
 
 // Insertion classe MotCle
-require_once __DIR__ . '/../../CLASS_CRUD/motcle.class.php';
+require_once __DIR__ . '/../../class_crud/motcle.class.php';
 
 // Instanciation de la classe MotCle
-$monMotCle = new MOTCLE();
+$monMotCle = new motcle();
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 
 // Instanciation de la classe langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
-// Insertion classe Angle
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+// Insertion classe angle
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
 // Insertion classe them
 require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     // ON VEUT REINITIALISER LA VALEUR
 
     if($_POST['Submit'] == 'Initialiser'){ 
-        header("Location: updateArticle.php?id=$numArt");
+        header("Location: updatearticle.php?id=$numArt");
         $_POST['$libelle']; // jsp ce que c'est donc maybe à changer
     }
 
@@ -120,7 +120,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             require_once './ctrlerUploadImage.php';
     
-            $monArticle->update($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $nomImage, $numAngl, $numThem);
+            $monarticle->update($numArt, $libTitrArt, $libChapoArt, $libAccrochArt, $parag1Art, $libSsTitr1Art, $parag2Art, $libSsTitr2Art, $parag3Art, $libConclArt, $nomImage, $numAngl, $numThem);
     
             header("Location: ./article.php");
         }   // Fin if ((isset($_POST['']))
@@ -140,7 +140,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initArticle.php';
+include __DIR__ . '/initarticle.php';
 // En dur
 // $urlPhotArt = "../uploads/imgArt2dd0b196b8b4e0afb45a748c3eba54ea.png";
 ?>
@@ -148,7 +148,7 @@ include __DIR__ . '/initArticle.php';
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Article</title>
+    <title>Admin - CRUD article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -160,7 +160,7 @@ include __DIR__ . '/initArticle.php';
 
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Article</h1>
+    <h1>BLOGART22 Admin - CRUD article</h1>
     <h2>Modification d'un article</h2>
 <?php
 
@@ -171,7 +171,7 @@ include __DIR__ . '/initArticle.php';
 
         $id = ctrlSaisies(($_GET['id']));
 
-        $query = (array)$monArticle->get_1Article($id);
+        $query = (array)$monarticle->get_1article($id);
 
         if ($query) {
             $numArt = $query['numArt'];
@@ -204,7 +204,7 @@ include __DIR__ . '/initArticle.php';
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8" id="chgLang">
 
       <fieldset>
-        <legend class="legend1">Formulaire Article...</legend>
+        <legend class="legend1">Formulaire article...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
@@ -343,10 +343,10 @@ include __DIR__ . '/initArticle.php';
 <!-- --------------------------------------------------------------- -->
 
 <!-- --------------------------------------------------------------- -->
-    <!-- FK : Angle, Thématique + TJ Mots Clés -->
+    <!-- FK : angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Angle live share -->
+    <!-- Listbox angle live share -->
         <br>
         <div class="control-group">
             <div class="controls">
@@ -362,7 +362,7 @@ include __DIR__ . '/initArticle.php';
 
             </div>
         </div>
-    <!-- FIN Listbox Angle -->
+    <!-- FIN Listbox angle -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
     <!-- Listbox Thématique -->
@@ -400,7 +400,7 @@ include __DIR__ . '/initArticle.php';
     <!-- FIN Drag and drop Mot Clé -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Fin FK : Angle, Thématique + TJ Mots Clés -->
+    <!-- Fin FK : angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 
         <div class="control-group">
@@ -430,7 +430,7 @@ include __DIR__ . '/initArticle.php';
     </form>
 
 <!-- --------------------------------------------------------------- -->
-    <!-- Début Ajax : Langue => Angle, Thématique + TJ Mots Clés -->
+    <!-- Début Ajax : Langue => angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 
     <!-- A faire dans un 3ème temps  -->
@@ -495,11 +495,11 @@ include __DIR__ . '/initArticle.php';
   </script>
 
 <!-- --------------------------------------------------------------- -->
-    <!-- Fin Ajax : Langue => Angle, Thématique + TJ Mots Clés -->
+    <!-- Fin Ajax : Langue => angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
 
 <?php
-require_once __DIR__ . '/footerArticle.php';
+require_once __DIR__ . '/footerarticle.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

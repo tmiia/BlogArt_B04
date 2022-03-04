@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD THEMATIQUE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD thematique (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : deleteThematique.php  -  (ETUD)  BLOGART22
+//  Script  : deletethematique.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,20 +13,20 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Thematique
-require_once __DIR__ . '/../../CLASS_CRUD/thematique.class.php';
+// Insertion classe thematique
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$mathematique = new thematique();
 
-// Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Insertion classe article
+require_once __DIR__ . '/../../class_crud/article.class.php';
+// Instanciation de la classe article
+$monarticle = new article();
 
 // Insertion classe langue
-require_once __DIR__ . '/../../CLASS_CRUD/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 // Instanciation de la classe langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
 
 // BBCode
@@ -49,11 +49,11 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     }
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
         
-        $nbThemArt = $monArticle->get_NbAllArticlesByNumThem($_POST["id"]);
+        $nbThemArt = $monarticle->get_NbAllarticlesByNumThem($_POST["id"]);
 
         if ($nbThemArt < 1) {
             
-                $maThematique->delete($_POST["id"]);
+                $mathematique->delete($_POST["id"]);
                 header("Location: ./thematique.php");
             } 
             else {
@@ -63,13 +63,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initThematique.php';
+include __DIR__ . '/initthematique.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Thematique</title>
+    <title>Admin - CRUD thematique</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -92,8 +92,8 @@ include __DIR__ . '/initThematique.php';
     </style>
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Thematique</h1>
-    <h2>Suppression d'une Thematique</h2>
+    <h1>BLOGART22 Admin - CRUD thematique</h1>
+    <h2>Suppression d'une thematique</h2>
 <?php
     // Supp : récup id à supprimer
     // id passé en GET
@@ -102,7 +102,7 @@ include __DIR__ . '/initThematique.php';
 
         $id = ctrlSaisies(($_GET['id']));
 
-        $query = (array)$maThematique->get_1Thematique($id);
+        $query = (array)$mathematique->get_1thematique($id);
 
         if ($query) {
             $libThem = $query['libThem'];
@@ -115,7 +115,7 @@ include __DIR__ . '/initThematique.php';
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Thematique...</legend>
+        <legend class="legend1">Formulaire thematique...</legend>
 
         <input type="hidden" id="id" name="id" value="<?= isset($_GET['id']) ? $_GET['id'] : '' ?>" />
 
@@ -165,7 +165,7 @@ include __DIR__ . '/initThematique.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerThematique.php';
+require_once __DIR__ . '/footerthematique.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

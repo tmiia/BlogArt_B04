@@ -1,16 +1,16 @@
 <?php
-// CRUD MOTCLEARTICLE
+// CRUD motclearticle
 // ETUD
-require_once __DIR__ . '../../CONNECT/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
-class MOTCLEARTICLE{
+class motclearticle{
 	function get_AllMotClesByNumArt($numArt){
 		global $db;
 
 		// select
 		// prepare
 		// execute
-		return($allCommentsByArt);
+		return($allcommentsByArt);
 	}
 
 	function get_AllMotClesByLibTitrArt($libTitrArt){
@@ -19,22 +19,22 @@ class MOTCLEARTICLE{
 		// select
 		// prepare
 		// execute
-		return($allCommentsByArt);
+		return($allcommentsByArt);
 	}
 
 	function get_AllArtsByNumMotCle($numMotCle){
 		global $db;
 
         // select
-        $sql = "SELECT * FROM MOTCLEARTICLE WHERE numMotCle = ?";
+        $sql = "SELECT * FROM motclearticle WHERE numMotCle = ?";
         // prepare
         $req = $db->prepare($sql);
         // execute
         $req->execute([$numMotCle]);
 
-        $allCommentsByArt = $req->rowCount();
+        $allcommentsByArt = $req->rowCount();
 
-		return($allCommentsByArt);
+		return($allcommentsByArt);
 	}
 
 	function get_AllArtsByLibMotCle($libMotCle){
@@ -43,7 +43,7 @@ class MOTCLEARTICLE{
 		// select
 		// prepare
 		// execute
-		return($allCommentsByArt);
+		return($allcommentsByArt);
 	}
 
 	function create($numArt, $numMotCle){
@@ -61,7 +61,7 @@ class MOTCLEARTICLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur insert MOTCLEARTICLE : ' . $e->getMessage());
+			die('Erreur insert motclearticle : ' . $e->getMessage());
 		}
 	}
 
@@ -80,7 +80,7 @@ class MOTCLEARTICLE{
 		catch (PDOException $e) {
 			$db->rollBack();
 			$request->closeCursor();
-			die('Erreur delete MOTCLEARTICLE : ' . $e->getMessage());
+			die('Erreur delete motclearticle : ' . $e->getMessage());
 		}
 	}
 }	// End of class

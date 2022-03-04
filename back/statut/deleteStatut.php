@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD STATUT (PDO) - Modifié : 4 Juillet 2021
+//  CRUD statut (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : deleteStatut.php  -  (ETUD)  BLOGART22
 //
@@ -16,24 +16,24 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/delAccents.php';
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
-$monStatut = new STATUT();
+$monStatut = new statut();
 
 // Ctrl CIR
 // Insertion classe User
-require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
+require_once __DIR__ . '/../../class_crud/user.class.php';
 
 // Instanciation de la classe User
-$monUser = new USER();
+$monUser = new user();
 
 
 // Insertion classe Membre
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../class_crud/membre.class.php';
 
 // Instanciation de la classe Membre
-$monMembre = new MEMBRE();
+$monMembre = new membre();
 
 // Gestion des erreurs de saisie
 $erreur = false;

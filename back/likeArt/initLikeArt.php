@@ -1,11 +1,11 @@
 <?php
 /*
-* Table LIKEART
-* initLikeArt.php
+* Table likeart
+* initlikeart.php
 */
-// FK PK LikeArt
+// FK PK likeart
 $numMemb = "";
-// FK PK LikeArt
+// FK PK likeart
 $numArt = "";
 // booléen
 $likeA = "";

@@ -55,25 +55,25 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<hr class="hr1" />
 	<div>
 	CRUD :
-	<a href="./BACK/angle/angle.php"><span>Angle (*)</span></a>
+	<a href="./BACK/angle/angle.php"><span>angle (*)</span></a>
 	<br /><br />
 	CRUD :
-	<a href="./BACK/article/article.php"><span>Article (*)</span></a>
+	<a href="./BACK/article/article.php"><span>article (*)</span></a>
 	<br /><br />
 	CRUD :
-	<a href="./BACK/comment/comment.php"><span>Commentaire (*)</span></a>
+	<a href="./BACK/comment/comment.php"><span>commentaire (*)</span></a>
 	<br /><br />
 	CRUD :
-	<a href="./BACK/commentplus/commentplus.php">Réponse sur Commentaire</a>
+	<a href="./BACK/commentplus/commentplus.php">Réponse sur commentaire</a>
 	<br /><br />
 	CRUD :
 	<a href="./BACK/langue/langue.php"><span>Langue (*)</span></a>
 	<br /><br />
 	CRUD :
-	<a href="./BACK/likeart/likeart.php"><span>Like Article (*)</span></a>
+	<a href="./BACK/likeart/likeart.php"><span>Like article (*)</span></a>
 	<br /><br />
 	CRUD :
-	<a href="./BACK/likecom/likecom.php"><span>Like Commentaire (*)</span></a>
+	<a href="./BACK/likecom/likecom.php"><span>Like commentaire (*)</span></a>
 	<br /><br />
 <!-- Membre (*) - reCaptcha à ajouter -->
 	CRUD :
@@ -83,7 +83,7 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<a href="./BACK/motcle/motcle.php"><span>Mot-clé (*)</span></a>
 	<br /><br />
 	CRUD :
-	<a href="#">Mot-clé Article => dans Article</a>
+	<a href="#">Mot-clé article => dans article</a>
 	<br /><br />
 	CRUD :
 	<a href="./BACK/statut/statut.php"><span>Statut (*)</span></a>
@@ -96,17 +96,17 @@ require_once __DIR__ . '/util/utilErrOn.php';
 	<a href="./BACK/user/user.php"><span>User (*)</span></a>
 	<br /><br /><hr class="hr1" /><br />
 	Barre de recherche :
-	<a href="./SearchBar/barreF2.php"><span>CONCAT : Un SEUL Mot clé dans articles (*)</span></a>
+	<a href="./searchbar/barreF2.php"><span>CONCAT : Un SEUL Mot clé dans articles (*)</span></a>
 	<br>(F1 en GET)
 	<br /><br />
 	Barre de recherche :
-	<a href="./SearchBar/barreCONCAT.php"><span>CONCAT : Mots clés dans articles & thématiques (*)</span></a>
+	<a href="./searchbar/barreCONCAT.php"><span>CONCAT : Mots clés dans articles & thématiques (*)</span></a>
 	<br /><br />
 	Barre de recherche :
-	<a href="./SearchBar/barreJOIN.php"><span>JOIN : Liste des Mots clés par article (*)</span></a>
+	<a href="./searchbar/barreJOIN.php"><span>JOIN : Liste des Mots clés par article (*)</span></a>
 	<br /><br />
 	Barre de recherche :
-	<a href="./SearchBar/barreLes2.php"><span>Les 2 (CONCAT, JOIN) : Mots clés dans articles, thématiques & liste des Mots clés par article (*)</span></a>
+	<a href="./searchbar/barreLes2.php"><span>Les 2 (CONCAT, JOIN) : Mots clés dans articles, thématiques & liste des Mots clés par article (*)</span></a>
 	<br /><br />
 	</div>
 <?php

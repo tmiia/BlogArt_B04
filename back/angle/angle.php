@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD ANGLE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD angle (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : angle.php  -  (ETUD)  BLOGART22
 //
@@ -14,10 +14,10 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../CLASS_CRUD/angle.class.php';
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monangle = new angle();
 
 
 // Ctrl CIR
@@ -31,7 +31,7 @@ $errDel = 0;
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
-	<title>Admin - CRUD Angle</title>
+	<title>Admin - CRUD angle</title>
 	<meta charset="utf-8" />
 	<meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -48,7 +48,7 @@ $errDel = 0;
     </style>
 </head>
 <body>
-	<h1>BLOGART22 Admin - CRUD Angle</h1>
+	<h1>BLOGART22 Admin - CRUD angle</h1>
 
 	<hr />
 	<h2>Nouvel angle :&nbsp;<a href="./createangle.php"><i>Créer un angle</i></a></h2>
@@ -56,7 +56,7 @@ $errDel = 0;
     if ($errDel == 99) {
 ?>
         <br />
-        <i><div class="error"><br>=>&nbsp;Erreur delete ANGLE : la suppression s'est mal passée !</div></i>
+        <i><div class="error"><br>=>&nbsp;Erreur delete angle : la suppression s'est mal passée !</div></i>
 <?php
     }   // End of if ($errDel == 99)
 ?>
@@ -74,27 +74,27 @@ $errDel = 0;
     </thead>
     <tbody>
 <?php
-    // Appel méthode : Get tous les angles en BDD
+    // Appel méthode : Get tous les angles en bdd
 
     // Boucle pour afficher
-    $allAngle = $monAngle->get_AllAngles();
-    $allLangue = $monAngle->get_AllLangues();
-    for($i = 1; $i < count($allAngle); $i++){
+    $allangle = $monangle->get_Allangles();
+    $allLangue = $monangle->get_AllLangues();
+    for($i = 1; $i < count($allangle); $i++){
     //foreach($all as $row) {
 
 ?>
         <tr>
-		<td><h4>&nbsp; <?= $allAngle[$i]['numAngl']; ?> &nbsp;</h4></td>
+		<td><h4>&nbsp; <?= $allangle[$i]['numAngl']; ?> &nbsp;</h4></td>
 
-        <td>&nbsp; <?= $allAngle[$i]['libAngl']; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allangle[$i]['libAngl']; ?> &nbsp;</td>
 
-        <td>&nbsp; <?= $allAngle[$i]['numLang']; ?> &nbsp;</td>
+        <td>&nbsp; <?= $allangle[$i]['numLang']; ?> &nbsp;</td>
 
-        <!--<td>&nbsp; <?= $monAngle->get_1AngleByLang($allAngle[$i]['numLang'])[0] ?> &nbsp;</td>-->
+        <!--<td>&nbsp; <?= $monangle->get_1angleByLang($allangle[$i]['numLang'])[0] ?> &nbsp;</td>-->
 		
-        <td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./updateAngle.php?id=<?= $allAngle[$i]['numAngl']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier angle" title="Modifier angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./updateangle.php?id=<?= $allangle[$i]['numAngl']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier angle" title="Modifier angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./deleteAngle.php?id=<?= $allAngle[$i]['numAngl']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer angle" title="Supprimer angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./deleteangle.php?id=<?= $allangle[$i]['numAngl']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer angle" title="Supprimer angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
         </tr>
 <?php

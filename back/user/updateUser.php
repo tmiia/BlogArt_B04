@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD USER (PDO) - Modifié : 4 Juillet 2021
+//  CRUD user (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : updateUser.php  -  (ETUd)  BLOGART22
 //
@@ -19,16 +19,16 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe User
-require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
+require_once __DIR__ . '/../../class_crud/user.class.php';
 
 // Instanciation de la classe User
-$monUser = new USER();
+$monUser = new user();
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
-$monStatut = new STATUT();
+$monStatut = new statut();
 
 
 

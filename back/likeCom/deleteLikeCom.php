@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD LIKECOM (PDO) - Modifié : 4 Juillet 2021
+//  CRUD likecom (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : deleteLikeCom.php  -  (ETUD)  BLOGART22
+//  Script  : deletelikecom.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,9 +13,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Likecom
+// Insertion classe likecom
 
-// Instanciation de la classe Likecom
+// Instanciation de la classe likecom
 
 
 
@@ -38,13 +38,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initLikeCom.php';
+include __DIR__ . '/initlikecom.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Like Commentaire</title>
+    <title>Admin - CRUD Like commentaire</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -52,8 +52,8 @@ include __DIR__ . '/initLikeCom.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Like Commentaire</h1>
-    <h2>Suppression d'un (un)like sur Commentaire</h2>
+    <h1>BLOGART22 Admin - CRUD Like commentaire</h1>
+    <h2>Suppression d'un (un)like sur commentaire</h2>
 <?php
     // Supp : récup id à supprimer
     // id passé en GET
@@ -67,7 +67,7 @@ include __DIR__ . '/initLikeCom.php';
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Like Commentaire...</legend>
+        <legend class="legend1">Formulaire Like commentaire...</legend>
 
         <input type="hidden" id="id1" name="id1" value="<?= isset($_GET['id1']) ? $_GET['id1'] : '' ?>" />
         <input type="hidden" id="id2" name="id2" value="<?= isset($_GET['id2']) ? $_GET['id2'] : '' ?>" />
@@ -96,7 +96,7 @@ include __DIR__ . '/initLikeCom.php';
 
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Article -->
+    <!-- Listbox article -->
         <br>
         <div class="control-group">
             <div class="controls">
@@ -111,28 +111,28 @@ include __DIR__ . '/initLikeCom.php';
 
             </div>
         </div>
-    <!-- FIN Listbox Article -->
+    <!-- FIN Listbox article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
 
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Commentaire -->
+    <!-- Listbox commentaire -->
         <br>
         <div class="control-group">
             <div class="controls">
             <label class="control-label" for="LibTypSeqCom">
-                <b>Quel Commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
+                <b>Quel commentaire :&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</b>
             </label>
             <input type="hidden" id="idTypSeqCom" name="idTypSeqCom" value="<?= $numSeqCom; ?>" />
 
             <input type="text" name="idCom" id="idCom" size="5" maxlength="5" value="<?= $idCom; ?>" autocomplete="on" />
 
-            <!-- Listbox Commentaire disabled => 2ème temps -->
+            <!-- Listbox commentaire disabled => 2ème temps -->
 
             </div>
         </div>
-    <!-- FIN Listbox Commentaire -->
+    <!-- FIN Listbox commentaire -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
 
@@ -162,7 +162,7 @@ include __DIR__ . '/initLikeCom.php';
       </fieldset>
     </form>
 <<?php
-require_once __DIR__ . '/footerLikeCom.php';
+require_once __DIR__ . '/footerlikecom.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

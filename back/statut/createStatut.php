@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD STATUT (PDO) - Modifié : 4 Juillet 2021
+//  CRUD statut (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : createStatut.php  -  (ETUD)  BLOGART22
 //
@@ -14,10 +14,10 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
-$monStatut = new STATUT();
+$monStatut = new statut();
 
 
 // Gestion des erreurs de saisie

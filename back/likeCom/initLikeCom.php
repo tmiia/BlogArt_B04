@@ -1,13 +1,13 @@
 <?php
 /*
-* Table LIKECOM
-* initLikeCom.php
+* Table likecom
+* initlikecom.php
 */
-// FK PK LikeCom
+// FK PK likecom
 $numMemb = "";
-// FK PK LikeCom
+// FK PK likecom
 $numSeqCom = "";
-// FK PK LikeCom
+// FK PK likecom
 $numArt = "";
 // booléen
 $likeC = "";

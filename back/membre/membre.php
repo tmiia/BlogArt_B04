@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD MEMBRE (PDO) - Modifié : 4 Juillet 2021
+//  CRUD membre (PDO) - Modifié : 4 Juillet 2021
 //
 //  Script  : membre.php  -  (ETUD)  BLOGART22
 //
@@ -17,16 +17,16 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Membre
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
+require_once __DIR__ . '/../../class_crud/membre.class.php';
 
 // Instanciation de la classe Membre
-$monMembre = new MEMBRE();
+$monMembre = new membre();
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
-$monStatut = new STATUT();
+$monStatut = new statut();
 
 //  trl CIR
 $errCIR = 0;
@@ -61,7 +61,7 @@ $errDel = 0;
     if ($errDel == 99) {
 ?>
 	    <br />
-        <i><div class="error"><br>=>&nbsp;Erreur delete MEMBRE : la suppression s'est mal passée !</div></i>
+        <i><div class="error"><br>=>&nbsp;Erreur delete membre : la suppression s'est mal passée !</div></i>
 <?php
     }   // End of if ($errDel == 99)
 ?>    
@@ -89,7 +89,7 @@ $errDel = 0;
     $from = 'Y-m-d H:i:s';
     $to = 'd/m/Y H:i:s';
 
-    // Appel méthode : Get toutes les membres en BDD
+    // Appel méthode : Get toutes les membres en bdd
     $allMembres = $monMembre->get_AllMembres();
     $allStatuts = $monStatut->get_AllStatuts();
     for($i = 1; $i < count($allMembres); $i++){

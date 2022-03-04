@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD LIKECOM (PDO) - Modifié : 4 Juillet 2021
+//  CRUD likecom (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : updateLikeCom.php  -  (ETUD)  BLOGART22
+//  Script  : updatelikecom.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -13,9 +13,9 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 // controle des saisies du formulaire
 require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
-// Insertion classe Likecom
+// Insertion classe likecom
 
-// Instanciation de la classe Likecom
+// Instanciation de la classe likecom
 
 
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 $erreur = false;
 
 // Init variables form
-include __DIR__ . '/initLikeCom.php';
+include __DIR__ . '/initlikecom.php';
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En GET
 if ($_SERVER["REQUEST_METHOD"] === "GET") {

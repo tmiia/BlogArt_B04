@@ -1,6 +1,6 @@
 <?php
 
-require_once '../blogart22/CONNECT/database.php';
+require_once '../blogart22/connect/database.php';
 
 function insert_user($pseudoUser, $passUser, $nomUser, $prenomUser, $eMailUser) {
     global $db;
@@ -8,7 +8,7 @@ function insert_user($pseudoUser, $passUser, $nomUser, $prenomUser, $eMailUser) 
     try {
         $db->beginTransaction();
 
-        $query = 'INSERT INTO USER (pseudoUser, passUser, nomUser, prenomUser, eMailUser) VALUES (?, ?, ?, ?, ?);'; //requete
+        $query = 'INSERT INTO user (pseudoUser, passUser, nomUser, prenomUser, eMailUser) VALUES (?, ?, ?, ?, ?);'; //requete
         $request = $db->prepare($query); //prepare
         $request->execute([$pseudoUser, $passUser, $nomUser, $prenomUser, $eMailUser]); //execute
         $db->commit();
@@ -24,7 +24,7 @@ function insert_user($pseudoUser, $passUser, $nomUser, $prenomUser, $eMailUser) 
 function connect_user($pseudoUser, $passUser) {
     global $db;
 
-    $query = 'SELECT * FROM USER WHERE pseudoUser = ? AND passUser = ?;';
+    $query = 'SELECT * FROM user WHERE pseudoUser = ? AND passUser = ?;';
     $result = $db->prepare($query);
     $result->execute([$pseudoUser, $passUser]);
     $user = $result->fetch();

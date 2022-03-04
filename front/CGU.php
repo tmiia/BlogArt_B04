@@ -37,7 +37,7 @@ En cas de non-acceptation des CGU stipulées dans le présent contrat, l'Utilisa
 www.AuBordDesRues.fr se réserve le droit de modifier unilatéralement et à tout moment le contenu
 des présentes CGU.</p>
 
-<H3>ARTICLE 1 : Les mentions légales</H3>
+<H3>article 1 : Les mentions légales</H3>
 
                 <p class="art">L’édition et la direction de la publication du site www.AuBordDesRues.fr est assurée par Nébula
                 agency (Nehémia Telusma, Ayline TRAVERS, Olivia SIMONET, Auriane-Mirana SICARD-RAZAKA, Lyam Roux), domicilié 1 Rue Jacques Ellul.
@@ -49,7 +49,7 @@ des présentes CGU.</p>
                 <p class="art">L'hébergeur du site www.AuBordDesRues.fr est la société Iut bordeaux montaigne, dont le siège
                 social est situé au 1 Rue Jacques Ellul, avec le numéro de téléphone : 07 ** ** ** **.</p>
 
-<H3>ARTICLE 2 : Accès au site</H3>
+<H3>article 2 : Accès au site</H3>
 
                 <p>Le site www.AuBordDesRues.fr permet à l'Utilisateur un accès gratuit aux services suivants :
                 Le site internet propose les services suivants :
@@ -77,15 +77,15 @@ des présentes CGU.</p>
                 la responsabilité de www.AuBordDesRues.fr. Dans ces cas, l’Utilisateur accepte ainsi ne pas tenir
                 rigueur à l’éditeur de toute interruption ou suspension de service, même sans préavis.
                 L'Utilisateur a la possibilité de contacter le site par messagerie électronique à l’adresse email de
-                l’éditeur communiqué à l’ARTICLE 1.</p>
+                l’éditeur communiqué à l’article 1.</p>
 
-<H3>ARTICLE 3 : Collecte des données</H3>
+<H3>article 3 : Collecte des données</H3>
 
                     <p>Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la
                 mesure où il ne collecte aucune donnée concernant les Utilisateurs.
                 </p>
 
-<H3>ARTICLE 4 : Propriété intellectuelle</H3>
+<H3>article 4 : Propriété intellectuelle</H3>
 
                 <p>Les marques, logos, signes ainsi que tous les contenus du site (textes, images, son…) font l'objet
 d'une protection par le Code de la propriété intellectuelle et plus particulièrement par le droit d'auteur.</p>
@@ -102,7 +102,7 @@ d'une protection par le Code de la propriété intellectuelle et plus particuli�
                 reproduit, copie ou publie le contenu protégé doit citer l’auteur et sa source.
                 </p>
 
-<H3>ARTICLE 5 : Responsabilité</H3>
+<H3>article 5 : Responsabilité</H3>
 
                                 <p>Les sources des informations diffusées sur le site www.AuBordDesRues.fr sont réputées fiables mais
                 le site ne garantit pas qu’il soit exempt de défauts, d’erreurs ou d’omissions.
@@ -123,14 +123,14 @@ d'une protection par le Code de la propriété intellectuelle et plus particuli�
                 La responsabilité du site ne peut être engagée en cas de force majeure ou du fait imprévisible et
                 insurmontable d'un tiers.</p>
 
-<H3>ARTICLE 6 : Liens hypertextes</H3>
+<H3>article 6 : Liens hypertextes</H3>
 
                 <p>Des liens hypertextes peuvent être présents sur le site. L’Utilisateur est informé qu’en cliquant sur ces
 liens, il sortira du site www.AuBordDesRues.fr. Ce dernier n’a pas de contrôle sur les pages web sur
 lesquelles aboutissent ces liens et ne saurait, en aucun cas, être responsable de leur contenu.
 </p>
 
-<h3>ARTICLE 7 : Cookies
+<h3>article 7 : Cookies
 </h3>
 
                 <p>L’Utilisateur est informé que lors de ses visites sur le site, un cookie peut s’installer automatiquement
@@ -145,7 +145,7 @@ En naviguant sur le site, L’Utilisateur les accepte.
 L’Utilisateur pourra désactiver ces cookies par l’intermédiaire des paramètres figurant au sein de son
 logiciel de navigation.</p>
 
-<H3>ARTICLE 8 : Publication par l’Utilisateur</H3>
+<H3>article 8 : Publication par l’Utilisateur</H3>
 
 <p>Le site permet aux membres de publier les contenus suivants :
 Des commentaire au article du blog.
@@ -172,12 +172,12 @@ Le contenu de l'Utilisateur peut être à tout moment et pour n'importe quelle r
 par le site, sans préavis</p>
 
 
-<H3>ARTICLE 9 : Droit applicable et juridiction compétente</H3>
+<H3>article 9 : Droit applicable et juridiction compétente</H3>
 
 <p class="end">La législation française s'applique au présent contrat. En cas d'absence de résolution amiable d'un
 litige né entre les parties, les tribunaux français seront seuls compétents pour en connaître.
 Pour toute question relative à l’application des présentes CGU, vous pouvez joindre l’éditeur aux
-coordonnées inscrites à l’ARTICLE 1.
+coordonnées inscrites à l’article 1.
 </p>
 
 <br>

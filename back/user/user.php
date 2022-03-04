@@ -1,7 +1,7 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD USER (PDO) - Modifié : 4 juillet 2021
+//  CRUD user (PDO) - Modifié : 4 juillet 2021
 //
 //  Script  : user.php  -  (ETUD)  BLOGART22
 //
@@ -17,15 +17,15 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe User
-require_once __DIR__ . '/../../CLASS_CRUD/user.class.php';
+require_once __DIR__ . '/../../class_crud/user.class.php';
 
 // Instanciation de la classe User
-$monUser = new USER();
+$monUser = new user();
 // Instanciation de la classe Statut
-require_once __DIR__ . '/../../CLASS_CRUD/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
-$monStatut = new STATUT();
+$monStatut = new statut();
 
 ?>
 <!DOCTYPE html>
@@ -72,7 +72,7 @@ $monStatut = new STATUT();
     </thead>
     <tbody>
 <?php
-    // Appel méthode : Get tous les users en BDD
+    // Appel méthode : Get tous les users en bdd
 $allUsers = $monUser->get_AllUsers();
     for ($i=0; $i< count($allUsers); $i++){
         

@@ -1,9 +1,9 @@
 <?php
 ////////////////////////////////////////////////////////////
 //
-//  CRUD LIKEART (PDO) - Modifié : 4 Juillet 2021
+//  CRUD likeart (PDO) - Modifié : 4 Juillet 2021
 //
-//  Script  : createLikeArt.php  -  (ETUD)  BLOGART22
+//  Script  : createlikeart.php  -  (ETUD)  BLOGART22
 //
 ////////////////////////////////////////////////////////////
 
@@ -15,20 +15,20 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Del accents sur string
 require_once __DIR__ . '/../../util/delAccents.php';
 
-// Insertion classe Likeart
-require_once __DIR__ . '/../../CLASS_CRUD/LikeArt.class.php';
+// Insertion classe likeart
+require_once __DIR__ . '/../../class_crud/likeart.class.php';
 
-// Instanciation de la classe Likeart
-$monLikeArt = new LIKEART();
+// Instanciation de la classe likeart
+$monlikeart = new likeart();
 
-require_once __DIR__ . '/../../CLASS_CRUD/membre.class.php';
-$monMembre = new MEMBRE();
+require_once __DIR__ . '/../../class_crud/membre.class.php';
+$monMembre = new membre();
 
-// Insertion classe Article
-require_once __DIR__ . '/../../CLASS_CRUD/article.class.php';
+// Insertion classe article
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
-// Instanciation de la classe Article
-$monArticle = new ARTICLE();
+// Instanciation de la classe article
+$monarticle = new article();
 // Gestion des erreurs de saisie
 
 $erreur = false;
@@ -44,21 +44,21 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
-            header("Location: ./LikeArt.php");
+            header("Location: ./likeart.php");
     }   // End of if ((isset($_POST["submit"])) ...
         
-    if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['Article'])) AND (!empty($_POST['Article']))
+    if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['article'])) AND (!empty($_POST['article']))
         AND (!empty($_POST['Submit'])) AND ($Submit === "Valider"))) {
             // Saisies valides
             $erreur = false;
     
             $numMemb = ctrlSaisies(($_POST['Membre']));
-            $numArt = ctrlSaisies(($_POST['Article']));
+            $numArt = ctrlSaisies(($_POST['article']));
             $likeA = 1;
     
-            $monLikeArt->create($numMemb, $numArt, $likeA);
+            $monlikeart->create($numMemb, $numArt, $likeA);
     
-            header("Location: ./likeArt.php");
+            header("Location: ./likeart.php");
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
@@ -71,13 +71,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initLikeArt.php';
+include __DIR__ . '/initlikeart.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
 <head>
     <meta charset="utf-8" />
-    <title>Admin - CRUD Like Article</title>
+    <title>Admin - CRUD Like article</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
@@ -85,13 +85,13 @@ include __DIR__ . '/initLikeArt.php';
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
-    <h1>BLOGART22 Admin - CRUD Like Article</h1>
-    <h2>Ajout d'un like sur Article</h2>
+    <h1>BLOGART22 Admin - CRUD Like article</h1>
+    <h2>Ajout d'un like sur article</h2>
 
     <form method="POST" action="<?= htmlspecialchars($_SERVER['PHP_SELF']); ?>" enctype="multipart/form-data" accept-charset="UTF-8">
 
       <fieldset>
-        <legend class="legend1">Formulaire Like Article...</legend>
+        <legend class="legend1">Formulaire Like article...</legend>
 
         <input type="hidden" id="id1" name="id1" value="<?= isset($_GET['id1']) ? $_GET['id1'] : '' ?>" />
         <input type="hidden" id="id2" name="id2" value="<?= isset($_GET['id2']) ? $_GET['id2'] : '' ?>" />
@@ -137,7 +137,7 @@ include __DIR__ . '/initLikeArt.php';
 
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
-    <!-- Listbox Article -->
+    <!-- Listbox article -->
         <br>
         <div class="control-group">
             <div class="controls">
@@ -146,17 +146,17 @@ include __DIR__ . '/initLikeArt.php';
             </label>
             <input type="hidden" id="idTypArt" name="idTypArt" value="<?= $numArt; ?>" />
 
-            <select name="Article" id="Article"  class="form-control form-control-create">
+            <select name="article" id="article"  class="form-control form-control-create">
                 <option value="-1">- - - Choisissez un article - - -</option>
                 <?php
-                $allArticles = $monArticle->get_AllArticles();
+                $allarticles = $monarticle->get_Allarticles();
                 
-                if($allArticles){
-                for ($i=0; $i < count($allArticles); $i++){
-                    $value = $allArticles[$i]['numArt'];
+                if($allarticles){
+                for ($i=0; $i < count($allarticles); $i++){
+                    $value = $allarticles[$i]['numArt'];
                 ?>
                 
-                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allArticles[$i]['libTitrArt']; ?> </option>
+                <option value="<?php echo($value); ?>"> <?= $value ." - " . $allarticles[$i]['libTitrArt']; ?> </option>
                 
                 <?php
                     } // End of foreach
@@ -168,7 +168,7 @@ include __DIR__ . '/initLikeArt.php';
 
             </div>
         </div>
-    <!-- FIN Listbox Article -->
+    <!-- FIN Listbox article -->
 <!-- --------------------------------------------------------------- -->
 <!-- --------------------------------------------------------------- -->
 
@@ -198,7 +198,7 @@ include __DIR__ . '/initLikeArt.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerLikeArt.php';
+require_once __DIR__ . '/footerlikeart.php';
 
 require_once __DIR__ . '/footer.php';
 ?>
