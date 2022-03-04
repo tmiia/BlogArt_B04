@@ -24,7 +24,7 @@ a {
   border: none;
   font-family: "century-gothic", sans-serif;
   text-transform: uppercase;
-  color: #2E1A1E;
+  color: #1E1E1E;
   text-decoration: none;
   font-weight: 600;
   font-size: 16px;
@@ -32,14 +32,14 @@ a {
 #navigation .langues option, #navigation .langues .allez {
   font-family: "century-gothic", sans-serif;
   text-transform: uppercase;
-  color: #2E1A1E;
+  color: #1E1E1E;
   text-decoration: none;
   font-weight: 600;
 }
 #navigation span, #navigation a {
   font-family: "century-gothic", sans-serif;
   text-transform: uppercase;
-  color: #2E1A1E;
+  color: #1E1E1E;
   text-decoration: none;
   font-weight: 600;
   transition: ease 0.3s;
@@ -86,9 +86,9 @@ a {
 }
 #navigation .connect .btn_inscription:hover {
   background-color: #DED6D1;
-  color: #2E1A1E;
+  color: #1E1E1E;
   transition: ease 0.3s;
-  color: #2E1A1E;
+  color: #1E1E1E;
 }
 #navigation a img {
   width: 80px;
@@ -117,7 +117,7 @@ footer {
   display: flex;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   padding: 20px 100px;
   padding-top: 50px;
 }
@@ -171,7 +171,7 @@ footer .liens a {
 
 header {
   height: 80vh;
-  background: #2E1A1E;
+  background: #1E1E1E;
   color: #DED6D1;
   font-family: "century-gothic", sans-serif;
   display: flex;
@@ -254,7 +254,7 @@ header h2 span {
   min-width: 250px;
   height: 300px;
   color: #fff;
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   border-radius: 15px;
   margin-right: 50px;
   position: relative;
@@ -333,7 +333,7 @@ header h2 span {
   width: calc(50% - 50px);
   height: 200px;
   color: #fff;
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
@@ -466,18 +466,25 @@ header h2 span {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
+  width: 25%;
 }
 #main_page_articles .tri_article div:first-child {
   align-items: flex-start;
+}
+#main_page_articles .tri_article div:nth-child(2) {
+  align-items: center;
 }
 #main_page_articles .tri_article div label {
   color: #D75A41;
   font-size: 18px;
   font-family: "century-gothic", sans-serif;
+  text-transform: uppercase;
+  margin-bottom: 20px;
 }
 #main_page_articles .tri_article div .theme_select_container {
   position: relative;
   display: flex;
+  width: 100%;
 }
 #main_page_articles .tri_article div .theme_select_container:after {
   display: block;
@@ -496,13 +503,12 @@ header h2 span {
   display: inline-flex;
   color: #929292;
   appearance: none;
-  width: 320px;
+  width: 100%;
   height: auto;
   border: 2px #8B8B8B solid;
   margin: 0;
   padding: 0.75em;
   border-radius: 50px;
-  margin-top: 0px;
   font-family: "century-gothic", sans-serif;
   align-items: center;
   cursor: pointer;
@@ -520,7 +526,7 @@ header h2 span {
   max-width: 300px;
   height: 300px;
   color: #fff;
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   border-radius: 15px;
   position: relative;
   overflow: hidden;
@@ -733,7 +739,7 @@ header h2 span {
   transition: ease 0.3s;
 }
 #main_article .infos_article a.art_btn.partage:hover {
-  color: #2E1A1E;
+  color: #1E1E1E;
   transition: ease 0.3s;
 }
 #main_article .infos_article a.art_btn.like:hover {
@@ -809,9 +815,10 @@ header h2 span {
   display: flex;
   margin-top: 100px;
   height: 400px;
+  width: 90%;
 }
 #main_article .article_more .article_autres {
-  width: 45%;
+  min-width: 55%;
 }
 #main_article .article_more .article_autres .article_preview {
   flex: 1;
@@ -864,6 +871,7 @@ header h2 span {
 #main_article .article_more .article_coms {
   flex: 1;
   overflow: auto;
+  width: 40%;
 }
 #main_article .article_more .article_coms::-webkit-scrollbar {
   width: 5px;
@@ -923,7 +931,7 @@ header h2 span {
 }
 #main_article .article_more .article_coms .commentaire .com_cont span b {
   display: block;
-  color: #2E1A1E;
+  color: #1E1E1E;
   font-size: 18px;
 }
 #main_article .article_more .article_coms .commentaire .com_cont p {
@@ -994,10 +1002,10 @@ header h2 span {
   color: #f6f6f6;
 }
 #main_article .add_commentaire button div {
-  background: #2E1A1E;
+  background: #1E1E1E;
 }
 #main_article .add_commentaire button:hover {
-  border: 1px solid #2E1A1E;
+  border: 1px solid #1E1E1E;
   transition: ease 0.3s;
   transition-delay: 0.2s;
 }
@@ -1047,7 +1055,7 @@ header h2 span {
   left: -5px;
 }
 #main_article .add_commentaire .modal .modal-content .close_modal:hover, #main_article .add_commentaire .modal .modal-content .close_modal:focus {
-  background: #2E1A1E;
+  background: #1E1E1E;
   text-decoration: none;
   transition: ease 0.3s;
 }
@@ -1077,7 +1085,7 @@ header h2 span {
   border: 1px solid #8B8B8B;
   border-radius: 10px;
   padding: 5px;
-  color: #2E1A1E;
+  color: #1E1E1E;
 }
 #main_article .add_commentaire .modal .modal-content form fieldset {
   height: 100%;
@@ -1115,7 +1123,7 @@ header h2 span {
   font-family: "century-gothic", sans-serif;
   font-size: 20px;
   font-weight: bold;
-  color: #2E1A1E;
+  color: #1E1E1E;
   padding: 10px;
   outline: none;
   border: none;
@@ -1127,7 +1135,7 @@ header h2 span {
   font-size: 16px;
 }
 #main_article .add_commentaire .modal .modal-content form fieldset .add_com_controls input:hover {
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   transition: ease 0.3s;
   color: #DED6D1;
 }
@@ -1136,12 +1144,12 @@ header h2 span {
   color: #f6f6f6;
 }
 #main_article .add_commentaire .modal .modal-content form fieldset .add_com_controls input.btn_valid_com:hover {
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   transition: ease 0.3s;
 }
 
 .form_connexion {
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   font-family: "century-gothic", sans-serif;
   color: #DED6D1;
   padding: 150px 100px 100px;
@@ -1207,11 +1215,11 @@ header h2 span {
 }
 .form_connexion .champs_connexion button:hover {
   background-color: #DED6D1;
-  color: #2E1A1E;
+  color: #1E1E1E;
 }
 
 #main_inscription {
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   padding: 150px 100px 100px;
 }
 #main_inscription h3 {
@@ -1301,15 +1309,15 @@ header h2 span {
 }
 #main_inscription .form_inscription .btn_inscription_connexion button:hover {
   background-color: #DED6D1;
-  color: #2E1A1E;
+  color: #1E1E1E;
 }
 #main_inscription .form_inscription .btn_inscription_connexion a {
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   color: white;
 }
 #main_inscription .form_inscription .btn_inscription_connexion a:hover {
   background-color: white;
-  color: #2E1A1E;
+  color: #1E1E1E;
 }
 
 #contact_page {
@@ -1355,7 +1363,7 @@ header h2 span {
   padding: 10px;
   border: 1px solid #8B8B8B;
   font-family: "century-gothic", sans-serif;
-  color: #2E1A1E;
+  color: #1E1E1E;
 }
 #contact_page form #btn_submit {
   background-color: #D75A41;
@@ -1373,7 +1381,7 @@ header h2 span {
   cursor: pointer;
 }
 #contact_page form #btn_submit:hover {
-  background-color: #2E1A1E;
+  background-color: #1E1E1E;
   transition: ease 0.3s;
 }
 #contact_page form .form_top {
@@ -1427,7 +1435,7 @@ header h2 span {
   font-family: "century-gothic", sans-serif;
 }
 #main_administration .admin_liens {
-  background: #2E1A1E;
+  background: #1E1E1E;
   width: 20%;
   display: flex;
   flex-direction: column;

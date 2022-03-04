@@ -50,13 +50,17 @@ class ARTICLE{
 
 	}
 
-	function get_AllArticlesByNumAnglNumThem(){
+	function get_AllArticlesByNumThem($numThem){
 		global $db;
 
-		// select
+		$query = 'SELECT * FROM article WHERE numThem =?;';
 		// prepare
+        $result = $db->prepare($query);
+        // execute
+        $result->execute([$numThem]);
 		// execute
-		// return($allArticlesByNumAnglNumThem);
+		$articleByThem = $result->fetchAll();
+		return($articleByThem);
 	}
 
 	function get_NbAllArticlesByNumAngl($numAngl){

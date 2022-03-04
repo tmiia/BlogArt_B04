@@ -141,7 +141,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
         <div class="infos_article">
             <span class="art_info"><?= $dtCreArt ?></span>
-            <span class="art_info">44 min de lecture</span>
+            <span class="art_info">3 min de lecture</span>
             <a href="#" class="art_btn partage"><i class="fa fa-share-alt"></i><span>Partager</span></a>
             <?php  if($monLikeArt->get_1LikeArt($currentMemb['numMemb'], $id) == false){
                 $isLike = "0";
@@ -237,7 +237,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                 <?php
                     if($queryComment != []){
                         for($i = 0; $i < count($queryComment); $i++){
-                            $pseudo = $monMembre->get_1Membre($queryComment[$i])['pseudoMemb'];
+                            $pseudo = $monMembre->get_1Membre($queryComment[$i]['numMemb'])['pseudoMemb'];
                             $comment = $queryComment[$i]['libCom']; ?>
 
                             <div class="commentaire">
@@ -266,7 +266,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         </div>
 
         <div class="add_commentaire">
-            <a href="/pagearticles.php">
+            <a href="<?=ROOTFRONT?>/front/pagearticles.php">
                 <div></div>
                 <span>Retour à la liste des articles</span>
             </a>
