@@ -217,7 +217,7 @@ $maThematique = new THEMATIQUE();
                         <p><?= $allArticle[$i]['libChapoArt'] ?></p>
                     </div>
                     <div class="article_recent_bot">
-                        <div class="article_like"><i class="fa fa-heart-o"></i></div>
+                        <div class="article_like"><i class="fa fa-heart"></i></div>
                         <div class="article_btn">Consulter l'article</div>
                     </div>
                     </a>
