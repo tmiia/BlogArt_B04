@@ -59,28 +59,24 @@
 
     <h3>article 4 - COLLECTE DES DONNEES</h3>
 
-    <p class="end">Le site est exempté de déclaration à la Commission Nationale Informatique et Libertés (CNIL) dans la
-    mesure où il ne collecte aucune donnée concernant les utilisateurs.
-
-    Les informations recueillies sont enregistrées dans un fichier informatisé par Nebulab Agency
-    dans le but de mener une activité sur le blog. Elles sont conservées pendant 2 ans maximum et sont destinées à l'administrateur du blog.
-    <br/>
-    Conformément aux lois « Informatique & Liberté » et « RGPD », vous pouvez exercer vos droits d’accès à vos données, de rectification, d’effacement, d’opposition, de limitation ou de portabilité en contactant : 
-    nebulab.agency@gmail.com
-    <br/>
+    Les informations recueillies font l'objet d'un traitement informatique et sont enregistrées dans un fichier informatisé par Nebulab Agency
+    dans le but de mener une activité sur le blog (commentaires, likes). 
+    Elles sont conservées pendant 2 ans maximum et sont destinées à l'administrateur du blog.
+    <br/><br/>
+    Conformément aux lois « Informatique & Liberté » du 6 Janvier 1978 et « RGPD », vous pouvez exercer vos droits d’accès à vos données, de rectification, d’effacement, d’opposition, de limitation ou de portabilité en contactant : 
+    nebulab.agency@gmail.com.
+    <br/><br/>
     En cas de différend, vous avez le droit d’introduire une réclamation (plainte) auprès de la Cnil.
-
-    <p>
-    Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du Site,
-    sans autorisation de l’Editeur est prohibée et pourra entraînée des actions et poursuites judiciaires
-    telles que notamment prévues par le Code de la propriété intellectuelle et le Code civil.
     </p>
 
+    <h3>article 5 - PROPRIETE INTELLECTUELLE</h3>
 
-
-
-
-
+    <p class="end">Ce site et son contenu sont protégés par les droits d'auteur et droits des marques.
+        <br/><br/>
+        Toute utilisation, reproduction, diffusion, commercialisation, modification de toute ou partie du Site,
+        sans autorisation de l’Editeur est prohibée et pourra entraîner des actions et poursuites judiciaires
+        telles que notamment prévues par le Code de la propriété intellectuelle et le Code civil.
+    </p>
 
 </div>
 <!-- FOOTER -->
