@@ -1,6 +1,6 @@
 <?php
 
-require_once '../blogart22/connect/database.php';
+require_once './connect/database.php';
 
 function insert_user($pseudoUser, $passUser, $nomUser, $prenomUser, $eMailUser) {
     global $db;

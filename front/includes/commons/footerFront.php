@@ -21,7 +21,7 @@ require_once __DIR__ . '/../../../connect/config.php';
     <div class="liens">
         <a href="<?=ROOTFRONT?>/front/mentionlegal.php">Mentions légales</a>
         <a href="<?=ROOTFRONT?>/front/CGU.php">CGU</a>
-        <a href="<?=ROOTFRONT?>/front/home.php">Accueil</a>
+        <a href="<?=ROOTFRONT?>/index.php">Accueil</a>
     </div>
 
 </footer>

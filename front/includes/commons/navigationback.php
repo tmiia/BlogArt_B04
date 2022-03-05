@@ -1,7 +1,7 @@
 <div id="main_administration">
 
 		<div class="admin_liens">
-			<a class="accueil" href="/panneauAdmin.pnp">Accueil</a>
+			<a class="accueil" href="<?=ROOTFRONT?>/panneauAdmin.php">Accueil</a>
 			<span>Gestion des articles</span>
 			<ul>
 				<li><a href="<?=ROOTFRONT?>/back/article/article.php">Liste des articles</a></li>

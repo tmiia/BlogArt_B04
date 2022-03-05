@@ -8,4 +8,4 @@ elseif(isset($_COOKIE['pseudoUser'])){
     setcookie('pseudoUser', "", time() - 3000600, "/");
     setcookie('passUser', "",time() - 3000600, "/");
 }
-header('Location: '. ROOTFRONT .'/front/home.php');
+header('Location: '. ROOTFRONT .'/index.php');

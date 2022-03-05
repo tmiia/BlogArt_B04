@@ -8,7 +8,7 @@ $maLangue = new langue();
 <div id="navigation">
     
     <nav>
-        <a href="<?=ROOTFRONT?>/front/home.php"><img src="<?=ROOTFRONT?>/front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
+        <a href="<?=ROOTFRONT?>/index.php"><img src="<?=ROOTFRONT?>/front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
             
               <select name="LangueNav" id="LangueNav"  class="langues">
                   <option value="-1"><?php echo('LANGUE'); ?><img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas"></option>
@@ -37,7 +37,7 @@ $maLangue = new langue();
 
         <a href="<?=ROOTFRONT?>/front/pagearticles.php">articles</a>
         <a href="#">Newsletter</a>
-        <a href="./contact.php">Contact</a>
+        <a href="<?=ROOTFRONT?>/front/contact.php">Contact</a>
     </nav>
 
     <div class="connect">

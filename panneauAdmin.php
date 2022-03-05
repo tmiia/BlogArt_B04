@@ -9,9 +9,8 @@
 
 // Mode DEV
 
-require_once __DIR__ . '/connect/config.php';  
-require_once __DIR__ . '/util/utilErrOn.php';
-require_once __DIR__ . '/front/includes/commons/imports.php';
+require_once  './connect/config.php';  
+require_once ROOT . '/front/includes/commons/imports.php';
 
 	if(isset($_COOKIE['pseudoUser'])){
 ?>
@@ -38,6 +37,7 @@ require_once __DIR__ . '/front/includes/commons/imports.php';
 			<h2><?= $_COOKIE['pseudoUser'] ?></h2>
 		</div>
 	</div>
+	</div>
 	<?php
 		require_once __DIR__ . '/front/includes/commons/footerback.php';
 	?>
@@ -45,6 +45,6 @@ require_once __DIR__ . '/front/includes/commons/imports.php';
 </html>
 <?php 
 	}else{
-		header('Location: ' . ROOTFRONT . '/front/home.php');
+		header('Location: ' . ROOTFRONT . '/index.php');
 	}
 ?>
