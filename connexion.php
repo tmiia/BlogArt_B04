@@ -60,7 +60,7 @@ require_once ROOT . '/front/includes/commons/headerFront.php';
             <input type="text" name="eMailMemb" value=""/><br>
 
             <label>Mot de passe :</label><br>
-            <input type="text" name="passMemb" value=""/><br>
+            <input type="password" name="passMemb" value=""/><br>
         
             <button type="submit">Se connecter</button>
         </div>

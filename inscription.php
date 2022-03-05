@@ -1,7 +1,4 @@
 <?php
-ini_set('display_errors','on');
-ini_set('display_startup_errors','on');
-error_reporting(E_ALL);
 require_once 'back.php';
 
 
@@ -20,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $newMembre->create($_POST['prenom'], $_POST['nom'], $_POST['pseudo'], $_POST['motDePasse'], $_POST['email'], $accordMemb, $idStat);
 
-    header("Location: http://localhost/GIT%20BLOGART/BlogArt/front/home.php");
+    header("Location:". ROOTFRONT ."/connexion.php");
 }
 
 ?>
@@ -55,7 +52,7 @@ require_once ROOT . '/front/includes/commons/headerFront.php';
                 <input type="text" name="pseudo" value=""><br>
 
                 <label>Mot de passe</label>
-                <input type="text" name="motDePasse" value=""><br>
+                <input type="password" name="motDePasse" value=""><br>
 
                 <input type="hidden" name="dtCreaMemb" id="dtCreaMemb" value="<?php if(isset($_GET['id'])) echo $_POST['dtCreaMemb']; ?>" tabindex="20" placeholder="" />
                 

@@ -235,7 +235,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                 <?php
                     $lastArticles = $monarticle->get_LastArticles();
 
-                    for($i = 0; $i < 3; $i++){
+                    for($i = 1; $i < 4; $i++){
                         ?>
                         <a class="article_preview" href="./viewArticle.phpviewArticle.php?id=<?=$lastArticles[$i]['numArt'] ?>">
                                 <div class="preview_illustration" style="background-image: url('../uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>');"></div>
