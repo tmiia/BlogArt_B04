@@ -20,9 +20,12 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+    <?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD Mots-Clés / article</h1>
 
     <br><br>
@@ -30,7 +33,8 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
     <h2>Les Mots-Clés à lier à un article sont traités directement dans le CRUD article</h2>
 
     <br><br>
-
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

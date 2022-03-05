@@ -53,8 +53,12 @@ if(isset($_GET['errCIR'])){
 /*            color: #919191;      Etain */
         }
     </style>
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+    <?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
 	<h1>BLOGART22 Admin - CRUD Statut</h1>
 
 	<hr />
@@ -120,8 +124,10 @@ if(isset($_GET['errCIR'])){
     }   // End of if ($errCIR == 1)
 ?>
     <p>&nbsp;</p>
+    </div>
+    </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

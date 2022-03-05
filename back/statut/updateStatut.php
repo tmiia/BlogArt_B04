@@ -82,9 +82,12 @@ include __DIR__ . '/initStatut.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+    <?php
+		include ROOT . '/front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD Statut</h1>
     <h2>Modification d'un statut</h2>
 <?php
@@ -144,9 +147,8 @@ include __DIR__ . '/initStatut.php';
         </div>
       </fieldset>
     </form>
-<?php
-require_once __DIR__ . '/footerStatut.php';
 
+<?php
 require_once __DIR__ . '/footer.php';
 ?>
 </body>

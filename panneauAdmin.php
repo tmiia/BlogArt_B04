@@ -33,7 +33,7 @@ require_once __DIR__ . '/front/includes/commons/imports.php';
 		include __DIR__ . '/front/includes/commons/navigationback.php';
 	?>
 
-		<div class="admin_body admin_accueil">
+		<div class="admin_accueil">
 			<h1>Bienvenue sur votre panneau d'administration,</h1>
 			<h2><?= $_COOKIE['pseudoUser'] ?></h2>
 		</div>

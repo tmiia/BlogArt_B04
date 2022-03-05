@@ -79,9 +79,12 @@ include __DIR__ . '/initangle.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include ROOT . '/front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD angle</h1>
     <h2>Ajout d'un angle</h2>
 
@@ -156,9 +159,9 @@ include __DIR__ . '/initangle.php';
         </div>
       </fieldset>
     </form>
+        </div>
+        </div>
 <?php
-require_once __DIR__ . '/footerangle.php';
-
 require_once __DIR__ . '/footer.php';
 ?>
 </body>

@@ -59,8 +59,12 @@ $moncommentaire = new comment();
             border-radius: 5px;
         }
     </style>
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD Like sur commentaire</h1>
 
     <hr />
@@ -110,6 +114,8 @@ $moncommentaire = new comment();
     </table>
 
     <p>&nbsp;</p>
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

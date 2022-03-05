@@ -33,8 +33,12 @@ $maLangue = new langue();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD Mot Clé</h1>
 
 	<hr />
@@ -81,6 +85,8 @@ $maLangue = new langue();
     </tbody>
     </table>
     <br /><br/>
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>
