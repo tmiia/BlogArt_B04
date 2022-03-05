@@ -59,12 +59,16 @@ $monMembre = new membre();
             border-radius: 5px;
         }
     </style>
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
   <h1>BLOGART22 Admin - CRUD commentaire</h1>
 
   <hr />
-  <h2>Nouveau commentaire :&nbsp;<a href="./createcomment.php"><i>Créer un commentaire</i></a></h2>
+  <h2>Nouveau commentaire :&nbsp;<a href="./createComment.php"><i>Créer un commentaire</i></a></h2>
   <hr />
   <h2>Tous les commentaires</h2>
 
@@ -122,11 +126,11 @@ $monMembre = new membre();
 
 
 <!-- F1 aff comments (Modérateur / Admin / Super-admin) -->
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updatecomment.php?id1=<?=$allcomments[$i]['numSeqCom']?>&id2=<?=$allcomments[$i]['numArt']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier commentaire" title="Modifier commentaire" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateComment.php?id1=<?=$allcomments[$i]['numSeqCom']?>&id2=<?=$allcomments[$i]['numArt']?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier commentaire" title="Modifier commentaire" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
         <br /></td>
 
 <!-- Del logique (Modérateur / Admin / Super-admin) -->
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deletecomment.php?id1=<?=$allcomments[$i]['numSeqCom']?>&id2=<?=$allcomments[$i]['numArt']?>" title="Suppression logique..."><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer commentaire" title="Supprimer/rétablir commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(Logique)</span>&nbsp;&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteComment.php?id1=<?=$allcomments[$i]['numSeqCom']?>&id2=<?=$allcomments[$i]['numArt']?>" title="Suppression logique..."><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer commentaire" title="Supprimer/rétablir commentaire" /></i></a><br>&nbsp;&nbsp;<span class="error">(Logique)</span>&nbsp;&nbsp;
         <br /></td>
         </tr>
 <?php
@@ -135,6 +139,8 @@ $monMembre = new membre();
     </tbody>
     </table>
     <p>&nbsp;</p>
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

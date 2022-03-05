@@ -33,8 +33,12 @@ $maLangue = new langue();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="" />
     <meta name="author" content="" />
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD Mot Clé</h1>
 
 	<hr />
@@ -57,7 +61,7 @@ $maLangue = new langue();
     // Appel méthode : Get toutes les mots cles en bdd
     $allMotCles = $monMotCle->get_AllMotCles();
     $allLangues = $maLangue->get_AllLangues();
-    for($i = 1; $i < count($allMotCles); $i++){
+    for($i = 0; $i < count($allMotCles); $i++){
     // Boucle pour afficher
     //foreach($all as $row) {
 ?>
@@ -81,6 +85,8 @@ $maLangue = new langue();
     </tbody>
     </table>
     <br /><br/>
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

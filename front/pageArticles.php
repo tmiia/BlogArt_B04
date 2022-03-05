@@ -1,27 +1,30 @@
 <?php
-
+ini_set('display_errors','on');
+ini_set('display_startup_errors','on');
+error_reporting(E_ALL);
 // Mode DEV
-require_once __DIR__ . '/../util/utilErrOn.php';
+require_once '../connect/config.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Insertion classe Angle
-require_once __DIR__ . '/../class_crud/angle.class.php';
+require_once ROOT . '/class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monAngle = new angle();
 
 // Insertion classe Langue
-require_once __DIR__ . '/../class_crud/langue.class.php';
+require_once ROOT . '/class_crud/langue.class.php';
 
 // // Instanciation de la classe langue
-$maLangue = new LANGUE();
+$maLangue = new langue();
 
-require_once __DIR__ . '/../class_crud/thematique.class.php';
+require_once ROOT . '/class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$maThematique = new thematique();
    
 ?>
 <!DOCTYPE html>
@@ -32,7 +35,7 @@ $maThematique = new THEMATIQUE();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <?php
-    require_once __DIR__ . '/includes/commons/imports.php';
+    require_once ROOT . '/front/includes/commons/imports.php';
 
 
     ?>
@@ -43,7 +46,7 @@ $maThematique = new THEMATIQUE();
 <body>
 <!-- HEADER -->
     <?php
-        require_once __DIR__ . '/includes/commons/headerFront.php';
+        require_once ROOT . '/front/includes/commons/headerFront.php';
     ?>
 <!------------>
 <div id="main_page_articles">
@@ -162,7 +165,7 @@ $maThematique = new THEMATIQUE();
 
 			}
             // Traitement en POST
-			xhr2.open("POST","./includes/commons/ajaxThematiqueArticles.php",true);
+			xhr2.open("POST","<?=ROOTFRONT?>/front/includes/commons/ajaxThematiqueArticles.php",true);
 			// pour le post
 			xhr2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
@@ -171,7 +174,7 @@ $maThematique = new THEMATIQUE();
 			xhr2.send("numThem2="+numThem2);
 
             // Traitement en POST
-			xhr.open("POST","./includes/commons/ajaxTriArticles.php",true);
+			xhr.open("POST","<?=ROOTFRONT?>/front/includes/commons/ajaxTriArticles.php",true);
 			// pour le post
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
@@ -197,15 +200,15 @@ $maThematique = new THEMATIQUE();
     <div id="articles_list" class="articles">
 
             <?php
-                require_once __DIR__ . '/../class_crud/article.class.php';
+                require_once ROOT . '/class_crud/article.class.php';
                 $monarticle = new article();
 
                 $allarticle = $monarticle->get_Allarticles();
 
                 for($i = 0; $i <count($allarticle); $i++){ ?>
 
-                    <a class="article_recent" href="viewarticle.php?id=<?=$allarticle[$i]['numArt']?>">
-                    <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($allarticle[$i]['urlPhotArt']) ?>);"></div>
+                    <a class="article_recent" href="viewArticle.php?id=<?=$allarticle[$i]['numArt']?>">
+                    <div class="article_illustration" style="background-image: url(<?=ROOTFRONT?>/uploads/<?=htmlspecialchars($allarticle[$i]['urlPhotArt']) ?>);"></div>
                     <div class="article_recent_top">
                         <h5><?= $allarticle[$i]['libTitrArt'] ?></h5>
                         <p><?= $allarticle[$i]['libChapoArt'] ?></p>
@@ -227,7 +230,7 @@ $maThematique = new THEMATIQUE();
 
 <!-- FOOTER -->
     <?php
-    require_once __DIR__ . '/includes/commons/footerFront.php';
+    require_once ROOT . '/front/includes/commons/footerFront.php';
     ?>
 <!---------- -->
 

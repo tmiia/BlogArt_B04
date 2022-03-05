@@ -65,7 +65,7 @@ require_once ROOT . '/front/includes/commons/headerFront.php';
                 </fieldset>
 
                 <div class="btn_inscription_connexion">
-                    <a href="./front/home.php">Annuler</a>
+                    <a href="<?=ROOTFRONT?>/index.php">Annuler</a>
                     <button type="submit">Inscription</button>
                 </div>
 

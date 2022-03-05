@@ -46,12 +46,16 @@ $errDel = 0;
             border-radius: 5px;
         }
     </style>
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
 	<h1>BLOGART22 Admin - CRUD angle</h1>
 
 	<hr />
-	<h2>Nouvel angle :&nbsp;<a href="./createangle.php"><i>Créer un angle</i></a></h2>
+	<h2>Nouvel angle :&nbsp;<a href="./createAngle.php"><i>Créer un angle</i></a></h2>
 <?php
     if ($errDel == 99) {
 ?>
@@ -79,7 +83,7 @@ $errDel = 0;
     // Boucle pour afficher
     $allangle = $monangle->get_Allangles();
     $allLangue = $monangle->get_AllLangues();
-    for($i = 1; $i < count($allangle); $i++){
+    for($i = 0; $i < count($allangle); $i++){
     //foreach($all as $row) {
 
 ?>
@@ -92,9 +96,9 @@ $errDel = 0;
 
         <!--<td>&nbsp; <?= $monangle->get_1angleByLang($allangle[$i]['numLang'])[0] ?> &nbsp;</td>-->
 		
-        <td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./updateangle.php?id=<?= $allangle[$i]['numAngl']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier angle" title="Modifier angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./updateAngle.php?id=<?= $allangle[$i]['numAngl']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier angle" title="Modifier angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
-		<td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./deleteangle.php?id=<?= $allangle[$i]['numAngl']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer angle" title="Supprimer angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+		<td>&nbsp;&nbsp;&nbsp;&nbsp<a href="./deleteAngle.php?id=<?= $allangle[$i]['numAngl']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer angle" title="Supprimer angle" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
 		<br /></td>
         </tr>
 <?php
@@ -110,6 +114,8 @@ $errDel = 0;
     }   // End of if ($errCIR == 1)
 ?>
     <p>&nbsp;</p>
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

@@ -43,8 +43,12 @@ $errDel = 0;
             border-radius: 5px;
         }
     </style>
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
 	<h1>BLOGART22 Admin - CRUD Langue</h1>
 
 	<hr />
@@ -77,7 +81,7 @@ $errDel = 0;
     // Boucle pour afficher
     $allLangues = $maLangue->get_AllLangues();
     $allPays = $maLangue->get_AllPays();
-    for($i = 1; $i < count($allLangues); $i++){
+    for($i = 0; $i < count($allLangues); $i++){
 ?>
 <tr>
 		<td><h4>&nbsp; <?= $allLangues[$i]['numLang'] ?> &nbsp;</h4></td>
@@ -105,6 +109,8 @@ $errDel = 0;
     }   // End of if ($errCIR == 1)
 ?>
     <p>&nbsp;</p>
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

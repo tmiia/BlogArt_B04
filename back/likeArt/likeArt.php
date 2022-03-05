@@ -61,12 +61,16 @@ $monMembre = new membre();
             border-radius: 5px;
         }
 </style>
+<link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD Like sur article</h1>
 
     <hr />
-    <h2>Nouveau like sur article :&nbsp;<a href="./createlikeart.php"><i>Créer un like</i></a></h2>
+    <h2>Nouveau like sur article :&nbsp;<a href="./createLikeArt.php"><i>Créer un like</i></a></h2>
     <hr />
     <h2>Tous les likes par membre et par article</h2>
 
@@ -106,10 +110,10 @@ $monMembre = new membre();
 
         <td>&nbsp;<span class="OK">&nbsp; <?= $allLikesArt[$i]['likeA']; ?> &nbsp;</span></td>
 
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updatelikeart.php?id1=<?=$allLikesArt[$i]['numMemb']?>&id2=<?=$allLikesArt[$i]["numArt"]?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier like article" title="Modifier like article" /></i></a><br>&nbsp;&nbsp;<span class="error">(Un)like</span>&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./updateLikeArt.php?id1=<?=$allLikesArt[$i]['numMemb']?>&id2=<?=$allLikesArt[$i]["numArt"]?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier like article" title="Modifier like article" /></i></a><br>&nbsp;&nbsp;<span class="error">(Un)like</span>&nbsp;
         <br /></td>
 
-        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deletelikeart.php?id1=<?=$allLikesArt[$i]['numMemb']?>&id2=<?=$allLikesArt[$i]["numArt"]?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer like article" title="Supprimer like article" /></i></a><br>&nbsp;&nbsp;<span class="error">(S/Admin)</span>&nbsp;
+        <td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="./deleteLikeArt.php?id1=<?=$allLikesArt[$i]['numMemb']?>&id2=<?=$allLikesArt[$i]["numArt"]?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer like article" title="Supprimer like article" /></i></a><br>&nbsp;&nbsp;<span class="error">(S/Admin)</span>&nbsp;
         <br /></td>
         </tr>
 <?php
@@ -119,6 +123,8 @@ $monMembre = new membre();
     </table>
 
     <p>&nbsp;</p>
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
     
-        header("Location: ./motcle.php");
+        header("Location: ./motCle.php");
 } 
 
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         //print_r($monMembre->get_AllMembersByStat($_POST["id"]));
         if ($nbMotCleArt < 1) {
                 $monMotCle->delete($_POST["id"]);
-                header("Location: ./motcle.php");
+                header("Location: ./motCle.php");
             } else {
                 header("Location: motcle.php?errCIR=1");
         }

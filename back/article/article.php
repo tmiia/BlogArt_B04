@@ -66,7 +66,7 @@ require_once __DIR__ . '../../../front/includes/commons/imports.php';
             <h1>Panneau Admin : Liste des articles</h1>
 
             <hr />
-            <h2>Nouvel article :&nbsp;<a href="./createarticle.php"><i>Créer un article</i></a></h2>
+            <h2>Nouvel article :&nbsp;<a href="./createArticle.php"><i>Créer un article</i></a></h2>
             <hr />
             <h2>Tous les articles</h2>
 
@@ -108,9 +108,9 @@ require_once __DIR__ . '../../../front/includes/commons/imports.php';
 
                 <td>&nbsp; <?= $mathematique->get_1thematique($allarticles[$i]['numThem'])['libThem']; ?> &nbsp;</td>
 
-                <td>&nbsp;&nbsp;<a href="./updatearticle.php?id=<?=$allarticles[$i]['numArt']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier article" title="Modifier article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>&nbsp;&nbsp;<a href="./updateArticle.php?id=<?=$allarticles[$i]['numArt']; ?>"><i><img src="./../../img/valider-png.png" width="20" height="20" alt="Modifier article" title="Modifier article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <br /></td>
-                <td>&nbsp;&nbsp;<a href="./deletearticle.php?id=<?=$allarticles[$i]['numArt']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer article" title="Supprimer article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
+                <td>&nbsp;&nbsp;<a href="./deleteArticle.php?id=<?=$allarticles[$i]['numArt']; ?>"><i><img src="./../../img/supprimer-png.png" width="20" height="20" alt="Supprimer article" title="Supprimer article" /></i></a>&nbsp;&nbsp;&nbsp;&nbsp;
                 <br /></td>
                 </tr>
         <?php

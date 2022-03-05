@@ -45,7 +45,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
-            header("Location: ./likecom.php");
+            header("Location: ./likeCom.php");
     }   // End of if ((isset($_POST["submit"])) ...
         
     if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) 
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
             
             $monlikecom->create($numMemb, $numSeqCom, $numArt, $likeC);
     
-            header("Location: ./likecom.php");
+            header("Location: ./likeCom.php");
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initlikecom.php';
+include __DIR__ . '/initLikeCom.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -229,7 +229,7 @@ include __DIR__ . '/initlikecom.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerlikecom.php';
+require_once __DIR__ . '/footerLikeCom.php';
 
 require_once __DIR__ . '/footer.php';
 ?>

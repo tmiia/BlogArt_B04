@@ -5,20 +5,18 @@
 */
 // Mode DEV
 
-require_once __DIR__ . '/../../../util/utilErrOn.php';
-
 // connexion
-require_once __DIR__ . '/../../../CONNECT/database.php';
+require_once __DIR__ . '/../../../connect/database.php';
 
 // Insertion classe Angle
-require_once __DIR__ . '/../../../CLASS_CRUD/angle.class.php';
+require_once ROOT . '/class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monAngle = new angle();
 
-require_once __DIR__ . '/../../../CLASS_CRUD/thematique.class.php';
+require_once ROOT . '/class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$maThematique = new thematique();
 
 
 ?>
