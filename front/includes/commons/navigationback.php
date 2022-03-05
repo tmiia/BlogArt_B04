@@ -15,7 +15,7 @@
 			<span>Gestion des Langues</span>
 			<ul>
 				<li><a href="<?=ROOTFRONT?>/back/langue/langue.php">Liste des langues</a></li>
-				<li><a href="<?=ROOTFRONT?>/back/langue//createLangue.php">Ajouter une langue</a></li>
+				<li><a href="<?=ROOTFRONT?>/back/langue/createLangue.php">Ajouter une langue</a></li>
 			</ul>
 			<span>Gestion des Thèmes</span>
 			<ul>
