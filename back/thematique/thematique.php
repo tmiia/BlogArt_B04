@@ -51,8 +51,12 @@ $errDel = 0;
             border-radius: 5px;
         }
     </style>
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
 	<h1>BLOGART22 Admin - CRUD thematique</h1>
 
 	<hr />
@@ -113,6 +117,8 @@ $errDel = 0;
     }   // End of if ($errCIR == 1)
 ?>
     <p>&nbsp;</p>
+</div>
+</div>
 <?php
 require_once __DIR__ . '/footer.php';
 ?>

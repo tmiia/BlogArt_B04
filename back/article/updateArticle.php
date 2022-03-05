@@ -153,13 +153,16 @@ include __DIR__ . '/initarticle.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../front/style.css" rel="stylesheet">
 <!--     <script src="./script_global.js"></script> -->
     <script type="text/javascript" charset="utf8" src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-2.0.3.js"></script>
     <script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
 </head>
 <body>
+    <?php
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD article</h1>
     <h2>Modification d'un article</h2>
 <?php
@@ -497,10 +500,9 @@ include __DIR__ . '/initarticle.php';
 <!-- --------------------------------------------------------------- -->
     <!-- Fin Ajax : Langue => angle, Thématique + TJ Mots Clés -->
 <!-- --------------------------------------------------------------- -->
-
+    </div>
+    </div>
 <?php
-require_once __DIR__ . '/footerarticle.php';
-
 require_once __DIR__ . '/footer.php';
 ?>
 </body>

@@ -84,9 +84,12 @@ include __DIR__ . '/initMotCle.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include ROOT . '/front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD Mot Clé</h1>
     <h2>Ajout d'un Mot Clé</h2>
 
@@ -165,9 +168,9 @@ include __DIR__ . '/initMotCle.php';
         </div>
       </fieldset>
     </form>
+        </div>
+        </div>
 <?php
-require_once __DIR__ . '/footerMotCle.php';
-
 require_once __DIR__ . '/footer.php';
 ?>
 </body>

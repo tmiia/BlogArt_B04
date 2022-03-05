@@ -8,7 +8,6 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/util/utilErrOn.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">

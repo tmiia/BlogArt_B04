@@ -3,7 +3,7 @@
 require_once 'back.php';
 
 require_once ROOT . '/class_crud/membre.class.php';
-$monMembre = new membre();
+$monMembre = new MEMBRE();
 
 // INSCRIPTION : champ username / mdp
 // qd utilisateur tape mdp > haché (nouvelle chaîne de chara unique)
@@ -30,7 +30,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         setcookie('eMailMemb', $membre, time() + 3000600, "/");
         setcookie('pseudoMemb', $pseudo, time() + 30003600, "/");
 
-            header("Location: /blogart22/front/pageArticles.php");
+            header("Location: ./front/pageArticles.php");
 
     } else {
         echo('Mauvais mdp sorry');

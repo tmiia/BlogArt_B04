@@ -87,9 +87,12 @@ include __DIR__ . '/initthematique.php';
     <meta name="description" content="" />
     <meta name="author" content="" />
 
-    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../../front/style.css" rel="stylesheet">
 </head>
 <body>
+<?php
+		include ROOT . '/front/includes/commons/navigationback.php';
+	?>
     <h1>BLOGART22 Admin - CRUD thematique</h1>
     <h2>Ajout d'une thematique</h2>
 
@@ -165,9 +168,9 @@ include __DIR__ . '/initthematique.php';
         </div>
       </fieldset>
     </form>
+        </div>
+        </div>
 <?php
-require_once __DIR__ . '/footerthematique.php';
-
 require_once __DIR__ . '/footer.php';
 ?>
 </body>

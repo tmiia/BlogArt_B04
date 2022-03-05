@@ -1,0 +1,32 @@
+table{
+    background-color: #FFFFFF;
+    border-collapse: collapse;
+    border: none;
+    // border-top: 4px solid #808080;
+    // border-bottom: 4px solid #808080;
+    border-spacing: 0px;
+    thead{
+        border: none;
+        tr{
+            th{
+                padding: 10px 0;
+                border: none;
+            }
+        }
+    }
+    tbody{
+        border: none;
+        border-top: 2px solid #333;
+        margin: 10px 0;
+        tr{
+            border-left: none;
+            border-right: none;
+            td{
+                border: none;
+                border-bottom: 2px solid #333;
+                padding: 20px 5px;
+                font-size: 14px;
+            }
+        }
+    }
+}
