@@ -397,14 +397,16 @@ include __DIR__ . '/initarticle.php';
 					di = document.getElementById('angle');
 					di.innerHTML = xhr.responseText;
 				}
+			}
+            xhr2.onreadystatechange = function(){
                 if(xhr.readyState == 4 && xhr.status == 200){
                     di2 = document.getElementById('thematique');
                     di2.innerHTML = xhr2.responseText;
                 }
-			}
+            }
 
 			// Traitement en POST
-			xhr.open("POST","./ajaxangle.php",true);
+			xhr.open("POST","<?=ROOTFRONT?>/back/article/ajaxAngle.php",true);
 			// pour le post
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
@@ -413,7 +415,7 @@ include __DIR__ . '/initarticle.php';
 			xhr.send("numLang="+numLang);
 
             // Traitement en POST
-			xhr2.open("POST","./ajaxthematique.php",true);
+			xhr2.open("POST","<?=ROOTFRONT?>/back/article/ajaxThematique.php",true);
 			// pour le post
 			xhr2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas

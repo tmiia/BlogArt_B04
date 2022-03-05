@@ -5,7 +5,7 @@
 			<span>Gestion des articles</span>
 			<ul>
 				<li><a href="<?=ROOTFRONT?>/back/article/article.php">Liste des articles</a></li>
-				<li><a href="<?=ROOTFRONT?>/back/article/createarticle.php">Créer un article</a></li>
+				<li><a href="<?=ROOTFRONT?>/back/article/createArticle.php">Créer un article</a></li>
 			</ul>
 			<span>Gestion des utilisateurs</span>
 			<ul>
@@ -21,7 +21,7 @@
 			<ul>
 				<li><a href="<?=ROOTFRONT?>/back/thematique/thematique.php">Liste des thématiques</a></li>
 				<li><a href="<?=ROOTFRONT?>/back/angle/angle.php">Liste des angles</a></li>
-				<li><a href="<?=ROOTFRONT?>/back/motcle/motcle.php">Liste des mots-clef</a></li>
+				<li><a href="<?=ROOTFRONT?>/back/motCle/motCle.php">Liste des mots-clef</a></li>
 			</ul>
 			<span>Gestion des likes</span>
 			<ul>

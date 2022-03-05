@@ -12,11 +12,11 @@ require_once __DIR__ . '/../../../connect/database.php';
 require_once ROOT . '/class_crud/angle.class.php';
 
 // Instanciation de la classe angle
-$monAngle = new ANGLE();
+$monAngle = new angle();
 
 require_once ROOT . '/class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$maThematique = new thematique();
 
 
 ?>

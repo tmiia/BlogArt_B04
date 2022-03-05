@@ -23,7 +23,7 @@ $monlikeart = new likeart();
 $erreur = false;
 
 // Init variables form
-include __DIR__ . '/initlikeart.php';
+include __DIR__ . '/initLikeArt.php';
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En GET
 if ($_SERVER["REQUEST_METHOD"] === "GET") {
@@ -46,7 +46,7 @@ if ($_SERVER["REQUEST_METHOD"] === "GET") {
         }
 
         $monlikeart->update($numMemb, $numArt, $likeA);
-        header("Location: ./likeart.php");
+        header("Location: ./likeArt.php");
     }
     else{
         $erreur = true;

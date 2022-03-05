@@ -39,7 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Annuler")) {
     
-        header("Location: ./likeart.php");
+        header("Location: ./likeArt.php");
 } 
 
     // controle CIR
@@ -49,9 +49,9 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     if (((isset($_POST["Submit"])) AND ($Submit === "Valider"))) {
             
         $monlikeart->delete($_POST['id1'], $_POST['id2']);
-            header("Location: ./likeart.php");
+            header("Location: ./likeArt.php");
         } else {
-            echo("Location: likeart.php?errCIR=1");
+            echo("Location: likeArt.php?errCIR=1");
     }
 
 
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initlikeart.php';
+include __DIR__ . '/initLikeArt.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">

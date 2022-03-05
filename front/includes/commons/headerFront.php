@@ -35,7 +35,7 @@ $maLangue = new langue();
                 
       
 
-        <a href="<?=ROOTFRONT?>/front/pagearticles.php">articles</a>
+        <a href="<?=ROOTFRONT?>/front/pageArticles.php">articles</a>
         <a href="#">Newsletter</a>
         <a href="<?=ROOTFRONT?>/front/contact.php">Contact</a>
     </nav>

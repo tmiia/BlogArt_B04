@@ -60,7 +60,7 @@ $errDel = 0;
 	<h1>BLOGART22 Admin - CRUD thematique</h1>
 
 	<hr />
-	<h2>Nouvelle thematique :&nbsp;<a href="./createthematique.php"><i>Créer une thematique</i></a></h2>
+	<h2>Nouvelle thematique :&nbsp;<a href="./createThematique.php"><i>Créer une thematique</i></a></h2>
 <?php
     if ($errDel == 99) {
 ?>
@@ -86,7 +86,7 @@ $errDel = 0;
     // Appel méthode : Get toutes les thematiques en bdd
     $allthematiques = $mathematique->get_Allthematiques();
     $allLangues = $maLangue->get_AllLangues();
-    for($i = 1; $i < count($allthematiques); $i++){
+    for($i = 0; $i < count($allthematiques); $i++){
     // Boucle pour afficher
     //foreach($all as $row) {
 ?>

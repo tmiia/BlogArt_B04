@@ -125,7 +125,7 @@ include __DIR__ . '/initthematique.php';
                 $allLang = $maLangue->get_AllLangues();
                 
                 if($allLang){
-                for ($i=1; $i < count($allLang); $i++){
+                for ($i=0; $i < count($allLang); $i++){
                     $value = $allLang[$i]['numLang'];
                 ?>
                 

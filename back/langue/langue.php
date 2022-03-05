@@ -81,7 +81,7 @@ $errDel = 0;
     // Boucle pour afficher
     $allLangues = $maLangue->get_AllLangues();
     $allPays = $maLangue->get_AllPays();
-    for($i = 1; $i < count($allLangues); $i++){
+    for($i = 0; $i < count($allLangues); $i++){
 ?>
 <tr>
 		<td><h4>&nbsp; <?= $allLangues[$i]['numLang'] ?> &nbsp;</h4></td>

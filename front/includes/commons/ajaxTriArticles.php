@@ -8,17 +8,17 @@
 require_once __DIR__ . '/../../../util/utilErrOn.php';
 
 // connexion
-require_once __DIR__ . '/../../../CONNECT/database.php';
+require_once __DIR__ . '/../../../connect/database.php';
 
 // Insertion classe Angle
-require_once __DIR__ . '/../../../CLASS_CRUD/article.class.php';
+require_once ROOT . '/class_crud/article.class.php';
 
 // Instanciation de la classe angle
-$monArticle = new ARTICLE();
+$monArticle = new article();
 
-require_once __DIR__ . '/../../../CLASS_CRUD/thematique.class.php';
+require_once ROOT . '/class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
-$maThematique = new THEMATIQUE();
+$maThematique = new thematique();
 
 
 ?>
@@ -31,7 +31,7 @@ $maThematique = new THEMATIQUE();
                 for($i = 0; $i <count($allArticle); $i++){ ?>
 
         <a class="article_recent" href="viewArticle.php?id=<?=$allArticle[$i]['numArt']?>">
-        <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
+        <div class="article_illustration" style="background-image: url(<?=ROOTFRONT?>/uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
         <div class="article_recent_top">
             <h5><?= $allArticle[$i]['libTitrArt'] ?></h5>
             <p><?= $allArticle[$i]['libChapoArt'] ?></p>

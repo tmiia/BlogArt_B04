@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
             $monMotCle->create($libMotCle, $numLang);
     
-            header("Location: ./motcle.php");
+            header("Location: ./motCle.php");
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
@@ -124,7 +124,7 @@ include __DIR__ . '/initMotCle.php';
                 $allLang = $maLangue->get_AllLangues();
                 
                 if($allLang){
-                for ($i=1; $i < count($allLang); $i++){
+                for ($i=0; $i < count($allLang); $i++){
                     $value = $allLang[$i]['numLang'];
                 ?>
                 

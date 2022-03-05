@@ -118,7 +118,7 @@ include __DIR__ . '/initangle.php';
                 $allLangue = $monangle->get_AllLangues();
                 
                 if($allLangue){
-                for ($i=1; $i < count($allLangue); $i++){
+                for ($i=0; $i < count($allLangue); $i++){
                     $value = $allLangue[$i]['numLang'];
                 ?>
                 

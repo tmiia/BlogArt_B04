@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include ROOT . '/back/comment/initcomment.php';
+include ROOT . '/back/comment/initComment.php';
 // Var init
 ?>
 
@@ -146,7 +146,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
     <div id="main_article">
 
-        <a href="pagearticles.php" class="retour">
+        <a href="./pageArticles.php" class="retour">
             <span><i class="fas fa-chevron-left"></i> Retour à la liste des articles</span>
             <div></div>
         </a> 
@@ -205,7 +205,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         <div class="content_article">
 
             <div class="image_article">
-                <div class="article_illustration" style="background-image: url(../uploads/<?=$urlPhotArt?>);"></div>
+                <div class="article_illustration" style="background-image: url('<?=ROOTFRONT?>/uploads/<?=$urlPhotArt?>');"></div>
             </div>
 
             <div class="body_article">
@@ -235,10 +235,10 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                 <?php
                     $lastArticles = $monarticle->get_LastArticles();
 
-                    for($i = 1; $i < 4; $i++){
+                    for($i = 0; $i < 2; $i++){
                         ?>
-                        <a class="article_preview" href="./viewArticle.phpviewArticle.php?id=<?=$lastArticles[$i]['numArt'] ?>">
-                                <div class="preview_illustration" style="background-image: url('../uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>');"></div>
+                        <a class="article_preview" href="./viewArticle.php?id=<?=$lastArticles[$i]['numArt'] ?>">
+                                <div class="preview_illustration" style="background-image: url('<?=ROOTFRONT?>/uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>');"></div>
                                     <h5><?= $lastArticles[$i]['libTitrArt'] ?></h5>
                                     <p><?= $lastArticles[$i]['libChapoArt'] ?></p>
                                 </a>

@@ -2,17 +2,17 @@
 // nom de votre serveur (ou 127.0.0.1)
 $hostBD = "localhost";
 // nom BD
-$nomBD = "BLOGART22";
+$nomBD = "db_mmi_04";
 // Serveur
 // Avec encodage UTF8
 $serverBD = "mysql:dbname=$nomBD;host=$hostBD;charset=utf8";
 
 // nom utilisateur de connexion à la bdd
-$userBD = 'root';         // Votre login
+$userBD = 'etummiuser_db_04';         // Votre login
 // mot de passe de connexion à la bdd
-$passBD = 'root';         // Votre Pass
+$passBD = 'mmi-etu';         // Votre Pass
 
 
-define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/BLOGART22');
+define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/etu-mmi-04');
 
-define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/BLOGART22'); 
+define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/etu-mmi-04'); 

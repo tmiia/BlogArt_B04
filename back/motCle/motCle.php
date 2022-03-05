@@ -61,7 +61,7 @@ $maLangue = new langue();
     // Appel méthode : Get toutes les mots cles en bdd
     $allMotCles = $monMotCle->get_AllMotCles();
     $allLangues = $maLangue->get_AllLangues();
-    for($i = 1; $i < count($allMotCles); $i++){
+    for($i = 0; $i < count($allMotCles); $i++){
     // Boucle pour afficher
     //foreach($all as $row) {
 ?>

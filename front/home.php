@@ -1,5 +1,5 @@
 <?php
-    require_once  './connect/config.php';
+    require_once __DIR__ . '/../connect/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./front/style.css" rel="stylesheet">
+    <link href="style.css" rel="stylesheet">
     <title>Au bord des rues</title>
 
 </head>
@@ -22,9 +22,9 @@
     </header>
 
     <?php
-    require_once ROOT . '/front/includes/commons/headerFront.php';
+    require_once __DIR__ . '/includes/commons/headerFront.php';
     // require_once __DIR__ . '/includes/commons/navigationFront.php';
-    require_once ROOT . '/front/includes/commons/imports.php';
+    require_once __DIR__ . '/includes/commons/imports.php';
 
     ?>
 
@@ -35,15 +35,15 @@
         <section class="articles">
 
         <?php
-            require_once ROOT . '/class_crud/article.class.php';
+            require_once __DIR__ . '/../class_crud/article.class.php';
             $monarticle = new article();
 
             $lastarticles = $monarticle->get_Lastarticles();
 
             for($i = 0; $i < 5; $i++){ ?>
 
-                <a class="article_recent" href="<?=ROOTFRONT?>/front/viewArticle.php?id=<?=$lastarticles[$i]['numArt']?>">
-                <div class="article_illustration" style="background-image: url(<?=ROOTFRONT?>/uploads/<?=htmlspecialchars($lastarticles[$i]['urlPhotArt']) ?>);"></div>
+                <a class="article_recent" href="viewArticle.php?id=<?=$lastarticles[$i]['numArt']?>">
+                <div class="article_illustration" style="background-image: url(../uploads/<?=htmlspecialchars($lastarticles[$i]['urlPhotArt']) ?>);"></div>
                 <div class="article_recent_top">
                 <h5><?= $lastarticles[$i]['libTitrArt'] ?></h5>
                 <p><?= $lastarticles[$i]['libChapoArt'] ?></p>
@@ -108,7 +108,7 @@
 
 
     <?php
-    require_once ROOT . '/front/includes/commons/footerFront.php';
+    require_once __DIR__ . '/includes/commons/footerFront.php';
     ?>
 
 

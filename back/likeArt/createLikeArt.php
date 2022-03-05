@@ -44,7 +44,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
     
-            header("Location: ./likeart.php");
+            header("Location: ./likeArt.php");
     }   // End of if ((isset($_POST["submit"])) ...
         
     if (((isset($_POST['Membre'])) AND (!empty($_POST['Membre'])) AND (isset($_POST['article'])) AND (!empty($_POST['article']))
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
     
             $monlikeart->create($numMemb, $numArt, $likeA);
     
-            header("Location: ./likeart.php");
+            header("Location: ./likeArt.php");
         }   // Fin if ((isset($_POST['libStat']))
         else {
             // Saisies invalides
@@ -71,7 +71,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initlikeart.php';
+include __DIR__ . '/initLikeArt.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
