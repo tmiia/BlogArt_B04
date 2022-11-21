@@ -8,21 +8,21 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Insertion classe likeart
-require_once __DIR__ . '/../../class_crud/likeart.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/likeart.class.php';
 $monlikeart = new likeart();
 
-require_once __DIR__ . '/../../class_crud/article.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/article.class.php';
 
 // Instanciation de la classe article
 $monarticle = new article();
 
-require_once __DIR__ . '/../../class_crud/membre.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/membre.class.php';
 $monMembre = new membre();
 
 // Gestion des erreurs de saisie
@@ -66,7 +66,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initLikeArt.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initLikeArt.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -180,9 +180,9 @@ include __DIR__ . '/initLikeArt.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerlikeart.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footerlikeart.php';
 
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

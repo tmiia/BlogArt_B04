@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../class_crud/statut.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
 $monStatut = new statut();
@@ -57,7 +57,7 @@ if(isset($_GET['errCIR'])){
 </head>
 <body>
     <?php
-		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/navigationback.php';
 	?>
 	<h1>BLOGART22 Admin - CRUD Statut</h1>
 

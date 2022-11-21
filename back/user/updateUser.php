@@ -13,19 +13,19 @@
 //
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Insertion classe User
-require_once __DIR__ . '/../../class_crud/user.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/user.class.php';
 
 // Instanciation de la classe User
 $monUser = new user();
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../class_crud/statut.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
 $monStatut = new statut();
@@ -117,7 +117,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initUser.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initUser.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -307,9 +307,9 @@ include __DIR__ . '/initUser.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerUser.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footerUser.php';
 
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

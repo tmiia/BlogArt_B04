@@ -8,7 +8,7 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/util/utilErrOn.php';
 ?>
 
 <footer>

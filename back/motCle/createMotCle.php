@@ -8,20 +8,20 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once __DIR__ . '/../../util/dateChangeFormat.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/dateChangeFormat.php';
 
 // Insertion classe MotCle
-require_once __DIR__ . '/../../class_crud/motcle.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/motcle.class.php';
 // Instanciation de la classe MotCle
 $monMotCle = new motcle();
 
-require_once __DIR__ . '/../../class_crud/langue.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/langue.class.php';
 // Instanciation de la classe langue
 
 $maLangue = new langue();
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 } 
    // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initMotCle.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initMotCle.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -171,7 +171,7 @@ include __DIR__ . '/initMotCle.php';
         </div>
         </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

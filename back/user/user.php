@@ -8,21 +8,21 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once __DIR__ . '/../../util/dateChangeFormat.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/dateChangeFormat.php';
 
 // Insertion classe User
-require_once __DIR__ . '/../../class_crud/user.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/user.class.php';
 
 // Instanciation de la classe User
 $monUser = new user();
 // Instanciation de la classe Statut
-require_once __DIR__ . '/../../class_crud/statut.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
 $monStatut = new statut();
@@ -106,7 +106,7 @@ $allUsers = $monUser->get_AllUsers();
     <div class="error"><i><br>&nbsp;&nbsp;=>&nbsp;Attention, le statut <b>SUPER ADMINISTRATEUR</b> ne peut être supprimé !</i></div>
     <br />
 <?php
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

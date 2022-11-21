@@ -1,7 +1,7 @@
 <?php
 // CRUD motcle
 // ETUD
-require_once __DIR__ . '../../connect/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/database.php';
 
 class motcle{
 	function get_1MotCle($numMotCle){

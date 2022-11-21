@@ -8,25 +8,25 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Insertion classe likecom
-require_once __DIR__ . '/../../class_crud/likecom.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/likecom.class.php';
 // Instanciation de la classe likecom
 $monlikecom = new likecom ();
 
-require_once __DIR__ . '/../../class_crud/membre.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/membre.class.php';
 $monMembre = new membre();
 
-require_once __DIR__ . '/../../class_crud/article.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/article.class.php';
 
 // Instanciation de la classe article
 $monarticle = new article();
 
-require_once __DIR__ . '/../../class_crud/comment.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/comment.class.php';
 $moncommentaire = new comment();
 
 
@@ -83,7 +83,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initLikeCom.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initLikeCom.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -229,9 +229,9 @@ include __DIR__ . '/initLikeCom.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerLikeCom.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footerLikeCom.php';
 
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

@@ -10,10 +10,10 @@
 // Plusieurs tags
 
 // Mode DEV
-require_once __DIR__ . '/../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/util/ctrlSaisies.php';
 
 // Insertion classe article
 
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 ?>
     <br><br>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

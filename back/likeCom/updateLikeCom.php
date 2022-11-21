@@ -8,10 +8,10 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Insertion classe likecom
 
@@ -23,7 +23,7 @@ require_once __DIR__ . '/../../util/ctrlSaisies.php';
 $erreur = false;
 
 // Init variables form
-include __DIR__ . '/initlikecom.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initlikecom.php';
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En GET
 if ($_SERVER["REQUEST_METHOD"] === "GET") {

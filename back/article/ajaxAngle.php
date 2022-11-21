@@ -5,13 +5,13 @@
 */
 // Mode DEV
 
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // connexion
-require_once __DIR__ . '/../../connect/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../connect/database.php';
 
 // Insertion classe angle
-require_once __DIR__ . '/../../class_crud/angle.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
 $monangle = new angle();

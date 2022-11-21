@@ -10,7 +10,7 @@
 // Mode DEV
 
 require_once  './connect/config.php';  
-require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php';
+require_once ROOT . '/front/includes/commons/imports.php';
 
 	if(isset($_COOKIE['pseudoUser'])){
 ?>
@@ -29,7 +29,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php';
 </head>
 <body>
 	<?php
-		include __DIR__ . '/front/includes/commons/navigationback.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/navigationback.php';
 	?>
 
 		<div class="admin_accueil">
@@ -39,7 +39,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php';
 	</div>
 	</div>
 	<?php
-		require_once __DIR__ . '/front/includes/commons/footerback.php';
+		require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/footerback.php';
 	?>
 </body>
 </html>

@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Statut
-require_once __DIR__ . '/../../class_crud/statut.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
 $monStatut = new statut();
@@ -64,7 +64,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initStatut.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initStatut.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -124,7 +124,7 @@ include __DIR__ . '/initStatut.php';
         </div>
         </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

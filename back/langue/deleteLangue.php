@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../class_crud/langue.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/langue.class.php';
 // Instanciation de la classe langue
 
 $maLangue = new langue();
@@ -22,7 +22,7 @@ $maLangue = new langue();
 // Ctrl CIR
 $erreur = false;
 // Insertion classe angle
-require_once __DIR__ . '/../../class_crud/angle.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/angle.class.php';
 // Instanciation de la classe angle
 
 $monangle = new angle();
@@ -30,7 +30,7 @@ $monangle = new angle();
 
 
 // Insertion classe thematique
-require_once __DIR__ . '/../../class_crud/thematique.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe thematique
 
 $monangle = new thematique();
@@ -38,7 +38,7 @@ $monangle = new thematique();
 
 
 // Insertion classe Motcle
-require_once __DIR__ . '/../../class_crud/motcle.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/motcle.class.php';
 // Instanciation de la classe Motcle
 $monMotCle = new motcle();
 
@@ -77,7 +77,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 // End of if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initLangue.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initLangue.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -177,9 +177,9 @@ include __DIR__ . '/initLangue.php';
     <br>
     <i><div class="error"><br>=>&nbsp;Attention, une suppression doit respecter les CIR !</div></i>
 <?php
-require_once __DIR__ . '/footerLangue.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footerLangue.php';
 
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

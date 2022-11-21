@@ -1,5 +1,5 @@
 <?php
-    require_once __DIR__ . '/../connect/config.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -22,9 +22,9 @@
     </header>
 
     <?php
-    require_once __DIR__ . '/includes/commons/headerFront.php';
-    // require_once __DIR__ . '/includes/commons/navigationFront.php';
-    require_once __DIR__ . '/includes/commons/imports.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/headerFront.php';
+    // require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/navigationFront.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/imports.php';
 
     ?>
 
@@ -35,7 +35,7 @@
         <section class="articles">
 
         <?php
-            require_once __DIR__ . '/../class_crud/article.class.php';
+            require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/article.class.php';
             $monarticle = new article();
 
             $lastarticles = $monarticle->get_Lastarticles();
@@ -108,7 +108,7 @@
 
 
     <?php
-    require_once __DIR__ . '/includes/commons/footerFront.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/footerFront.php';
     ?>
 
 

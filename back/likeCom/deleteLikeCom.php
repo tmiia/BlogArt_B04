@@ -8,10 +8,10 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 
 // Insertion classe likecom
 
@@ -38,7 +38,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initlikecom.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initlikecom.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -162,9 +162,9 @@ include __DIR__ . '/initlikecom.php';
       </fieldset>
     </form>
 <<?php
-require_once __DIR__ . '/footerlikecom.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footerlikecom.php';
 
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

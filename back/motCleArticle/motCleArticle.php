@@ -8,7 +8,7 @@
 /////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 ?>
 <!DOCTYPE html>
@@ -24,7 +24,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 </head>
 <body>
     <?php
-		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/navigationback.php';
 	?>
     <h1>BLOGART22 Admin - CRUD Mots-Clés / article</h1>
 
@@ -36,7 +36,7 @@ require_once __DIR__ . '/../../util/utilErrOn.php';
 </div>
 </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

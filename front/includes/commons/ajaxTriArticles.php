@@ -5,10 +5,10 @@
 */
 // Mode DEV
 
-require_once __DIR__ . '/../../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/util/utilErrOn.php';
 
 // connexion
-require_once __DIR__ . '/../../../connect/database.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/database.php';
 
 // Insertion classe Angle
 require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/article.class.php';

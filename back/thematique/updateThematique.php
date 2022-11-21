@@ -8,22 +8,22 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 // Mise en forme date
-require_once __DIR__ . '/../../util/dateChangeFormat.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/dateChangeFormat.php';
 
 // Insertion classe thematique
-require_once __DIR__ . '/../../class_crud/thematique.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/thematique.class.php';
 
 // Instanciation de la classe thematique
 $mathematique = new thematique();
 
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../class_crud/langue.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/langue.class.php';
 
 // Instanciation de la classe Langue
 $maLangue = new langue();
@@ -93,7 +93,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
    // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 
 // Init variables form
-include __DIR__ . '/initthematique.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/initthematique.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -108,7 +108,7 @@ include __DIR__ . '/initthematique.php';
 </head>
 <body>
 <?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/navigationback.php';
+		include ROOT . '/front/includes/commons/navigationback.php';
 	?>
     <h1>BLOGART22 Admin - CRUD thematique</h1>
     <h2>Modification d'une thematique</h2>
@@ -209,7 +209,7 @@ include __DIR__ . '/initthematique.php';
         </div>
         </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

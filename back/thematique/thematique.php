@@ -8,19 +8,19 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
 // Del accents sur string
-require_once __DIR__ . '/../../util/delAccents.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/delAccents.php';
 
 // Insertion classe thematique
-require_once __DIR__ . '/../../class_crud/thematique.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
 $mathematique = new thematique();
 // Instanciation de la classe thematique
-require_once __DIR__ . '/../../class_crud/langue.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/langue.class.php';
 // Instanciation de la classe Langue
 $maLangue = new langue();
 
@@ -55,7 +55,7 @@ $errDel = 0;
 </head>
 <body>
 <?php
-		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/navigationback.php';
 	?>
 	<h1>BLOGART22 Admin - CRUD thematique</h1>
 
@@ -120,7 +120,7 @@ $errDel = 0;
 </div>
 </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

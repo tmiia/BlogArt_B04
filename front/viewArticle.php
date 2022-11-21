@@ -1,6 +1,6 @@
 <?php 
 
-require_once __DIR__ . '/../connect/config.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/config.php';
 
 // Mode DEV
 require_once $_SERVER['DOCUMENT_ROOT'] . '/util/utilErrOn.php';
@@ -138,9 +138,9 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 <body>
 
     <?php
-    require_once __DIR__ . '/includes/commons/headerFront.php';
-    // require_once __DIR__ . '/includes/commons/navigationFront.php';
-    require_once __DIR__ . '/includes/commons/imports.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/headerFront.php';
+    // require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/navigationFront.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/imports.php';
 
     ?>
 
@@ -407,7 +407,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
 
     <?php
-    require_once __DIR__ . '/includes/commons/footerFront.php';
+    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/footerFront.php';
     ?>
 
 
