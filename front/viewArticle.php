@@ -131,7 +131,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/modal.js"></script>
-    <link href="style.css" rel="stylesheet">
+    
     <title><?= $libTitrArt ?></title>
 
 </head>

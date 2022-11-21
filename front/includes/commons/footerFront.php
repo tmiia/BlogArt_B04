@@ -1,7 +1,7 @@
 <?php
 require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/config.php';
 ?>
-<link href="style.css" rel="stylesheet">
+
 
 <footer>
     <div class="connect_admin">

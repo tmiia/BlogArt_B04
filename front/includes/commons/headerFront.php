@@ -1,4 +1,3 @@
-<link href="style.css" rel="stylesheet">
 <?php 
 // require_once $_SERVER['DOCUMENT_ROOT'] . '/imports.php'; 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/config.php';
