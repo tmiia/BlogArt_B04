@@ -6,7 +6,7 @@
 // Mode DEV
 
 // connexion
-require_once __DIR__ . '/../../../connect/database.php';
+require_once ROOT . '/../../../connect/database.php';
 
 // Insertion classe Angle
 require_once ROOT . '/class_crud/angle.class.php';

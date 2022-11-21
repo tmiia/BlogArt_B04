@@ -8,23 +8,23 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/../../util/ctrlSaisies.php';
 
 // Insertion classe likecom
-require_once __DIR__ . '/../../class_crud/likecom.class.php';
+require_once ROOT . '/../../class_crud/likecom.class.php';
 // Instanciation de la classe likecom
 $monlikecom = new likecom ();
 
-require_once __DIR__ . '/../../class_crud/membre.class.php';
+require_once ROOT . '/../../class_crud/membre.class.php';
 $monMembre = new membre();
 
-require_once __DIR__ . '/../../class_crud/article.class.php';
+require_once ROOT . '/../../class_crud/article.class.php';
 $monarticle = new article();
 
-require_once __DIR__ . '/../../class_crud/comment.class.php';
+require_once ROOT . '/../../class_crud/comment.class.php';
 $moncommentaire = new comment();
 
 ?>
@@ -63,7 +63,7 @@ $moncommentaire = new comment();
 </head>
 <body>
 <?php
-		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+		include ROOT . '../../../front/includes/commons/navigationback.php';
 	?>
     <h1>BLOGART22 Admin - CRUD Like sur commentaire</h1>
 
@@ -117,7 +117,7 @@ $moncommentaire = new comment();
 </div>
 </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

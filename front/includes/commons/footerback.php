@@ -1,5 +1,5 @@
 <?php
-require_once __DIR__ . '/../../../connect/config.php';
+require_once ROOT . '/../../../connect/config.php';
 ?>
 
 <footer>

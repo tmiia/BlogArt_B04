@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/../../util/ctrlSaisies.php';
 
 // Insertion classe Langue
-require_once __DIR__ . '/../../class_crud/angle.class.php';
+require_once ROOT . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
 $monangle = new angle();
@@ -50,7 +50,7 @@ $errDel = 0;
 </head>
 <body>
 <?php
-		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+		include ROOT . '../../../front/includes/commons/navigationback.php';
 	?>
 	<h1>BLOGART22 Admin - CRUD angle</h1>
 
@@ -117,7 +117,7 @@ $errDel = 0;
 </div>
 </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

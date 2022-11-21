@@ -29,7 +29,7 @@ require_once ROOT . '/front/includes/commons/imports.php';
 </head>
 <body>
 	<?php
-		include __DIR__ . '/front/includes/commons/navigationback.php';
+		include ROOT . '/front/includes/commons/navigationback.php';
 	?>
 
 		<div class="admin_accueil">
@@ -39,7 +39,7 @@ require_once ROOT . '/front/includes/commons/imports.php';
 	</div>
 	</div>
 	<?php
-		require_once __DIR__ . '/front/includes/commons/footerback.php';
+		require_once ROOT . '/front/includes/commons/footerback.php';
 	?>
 </body>
 </html>

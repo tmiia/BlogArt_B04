@@ -109,7 +109,7 @@
 	<br /><br />
 	</div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

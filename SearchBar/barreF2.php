@@ -10,10 +10,10 @@
 // Barre de recherche en GET : Validation par <Enter>
 
 // Mode DEV
-require_once __DIR__ . '/../util/utilErrOn.php';
+require_once ROOT . '/../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../util/ctrlSaisies.php';
+require_once ROOT . '/../util/ctrlSaisies.php';
 
 // Insertion classe article
 
@@ -59,7 +59,7 @@ require_once __DIR__ . '/../util/ctrlSaisies.php';
 
     <br><br>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

@@ -8,17 +8,17 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/../../util/ctrlSaisies.php';
 
 // Insertion classe MotCle
-require_once __DIR__ . '/../../class_crud/motcle.class.php';
+require_once ROOT . '/../../class_crud/motcle.class.php';
 // Instanciation de la classe MotCle
 $monMotCle = new motcle();
 // Insertion classe MotCle
-require_once __DIR__ . '/../../class_crud/langue.class.php';
+require_once ROOT . '/../../class_crud/langue.class.php';
 // Instanciation de la classe MotCle
 $maLangue= new langue();
 
@@ -73,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }    // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include __DIR__ . '/initMotCle.php';
+include ROOT . '/initMotCle.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -185,9 +185,9 @@ include __DIR__ . '/initMotCle.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footerMotCle.php';
+require_once ROOT . '/footerMotCle.php';
 
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

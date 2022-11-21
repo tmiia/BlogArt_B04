@@ -1,7 +1,7 @@
 <?php
 // CRUD comment
 // ETUD
-require_once __DIR__ . '../../connect/database.php';
+require_once ROOT . '../../connect/database.php';
 
 class comment{
 	function get_1comment($numSeqCom, $numArt){

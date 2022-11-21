@@ -8,20 +8,20 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/../../util/ctrlSaisies.php';
 
 // Insertion classe thematique
 
 // Instanciation de la classe thématique
 
-require_once __DIR__ . '/../../class_crud/thematique.class.php';
+require_once ROOT . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
 $mathematique = new thematique();
 
-require_once __DIR__ . '/../../class_crud/langue.class.php';
+require_once ROOT . '/../../class_crud/langue.class.php';
 // Instanciation de la classe langue
 
 $maLangue = new langue();
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initthematique.php';
+include ROOT . '/initthematique.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -171,7 +171,7 @@ include __DIR__ . '/initthematique.php';
         </div>
         </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

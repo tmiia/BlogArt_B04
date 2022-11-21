@@ -10,23 +10,23 @@
 // EDI WYSIWYG : ckeditor4
 //
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/../../util/ctrlSaisies.php';
 
 // Insertion classe comment
-require_once __DIR__ . '/../../class_crud/comment.class.php';
+require_once ROOT . '/../../class_crud/comment.class.php';
 
 // Instanciation de la classe article
 $moncommentaire = new comment();
 // Instanciation de la classe comment
-require_once __DIR__ . '/../../class_crud/article.class.php';
+require_once ROOT . '/../../class_crud/article.class.php';
 
 // Instanciation de la classe article
 $monarticle = new article();
 
-require_once __DIR__ . '/../../class_crud/membre.class.php';
+require_once ROOT . '/../../class_crud/membre.class.php';
 $monMembre = new membre();
 
 
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initcomment.php';
+include ROOT . '/initcomment.php';
 // Var init
 
 
@@ -214,9 +214,9 @@ include __DIR__ . '/initcomment.php';
       </fieldset>
     </form>
 <?php
-require_once __DIR__ . '/footercomment.php';
+require_once ROOT . '/footercomment.php';
 
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

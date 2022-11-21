@@ -1,7 +1,7 @@
 <?php
 // CRUD angle
 // ETUD
-require_once __DIR__ . '../../connect/database.php';
+require_once ROOT . '../../connect/database.php';
 
 class angle{
 	function get_1angle(string $numAngl) {

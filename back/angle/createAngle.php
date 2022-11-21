@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/../../util/ctrlSaisies.php';
 
 // Insertion classe angle
-require_once __DIR__ . '/../../class_crud/angle.class.php';
+require_once ROOT . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
 $monangle = new angle();
@@ -68,7 +68,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         }   
 }  // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include __DIR__ . '/initangle.php';
+include ROOT . '/initangle.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -162,7 +162,7 @@ include __DIR__ . '/initangle.php';
         </div>
         </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

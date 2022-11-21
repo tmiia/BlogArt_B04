@@ -23,7 +23,7 @@
 
     <?php
     require_once ROOT . '/front/includes/commons/headerFront.php';
-    // require_once __DIR__ . '/includes/commons/navigationFront.php';
+    // require_once ROOT . '/includes/commons/navigationFront.php';
     require_once ROOT . '/front/includes/commons/imports.php';
 
     ?>

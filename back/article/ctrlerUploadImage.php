@@ -3,10 +3,10 @@
 //
 // Script : ctrlerUploadImage.php
 // Init constantes
-include_once __DIR__ . '/initConst.php';
+include_once ROOT . '/initConst.php';
 
 // Init variables
-include_once __DIR__ . '/initVar.php';
+include_once ROOT . '/initVar.php';
 
 /************************************************************
  * Creation dossier cible si inexistant

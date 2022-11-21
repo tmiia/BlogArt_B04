@@ -8,12 +8,12 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once ROOT . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once ROOT . '/../../util/ctrlSaisies.php';
 // Mise en forme date
-require_once __DIR__ . '/../../util/dateChangeFormat.php';
+require_once ROOT . '/../../util/dateChangeFormat.php';
 
 // Insertion classe comment
 
@@ -55,7 +55,7 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
 </head>
 <body>
 <?php
-		include __DIR__ . '../../../front/includes/commons/navigationback.php';
+		include ROOT . '../../../front/includes/commons/navigationback.php';
 	?>
   <h1>BLOGART22 Admin - Gestion du CRUD commentaires & Réponses</h1>
 
@@ -128,7 +128,7 @@ require_once __DIR__ . '/../../util/dateChangeFormat.php';
     </div>
     </div>
 <?php
-require_once __DIR__ . '/footer.php';
+require_once ROOT . '/footer.php';
 ?>
 </body>
 </html>

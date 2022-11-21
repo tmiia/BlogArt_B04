@@ -1,7 +1,7 @@
 <?php
 // CRUD langue
 // ETUD
-require_once __DIR__ .  '../../connect/database.php';
+require_once ROOT .  '../../connect/database.php';
 
 class langue{
 	function get_1Langue($numLang){

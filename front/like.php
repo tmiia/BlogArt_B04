@@ -2,7 +2,7 @@
 ini_set('display_errors','on');
 ini_set('display_startup_errors','on');
 error_reporting(E_ALL);
-require_once __DIR__ . '/../connect/config.php';
+require_once ROOT . '/../connect/config.php';
 require_once ROOT . '/util/utilErrOn.php';
 require_once ROOT . '/connect/database.php';
 global $db;
