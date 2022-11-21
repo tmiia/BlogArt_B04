@@ -17,4 +17,4 @@ $passBD = '';         // Votre Pass
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
-define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME']); 
+define('ROOTFRONT', "https://" . "au-bord-des-rues.osc-fr1.scalingo.io/"); 
