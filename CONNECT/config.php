@@ -13,6 +13,6 @@ $userBD = 'au_bord_des_1939';         // Votre login
 $passBD = '';         // Votre Pass
 
 
-define('ROOT', '');
+define('ROOT', '/');
 
 define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME']); 
