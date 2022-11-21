@@ -9,9 +9,9 @@
 <body>
 
 <?php
-    require_once ROOT . 'includes/commons/headerFront.php';
-    // require_once ROOT . 'includes/commons/navigationFront.php';
-    require_once ROOT . 'includes/commons/imports.php';
+    require_once ROOT . '/includes/commons/headerFront.php';
+    // require_once ROOT . '/includes/commons/navigationFront.php';
+    require_once ROOT . '/includes/commons/imports.php';
 ?>
 
 <!------------>
