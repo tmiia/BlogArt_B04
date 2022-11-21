@@ -1,5 +1,5 @@
 <?php
-    require_once '/connect/config.php';
+    require_once __DIR__ . '/connect/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
