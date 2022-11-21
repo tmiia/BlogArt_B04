@@ -8,10 +8,10 @@ $maLangue = new langue();
 <div id="navigation">
     
     <nav>
-        <a href="<?=$_SERVER['DOCUMENT_ROOT']?>/index.php"><img src="<?=$_SERVER['DOCUMENT_ROOT']?>/front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
+        <a href="<?=ROOTFRONT?>/index.php"><img src="<?=ROOTFRONT?>/front/assets/logoAuBordDesRues.svg" alt="logoAuBordDesRues"></a>
             
               <select name="LangueNav" id="LangueNav"  class="langues">
-                  <option value="-1"><?php echo('LANGUE'); ?><img src="<?=$_SERVER['DOCUMENT_ROOT']?>/front/assets/fleche_bas.svg" alt="fleche_bas"></option>
+                  <option value="-1"><?php echo('LANGUE'); ?><img src="<?=ROOTFRONT?>/front/assets/fleche_bas.svg" alt="fleche_bas"></option>
                   <?php
                   $allLangues = $maLangue->get_AllLangues();
                   
@@ -35,17 +35,17 @@ $maLangue = new langue();
                 
       
 
-        <a href="<?=$_SERVER['DOCUMENT_ROOT']?>/front/pageArticles.php">articles</a>
+        <a href="<?=ROOTFRONT?>/front/pageArticles.php">articles</a>
         <a href="#">Newsletter</a>
-        <a href="<?=$_SERVER['DOCUMENT_ROOT']?>/front/contact.php">Contact</a>
+        <a href="<?=ROOTFRONT?>/front/contact.php">Contact</a>
     </nav>
 
     <div class="connect">
         <?php if(isset($_COOKIE['eMailMemb']) || isset($_COOKIE['pseudoUser'])){?>  <a href="#"><?php if(isset($_COOKIE['pseudoMemb'])){ echo($_COOKIE['pseudoMemb']); } elseif(isset($_COOKIE['pseudoUser'])){ echo($_COOKIE['pseudoUser']); } ?></a> <?php } else{?>
-        <a href="<?=$_SERVER['DOCUMENT_ROOT']?>/connexion.php">Connexion</a>
+        <a href="<?=ROOTFRONT?>/connexion.php">Connexion</a>
         <?php } if(isset($_COOKIE['eMailMemb']) || isset($_COOKIE['pseudoUser'])){ ?>
-        <a class="btn_inscription" href="<?=$_SERVER['DOCUMENT_ROOT']?>/deconnexion.php">Déconnexion</a> <?php } else{ ?>
-        <a class="btn_inscription" href="<?=$_SERVER['DOCUMENT_ROOT']?>/inscription.php">Inscription</a>
+        <a class="btn_inscription" href="<?=ROOTFRONT?>/deconnexion.php">Déconnexion</a> <?php } else{ ?>
+        <a class="btn_inscription" href="<?=ROOTFRONT?>/inscription.php">Inscription</a>
         <?php } ?>
     </div>
 </div>

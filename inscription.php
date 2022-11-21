@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $newMembre->create($_POST['prenom'], $_POST['nom'], $_POST['pseudo'], $_POST['motDePasse'], $_POST['email'], $accordMemb, $idStat);
 
-    header("Location:". $_SERVER['DOCUMENT_ROOT'] ."/connexion.php");
+    header("Location:". ROOTFRONT ."/connexion.php");
 }
 
 ?>
@@ -65,7 +65,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.ph
                 </fieldset>
 
                 <div class="btn_inscription_connexion">
-                    <a href="<?=$_SERVER['DOCUMENT_ROOT']?>/index.php">Annuler</a>
+                    <a href="<?=ROOTFRONT?>/index.php">Annuler</a>
                     <button type="submit">Inscription</button>
                 </div>
 

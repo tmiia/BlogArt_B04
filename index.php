@@ -44,8 +44,8 @@
 
             for($i = 0; $i < 5; $i++){ ?>
 
-                <a class="article_recent" href="<?=$_SERVER['DOCUMENT_ROOT']?>/front/viewArticle.php?id=<?=$lastarticles[$i]['numArt']?>">
-                <div class="article_illustration" style="background-image: url(<?=$_SERVER['DOCUMENT_ROOT']?>/uploads/<?=htmlspecialchars($lastarticles[$i]['urlPhotArt']) ?>);"></div>
+                <a class="article_recent" href="<?=ROOTFRONT?>/front/viewArticle.php?id=<?=$lastarticles[$i]['numArt']?>">
+                <div class="article_illustration" style="background-image: url(<?=ROOTFRONT?>/uploads/<?=htmlspecialchars($lastarticles[$i]['urlPhotArt']) ?>);"></div>
                 <div class="article_recent_top">
                 <h5><?= $lastarticles[$i]['libTitrArt'] ?></h5>
                 <p><?= $lastarticles[$i]['libChapoArt'] ?></p>

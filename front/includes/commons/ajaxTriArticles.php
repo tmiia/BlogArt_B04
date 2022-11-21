@@ -31,7 +31,7 @@ $maThematique = new thematique();
                 for($i = 0; $i <count($allArticle); $i++){ ?>
 
         <a class="article_recent" href="viewArticle.php?id=<?=$allArticle[$i]['numArt']?>">
-        <div class="article_illustration" style="background-image: url(<?=$_SERVER['DOCUMENT_ROOT']?>/uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
+        <div class="article_illustration" style="background-image: url(<?=ROOTFRONT?>/uploads/<?=htmlspecialchars($allArticle[$i]['urlPhotArt']) ?>);"></div>
         <div class="article_recent_top">
             <h5><?= $allArticle[$i]['libTitrArt'] ?></h5>
             <p><?= $allArticle[$i]['libChapoArt'] ?></p>

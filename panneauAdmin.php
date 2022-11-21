@@ -45,6 +45,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php';
 </html>
 <?php 
 	}else{
-		header('Location: ' . $_SERVER['DOCUMENT_ROOT'] . '/index.php');
+		header('Location: ' . ROOTFRONT . '/index.php');
 	}
 ?>
