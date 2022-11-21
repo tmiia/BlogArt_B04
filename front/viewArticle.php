@@ -3,19 +3,19 @@
 require_once __DIR__ . '/../connect/config.php';
 
 // Mode DEV
-require_once ROOT . '/util/utilErrOn.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once ROOT . '/util/ctrlSaisies.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/util/ctrlSaisies.php';
 
-require_once ROOT . '/class_crud/article.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/article.class.php';
 $monarticle = new article();
-require_once ROOT . '/class_crud/comment.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/comment.class.php';
 $moncommentaire = new comment();
-require_once ROOT . '/class_crud/membre.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/membre.class.php';
 $monMembre = new membre();
 
-require_once ROOT . '/class_crud/likeart.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/likeart.class.php';
 $monlikeart = new likeart();
 
 
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include ROOT . '/back/comment/initComment.php';
+include $_SERVER['DOCUMENT_ROOT'] . '/back/comment/initComment.php';
 // Var init
 ?>
 

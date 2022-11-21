@@ -79,7 +79,7 @@ include __DIR__ . '/initStatut.php';
 </head>
 <body>
 <?php
-		include ROOT . '/front/includes/commons/navigationback.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/navigationback.php';
 	?>
     <h1>BLOGART22 Admin - CRUD Statut</h1>
     <h2>Ajout d'un statut</h2>

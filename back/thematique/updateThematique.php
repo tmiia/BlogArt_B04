@@ -108,7 +108,7 @@ include __DIR__ . '/initthematique.php';
 </head>
 <body>
 <?php
-		include ROOT . '/front/includes/commons/navigationback.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/navigationback.php';
 	?>
     <h1>BLOGART22 Admin - CRUD thematique</h1>
     <h2>Modification d'une thematique</h2>

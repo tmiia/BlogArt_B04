@@ -1,8 +1,8 @@
 <?php
 require_once './connect/database.php';
-require_once ROOT . '/back.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/back.php';
 
-require_once ROOT . '/class_crud/membre.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/membre.class.php';
 $monMembre = new membre();
 
 // INSCRIPTION : champ username / mdp
@@ -33,8 +33,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 
 <link href="./front/style.css" rel="stylesheet">
-<?php require_once ROOT . '/front/includes/commons/imports.php'; 
-require_once ROOT . '/front/includes/commons/headerFront.php';
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.php';
 ?>
 
 <section class="form_connexion">
@@ -57,6 +57,6 @@ require_once ROOT . '/front/includes/commons/headerFront.php';
 
 </section>
 
-<?php require_once ROOT . '/front/includes/commons/footerFront.php';?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/footerFront.php';?>
 
 </html>

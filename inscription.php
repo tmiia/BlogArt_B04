@@ -3,7 +3,7 @@ require_once 'back.php';
 
 
 // Insertion classe Membre
-require_once ROOT . '/class_crud/membre.class.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/membre.class.php';
 // Instanciation de la classe membre
 $newMembre = new membre();
 
@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 
 <link href="./front/style.css" rel="stylesheet">
-<?php require_once ROOT . '/front/includes/commons/imports.php'; 
-require_once ROOT . '/front/includes/commons/headerFront.php';
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php'; 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.php';
 ?>
 
 <body>
@@ -77,6 +77,6 @@ require_once ROOT . '/front/includes/commons/headerFront.php';
     </div>
 </body>
 
-<?php require_once ROOT . '/front/includes/commons/footerFront.php';?>
+<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/footerFront.php';?>
 
 </html>

@@ -127,7 +127,7 @@ if(isset($_GET['errCIR'])){
     </div>
     </div>
 <?php
-require_once ROOT . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

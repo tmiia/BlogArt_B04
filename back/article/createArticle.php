@@ -431,7 +431,7 @@ include __DIR__ . '/initarticle.php';
     </div>
     </div>
 <?php
-require_once ROOT . '/footer.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
 ?>
 </body>
 </html>

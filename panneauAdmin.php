@@ -10,7 +10,7 @@
 // Mode DEV
 
 require_once  './connect/config.php';  
-require_once ROOT . '/front/includes/commons/imports.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php';
 
 	if(isset($_COOKIE['pseudoUser'])){
 ?>

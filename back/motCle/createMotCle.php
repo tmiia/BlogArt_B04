@@ -88,7 +88,7 @@ include __DIR__ . '/initMotCle.php';
 </head>
 <body>
 <?php
-		include ROOT . '/front/includes/commons/navigationback.php';
+		include $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/navigationback.php';
 	?>
     <h1>BLOGART22 Admin - CRUD Mot Clé</h1>
     <h2>Ajout d'un Mot Clé</h2>
