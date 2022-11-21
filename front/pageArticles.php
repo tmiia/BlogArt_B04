@@ -4,25 +4,25 @@ ini_set('display_startup_errors','on');
 error_reporting(E_ALL);
 // Mode DEV
 require_once '../connect/config.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
 // Insertion classe Angle
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/angle.class.php';
+require_once ROOT . '/class_crud/angle.class.php';
 
 // Instanciation de la classe angle
 $monAngle = new angle();
 
 // Insertion classe Langue
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/langue.class.php';
+require_once ROOT . '/class_crud/langue.class.php';
 
 // // Instanciation de la classe langue
 $maLangue = new langue();
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/thematique.class.php';
+require_once ROOT . '/class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
 $maThematique = new thematique();
    
@@ -35,7 +35,7 @@ $maThematique = new thematique();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="style.css" rel="stylesheet">
     <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php';
+    require_once ROOT . '/front/includes/commons/imports.php';
 
 
     ?>
@@ -46,7 +46,7 @@ $maThematique = new thematique();
 <body>
 <!-- HEADER -->
     <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.php';
+        require_once ROOT . '/front/includes/commons/headerFront.php';
     ?>
 <!------------>
 <div id="main_page_articles">
@@ -200,7 +200,7 @@ $maThematique = new thematique();
     <div id="articles_list" class="articles">
 
             <?php
-                require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/article.class.php';
+                require_once ROOT . '/class_crud/article.class.php';
                 $monarticle = new article();
 
                 $allarticle = $monarticle->get_Allarticles();
@@ -230,7 +230,7 @@ $maThematique = new thematique();
 
 <!-- FOOTER -->
     <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/footerFront.php';
+    require_once ROOT . '/front/includes/commons/footerFront.php';
     ?>
 <!---------- -->
 
