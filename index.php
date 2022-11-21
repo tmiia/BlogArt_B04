@@ -26,7 +26,7 @@
     </header>
 
     <?php
-    var_dump($_SERVER);
+    // var_dump($_SERVER);
     require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.php';
     // require_once __DIR__ . '/includes/commons/navigationFront.php';
     require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php';
