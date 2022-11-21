@@ -1,6 +1,6 @@
 <?php
     // require_once  './connect/config.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/connect/config.php';
+    require_once $_SERVER['DOCUMENT_ROOT'].'/CONNECT/config.php';
 
 ?>
 <!DOCTYPE html>
