@@ -1,7 +1,7 @@
 <link href="style.css" rel="stylesheet">
 <?php require_once __DIR__ . '/imports.php'; 
-require_once __DIR__ . '/../../../connect/config.php';
-require_once __DIR__ . '/../../../class_crud/langue.class.php';
+require_once __DIR__ $_SERVER['DOCUMENT_ROOT'] . '/connect/config.php';
+require_once __DIR__ $_SERVER['DOCUMENT_ROOT'] . '/class_crud/langue.class.php';
 $maLangue = new langue();
 ?>
 
