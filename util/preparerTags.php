@@ -7,7 +7,7 @@
 ///////////////////////////////////////////////////////  
 
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/utilErrOn.php';
+require_once __DIR__ . '/utilErrOn.php';
 
 function preparerTags($tags){
 

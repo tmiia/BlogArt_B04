@@ -8,23 +8,23 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe thematique
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/thematique.class.php';
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
 $mathematique = new thematique();
 
 // Insertion classe article
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/article.class.php';
+require_once __DIR__ . '/../../class_crud/article.class.php';
 // Instanciation de la classe article
 $monarticle = new article();
 
 // Insertion classe langue
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 // Instanciation de la classe langue
 $maLangue = new langue();
 
@@ -63,7 +63,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include $_SERVER['DOCUMENT_ROOT'] . '/initthematique.php';
+include __DIR__ . '/initthematique.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -165,9 +165,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/initthematique.php';
       </fieldset>
     </form>
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/footerthematique.php';
+require_once __DIR__ . '/footerthematique.php';
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

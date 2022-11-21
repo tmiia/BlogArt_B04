@@ -8,20 +8,20 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/dateChangeFormat.php';
+require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe comment
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/comment.class.php';
+require_once __DIR__ . '/../../class_crud/comment.class.php';
 // Instanciation de la classe comment
 $moncommentaire = NEW comment();
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/membre.class.php';
+require_once __DIR__ . '/../../class_crud/membre.class.php';
 
 // Instanciation de la classe article
 $monMembre = new membre();
@@ -63,7 +63,7 @@ $monMembre = new membre();
 </head>
 <body>
 <?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/navigationback.php';
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
 	?>
   <h1>BLOGART22 Admin - CRUD commentaire</h1>
 
@@ -142,7 +142,7 @@ $monMembre = new membre();
 </div>
 </div>
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

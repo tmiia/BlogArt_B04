@@ -1,5 +1,5 @@
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/config.php';
+    require_once __DIR__ . '/../connect/config.php';
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <link href="style.css" rel="stylesheet">
     <title>Mentions lègales</title>
 
 </head>
@@ -16,7 +16,7 @@
 </body>
 <!-- HEADER -->
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/headerFront.php';
+    require_once __DIR__ . '/includes/commons/headerFront.php';
     ?>
 <!------------>
 <div class="cgu">
@@ -81,6 +81,6 @@
 </div>
 <!-- FOOTER -->
 <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/footerFront.php';
+    require_once __DIR__ . '/includes/commons/footerFront.php';
     ?>
 <!---------- -->

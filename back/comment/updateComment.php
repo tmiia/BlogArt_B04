@@ -1,11 +1,11 @@
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/comment.class.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
+require_once __DIR__ . '/../../class_crud/comment.class.php';
 $moncomment = new comment();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/article.class.php';
+require_once __DIR__ . '/../../class_crud/article.class.php';
 $monarticle = new article();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/membre.class.php';
+require_once __DIR__ . '/../../class_crud/membre.class.php';
 $monMembre = new membre();
 
 $erreur = false;
@@ -59,7 +59,7 @@ if($_SERVER['REQUEST_METHOD'] === "POST"){
         }
     }
 }  
-include $_SERVER['DOCUMENT_ROOT'] . '/initcomment.php'; 
+include __DIR__ . '/initcomment.php'; 
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -248,9 +248,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/initcomment.php';
         </fieldset>
         </form>
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/footercomment.php';
+require_once __DIR__ . '/footercomment.php';
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

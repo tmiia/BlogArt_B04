@@ -8,32 +8,32 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Mise en forme date
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/dateChangeFormat.php';
+require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe article
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/article.class.php';
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
 // Instanciation de la classe article
 $monarticle = new article();
 
 // Insertion classe angle
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/angle.class.php';
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
 $monangle = new angle();
 
 // Insertion classe thematique
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/thematique.class.php';
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
 $mathematique = new thematique();
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/imports.php';
+require_once __DIR__ . '../../../front/includes/commons/imports.php';
 
 ?>
 <!DOCTYPE html>
@@ -59,7 +59,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/imports.php
 <body>
     
 	<?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/navigationback.php';
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
 	?>
 
         
@@ -122,7 +122,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/imports.php
     </div>
 
     <?php
-        require_once $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/footerback.php';
+        require_once __DIR__ . '../../../front/includes/commons/footerback.php';
     ?>
 </body>
 </html>

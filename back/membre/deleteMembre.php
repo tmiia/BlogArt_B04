@@ -8,27 +8,27 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 // Mise en forme date
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/dateChangeFormat.php';
+require_once __DIR__ . '/../../util/dateChangeFormat.php';
 
 // Insertion classe Membre
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/membre.class.php';
+require_once __DIR__ . '/../../class_crud/membre.class.php';
 
 // Instanciation de la classe Membre
 $monMembre = new membre();
 
 // Insertion classe comment
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/comment.class.php';
+require_once __DIR__ . '/../../class_crud/comment.class.php';
 
 // Instanciation de la classe commentaire
 $monMembCom = new comment();
 
 // Insertion classe Statut
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/statut.class.php';
+require_once __DIR__ . '/../../class_crud/statut.class.php';
 
 // Instanciation de la classe Statut
 $monStatut = new statut();
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] === "POST")
 // Init variables form
-include $_SERVER['DOCUMENT_ROOT'] . '/initMembre.php';
+include __DIR__ . '/initMembre.php';
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -201,9 +201,9 @@ include $_SERVER['DOCUMENT_ROOT'] . '/initMembre.php';
     <br>
     <i><div class="error"><br>=>&nbsp;Attention, une suppression doit respecter les CIR !</div></i>
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/footerMembre.php';
+require_once __DIR__ . '/footerMembre.php';
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

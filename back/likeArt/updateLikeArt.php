@@ -8,13 +8,13 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe likeart
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/likeart.class.php';
+require_once __DIR__ . '/../../class_crud/likeart.class.php';
 $monlikeart = new likeart();
 
 
@@ -23,7 +23,7 @@ $monlikeart = new likeart();
 $erreur = false;
 
 // Init variables form
-include $_SERVER['DOCUMENT_ROOT'] . '/initLikeArt.php';
+include __DIR__ . '/initLikeArt.php';
 
 // Gestion du $_SERVER["REQUEST_METHOD"] => En GET
 if ($_SERVER["REQUEST_METHOD"] === "GET") {

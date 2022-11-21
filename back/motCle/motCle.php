@@ -8,17 +8,17 @@
 ////////////////////////////////////////////////////////////
 
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe MotCle
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/motcle.class.php';
+require_once __DIR__ . '/../../class_crud/motcle.class.php';
 // Instanciation de la classe MotCle
 $monMotCle = new motcle();
 // Insertion classe Langue
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 // Instanciation de la classe Langue
 $maLangue = new langue();
 
@@ -37,7 +37,7 @@ $maLangue = new langue();
 </head>
 <body>
 <?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/navigationback.php';
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
 	?>
     <h1>BLOGART22 Admin - CRUD Mot Clé</h1>
 
@@ -88,7 +88,7 @@ $maLangue = new langue();
 </div>
 </div>
 <?php
-require_once $_SERVER['DOCUMENT_ROOT'] . '/footer.php';
+require_once __DIR__ . '/footer.php';
 ?>
 </body>
 </html>

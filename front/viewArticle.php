@@ -1,21 +1,21 @@
 <?php 
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/config.php';
+require_once __DIR__ . '/../connect/config.php';
 
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/util/utilErrOn.php';
+require_once ROOT . '/util/utilErrOn.php';
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/util/ctrlSaisies.php';
+require_once ROOT . '/util/ctrlSaisies.php';
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/article.class.php';
+require_once ROOT . '/class_crud/article.class.php';
 $monarticle = new article();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/comment.class.php';
+require_once ROOT . '/class_crud/comment.class.php';
 $moncommentaire = new comment();
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/membre.class.php';
+require_once ROOT . '/class_crud/membre.class.php';
 $monMembre = new membre();
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/likeart.class.php';
+require_once ROOT . '/class_crud/likeart.class.php';
 $monlikeart = new likeart();
 
 
@@ -91,7 +91,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include $_SERVER['DOCUMENT_ROOT'] . '/back/comment/initComment.php';
+include ROOT . '/back/comment/initComment.php';
 // Var init
 ?>
 
@@ -131,16 +131,16 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="../js/modal.js"></script>
-    
+    <link href="style.css" rel="stylesheet">
     <title><?= $libTitrArt ?></title>
 
 </head>
 <body>
 
     <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/headerFront.php';
-    // require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/navigationFront.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/imports.php';
+    require_once __DIR__ . '/includes/commons/headerFront.php';
+    // require_once __DIR__ . '/includes/commons/navigationFront.php';
+    require_once __DIR__ . '/includes/commons/imports.php';
 
     ?>
 
@@ -407,7 +407,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
 
 
     <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/footerFront.php';
+    require_once __DIR__ . '/includes/commons/footerFront.php';
     ?>
 
 

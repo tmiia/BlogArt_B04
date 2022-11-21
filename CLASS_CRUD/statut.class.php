@@ -1,7 +1,7 @@
 <?php
 // CRUD statut
 // ETUD
-require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
 class statut{
 	function get_1Statut($idStat){

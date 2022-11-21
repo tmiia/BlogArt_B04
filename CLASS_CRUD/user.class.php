@@ -1,7 +1,7 @@
 <?php
 // CRUD user
 // ETUD
-require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/database.php';
+require_once __DIR__ . '../../connect/database.php';
 
 class user{
 	function get_1User($pseudoUser){

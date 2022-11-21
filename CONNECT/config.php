@@ -1,5 +1,3 @@
-
-
 <?php
 // nom de votre serveur (ou 127.0.0.1)
 $hostBD = "au-bord-des-rues.osc-fr1.scalingo.io/";
@@ -15,6 +13,6 @@ $userBD = 'au_bord_des_1939';         // Votre login
 $passBD = '';         // Votre Pass
 
 
-define('ROOT', '/');
+define('ROOT', '');
 
-define('ROOTFRONT', $_SERVER['HTTP_HOST']); 
+define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME']); 

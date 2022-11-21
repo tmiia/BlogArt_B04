@@ -5,18 +5,18 @@
 */
 // Mode DEV
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/util/utilErrOn.php';
+require_once __DIR__ . '/../../../util/utilErrOn.php';
 
 // connexion
-require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/database.php';
+require_once __DIR__ . '/../../../connect/database.php';
 
 // Insertion classe Angle
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/article.class.php';
+require_once ROOT . '/class_crud/article.class.php';
 
 // Instanciation de la classe angle
 $monArticle = new article();
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/thematique.class.php';
+require_once ROOT . '/class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
 $maThematique = new thematique();
 

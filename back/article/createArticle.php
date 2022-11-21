@@ -11,31 +11,31 @@
 // upload image & insert path
 //
 // Mode DEV
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/utilErrOn.php';
+require_once __DIR__ . '/../../util/utilErrOn.php';
 
 
 // controle des saisies du formulaire
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../util/ctrlSaisies.php';
+require_once __DIR__ . '/../../util/ctrlSaisies.php';
 
 // Insertion classe article
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/article.class.php';
+require_once __DIR__ . '/../../class_crud/article.class.php';
 
 // Instanciation de la classe article
 $monarticle = new article();
 
 // Insertion classe angle
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/angle.class.php';
+require_once __DIR__ . '/../../class_crud/angle.class.php';
 
 // Instanciation de la classe angle
 $monangle = new angle();
 
 // Insertion classe Langue
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/langue.class.php';
+require_once __DIR__ . '/../../class_crud/langue.class.php';
 
 // Instanciation de la classe langue
 $maLangue = new langue();
 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../../class_crud/thematique.class.php';
+require_once __DIR__ . '/../../class_crud/thematique.class.php';
 // Instanciation de la classe MotCle
 $mathematique = new thematique();
 
@@ -116,7 +116,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 }   // Fin if ($_SERVER["REQUEST_METHOD"] == "POST")
 // Init variables form
-include $_SERVER['DOCUMENT_ROOT'] . '/initarticle.php';
+include __DIR__ . '/initarticle.php';
 
 ?>
 <!DOCTYPE html>
@@ -135,7 +135,7 @@ include $_SERVER['DOCUMENT_ROOT'] . '/initarticle.php';
 </head>
 <body>
     <?php
-		include $_SERVER['DOCUMENT_ROOT'] . '/../front/includes/commons/navigationback.php';
+		include __DIR__ . '../../../front/includes/commons/navigationback.php';
 	?>
     <h1>BLOGART22 Admin - CRUD article</h1>
     <h2>Ajout d'un article</h2>

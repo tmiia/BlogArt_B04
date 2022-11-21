@@ -1,7 +1,7 @@
 <?php
 // CRUD article
 // ETUD
-require_once $_SERVER['DOCUMENT_ROOT'] . '/../connect/database.php';
+require_once __DIR__ . '/../connect/database.php';
 
 class article{
 	function get_1article($numArt){

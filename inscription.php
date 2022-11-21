@@ -3,7 +3,7 @@ require_once 'back.php';
 
 
 // Insertion classe Membre
-require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/membre.class.php';
+require_once ROOT . '/class_crud/membre.class.php';
 // Instanciation de la classe membre
 $newMembre = new membre();
 
@@ -17,7 +17,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     $newMembre->create($_POST['prenom'], $_POST['nom'], $_POST['pseudo'], $_POST['motDePasse'], $_POST['email'], $accordMemb, $idStat);
 
-    header("Location:". $_SERVER['DOCUMENT_ROOT'] ."/connexion.php");
+    header("Location:". ROOTFRONT ."/connexion.php");
 }
 
 ?>
@@ -25,8 +25,8 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 <html>
 
 <link href="./front/style.css" rel="stylesheet">
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php'; 
-require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.php';
+<?php require_once ROOT . '/front/includes/commons/imports.php'; 
+require_once ROOT . '/front/includes/commons/headerFront.php';
 ?>
 
 <body>
@@ -65,7 +65,7 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.ph
                 </fieldset>
 
                 <div class="btn_inscription_connexion">
-                    <a href="<?=$_SERVER['DOCUMENT_ROOT']?>/index.php">Annuler</a>
+                    <a href="<?=ROOTFRONT?>/index.php">Annuler</a>
                     <button type="submit">Inscription</button>
                 </div>
 
@@ -77,6 +77,6 @@ require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.ph
     </div>
 </body>
 
-<?php require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/footerFront.php';?>
+<?php require_once ROOT . '/front/includes/commons/footerFront.php';?>
 
 </html>

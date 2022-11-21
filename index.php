@@ -1,12 +1,8 @@
-
-
 <?php
-    // require_once  './connect/config.php';
-    require_once $_SERVER['DOCUMENT_ROOT'].'/CONNECT/config.php';
-
+    require_once  './connect/config.php';
 ?>
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,11 +22,10 @@
     </header>
 
     <?php
-    var_dump($_SERVER);
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/headerFront.php';
-    // require_once $_SERVER['DOCUMENT_ROOT'] . '/includes/commons/navigationFront.php';
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/imports.php';
-    
+    require_once ROOT . '/front/includes/commons/headerFront.php';
+    // require_once __DIR__ . '/includes/commons/navigationFront.php';
+    require_once ROOT . '/front/includes/commons/imports.php';
+
     ?>
 
     <div id="main_body">
@@ -40,7 +35,7 @@
         <section class="articles">
 
         <?php
-            require_once $_SERVER['DOCUMENT_ROOT'] . '/class_crud/article.class.php';
+            require_once ROOT . '/class_crud/article.class.php';
             $monarticle = new article();
 
             $lastarticles = $monarticle->get_Lastarticles();
@@ -113,7 +108,7 @@
 
 
     <?php
-    require_once $_SERVER['DOCUMENT_ROOT'] . '/front/includes/commons/footerFront.php';
+    require_once ROOT . '/front/includes/commons/footerFront.php';
     ?>
 
 

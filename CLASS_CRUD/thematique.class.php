@@ -2,7 +2,7 @@
 // CRUD thematique
 // ETUD
 
-require_once $_SERVER['DOCUMENT_ROOT'] .  '/connect/database.php';
+require_once __DIR__ .  '../../connect/database.php';
 
 class thematique{
 	function get_1thematique($numThem){

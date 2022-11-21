@@ -2,9 +2,9 @@
 ini_set('display_errors','on');
 ini_set('display_startup_errors','on');
 error_reporting(E_ALL);
-require_once $_SERVER['DOCUMENT_ROOT'] . '/connect/config.php';
-require_once $_SERVER['DOCUMENT_ROOT']. '/util/utilErrOn.php';
-require_once $_SERVER['DOCUMENT_ROOT']. '/connect/database.php';
+require_once __DIR__ . '/../connect/config.php';
+require_once ROOT . '/util/utilErrOn.php';
+require_once ROOT . '/connect/database.php';
 global $db;
 
 if(isset($_POST['like'])){
