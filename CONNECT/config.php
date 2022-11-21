@@ -1,18 +1,18 @@
 <?php
 // nom de votre serveur (ou 127.0.0.1)
-$hostBD = "plateforme-mmi.iut.u-bordeaux-montaigne.fr";
+$hostBD = "au-bord-des-rues.osc-fr1.scalingo.io/";
 // nom BD
-$nomBD = "db_mmi_04";
+$nomBD = "au_bord_des_1939";
 // Serveur
 // Avec encodage UTF8
 $serverBD = "mysql:dbname=$nomBD;host=$hostBD;charset=utf8";
 
 // nom utilisateur de connexion à la bdd
-$userBD = 'etummiuser_db_04';         // Votre login
+$userBD = 'au_bord_des_1939';         // Votre login
 // mot de passe de connexion à la bdd
-$passBD = 'mmi-etu';         // Votre Pass
+$passBD = '';         // Votre Pass
 
 
-define('ROOT', $_SERVER['DOCUMENT_ROOT'] . '/etu-mmi-04');
+define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
-define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME'] . '/etu-mmi-04'); 
+define('ROOTFRONT', "http://" . $_SERVER['SERVER_NAME']); 
