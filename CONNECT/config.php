@@ -15,6 +15,6 @@ $userBD = 'au_bord_des_1939';         // Votre login
 $passBD = '';         // Votre Pass
 
 
-define('ROOT', $_SERVER['DOCUMENT_ROOT']);
+define('ROOT', '/');
 
 define('ROOTFRONT', $_SERVER['HTTP_HOST']); 
