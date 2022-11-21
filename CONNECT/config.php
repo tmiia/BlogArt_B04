@@ -17,4 +17,4 @@ $passBD = '';         // Votre Pass
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 
-define('ROOTFRONT', "http://" . $_SERVER['HTTP_HOST']); 
+define('ROOTFRONT', $_SERVER['HTTP_HOST']); 
