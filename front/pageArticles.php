@@ -54,7 +54,7 @@ $maThematique = new thematique();
     <div class="search">
 
     <a href="" class="search_butt">
-    <span class="bar_search">Rechercher<img class="svg_search" src="<?=ROOTFRONT?>/front/assets/magnifying-glass-solid.jpg" alt=""></span>
+    <span class="bar_search">Rechercher<img class="svg_search" src="<?=$_SERVER['DOCUMENT_ROOT']?>/front/assets/magnifying-glass-solid.jpg" alt=""></span>
     </a>
 
     </div>
@@ -165,7 +165,7 @@ $maThematique = new thematique();
 
 			}
             // Traitement en POST
-			xhr2.open("POST","<?=ROOTFRONT?>/front/includes/commons/ajaxThematiqueArticles.php",true);
+			xhr2.open("POST","<?=$_SERVER['DOCUMENT_ROOT']?>/front/includes/commons/ajaxThematiqueArticles.php",true);
 			// pour le post
 			xhr2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
@@ -174,7 +174,7 @@ $maThematique = new thematique();
 			xhr2.send("numThem2="+numThem2);
 
             // Traitement en POST
-			xhr.open("POST","<?=ROOTFRONT?>/front/includes/commons/ajaxTriArticles.php",true);
+			xhr.open("POST","<?=$_SERVER['DOCUMENT_ROOT']?>/front/includes/commons/ajaxTriArticles.php",true);
 			// pour le post
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
@@ -208,7 +208,7 @@ $maThematique = new thematique();
                 for($i = 0; $i <count($allarticle); $i++){ ?>
 
                     <a class="article_recent" href="viewArticle.php?id=<?=$allarticle[$i]['numArt']?>">
-                    <div class="article_illustration" style="background-image: url(<?=ROOTFRONT?>/uploads/<?=htmlspecialchars($allarticle[$i]['urlPhotArt']) ?>);"></div>
+                    <div class="article_illustration" style="background-image: url(<?=$_SERVER['DOCUMENT_ROOT']?>/uploads/<?=htmlspecialchars($allarticle[$i]['urlPhotArt']) ?>);"></div>
                     <div class="article_recent_top">
                         <h5><?= $allarticle[$i]['libTitrArt'] ?></h5>
                         <p><?= $allarticle[$i]['libChapoArt'] ?></p>

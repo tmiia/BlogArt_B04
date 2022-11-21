@@ -32,7 +32,7 @@ function connect_user($pseudoUser, $passUser) {
     if($user) {
         setcookie('pseudoUser', $user['pseudoUser'], time() + 3000600, "/");
         setcookie('passUser', $user['passUser'], time() + 30003600, "/");
-        header('Location: ' . ROOTFRONT . '/panneauAdmin.php');
+        header('Location: ' . $_SERVER['DOCUMENT_ROOT'] . '/panneauAdmin.php');
     }
 }
 

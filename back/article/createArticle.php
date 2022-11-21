@@ -406,7 +406,7 @@ include __DIR__ . '/initarticle.php';
             }
 
 			// Traitement en POST
-			xhr.open("POST","<?=ROOTFRONT?>/back/article/ajaxAngle.php",true);
+			xhr.open("POST","<?=$_SERVER['DOCUMENT_ROOT']?>/back/article/ajaxAngle.php",true);
 			// pour le post
 			xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas
@@ -415,7 +415,7 @@ include __DIR__ . '/initarticle.php';
 			xhr.send("numLang="+numLang);
 
             // Traitement en POST
-			xhr2.open("POST","<?=ROOTFRONT?>/back/article/ajaxThematique.php",true);
+			xhr2.open("POST","<?=$_SERVER['DOCUMENT_ROOT']?>/back/article/ajaxThematique.php",true);
 			// pour le post
 			xhr2.setRequestHeader('Content-Type','application/x-www-form-urlencoded');
 			// poster arguments : ici, numClas

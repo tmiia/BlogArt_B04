@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     if ((isset($_POST["Submit"])) AND ($Submit === "Initialiser")) {
         
-        header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
+        header("Location:" .$_SERVER['DOCUMENT_ROOT'] . "/front/viewArticle.php?id=$id");
     }   // End of if ((isset($_POST["submit"])) ...
         
     if (((isset($_POST['currentMemb'])) AND (!empty($_POST['currentMemb'])) AND (isset($_POST['reponse'])) AND (!empty($_POST['reponse']))AND (isset($_POST['libCom'])) AND (!empty($_POST['libCom']))
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             // Saisies valides
     
-            header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
+            header("Location:" .$_SERVER['DOCUMENT_ROOT'] . "/front/viewArticle.php?id=$id");
 
             $erreur = false;
            
@@ -62,7 +62,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
             $moncommentaire-> create($numSeqCom, $numArt, $libCom, $numMemb);
     
-            header("Location:" .ROOTFRONT . "/front/viewArticle.php?id=$id");
+            header("Location:" .$_SERVER['DOCUMENT_ROOT'] . "/front/viewArticle.php?id=$id");
 
             if ((isset($_POST['reponse'])) != $id){
 
@@ -205,7 +205,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         <div class="content_article">
 
             <div class="image_article">
-                <div class="article_illustration" style="background-image: url('<?=ROOTFRONT?>/uploads/<?=$urlPhotArt?>');"></div>
+                <div class="article_illustration" style="background-image: url('<?=$_SERVER['DOCUMENT_ROOT']?>/uploads/<?=$urlPhotArt?>');"></div>
             </div>
 
             <div class="body_article">
@@ -238,7 +238,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
                     for($i = 0; $i < 2; $i++){
                         ?>
                         <a class="article_preview" href="./viewArticle.php?id=<?=$lastArticles[$i]['numArt'] ?>">
-                                <div class="preview_illustration" style="background-image: url('<?=ROOTFRONT?>/uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>');"></div>
+                                <div class="preview_illustration" style="background-image: url('<?=$_SERVER['DOCUMENT_ROOT']?>/uploads/<?=htmlspecialchars($lastArticles[$i]['urlPhotArt']) ?>');"></div>
                                     <h5><?= $lastArticles[$i]['libTitrArt'] ?></h5>
                                     <p><?= $lastArticles[$i]['libChapoArt'] ?></p>
                                 </a>
@@ -280,7 +280,7 @@ if (isset($_GET['id']) and $_GET['id'] != '') {
         </div>
 
         <div class="add_commentaire">
-            <a href="<?=ROOTFRONT?>/front/pageArticles.php">
+            <a href="<?=$_SERVER['DOCUMENT_ROOT']?>/front/pageArticles.php">
                 <div></div>
                 <span>Retour à la liste des articles</span>
             </a>
